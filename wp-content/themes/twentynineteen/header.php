@@ -32,11 +32,35 @@
             <img src="<?php bloginfo('template_url') ?>/images/logo.jpg" alt="AutoMarket logo" class="header__logo_img">
         </div>
         <div class="header__contacts">
+            <!-- Contact Slider -->
             <div class="contacts__slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">Slide 1</div>
-                    <div class="swiper-slide">Slide 2</div>
-                    <div class="swiper-slide">Slide 3</div>
+                    <!-- Slides -->
+                    <div class="swiper-slide header__contacts_slide">
+                        <!-- Location -->
+                        <div class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/location.svg" class="header__contacts_location_icon" />
+                            <a href="/" class="header__contacts_location_link">Трехсвятительская 11, Киев, Украина</a>
+                        </div>
+                        <!-- Phone -->
+                        <div class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
+                            <a href="/" class="header__contacts_location_link">+ 38 (050) 777 00 34</a>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide header__contacts_slide">
+                        <!-- Location -->
+                        <div class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/location.svg" class="header__contacts_location_icon" />
+                            <a href="/" class="header__contacts_location_link">Цотне Дадиани 7, Тбилиси, Грузия</a>
+                        </div>
+                        <!-- Phone -->
+                        <div class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
+                            <a href="/" class="header__contacts_location_link">+995 (558) 126 622</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

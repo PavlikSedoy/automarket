@@ -4,7 +4,7 @@
   background-color: $color-white;
 
   //  Params who can change when coding finished
-  background-color: rgba(#ccc, .4);
+  border-bottom: 2px solid #0A246A;
   &__logo {
     background-color: #ccc;
   }
@@ -14,7 +14,13 @@
 
   //  All links
   a {
+    color: $header-default-text-color;
+    transition: color .3s ease-in-out;
 
+    &:hover, &:active, &:focus {
+      color: $header-link-hover-color;
+      text-decoration: none;
+    }
   }
 
   //  Header Container
@@ -46,5 +52,54 @@
     width: 600px;
     position: relative;
     overflow: hidden;
+
+    //  Slider wrapper
+    .contacts__slider {
+      height: 100%;
+      padding: 10px 0;
+      position: relative;
+
+      //  Hide line before slide
+      &:before {
+        content: "";
+        position: absolute;
+        width: 11px;
+        height: 100%;
+        background-color: $color-white;
+        top: 0;
+        right: 0;
+        z-index: 3;
+      }
+    }
+    //  Slider Slide
+    &_slide {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+
+      &:before {
+        content: "";
+        position: absolute;
+        width: 1px;
+        height: 100%;
+        background-color: $header-vertical-line_color;
+        top: 0;
+        right: 10px;
+      }
+    }
+
+    &_location {
+      &_icon {
+        width: 26px;
+        height: 26px;
+        position: relative;
+      }
+
+      &_link {
+        font-size: 14px;
+        margin-left: 10px;
+      }
+    }
   }
 }
