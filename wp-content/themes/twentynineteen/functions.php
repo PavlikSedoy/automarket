@@ -324,3 +324,26 @@ require get_template_directory() . '/inc/customizer.php';
 
 //  Hide Admin Bar on Web-site
 show_admin_bar( false );
+
+//  Post Type
+add_action( 'init', 'true_register_products' );
+
+function true_register_products() {
+    $labels = array(
+        'name' => 'Контакты',
+        'singular_name' => 'Контакт', // админ панель Добавить->Функцию
+        'add_new' => 'Добавить контакты',
+        'add_new_item' => 'Добавить новые контактные данные', // заголовок тега <title>
+        'edit_item' => 'Редактировать контакты',
+        'menu_name' => 'Контакты (Header)' // ссылка в меню в админке
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true, // благодаря этому некоторые параметры можно пропустить
+//        'menu_icon' => 'dashicons-cart', // иконка корзины
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title')
+    );
+    register_post_type('header-contacts',$args);
+}
