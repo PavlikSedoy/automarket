@@ -1,0 +1,50 @@
+.header {
+  color: $header-default-text-color;
+  position: relative;
+  background-color: $color-white;
+
+  //  Params who can change when coding finished
+  background-color: rgba(#ccc, .4);
+  &__logo {
+    background-color: #ccc;
+  }
+
+  //  Top & Button padding
+  padding: 10px 0;
+
+  //  All links
+  a {
+
+  }
+
+  //  Header Container
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  //  Logo Block
+  &__logo {
+    flex-basis: 185px;
+    width: 185px;
+    position: relative;
+    
+    &_img {
+      max-width: 100%;
+      height: 93px;
+    }
+
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  //  Slider
+  &__contacts {
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+  }
+}

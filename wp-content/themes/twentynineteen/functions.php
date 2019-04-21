@@ -217,20 +217,45 @@ add_action( 'after_setup_theme', 'twentynineteen_content_width', 0 );
  * Enqueue scripts and styles.
  */
 function twentynineteen_scripts() {
-	wp_enqueue_style( 'twentynineteen-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+//	wp_enqueue_style( 'twentynineteen-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+//
+//	wp_style_add_data( 'twentynineteen-style', 'rtl', 'replace' );
+//
+//	if ( has_nav_menu( 'menu-1' ) ) {
+//		wp_enqueue_script( 'twentynineteen-priority-menu', get_theme_file_uri( '/js/priority-menu.js' ), array(), '1.1', true );
+//		wp_enqueue_script( 'twentynineteen-touch-navigation', get_theme_file_uri( '/js/touch-keyboard-navigation.js' ), array(), '1.1', true );
+//	}
+//
+//	wp_enqueue_style( 'twentynineteen-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
+//
+//	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
+//		wp_enqueue_script( 'comment-reply' );
+//	}
 
-	wp_style_add_data( 'twentynineteen-style', 'rtl', 'replace' );
+    //  Bootstrap
+    wp_enqueue_style(
+            'bootstrap',
+            get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.css');
+    wp_enqueue_style('main-style', get_stylesheet_uri() );
 
-	if ( has_nav_menu( 'menu-1' ) ) {
-		wp_enqueue_script( 'twentynineteen-priority-menu', get_theme_file_uri( '/js/priority-menu.js' ), array(), '1.1', true );
-		wp_enqueue_script( 'twentynineteen-touch-navigation', get_theme_file_uri( '/js/touch-keyboard-navigation.js' ), array(), '1.1', true );
-	}
+    //  Actual jQuery ver.
+    if (!is_admin()) {
+        wp_deregister_script('jquery');
+        wp_register_script(
+            'jquery',
+            "https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js",
+            false,
+            '3.4.0');
+        wp_enqueue_script('jquery');
+    }
 
-	wp_enqueue_style( 'twentynineteen-print-style', get_template_directory_uri() . '/print.css', array(), wp_get_theme()->get( 'Version' ), 'print' );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+    //  Sliders init And options
+    wp_enqueue_script(
+            'sliders-init',
+            get_stylesheet_directory_uri() . '/js/sliders.js', array('jquery'),
+            '1.0',
+            true
+    );
 }
 add_action( 'wp_enqueue_scripts', 'twentynineteen_scripts' );
 
@@ -268,31 +293,6 @@ function twentynineteen_editor_customizer_styles() {
 add_action( 'enqueue_block_editor_assets', 'twentynineteen_editor_customizer_styles' );
 
 /**
- * Display custom color CSS in customizer and on frontend.
- */
-function twentynineteen_colors_css_wrap() {
-
-	// Only include custom colors in customizer or frontend.
-	if ( ( ! is_customize_preview() && 'default' === get_theme_mod( 'primary_color', 'default' ) ) || is_admin() ) {
-		return;
-	}
-
-	require_once get_parent_theme_file_path( '/inc/color-patterns.php' );
-
-	$primary_color = 199;
-	if ( 'default' !== get_theme_mod( 'primary_color', 'default' ) ) {
-		$primary_color = get_theme_mod( 'primary_color_hue', 199 );
-	}
-	?>
-
-	<style type="text/css" id="custom-theme-colors" <?php echo is_customize_preview() ? 'data-hue="' . absint( $primary_color ) . '"' : ''; ?>>
-		<?php echo twentynineteen_custom_colors_css(); ?>
-	</style>
-	<?php
-}
-add_action( 'wp_head', 'twentynineteen_colors_css_wrap' );
-
-/**
  * SVG Icons class.
  */
 require get_template_directory() . '/classes/class-twentynineteen-svg-icons.php';
@@ -321,3 +321,6 @@ require get_template_directory() . '/inc/template-tags.php';
  * Customizer additions.
  */
 require get_template_directory() . '/inc/customizer.php';
+
+//  Hide Admin Bar on Web-site
+show_admin_bar( false );

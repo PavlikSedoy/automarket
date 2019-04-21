@@ -1,4 +1,13 @@
+//@import "../libs/bootstrap/bootstrap.min.css";
+@import "vars";
+
 * {
-  background-color: black;
-  color: #ffffff;
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
+
+//  IMPORT SCSS PARTS *******
+@import "header";
