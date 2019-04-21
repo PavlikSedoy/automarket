@@ -340,7 +340,7 @@ function true_register_products() {
     $args = array(
         'labels' => $labels,
         'public' => true, // благодаря этому некоторые параметры можно пропустить
-//        'menu_icon' => 'dashicons-cart', // иконка корзины
+        'menu_icon' => 'dashicons-location',
         'menu_position' => 5,
 //        'has_archive' => true,
         'supports' => array( 'title')
