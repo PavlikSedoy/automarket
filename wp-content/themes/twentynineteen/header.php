@@ -71,22 +71,23 @@
                 <div class="header__lang lang">
                     <ul class="lang__ul">
                         <li class="lang__item">
-                            <a href="/" class="lang__link"></a>
-                            <span class="lang__title">RU</span>
+                            <a href="/" class="lang__link">RU</a>
                         </li>
                         <li class="lang__item">
-                            <a href="/" class="lang__link"></a>
-                            <span class="lang__title">ENG</span>
+                            <a href="/" class="lang__link">ENG</a>
                         </li>
                         <li class="lang__item">
-                            <a href="/" class="lang__link"></a>
-                            <span class="lang__title">GEO</span>
+                            <a href="/" class="lang__link">GEO</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="header__auth auth">
-
+                    <?php if ( is_user_logged_in() ) : ?>
+                        <?= wp_get_current_user()->user_login ?>
+                    <?php else : ?>
+                        Bxod/Reg
+                    <?php endif; ?>
                 </div>
 
             </div>
