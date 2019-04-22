@@ -1,3 +1,14 @@
+%hover-underline {
+  position: absolute;
+  content: '';
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: $header-link-hover-color;
+  transition: width .3s ease-in-out;
+}
+
 .header {
   color: $header-default-text-color;
   position: relative;
@@ -104,11 +115,16 @@
   &__controls {
     display: flex;
     flex-direction: column;
+    padding-top: 10px;
   }
 
   &__lang-and-auth {
     display: flex;
-    padding-top: 10px;
+  }
+
+  //  Auth Block Position
+  &__auth {
+    margin-left: 35px;
   }
 
 }
@@ -162,26 +178,14 @@
 
     // For Languages Hover Effect
     &:after {
-      position: absolute;
-      content: '';
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: $header-link-hover-color;
-      transition: width .3s ease-in-out;
+      @extend %hover-underline;
     }
 
     //  Languages Hover Effect
     &:hover {
       &:after {
-        position: absolute;
-        content: '';
-        bottom: 0;
-        left: 0;
+        @extend %hover-underline;
         width: 100%;
-        height: 2px;
-        background-color: $header-link-hover-color;
       }
     }
   }
