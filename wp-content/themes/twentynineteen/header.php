@@ -29,10 +29,11 @@
     <div class="container header__container">
         <div class="header__logo">
             <a href="/" class="header__logo_link"></a>
-            <img src="<?php bloginfo('template_url') ?>/images/logo.jpg" alt="AutoMarket logo" class="header__logo_img">
+            <img src="<?php bloginfo('template_url') ?>/images/auto-logo.png" alt="AutoMarket logo" class="header__logo_img">
         </div>
+
+        <!-- Contact Slider -->
         <div class="header__contacts">
-            <!-- Contact Slider -->
             <div class="contacts__slider">
                 <div class="swiper-wrapper">
                     <!-- Slides -->
@@ -44,23 +45,50 @@
                         $loop = new WP_Query($args);
                         while ($loop->have_posts()) : $loop->the_post();
                     ?>
-                    <div class="swiper-slide header__contacts_slide">
-                        <!-- Location -->
-                        <div class="header__contacts_location_wr">
-                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/location.svg" class="header__contacts_location_icon" />
-                            <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "location_coordinates", $post->ID ); ?>" class="header__contacts_location_link" target="_blank"><?= get_field( "address", $post->ID ); ?></a>
+                        <div class="swiper-slide header__contacts_slide">
+                            <!-- Location -->
+                            <address class="header__contacts_location_wr">
+                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/location.svg" class="header__contacts_location_icon" />
+                                <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "location_coordinates", $post->ID ); ?>" class="header__contacts_location_link" target="_blank"><?= get_field( "address", $post->ID ); ?></a>
+                            </address>
+                            <!-- Phone -->
+                            <div class="header__contacts_location_wr">
+                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
+                                <a href="tel:<?= get_field( "phone", $post->ID ); ?>" class="header__contacts_location_link"><?= get_field( "phone", $post->ID ); ?></a>
+                            </div>
                         </div>
-                        <!-- Phone -->
-                        <div class="header__contacts_location_wr">
-                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
-                            <a href="tel:<?= get_field( "phone", $post->ID ); ?>" class="header__contacts_location_link"><?= get_field( "phone", $post->ID ); ?></a>
-                        </div>
-                    </div>
                     <?php
                         endwhile;
                         wp_reset_query();
                     ?>
                 </div>
+            </div>
+        </div>
+
+        <div class="header__controls">
+            <div class="header__lang-and-auth">
+
+                <div class="header__lang lang">
+                    <ul class="lang__ul">
+                        <li class="lang__item">
+                            <a href="/" class="lang__link"></a>
+                            <span class="lang__title">RU</span>
+                        </li>
+                        <li class="lang__item">
+                            <a href="/" class="lang__link"></a>
+                            <span class="lang__title">ENG</span>
+                        </li>
+                        <li class="lang__item">
+                            <a href="/" class="lang__link"></a>
+                            <span class="lang__title">GEO</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="header__auth auth">
+
+                </div>
+
             </div>
         </div>
     </div>
