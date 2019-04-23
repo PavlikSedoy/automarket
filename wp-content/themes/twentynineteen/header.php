@@ -83,18 +83,7 @@
                 </div>
 
                 <div class="header__auth auth">
-                    <?php if ( is_user_logged_in() ) : ?>
-                        <?= wp_get_current_user()->user_login ?>
-                    <?php else : ?>
-                        <div class="auth__no-user">
-                            <div class="auth__no-user_item">
-                                <a href="/wp-login.php?action=register" class="auth_no-user_link">Регистрация</a>
-                            </div>
-                            <div class="auth__no-user_item">
-                                <a href="/wp-login.php" class="auth_no-user_link">Вход</a>
-                            </div>
-                        </div>
-                    <?php endif; ?>
+                    <?php get_template_part('template-parts/header/auth' ) ?>
                 </div>
 
             </div>
