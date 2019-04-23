@@ -329,6 +329,8 @@ show_admin_bar( false );
 add_action( 'init', 'true_register_products' );
 
 function true_register_products() {
+
+    //  Header Contacts
     $labels = array(
         'name' => 'Контакты',
         'singular_name' => 'Контакт', // админ панель Добавить->Функцию
@@ -346,4 +348,23 @@ function true_register_products() {
         'supports' => array( 'title')
     );
     register_post_type('header-contacts',$args);
+
+    //  Header Social
+    $labels = array(
+        'name' => 'Соц сети',
+        'singular_name' => 'Соц сеть',
+        'add_new' => 'Добавить соц сеть',
+        'add_new_item' => 'Добавить новую соц сесть',
+        'edit_item' => 'Редактировать соц сеть',
+        'menu_name' => 'Соц сети (Header)'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-facebook-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor')
+    );
+    register_post_type('header-social',$args);
 }
