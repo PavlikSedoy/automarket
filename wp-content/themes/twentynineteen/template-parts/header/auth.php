@@ -1,9 +1,9 @@
 <?php if ( is_user_logged_in() ) : ?>
     <!-- Login User -->
-    <div class="auth__user">
+    <div class="auth__user" id="auth-user">
         <!--    Showing User Name && Arrow    -->
-        <div class="auth__user_name_wr">
-            <div class="auth__user_name" id="user-name">
+        <div class="auth__user_name_wr" id="user-name">
+            <div class="auth__user_name">
                 <?= wp_get_current_user()->user_login ?>
             </div>
             <div class="auth__user_arrow" id="user-name-arrow">
@@ -16,13 +16,13 @@
         <!--    User Profile Navigation    -->
         <ul class="user-nav" id="user-nav">
             <li class="user-nav__item">
-                <a href="/" class="user-nav__link"></a>
+                <a href="/wp-admin/profile.php" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
                     Личный кабинет
                 </div>
             </li>
             <li class="user-nav__item">
-                <a href="/" class="user-nav__link"></a>
+                <a href="/wp-login.php?action=logout" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
                     Выйти
                 </div>

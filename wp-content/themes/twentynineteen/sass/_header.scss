@@ -247,6 +247,10 @@
   &__user {
     position: relative;
 
+    svg {
+      transition: transform .5s ease-in-out;
+    }
+
     &_name {
       text-transform: uppercase;
       font-family: 'Graphik', sans-serif;
@@ -267,6 +271,25 @@
           fill: $color-black;
           transition: fill .3s ease-in-out;
         }
+        transition: color .5s ease-in-out;
+
+        //  Active User Nav
+        &.active-animation {
+          color: $header-link-hover-color;
+
+          .auth__user_name {
+            &:after {
+              width: 100%;
+            }
+          }
+
+          svg {
+            transform: rotate(-180deg);
+            path {
+              fill: $header-link-hover-color;
+            }
+          }
+        }
 
         &:hover {
           color: $header-link-hover-color;
@@ -276,7 +299,6 @@
 
           .auth__user_name {
             &:after {
-              @extend %hover-underline;
               width: 100%;
             }
           }
@@ -301,12 +323,16 @@
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
   margin: 0;
   list-style-type: none;
-  width: 180px;
+  width: 200px;
+  display: none;
 
   &__item {
     height: 50px;
     display: flex;
     position: relative;
+    color: $header-default-text-color;
+    padding-left: 0;
+    transition: .3s ease-in-out;
 
     &:last-child {
       border-top: 1px solid rgba($color-black, .1);
@@ -320,9 +346,38 @@
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       padding: 0 25px;
     }
+
+    &:hover {
+      color: $header-link-hover-color;
+      padding-left: 10px;
+    }
+  }
+
+  &__link {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+  }
+
+  //  Active
+  &.active {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: .5s ease-in-out;
+  }
+
+  //  Active and Show
+  &.active-animation {
+    visibility: visible;
+    opacity: 1;
   }
 }
 

@@ -20,16 +20,16 @@
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
 /** Имя базы данных для WordPress */
-define( 'DB_NAME', 'automarket' );
+define( 'DB_NAME', 'codecrea_auto' );
 
 /** Имя пользователя MySQL */
-define( 'DB_USER', 'automarket' );
+define( 'DB_USER', 'codecrea_auto' );
 
 /** Пароль к базе данных MySQL */
-define( 'DB_PASSWORD', 'vZKnowLC7Wq1fD1j' );
+define( 'DB_PASSWORD', 'H9Gkd#~d08' );
 
 /** Имя сервера MySQL */
-define( 'DB_HOST', 'localhost' );
+define( 'DB_HOST', 'codecrea.mysql.tools' );
 
 /** Кодировка базы данных для создания таблиц. */
 define( 'DB_CHARSET', 'utf8' );
