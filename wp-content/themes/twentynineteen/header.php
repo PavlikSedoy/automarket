@@ -127,3 +127,8 @@
         </div>
     </div>
 </header>
+<nav class="menu__wr">
+    <div class="menu__container container">
+        <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
+    </div>
+</nav>

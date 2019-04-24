@@ -1,13 +1,14 @@
 var userNav = document.getElementById('user-nav'),
-    userAuthBlock = document.getElementById('auth-user'),
     userName = document.getElementById('user-name');
 
 //  Click Name
-userName.addEventListener('click', function () {
-    event.stopPropagation();
-    !hasClass(userNav, 'active') ? addClass(userNav) : removeClass(userNav);
-    !hasClass(userName, 'active') ? addClass(userName) : removeClass(userName);
-});
+if (userName) {
+    userName.addEventListener('click', function () {
+        event.stopPropagation();
+        !hasClass(userNav, 'active') ? addClass(userNav) : removeClass(userNav);
+        !hasClass(userName, 'active') ? addClass(userName) : removeClass(userName);
+    });
+}
 
 //  Close Nav Menu on Click outside Name
 document.addEventListener('click', function () {
