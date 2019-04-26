@@ -4,7 +4,7 @@ var mySwiper = new Swiper ('.contacts__slider', {
     loop: true,
     slidesPerView: 2,
     autoplay: {
-        delay: 2000,
+        delay: 2000
     }
 });
 //  Stop autoplay on Hover
@@ -26,7 +26,7 @@ var mySwiper = new Swiper ('.home-slider__slider', {
     // Navigation arrows
     navigation: {
         nextEl: '.home-slider__next-btn',
-        prevEl: '.home-slider__prev-btn',
+        prevEl: '.home-slider__prev-btn'
     },
     effect: "slide",
     speed: 800,

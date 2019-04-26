@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<div class="home-slider">
+<section class="home-slider">
     <div class="home-slider__slider">
         <div class="swiper-wrapper">
 
@@ -73,7 +73,10 @@ get_header();
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+
 
 <?php
 get_footer();
