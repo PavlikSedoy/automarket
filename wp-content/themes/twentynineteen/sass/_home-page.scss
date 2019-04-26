@@ -115,4 +115,12 @@
     background-image: url('/wp-content/themes/twentynineteen/images/arrow-rigth.svg');
     right: 0;
   }
+
+  //  Request form position
+  &__request {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+  }
 }

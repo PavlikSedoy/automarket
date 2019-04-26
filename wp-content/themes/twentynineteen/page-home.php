@@ -32,11 +32,6 @@ get_header();
                     <img src="<?= get_stylesheet_directory_uri() ?>/images/header2.jpg" class="home-slider__slide-bg_img">
                 </div>
             </div>
-            <div class="swiper-slide home-slider__slide">
-                <div class="home-slider__slide-bg">
-                    <img src="<?= get_stylesheet_directory_uri() ?>/images/header3.jpg" class="home-slider__slide-bg_img">
-                </div>
-            </div>
         </div>
 
         <div class="home-slider__nav">
@@ -45,6 +40,25 @@ get_header();
         </div>
 
         <div class="header-slider-pagination"></div>
+    </div>
+
+    //  Home Slider Request || Request form
+    <div class="home-slider__request request-form">
+        <div class="requst__home-title-block request-title">
+            <div class="container">
+                <div class="request-title__wr">
+                    <div class="request-title__logo">
+                        <div class="request-title__logo_bg"></div>
+                        <img src="<?= get_stylesheet_directory_uri() ?>/images/auto-search-icon.svg">
+                    </div>
+
+                    <div class="request-title__content">
+                        <h3 class="request-title__title">Найдите <span>Автомобиль мечты</span></h3>
+                        <p>Заполните форму и мы подберем для Вас оптимальный вариант</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
