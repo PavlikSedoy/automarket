@@ -40,8 +40,8 @@ get_header();
         </div>
 
         <div class="home-slider__nav">
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev home-slider__prev-btn"></div>
+            <div class="swiper-button-next home-slider__next-btn"></div>
         </div>
 
         <div class="header-slider-pagination"></div>

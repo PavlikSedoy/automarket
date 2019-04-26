@@ -94,4 +94,25 @@
     top: 0;
     left: 0;
   }
+  
+  &__prev-btn, &__next-btn {
+    width: 50px;
+    height: 50px;
+    background-color: rgba($color-black, .5);
+    transition: background-color .3s ease-in-out;
+
+    &:hover {
+      background-color: rgba(42, 134, 201, 0.7);
+    }
+  }
+  
+  &__prev-btn {
+    background-image: url('/wp-content/themes/twentynineteen/images/arrow-left.svg');
+    left: 0;
+  }
+
+  &__next-btn {
+    background-image: url('/wp-content/themes/twentynineteen/images/arrow-rigth.svg');
+    right: 0;
+  }
 }

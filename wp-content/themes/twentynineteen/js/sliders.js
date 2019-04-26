@@ -25,8 +25,8 @@ var mySwiper = new Swiper ('.home-slider__slider', {
 
     // Navigation arrows
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.home-slider__next-btn',
+        prevEl: '.home-slider__prev-btn',
     },
     effect: "slide",
     speed: 800,
