@@ -361,4 +361,23 @@ function true_register_products() {
         'supports' => array( 'title', 'editor')
     );
     register_post_type('header-social',$args);
+
+    //  Home Slider
+    $labels = array(
+        'name' => 'Слайдер (Главная)',
+        'singular_name' => 'Слайдер (Главная)',
+        'add_new' => 'Добавить слайд',
+        'add_new_item' => 'Добавить новый слайд',
+        'edit_item' => 'Редактировать слайд',
+        'menu_name' => 'Слайдер (Главная)'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-image-flip-horizontal',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'thumbnail')
+    );
+    register_post_type('home-slider',$args);
 }

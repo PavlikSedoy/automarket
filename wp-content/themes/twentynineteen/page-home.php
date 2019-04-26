@@ -12,26 +12,37 @@ get_header();
 <div class="home-slider">
     <div class="home-slider__slider">
         <div class="swiper-wrapper">
+
+            <!--  Slides  -->
+            <?php
+                $args = array(
+                    'post_type' => 'home-slider',
+                    'order' => 'ASC',
+                );
+                $loop = new WP_Query($args);
+                while ($loop->have_posts()) : $loop->the_post();
+                $btn_link = get_field('home-slider-btn-link', $post->ID);
+            ?>
             <div class="swiper-slide home-slider__slide">
                 <div class="home-slider__slide-bg">
-                    <img src="<?= get_stylesheet_directory_uri() ?>/images/header.jpg" class="home-slider__slide-bg_img">
+                    <img src="<?= get_the_post_thumbnail_url() ?>" class="home-slider__slide-bg_img">
                 </div>
                 <div class="home-slider__content_wr">
                     <div class="home-slider__content container">
                         <div class="home-slider__title">
-                            <h1>Пригон авто из США под ключ</h1>
+                            <h1><?= the_title() ?></h1>
                         </div>
                         <div class="home-slider__btn_wr">
-                            <a href="/index.php/avto/" class="home-slider__btn">Смотреть Все авто</a>
+                            <a href="<?= $btn_link['url'] ?>" class="home-slider__btn"><?= get_field('home-slider-btn-text', $post->ID) ?></a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="swiper-slide home-slider__slide">
-                <div class="home-slider__slide-bg">
-                    <img src="<?= get_stylesheet_directory_uri() ?>/images/header2.jpg" class="home-slider__slide-bg_img">
-                </div>
-            </div>
+            <?php
+                endwhile;
+                wp_reset_query();
+            ?>
+
         </div>
 
         <div class="home-slider__nav">
