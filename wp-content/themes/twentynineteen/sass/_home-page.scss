@@ -116,6 +116,59 @@
     right: 0;
   }
 
+  // Pagination Block
+  &__pagination {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    bottom: 160px;
+    right: 0;
+    overflow: hidden;
+    z-index: 4;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+  }
+
+  .header-slider-pagination {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .home-slider-pagination-bulet {
+    height: auto;
+    font-family: 'Graphik', sans-serif;
+    font-weight: bold;
+    line-height: 1.65;
+    color: rgba(114, 196, 255, 0.3);
+    font-size: 21px;
+    background: transparent;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 15px;
+    text-align: right;
+    transition: .3s ease-in-out;
+    &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: $color-white;
+      width: 0px;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: .3s ease-in-out;
+    }
+
+    &__active {
+      color: rgb(114, 196, 255);
+      padding-right: 21px;
+      &:after {
+        width: 12px;
+      }
+    }
+  }
+
   //  Request form position
   &__request {
     position: absolute;

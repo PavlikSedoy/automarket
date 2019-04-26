@@ -39,7 +39,9 @@ get_header();
             <div class="swiper-button-next home-slider__next-btn"></div>
         </div>
 
-        <div class="header-slider-pagination"></div>
+        <div class="home-slider__pagination">
+            <div class="header-slider-pagination"></div>
+        </div>
     </div>
 
     //  Home Slider Request || Request form

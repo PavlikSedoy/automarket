@@ -33,9 +33,11 @@ var mySwiper = new Swiper ('.home-slider__slider', {
     pagination: {
         el: '.header-slider-pagination',
         type: 'bullets',
+        bulletClass: 'home-slider-pagination-bulet',
+        bulletActiveClass: 'home-slider-pagination-bulet__active',
         formatFractionCurrent: function(number) { return number},
         renderBullet: function (index, className) {
-            return '<span class="' + className + '">' + (index + 1) + '</span>';
+            return '<span class="' + className + '">' + '0' + (index + 1) + '</span>';
         }
     }
 });
