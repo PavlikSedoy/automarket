@@ -380,4 +380,24 @@ function true_register_products() {
         'supports' => array( 'title', 'thumbnail')
     );
     register_post_type('home-slider',$args);
+
+
+    //  Avto
+    $labels = array(
+        'name' => 'Автомобили',
+        'singular_name' => 'Автомобиль',
+        'add_new' => 'Добавить автомобиль',
+        'add_new_item' => 'Добавить новый автомобиль',
+        'edit_item' => 'Редактировать автомобиль',
+        'menu_name' => 'Автомобили'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+//        'menu_icon' => 'dashicons-image-flip-horizontal',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'thumbnail')
+    );
+    register_post_type('home-slider',$args);
 }

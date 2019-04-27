@@ -81,6 +81,16 @@ get_header();
             <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/popular-icon.svg" class="popular__h2-img">
             <h2 class="popular__title section-title">Популярные <span>авто</span></h2>
         </div>
+
+        <!-- Avto Block -->
+        <div class="popular__avto_wr">
+
+            <!-- Items -->
+            <article class="avto">
+                <div class="avto__slider"></div>
+            </article>
+
+        </div>
     </div>
 </section>
 <!-- /.popular -->

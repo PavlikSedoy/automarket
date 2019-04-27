@@ -193,6 +193,13 @@
 
     &_wr {
       text-align: center;
+      padding-bottom: 100px;
     }
+  }
+
+  //  Container without left/right padding
+  &__container {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
