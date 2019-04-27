@@ -75,7 +75,15 @@ get_header();
     </div>
 </section>
 
-
+<section class="popular">
+    <div class="container popular__container">
+        <div class="popular__title_wr">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/popular-icon.svg" class="popular__h2-img">
+            <h2 class="popular__title section-title">Популярные <span>авто</span></h2>
+        </div>
+    </div>
+</section>
+<!-- /.popular -->
 
 
 <?php

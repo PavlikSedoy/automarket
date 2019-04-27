@@ -14,6 +14,13 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.section-title {
+  font-family: 'Graphik', sans-serif;
+  font-size: 40px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
 //  IMPORT SCSS PARTS *******
 @import "header";
 @import "home-page";
