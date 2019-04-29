@@ -397,7 +397,7 @@ function true_register_products() {
 //        'menu_icon' => 'dashicons-image-flip-horizontal',
         'menu_position' => 5,
 //        'has_archive' => true,
-        'supports' => array( 'title', 'thumbnail')
+        'supports' => array( 'title', 'editor', 'thumbnail')
     );
-    register_post_type('home-slider',$args);
+    register_post_type('avto',$args);
 }
