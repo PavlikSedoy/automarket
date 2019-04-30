@@ -15,7 +15,7 @@ $(".contacts__slider").hover(function(){
 });
 
 //  Home Page Header Slider
-var mySwiper = new Swiper ('.home-slider__slider', {
+var mySwiperHome = new Swiper ('.home-slider__slider', {
     direction: 'horizontal',
     loop: true,
     slidesPerView: 1,
@@ -38,6 +38,9 @@ var mySwiper = new Swiper ('.home-slider__slider', {
         formatFractionCurrent: function(number) { return number},
         renderBullet: function (index, className) {
             return '<span class="' + className + '">' + '0' + (index + 1) + '</span>';
-        }
+        },
+        clickable: true
     }
 });
+
+console.log(mySwiperHome.$el);

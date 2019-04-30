@@ -23,7 +23,7 @@ get_header();
                 while ($loop->have_posts()) : $loop->the_post();
                 $btn_link = get_field('home-slider-btn-link', $post->ID);
             ?>
-            <div class="swiper-slide home-slider__slide">
+            <div class="swiper-slide home-slider__slide" data-background="<?= get_the_post_thumbnail_url() ?>">
                 <div class="home-slider__slide-bg">
                     <img src="<?= get_the_post_thumbnail_url() ?>" class="home-slider__slide-bg_img">
                 </div>

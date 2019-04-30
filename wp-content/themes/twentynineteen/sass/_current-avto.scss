@@ -83,4 +83,39 @@
       color: rgb(42, 134, 201);
     }
   }
+
+  //  CONTENT
+  &__content-container {
+    padding-top: 100px;
+    padding-bottom: 130px;
+  }
+
+  &__content-title {
+    width: 100%;
+    border-bottom: 1px solid rgba(219, 219, 219, .3);
+    margin-bottom: 80px;
+
+    h2 {
+      display: inline-block;
+      margin: 0;
+      color: $dark-section-title;
+      font-family: 'Graphik', sans-serif;
+      font-size: 40px;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 1.29;
+      padding-bottom: 16px;
+      position: relative;
+
+      &:after {
+        position: absolute;
+        content: '';
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: $header-blue-color;
+      }
+    }
+  }
 }

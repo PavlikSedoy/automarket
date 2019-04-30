@@ -35,10 +35,33 @@ get_header();
         </div>
     </div>
 
-    <div class="container">
+    <div class="container current-avto__content-container">
         <?php while (have_posts()) : the_post(); ?>
 
-            <?= the_title() ?>
+            <div class="current-avto__content">
+                <div class="current-avto__content-title">
+                    <h2><?php
+                            // Car Brand
+                            $car_brand = get_field('car-brand', $post->ID);
+                            echo $car_brand['value'];
+                        ?>
+
+                        <?php
+                            // Car Model
+                            $car_model_name = 'car-' . strtolower($car_brand['label']);
+                            echo get_field($car_model_name, $post->ID);
+                        ?>
+                    </h2>
+                </div>
+            </div>
+
+            <?php
+                foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) :
+            ?>
+                    <img src="<?= $img['guid'] ?>">
+            <?php
+                endforeach;
+            ?>
 
         <?php endwhile; ?>
     </div>
