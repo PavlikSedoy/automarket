@@ -53,15 +53,21 @@ get_header();
                         ?>
                     </h2>
                 </div>
-            </div>
 
-            <?php
-                foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) :
-            ?>
-                    <img src="<?= $img['guid'] ?>">
-            <?php
-                endforeach;
-            ?>
+                <div class="current-avto__info">
+                    <div class="current-avto__left">
+                        <?php
+                            foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) :
+                        ?>
+                            <img src="<?= $img['guid'] ?>">
+                        <?php
+                            endforeach;
+                        ?>
+                    </div>
+
+                    <div class="current-avto__right">ddd</div>
+                </div>
+            </div>
 
         <?php endwhile; ?>
     </div>

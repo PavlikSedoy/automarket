@@ -118,4 +118,20 @@
       }
     }
   }
+
+  &__info {
+    display: flex;
+    position: relative;
+    width: 100%;
+  }
+
+  &__left {
+    flex-basis: 75%;
+    max-width: 75%;
+  }
+
+  &__right {
+    flex-basis: 25%;
+    max-width: 25%;
+  }
 }
