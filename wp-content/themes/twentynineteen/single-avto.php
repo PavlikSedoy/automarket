@@ -84,7 +84,77 @@ get_header();
 
                     </div>
 
-                    <div class="current-avto__right">ddd</div>
+                    <div class="current-avto__right">
+                        <!-- Price in Ukraine -->
+                        <div class="current-avto__price-in-ukr">
+                            $ 15 700 <span>Стоимость аналога в Украине</span>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="current-avto__price">
+                            $ 10 200
+                        </div>
+
+                        <!-- Order Button -->
+                        <button class="current-avto__order-btn">Заказать это авто</button>
+
+                        <!-- Specifications this auto -->
+                        <div class="current-avto__specifications">
+                            <h4 class="current-avto__specifications_title">
+                                Характеристики автомобиля:</h4>
+
+                            <ul class="current-avto__specifications_list">
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Марка:</div>
+                                    <div class="current-avto__specifications_item_right-side">Mazda</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Модель:</div>
+                                    <div class="current-avto__specifications_item_right-side">6</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Год выпуска:</div>
+                                    <div class="current-avto__specifications_item_right-side">2016</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Кузов:</div>
+                                    <div class="current-avto__specifications_item_right-side">Седан</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Тип топлива:</div>
+                                    <div class="current-avto__specifications_item_right-side">Бензин</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Объем двигателя:</div>
+                                    <div class="current-avto__specifications_item_right-side">2.2</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Мощность Л. с:</div>
+                                    <div class="current-avto__specifications_item_right-side">165</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Пробег:</div>
+                                    <div class="current-avto__specifications_item_right-side">265</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Трансмиссия:</div>
+                                    <div class="current-avto__specifications_item_right-side">Автоматическая</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Привод:</div>
+                                    <div class="current-avto__specifications_item_right-side">Передний</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Цвет:</div>
+                                    <div class="current-avto__specifications_item_right-side">Синий</div>
+                                </li>
+                                <li class="current-avto__specifications_item">
+                                    <div class="current-avto__specifications_item_left-side">Статус:</div>
+                                    <div class="current-avto__specifications_item_right-side">В америке</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
 

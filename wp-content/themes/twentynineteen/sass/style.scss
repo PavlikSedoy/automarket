@@ -21,6 +21,10 @@ body {
   text-transform: uppercase;
 }
 
+.menu ul.children {
+  display: none;
+}
+
 //  IMPORT SCSS PARTS *******
 @import "header";
 @import "home-page";
