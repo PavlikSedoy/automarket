@@ -70,7 +70,7 @@ get_header();
 
                             <!-- Auto Location on active photo -->
                             <div class="current-avto__location-wr">
-                                <div class="current-avto__location">В Америке</div>
+                                <div class="current-avto__location"><?= get_field('auto-location', $post->ID) ?></div>
                             </div>
                         </div>
 

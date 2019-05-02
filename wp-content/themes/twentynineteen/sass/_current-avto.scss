@@ -134,6 +134,7 @@
   &__right {
     flex-basis: calc( 100% - 768px);
     max-width: calc( 100% - 768px);
+    padding-left: 15px;
   }
 
   // Slider photo gallery
