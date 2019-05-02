@@ -126,12 +126,114 @@
   }
 
   &__left {
-    flex-basis: 75%;
-    max-width: 75%;
+    flex-basis: 768px;
+    max-width: 768px;
+    padding-right: 15px;
   }
 
   &__right {
-    flex-basis: 25%;
-    max-width: 25%;
+    flex-basis: calc( 100% - 768px);
+    max-width: calc( 100% - 768px);
+  }
+
+  // Slider photo gallery
+  .swiper-container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+  .swiper-slide {
+    background-size: cover;
+    background-position: center;
+    background-color: $color-white;
+  }
+  &__gallery-top {
+    height: 600px;
+    width: 100%;
+    
+    &.swiper-slide {
+      -webkit-background-size: cover;
+      background-size: cover;
+      background-position: 50% 50%;
+    }
+  }
+  &__gallery-thumbs {
+    box-sizing: border-box;
+    padding: 0;
+    height: 110px;
+    margin-top: 20px;
+  }
+  &__gallery-thumbs .swiper-slide {
+    height: 100%;
+    opacity: 0.4;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out;
+
+    &:hover {
+      opacity: .6;
+    }
+  }
+  &__gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1;
+  }
+
+  // Navigation buttons
+  &__button-next, &__button-prev {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba($color-black, .8);
+    z-index: 7;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    transition: .3s ease-in-out;
+    outline: none;
+
+    &:hover {
+      background-color: rgba($header-blue-color, .8);
+      cursor: pointer;
+    }
+  }
+
+  &__button-next {
+    right: 0;
+    background-image: url('/wp-content/themes/twentynineteen/images/arrow-rigth.svg');
+  }
+
+  &__button-prev {
+    left: 0;
+    background-image: url('/wp-content/themes/twentynineteen/images/arrow-left.svg');
+  }
+
+  // Location Mark on Active photo
+  &__location-wr {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    width: 125px;
+    height: 30px;
+    overflow: hidden;
+  }
+
+  &__location {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $light-section-color;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+    padding-left: 27px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    //font-weight: bold;
+    color: $header-blue-color;
+    display: flex;
+    align-items: center;
   }
 }

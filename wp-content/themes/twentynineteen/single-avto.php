@@ -56,13 +56,32 @@ get_header();
 
                 <div class="current-avto__info">
                     <div class="current-avto__left">
-                        <?php
-                            foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) :
-                        ?>
-                            <img src="<?= $img['guid'] ?>">
-                        <?php
-                            endforeach;
-                        ?>
+
+                        <!-- Swiper -->
+                        <div class="swiper-container current-avto__gallery-top">
+                            <div class="swiper-wrapper">
+                                <?php foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) : ?>
+                                    <div class="swiper-slide" style="background-image:url(<?= $img['guid'] ?>)"></div>
+                                <?php endforeach ?>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="current-avto__button-next swiper-button-white"></div>
+                            <div class="current-avto__button-prev swiper-button-white"></div>
+
+                            <!-- Auto Location on active photo -->
+                            <div class="current-avto__location-wr">
+                                <div class="current-avto__location">В Америке</div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-container current-avto__gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                <?php foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) : ?>
+                                    <div class="swiper-slide" style="background-image:url(<?= $img['guid'] ?>)"></div>
+                                <?php endforeach ?>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="current-avto__right">ddd</div>

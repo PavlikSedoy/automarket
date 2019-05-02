@@ -43,4 +43,32 @@ var mySwiperHome = new Swiper ('.home-slider__slider', {
     }
 });
 
-console.log(mySwiperHome.$el);
+// console.log(mySwiperHome.$el);
+
+// Current auto photo slider
+var galleryThumbs = new Swiper('.current-avto__gallery-thumbs', {
+    spaceBetween: 12,
+    slidesPerView: 5,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    keyboard: {
+        enabled: true,
+    }
+});
+var galleryTop = new Swiper('.current-avto__gallery-top', {
+    // effect: 'fade',
+    spaceBetween: 0,
+    // width: 750,
+    navigation: {
+        nextEl: '.current-avto__button-next',
+        prevEl: '.current-avto__button-prev',
+    },
+    thumbs: {
+        el: '.current-avto__gallery-thumbs',
+        swiper: galleryThumbs,
+    },
+    keyboard: {
+        enabled: true,
+    }
+});
