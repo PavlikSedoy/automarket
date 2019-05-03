@@ -1,0 +1,2 @@
+UPDATE automarket.wp_term_taxonomy SET term_id = 1, taxonomy = 'category', description = '', parent = 0, count = 0 WHERE term_taxonomy_id = 1;
+UPDATE automarket.wp_term_taxonomy SET term_id = 2, taxonomy = 'nav_menu', description = '', parent = 0, count = 7 WHERE term_taxonomy_id = 2;

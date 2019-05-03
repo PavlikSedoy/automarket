@@ -1,0 +1,1 @@
+UPDATE automarket.wp_users SET user_login = 'AutoMarket', user_pass = '$P$BScOy0juIY0LAOuHpbzrsNezEpsIwy0', user_nicename = 'automarket', user_email = 'pavliksedoy@gmail.com', user_url = '', user_registered = '2019-04-17 09:04:38', user_activation_key = '', user_status = 0, display_name = 'AutoMarket' WHERE ID = 1;

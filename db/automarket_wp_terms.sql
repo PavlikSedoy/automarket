@@ -1,0 +1,2 @@
+UPDATE automarket.wp_terms SET name = 'Без рубрики', slug = '%d0%b1%d0%b5%d0%b7-%d1%80%d1%83%d0%b1%d1%80%d0%b8%d0%ba%d0%b8', term_group = 0 WHERE term_id = 1;
+UPDATE automarket.wp_terms SET name = 'header-menu', slug = 'header-menu', term_group = 0 WHERE term_id = 2;
