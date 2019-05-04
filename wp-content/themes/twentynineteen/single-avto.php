@@ -82,6 +82,28 @@ get_header();
                             </div>
                         </div>
 
+                        <!-- Tabs -->
+                        <div class="current-avto__tabs tabs">
+                            <div class="tabs__header left-active">
+                                <div class="tabs__header_item" data-tab="desc">Описание</div>
+                                <div class="tabs__header_item" data-tab="equipment">Комплектация</div>
+                            </div>
+
+                            <!-- Tabs Wrapper -->
+                            <div class="tabs__tabs-wr">
+                                <!-- Description Tab -->
+                                <div class="tabs__tab active" id="desc-tab">
+                                    Description Tab
+                                </div>
+
+                                <!-- Equipments Tab -->
+                                <div class="tabs__tab" id="equipment-tab">
+                                    Equipment Tab
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.current-avto__tabs tabs -->
+
                     </div>
 
                     <div class="current-avto__right">

@@ -1,0 +1,97 @@
+.tabs {
+  position: relative;
+
+  // Tabs Header
+  &__header {
+    display: flex;
+    position: relative;
+
+    &_item {
+      flex-basis: 50%;
+      text-align: center;
+      color: $tabs-title-color;
+      font-family: 'Graphik', sans-serif;
+      font-weight: bold;
+      letter-spacing: 1.7px;
+      text-transform: uppercase;
+      font-size: 15px;
+      padding: 10px 0;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: $dark-section-title;
+        cursor: pointer;
+      }
+    }
+
+    // Bottom line
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 4px;
+      width: 100%;
+      background-color: $tabs-title-color;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      height: 4px;
+      width: 50%;
+      bottom: 0;
+      background-color: $blue-section-title;
+      transition: left .3s ease-in-out;
+    }
+
+    // When active left tab
+    &.left-active {
+      .tabs__header_item:first-child {
+        color: $blue-section-title;
+      }
+
+      // Active bottom line
+      &:after {
+        left: 0;
+      }
+    }
+
+    // When active right tab
+    &.right-active {
+      .tabs__header_item:last-child {
+        color: $blue-section-title;
+      }
+
+      // Active bottom line
+      &:after {
+        left: 50%;
+      }
+    }
+  }
+
+  // TABS
+  &__tabs-wr {
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+    margin-top: 40px;
+    position: relative;
+    //display: flex;
+  }
+
+  &__tab {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+
+    &.active {
+      position: relative;
+      opacity: 1;
+    }
+  }
+}
