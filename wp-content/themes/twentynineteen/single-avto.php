@@ -93,7 +93,33 @@ get_header();
                             <div class="tabs__tabs-wr">
                                 <!-- Description Tab -->
                                 <div class="tabs__tab active" id="desc-tab">
-                                    Description Tab
+                                    <div class="tabs__description">
+                                        <p>Фиксированная цена в США 10200$. Под ключ 11550$.<br>
+                                            Возможна поэтапная оплата.<br> Машина находится в США, на стоянке проверенных  автомобилей.<br> Продается без аукциона!</p>
+                                    </div>
+
+                                    <div class="tabs__in-out-price">
+                                        <div class="tabs__in-price">
+                                            <h4 class="tabs__in-price_title">В цену включено:</h4>
+                                            <ul class="tabs__in-price_ul">
+                                                <li class="tabs__in-price_li">Стоимость авто в США;</li>
+                                                <li class="tabs__in-price_li">Услуги американского сайта;</li>
+                                                <li class="tabs__in-price_li">Все затраты по транспортировке;</li>
+                                                <li class="tabs__in-price_li">Экспедиторские услуги;</li>
+                                                <li class="tabs__in-price_li">Услуги брокера;</li>
+                                                <li class="tabs__in-price_li">Растаможка;</li>
+                                                <li class="tabs__in-price_li">Услуги Авто Маркета.</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="tabs__out-price">
+                                            <h4 class="tabs__out-price_title">В цену не включено:</h4>
+                                            <ul class="tabs__out-price_ul">
+                                                <li class="tabs__out-price_li">Сертификация;</li>
+                                                <li class="tabs__out-price_li">Постановка на учет;</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- Equipments Tab -->

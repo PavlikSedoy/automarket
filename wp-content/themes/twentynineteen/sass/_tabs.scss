@@ -88,10 +88,59 @@
     left: 0;
     opacity: 0;
     transition: opacity .3s ease-in-out;
+    z-index: 1;
 
     &.active {
       position: relative;
       opacity: 1;
+      z-index: 2;
+    }
+  }
+
+  // TABS CONTENT
+  &__description p {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.76;
+    color: $header-default-text-color;
+  }
+
+  &__in-out-price {
+    display: flex;
+    margin-top: 30px;
+  }
+
+  &__in-price, &__out-price {
+    flex-basis: 50%;
+  }
+
+  &__out-price, &__in-price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    color: $dark-section-title;
+  }
+
+  &__in-price_ul, &__out-price_ul {
+    list-style-type: none;
+    margin-left: 35px;
+  }
+
+  &__in-price_li, &__out-price_li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: $header-default-text-color;
+    padding: 10px 0;
+    position: relative;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -35px;
+      top: 20px;
+      height: 1px;
+      width: 16px;
+      background-color: $header-blue-color;
     }
   }
 }
