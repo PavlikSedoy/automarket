@@ -269,16 +269,6 @@
 
   // Order Button
   &__order-btn {
-    display: block;
-    width: 100%;
-    padding: 20px 0;
-    color: $color-white;
-    font-family: 'Graphik', sans-serif;
-    font-weight: bold;
-    background-color: $header-blue-color;
-    border: none;
-    letter-spacing: 1.7px;
-    text-transform: uppercase;
     margin-top: 30px;
   }
 
@@ -286,6 +276,7 @@
   &__specifications {
     background-color: rgb(52, 52, 52);
     padding: 30px 15px;
+    margin-top: 30px;
 
     &_title {
       font-family: 'Graphik', sans-serif;
@@ -344,5 +335,10 @@
   // Tabs
   &__tabs {
     margin-top: 48px;
+  }
+
+  // Aside order block
+  &__aside-order {
+    margin-top: 80px;
   }
 }

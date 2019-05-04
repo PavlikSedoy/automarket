@@ -25,6 +25,31 @@ body {
   display: none;
 }
 
+// Buttons
+.btn {
+  display: block;
+  font-family: 'Graphik', sans-serif;
+  font-weight: bold;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+  border-radius: 0;
+
+  &__color {
+    &_blue {
+      color: $color-white;
+      background-color: $header-blue-color;
+      border: 1px solid $header-blue-color;
+    }
+  }
+
+  &__width {
+    &_100 {
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+}
+
 //  IMPORT SCSS PARTS *******
 @import "header";
 @import "home-page";
@@ -32,3 +57,4 @@ body {
 @import "avto";
 @import "current-avto";
 @import "tabs";
+@import "aside-order";

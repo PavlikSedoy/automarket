@@ -143,4 +143,32 @@
       background-color: $header-blue-color;
     }
   }
+
+  //  Equipment List
+  &__equipment-list {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    &_item {
+      flex-basis: calc((100% - 60px) / 3);
+      padding: 20px 0 20px 25px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: $dark-section-title;
+      position: relative;
+      display: block;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 1px;
+        width: 100%;
+        background-color: $header-vertical-line_color;
+      }
+    }
+  }
 }

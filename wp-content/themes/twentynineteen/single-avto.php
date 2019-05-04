@@ -94,29 +94,27 @@ get_header();
                                 <!-- Description Tab -->
                                 <div class="tabs__tab active" id="desc-tab">
                                     <div class="tabs__description">
-                                        <p>Фиксированная цена в США 10200$. Под ключ 11550$.<br>
-                                            Возможна поэтапная оплата.<br> Машина находится в США, на стоянке проверенных  автомобилей.<br> Продается без аукциона!</p>
+                                        <?php the_content() ?>
                                     </div>
 
                                     <div class="tabs__in-out-price">
                                         <div class="tabs__in-price">
                                             <h4 class="tabs__in-price_title">В цену включено:</h4>
                                             <ul class="tabs__in-price_ul">
-                                                <li class="tabs__in-price_li">Стоимость авто в США;</li>
-                                                <li class="tabs__in-price_li">Услуги американского сайта;</li>
-                                                <li class="tabs__in-price_li">Все затраты по транспортировке;</li>
-                                                <li class="tabs__in-price_li">Экспедиторские услуги;</li>
-                                                <li class="tabs__in-price_li">Услуги брокера;</li>
-                                                <li class="tabs__in-price_li">Растаможка;</li>
-                                                <li class="tabs__in-price_li">Услуги Авто Маркета.</li>
+                                                <?php $in_price_list = get_field('current-auto-in-price', $post->ID) ?>
+                                                <?php foreach ( $in_price_list as $in_price ): ?>
+                                                    <li class="tabs__in-price_li"><?= $in_price ?></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </div>
 
                                         <div class="tabs__out-price">
                                             <h4 class="tabs__out-price_title">В цену не включено:</h4>
                                             <ul class="tabs__out-price_ul">
-                                                <li class="tabs__out-price_li">Сертификация;</li>
-                                                <li class="tabs__out-price_li">Постановка на учет;</li>
+                                                <?php $out_price_list = get_field('current-auto-out-price', $post->ID) ?>
+                                                <?php foreach ( $out_price_list as $out_price ): ?>
+                                                    <li class="tabs__out-price_li"><?= $out_price ?></li>
+                                                <?php endforeach; ?>
                                             </ul>
                                         </div>
                                     </div>
@@ -124,7 +122,12 @@ get_header();
 
                                 <!-- Equipments Tab -->
                                 <div class="tabs__tab" id="equipment-tab">
-                                    Equipment Tab
+                                    <ul class="tabs__equipment-list">
+                                        <?php $equipments = get_field('current-auto-equipment', $post->ID) ?>
+                                        <?php foreach ( $equipments as $equipment ): ?>
+                                            <li class="tabs__equipment-list_item"><?= $equipment ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -135,16 +138,16 @@ get_header();
                     <div class="current-avto__right">
                         <!-- Price in Ukraine -->
                         <div class="current-avto__price-in-ukr">
-                            $ 15 700 <span>Стоимость аналога в Украине</span>
+                            $ <?= get_field('current-auto-price-in-ukraine', $post->ID) ?> <span>Стоимость аналога в Украине</span>
                         </div>
 
                         <!-- Price -->
                         <div class="current-avto__price">
-                            $ 10 200
+                            $ <?= get_field('current-auto-price', $post->ID) ?>
                         </div>
 
                         <!-- Order Button -->
-                        <button class="current-avto__order-btn">Заказать это авто</button>
+                        <button class="current-avto__order-btn btn btn__color_blue btn__width_100">Заказать это авто</button>
 
                         <!-- Specifications this auto -->
                         <div class="current-avto__specifications">
@@ -154,53 +157,82 @@ get_header();
                             <ul class="current-avto__specifications_list">
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Марка:</div>
-                                    <div class="current-avto__specifications_item_right-side">Mazda</div>
+                                    <div class="current-avto__specifications_item_right-side">
+                                        <?php
+                                            // Car Brand
+                                            $car_brand = get_field('car-brand', $post->ID);
+                                            echo $car_brand['value'];
+                                        ?>
+                                    </div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Модель:</div>
-                                    <div class="current-avto__specifications_item_right-side">6</div>
+                                    <div class="current-avto__specifications_item_right-side">
+                                        <?php
+                                            // Car Model
+                                            $car_model_name = 'car-' . strtolower($car_brand['label']);
+                                            echo get_field($car_model_name, $post->ID);
+                                        ?>
+                                    </div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Год выпуска:</div>
-                                    <div class="current-avto__specifications_item_right-side">2016</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-year', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Кузов:</div>
-                                    <div class="current-avto__specifications_item_right-side">Седан</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-body-type', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Тип топлива:</div>
-                                    <div class="current-avto__specifications_item_right-side">Бензин</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-fuel-type', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Объем двигателя:</div>
-                                    <div class="current-avto__specifications_item_right-side">2.2</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-engine-capacity', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Мощность Л. с:</div>
-                                    <div class="current-avto__specifications_item_right-side">165</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-engine-power', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
-                                    <div class="current-avto__specifications_item_left-side">Пробег:</div>
-                                    <div class="current-avto__specifications_item_right-side">265</div>
+                                    <div class="current-avto__specifications_item_left-side">Пробег тыс. км.:</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-mileage', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Трансмиссия:</div>
-                                    <div class="current-avto__specifications_item_right-side">Автоматическая</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-transmission', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Привод:</div>
-                                    <div class="current-avto__specifications_item_right-side">Передний</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-drive-type', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Цвет:</div>
-                                    <div class="current-avto__specifications_item_right-side">Синий</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('current-auto-color', $post->ID) ?></div>
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Статус:</div>
-                                    <div class="current-avto__specifications_item_right-side">В америке</div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('auto-location', $post->ID) ?></div>
                                 </li>
                             </ul>
+                        </div>
+
+                        <div class="current-avto__aside-order aside-order">
+                            <h4 class="aside-order__title">Понравилось авто?</h4>
+
+                            <p class="aside-order__desc">
+                                Заполните форму ниже.<br>
+                                Мы Вам перезвоним и ответим на все вопросы об этом авто.
+                            </p>
+
+                            <form action="" class="aside-order__form">
+                                <input type="text" name="name" id="name" class="aside-order__input" placeholder="Имя">
+                                <input type="text" name="phone" id="phone" class="aside-order__input" placeholder="Телефон">
+                                <input type="email" name="email" id="email" class="aside-order__input" placeholder="E-mail">
+
+                                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100">Узнать про авто</button>
+                            </form>
                         </div>
                     </div>
                 </div>
