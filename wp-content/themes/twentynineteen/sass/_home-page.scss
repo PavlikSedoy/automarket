@@ -193,7 +193,7 @@
 
     &_wr {
       text-align: center;
-      padding-bottom: 100px;
+      padding-bottom: 20px;
     }
   }
 
@@ -202,4 +202,285 @@
     padding-left: 0;
     padding-right: 0;
   }
+
+  &__avto {
+    position: relative;
+    flex-basis: calc((100% - 60px)/3);
+    width: calc((100% - 60px)/3);
+    
+    &_wr {
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  // All Auto Button
+  &__all-auto {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 90px;
+  }
+}
+
+// AUTO ITEM
+.avto {
+  position: relative;
+  background: $color-white;
+  margin-top: 80px;
+
+  &__slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  &__slide {
+    position: relative;
+
+    &_img {
+      height: 290px;
+      background-position: 50% 50%;
+      -webkit-background-size: cover;
+      background-size: cover;
+    }
+  }
+
+  &__location_wr {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background-color: transparent;
+    width: 125px;
+    height: 30px;
+    overflow: hidden;
+  }
+
+  &__location {
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $light-section-color;
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+    padding-left: 27px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    //font-weight: bold;
+    color: $header-blue-color;
+    display: flex;
+    align-items: center;
+  }
+  
+  &__swiper-wrapper {
+    position: relative;
+  }
+
+  .avto-swiper-pagination {
+    height: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__slider_buttom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgba($color-black, .6);
+    z-index: 2;
+    padding-left: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    // Bullets
+    .swiper-pagination-bullet {
+      width: 16px;
+      height: 16px;
+      border: solid 1px rgba($header-blue-color, .5);
+      border-radius: 0;
+      background: transparent;
+      position: relative;
+      top: 0;
+      margin-left: 10px;
+      transition: .3s ease-in-out;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 3px;
+        height: 3px;
+        background-color: transparent;
+        transition: .3s ease-in-out;
+        border-radius: 0;
+      }
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:hover {
+        border: solid 1px $header-blue-color;
+      }
+
+      &.swiper-pagination-bullet-active {
+        &:before {
+          background-color: $header-blue-color;
+        }
+      }
+    }
+
+    // Arrows
+    .avto-swiper-button-prev, .avto-swiper-button-next {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 30px;
+      height: 100%;
+      background-position: 50% 50%;
+      background-repeat: no-repeat;
+      background-color: transparent;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        background-color: $header-blue-color;
+        cursor: pointer;
+      }
+    }
+
+    .avto-swiper-button-prev {
+      right: 30px;
+      background-image: url('/wp-content/themes/twentynineteen/images/arrow-left.svg');
+    }
+
+    .avto-swiper-button-next {
+      background-image: url('/wp-content/themes/twentynineteen/images/arrow-rigth.svg');
+    }
+
+  }
+
+  // Properties
+  &__props {
+    position: relative;
+    display: flex;
+    margin-top: 11px;
+    align-items: center;
+    height: 25px;
+
+    &_text {
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: $header-default-text-color;
+      padding-top: 5px;
+      margin-left: 10px;
+    }
+
+    &_year, &_engine-capacity, &_fuel-type {
+      flex-basis: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      position: relative;
+    }
+
+    &_engine-capacity {
+
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: $header-default-text-color;
+      }
+
+      &:after {
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &_fuel-type {
+      flex-basis: calc(100% - 200px);
+    }
+  }
+
+  // Title
+  &__title-wr {
+    position: relative;
+    margin-top: 10px;
+    height: 46px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background-color: $header-blue-color;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-family: 'Graphik', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: $dark-section-title;
+  }
+
+  // Details Btn and Price
+  &__price-details {
+    display: flex;
+    padding: 0 20px;
+    justify-content: space-between;
+    align-items: center;
+    //height: 50px;
+    margin-top: 15px;
+  }
+
+  &__price {
+    font-family: 'Graphik', sans-serif;
+    font-size: 25px;
+    font-weight: bold;
+    color: $header-blue-color;
+  }
+
+  // Footer
+  &__footer {
+    background-color: rgb(52, 52, 52);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 20px;
+    margin-top: 35px;
+    color: $color-white;
+
+    &_price {
+      font-family: 'Graphik', sans-serif;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    &_text {
+      font-family: 'Graphik', sans-serif;
+      font-size: 16px;
+    }
+  }
+
 }

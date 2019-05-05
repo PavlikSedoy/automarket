@@ -33,19 +33,71 @@ body {
   letter-spacing: 1.7px;
   text-transform: uppercase;
   border-radius: 0;
+  outline: none;
 
+  &:hover, &:focus, &:active {
+    outline: none;
+  }
+
+  // Color
   &__color {
     &_blue {
       color: $color-white;
       background-color: $header-blue-color;
       border: 1px solid $header-blue-color;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        background-color: transparent;
+        color: $header-blue-color;
+      }
+    }
+
+    &_transparent {
+      background-color: transparent;
+      border: 1px solid $header-blue-color;
+      color: $header-blue-color;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        background-color: $header-blue-color;
+        color: $color-white;
+      }
     }
   }
 
+  // Width
   &__width {
     &_100 {
       width: 100%;
       padding: 20px 0;
+    }
+
+    &_180 {
+      width: 180px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+
+    &_265 {
+      display: block;
+      width: 265px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+  }
+
+  // Font Size
+  &__fz {
+    &_15 {
+      font-size: 15px;
+      line-height: 1;
     }
   }
 }

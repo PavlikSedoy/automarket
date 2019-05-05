@@ -72,3 +72,40 @@ var galleryTop = new Swiper('.current-avto__gallery-top', {
         enabled: true,
     }
 });
+
+//  Popular Car on HOME PAGE
+
+
+$(".avto-swiper-container").each(function(index, element){
+    var $this = $(this);
+    $this.addClass("instance-" + index);
+    $this.find(".avto-swiper-button-prev").addClass("btn-prev-" + index);
+    $this.find(".avto-swiper-button-next").addClass("btn-next-" + index);
+    var swiperHomeAvto = new Swiper (".instance-" + index, {
+        direction: 'horizontal',
+        loop: true,
+        slidesPerView: 1,
+        // autoplay: {
+        //     delay: 5000,
+        // },
+
+        // Navigation arrows
+        navigation: {
+            nextEl: ".btn-next-" + index,
+            prevEl: ".btn-prev-" + index
+        },
+        effect: "slide",
+        // speed: 800,
+        pagination: {
+            el: '.avto-swiper-pagination',
+            // type: 'bullets',
+            // bulletClass: 'home-slider-pagination-bulet',
+            // bulletActiveClass: 'home-slider-pagination-bulet__active',
+            // formatFractionCurrent: function(number) { return number},
+            // renderBullet: function (index, className) {
+            //     return '<span class="' + className + '">' + '0' + (index + 1) + '</span>';
+            // },
+            clickable: true
+        }
+    });
+});
