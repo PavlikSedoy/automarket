@@ -39,6 +39,10 @@ body {
     outline: none;
   }
 
+  &:hover {
+    cursor: pointer;
+  }
+
   // Color
   &__color {
     &_blue {
@@ -110,3 +114,4 @@ body {
 @import "current-avto";
 @import "tabs";
 @import "aside-order";
+@import "how-work";

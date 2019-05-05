@@ -198,6 +198,125 @@ get_header();
 </section>
 <!-- /.popular -->
 
+<!-- How It Work Section -->
+<section class="how-work">
+    <div class="container how-work__container">
+        <!-- Title -->
+        <div class="how-work__title_wr">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-word__h2-img">
+            <h2 class="how-work__title section-title">Как мы <span>работаем</span></h2>
+        </div>
+
+        <!-- Items -->
+        <div class="how-work__items">
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/podbor-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Подбор авто</h4>
+                    <div class="how-work__item-title_number">01</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/proverka-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Проверка авто по CarFax
+                        и AutoCheck</h4>
+                    <div class="how-work__item-title_number">02</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/vykup-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Выкуп авто на аукционе</h4>
+                    <div class="how-work__item-title_number">03</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/transportirovka-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Транспортировка</h4>
+                    <div class="how-work__item-title_number">04</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/rastamozhka-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Растаможка и сертификация</h4>
+                    <div class="how-work__item-title_number">05</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+            <!-- Item -->
+            <article class="how-work__item">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/dostavka-icon.svg" class="how-work__img">
+                <div class="how-work__item-title">
+                    <h4 class="how-work__item-title_text">Доставка клиенту по Украине</h4>
+                    <div class="how-work__item-title_number">06</div>
+                </div>
+                <div class="how-work__content">
+                    <p>
+                        После заказа автомобиля, наши менеджеры
+                        подбирают несколько вариантов авто
+                        по Вашим запросам.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+        <div class="how-work__request">
+            <div class="btn btn__width_265 btn__color_blue" id="how-work-request">Подобрать авто</div>
+        </div>
+
+
+    </div>
+</section>
+
 
 <?php
 get_footer();

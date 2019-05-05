@@ -1,0 +1,100 @@
+.how-work {
+  position: relative;
+  margin-top: 100px;
+
+  // Title
+  &__title_wr {
+    text-align: center;
+  }
+
+  &__title {
+    span {
+      color: $header-blue-color;
+    }
+  }
+
+  // Items
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+
+  &__item {
+    flex-basis: calc((100% - 60px)/3);
+    position: relative;
+    margin-top: 70px;
+  }
+
+  &__item-title {
+    position: relative;
+    margin-top: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 5px;
+      height: 100%;
+      background-color: $header-blue-color;
+    }
+
+    &_text {
+      margin: 0;
+      font-family: 'Graphik', sans-serif;
+      font-size: 21px;
+      font-weight: bold;
+      color: $dark-section-title;
+      line-height: 1.29;
+    }
+
+    &_number {
+      position: absolute;
+      top: 0;
+      left: -22px;
+      font-family: 'Graphik', sans-serif;
+      font-size: 14px;
+      font-weight: bold;
+      color: $header-blue-color;
+    }
+  }
+
+  &__content {
+    position: relative;
+    padding-top: 23px;
+    padding-left: 20px;
+
+    p {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 1.76;
+      color: $header-default-text-color;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0;
+      background-color: $header-vertical-line_color;
+      width: 1px;
+      height: 100%;
+    }
+  }
+
+  // Request Button
+  &__request {
+    position: relative;
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+  }
+
+}
