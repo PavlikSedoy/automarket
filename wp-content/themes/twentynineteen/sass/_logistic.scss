@@ -1,0 +1,48 @@
+.logistic {
+  position: relative;
+  background-color: $light-section-color;
+  padding-bottom: 130px;
+
+  &__content-wr {
+    display: flex;
+  }
+
+  &__asside {
+    flex-basis: 370px;
+  }
+
+  &__content {
+    flex-basis: calc(100% - 370px);
+  }
+
+  .aside-order__title {
+    font-size: 21px;
+  }
+
+  .aside-order__form {
+    margin-top: 50px;
+  }
+
+  &__btn_price {
+    display: flex;
+    margin-top: 50px;
+
+    &>div {
+      flex-basis: 50%;
+    }
+
+    button {
+      margin: 0;
+      font-size: 15px;
+    }
+  }
+
+  &__price {
+    font-family: 'Graphik', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    line-height: 50px;
+    color: $placeholder-color;
+    text-align: center;
+  }
+}

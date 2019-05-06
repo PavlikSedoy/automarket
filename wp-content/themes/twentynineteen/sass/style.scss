@@ -86,6 +86,13 @@ body {
       padding: 0;
     }
 
+    &_160 {
+      display: block;
+      width: 160px;
+      padding: 0;
+      line-height: 50px;
+    }
+
     &_265 {
       display: block;
       width: 265px;
@@ -117,3 +124,79 @@ body {
 @import "how-work";
 @import "faq";
 @import "footer";
+@import "logistic";
+
+.page-header {
+  height: 370px;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  &__text {
+    margin-top: 30px;
+    max-width: 768px;
+
+
+    p {
+      font-family: 'Graphik', sans-serif;
+      font-size: 23px;
+      line-height: 1.88;
+      color: $color-white;
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+}
+
+.page__title {
+  padding-top: 100px;
+}
+
+.page__content {
+  padding-right: 100px;
+
+  p {
+    margin-bottom: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: $header-default-text-color;
+    line-height: 1.76;
+  }
+
+  h4 {
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 15px;
+    color: $dark-section-title;
+    font-size: 18px;
+  }
+
+  ul {
+    list-style-type: none;
+    position: relative;
+    margin-bottom: 30px;
+  }
+
+  li {
+    padding-left: 30px;
+    display: block;
+    position: relative;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    margin-top: 20px;
+    color: $header-default-text-color;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 16px;
+      height: 1px;
+      background-color: $header-blue-color;
+    }
+  }
+}

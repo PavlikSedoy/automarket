@@ -9,7 +9,88 @@
 get_header();
 ?>
 
-    AVTO
+<div class="logistic">
+    <!--  Logistic Header  -->
+    <div class="current-avto__header page-header">
+        <div class="current-avto__bg">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/headimg.jpg">
+        </div>
+        <div class="container current-avto__header-content-container page-header__content">
+            <h1 class="current-avto__title"><?= the_title() ?></h1>
+
+            <div class="page-header__text">
+                <p>
+                    Наша логистическая компания всегда поможет подобрать наиболее
+                    рациональный маршрут передвижения груза. Кроме того, возможно
+                    отслеживание  местоположения груза в разных точках планеты.
+                </p>
+            </div>
+        </div>
+        <div class="current-avto__path">
+            <div class="container current-avto__header-path-container">
+                <ul class="current-avto__path_ul">
+                    <li class="current-avto__path_li">
+                        <a href="/" class="current-avto__path_link">Главная</a>
+                    </li>
+                    <li class="current-avto__path_li">&nbsp;/&nbsp;<?= the_title() ?></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container logistic__container">
+        <div class="current-avto__content-title page__title">
+            <h2>Как мы работаем</h2>
+        </div>
+
+        <div class="logistic__content-wr">
+
+            <div class="logistic__content page__content"><?php the_content() ?></div>
+
+            <div class="logistic__asside">
+
+                <div class="aside-order">
+                    <h4 class="aside-order__title">Калькулятор доставки</h4>
+
+                    <form action="" class="aside-order__form">
+                        <div class="aside-order__input-wr">
+                            <input type="text" name="auction" id="auction" class="aside-order__input" placeholder="Аукцион">
+                            <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/aukcion-icon.svg" class="aside-order__input_img">
+                        </div>
+
+                        <div class="aside-order__input-wr">
+                            <input type="text" name="city" id="city" class="aside-order__input" placeholder="Город">
+                            <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/city-icon.svg" class="aside-order__input_img">
+                        </div>
+
+                        <div class="aside-order__input-wr">
+                            <input type="text" name="port-from" id="port-from" class="aside-order__input" placeholder="Порт погрузки">
+                            <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/port-pogruzki-icon.svg" class="aside-order__input_img">
+                        </div>
+
+                        <div class="aside-order__input-wr">
+                            <input type="text" name="port-to" id="port-to" class="aside-order__input" placeholder="Порт назначения">
+                            <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/port-naznachenia-icon.svg" class="aside-order__input_img">
+                        </div>
+
+                        <div class="logistic__btn_price">
+                            <div class="logistic__btn_wr">
+                                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_160">Рассчитать</button>
+                            </div>
+                            <div class="logistic__price">
+                                $ 0
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <?php
 get_footer();

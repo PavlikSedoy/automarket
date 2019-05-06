@@ -108,7 +108,7 @@
         <div class="footer__menu">
             <h4 class="footer__contacts_title">Меню</h4>
 
-            <?php wp_nav_menu( array( 'theme_location' => 'footer-menu' ) ); ?>
+            <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
         </div>
 
         <div class="footer__call-back">
