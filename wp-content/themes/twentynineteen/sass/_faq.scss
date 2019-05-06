@@ -5,6 +5,7 @@
 
   &__container {
     display: flex;
+    padding-bottom: 110px;
   }
 
   &__left-side {
@@ -127,6 +128,7 @@
     font-size: 14px;
     line-height: 1.76;
     color: $header-default-text-color;
+    transition: border .3s ease-in-out;
 
     p {
       margin: 0;
@@ -140,6 +142,21 @@
     height: 100%;
     width: 480px;
     background-color: $header-blue-color;
+  }
+
+  &__mazda {
+    position: absolute;
+    height: 100%;
+    width: 480px;
+    background-color: transparent;
+
+    img {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 400px;
+    }
   }
 
 }

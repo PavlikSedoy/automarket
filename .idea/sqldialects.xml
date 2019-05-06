@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_cf_form_entries.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_commentmeta.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_comments.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_links.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_options.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_podsrel.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_postmeta.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_posts.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_term_relationships.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_term_taxonomy.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_termmeta.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_terms.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_usermeta.sql" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/db/automarket_wp_users.sql" dialect="MySQL" />
+  </component>
+</project>

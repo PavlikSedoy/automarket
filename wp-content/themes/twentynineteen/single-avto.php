@@ -1,4 +1,4 @@
-<?php
+f<?php
 /**
  * The template for displaying all single posts
  *
@@ -113,7 +113,9 @@ get_header();
                                             <ul class="tabs__out-price_ul">
                                                 <?php $out_price_list = get_field('current-auto-out-price', $post->ID) ?>
                                                 <?php foreach ( $out_price_list as $out_price ): ?>
-                                                    <li class="tabs__out-price_li"><?= $out_price ?></li>
+                                                    <li class="tabs__out-price_li">
+                                                        <?= $out_price ?>
+                                                    </li>
                                                 <?php endforeach; ?>
                                             </ul>
                                         </div>
@@ -125,7 +127,10 @@ get_header();
                                     <ul class="tabs__equipment-list">
                                         <?php $equipments = get_field('current-auto-equipment', $post->ID) ?>
                                         <?php foreach ( $equipments as $equipment ): ?>
-                                            <li class="tabs__equipment-list_item"><?= $equipment ?></li>
+                                            <li class="tabs__equipment-list_item">
+                                                <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/check-icon.svg" class="tabs__equipment-list_item_img">
+                                                <?= $equipment ?>
+                                            </li>
                                         <?php endforeach; ?>
                                     </ul>
                                 </div>
@@ -227,9 +232,20 @@ get_header();
                             </p>
 
                             <form action="" class="aside-order__form">
-                                <input type="text" name="name" id="name" class="aside-order__input" placeholder="Имя">
-                                <input type="text" name="phone" id="phone" class="aside-order__input" placeholder="Телефон">
-                                <input type="email" name="email" id="email" class="aside-order__input" placeholder="E-mail">
+                                <div class="aside-order__input-wr">
+                                    <input type="text" name="name" id="name" class="aside-order__input" placeholder="Имя">
+                                    <img src="<?php bloginfo('template_url') ?>/images/car-search-icons/name-icon.svg" class="aside-order__input_img">
+                                </div>
+
+                                <div class="aside-order__input-wr">
+                                    <input type="text" name="phone" id="phone" class="aside-order__input" placeholder="Телефон">
+                                    <img src="<?php bloginfo('template_url') ?>/images/car-search-icons/phone-icon-icon.svg" class="aside-order__input_img">
+                                </div>
+
+                                <div class="aside-order__input-wr">
+                                    <input type="email" name="email" id="email" class="aside-order__input" placeholder="E-mail">
+                                    <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/email-icon.svg" class="aside-order__input_img">
+                                </div>
 
                                 <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100">Узнать про авто</button>
                             </form>

@@ -159,6 +159,16 @@
       color: $dark-section-title;
       position: relative;
       display: block;
+      position: relative;
+
+      &_img {
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        height: 17px;
+        width: 14px;
+      }
 
       &:after {
         content: '';

@@ -321,6 +321,9 @@ get_header();
 <section class="faq">
 
     <div class="faq__scale-bg"></div>
+    <div class="faq__mazda">
+        <img src="<?= get_stylesheet_directory_uri() ?>/images/mazda.png">
+    </div>
 
     <div class="container faq__container">
         <div class="faq__left-side"></div>

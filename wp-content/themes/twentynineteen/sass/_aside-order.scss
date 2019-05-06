@@ -24,16 +24,29 @@
     height: 50px;
     border: 2px solid $header-link-hover-color;
     border-radius: 0;
-    margin-top: 30px;
     padding-left: 60px;
     color: $placeholder-color;
     font-family: 'Roboto', sans-serif;
     font-size: 16px;
     outline: none;
+    background-color: transparent;
   }
 
   &__submit {
     margin-top: 50px;
+  }
+
+  &__input-wr {
+    position: relative;
+    margin-top: 30px;
+  }
+
+  &__input_img {
+    position: absolute;
+    left: 22px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
   }
 }
 
