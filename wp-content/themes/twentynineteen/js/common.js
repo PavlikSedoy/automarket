@@ -62,3 +62,17 @@ function activateDescTab() {
     $('#equipment-tab').hasClass('active') ? $('#equipment-tab').removeClass('active') : false;
     $('#desc-tab').addClass('active');
 }
+
+// Activate first spoiler
+$('.faq__spoiler:first-child .faq__content').slideDown();
+
+$('.faq__spoiler').click( function () {
+
+    $('.faq__spoiler').each( function () {
+        $(this).find('.faq__content').slideUp();
+        $(this).removeClass('active');
+    });
+
+    $(this).find('.faq__content').slideDown();
+    $(this).addClass('active');
+});

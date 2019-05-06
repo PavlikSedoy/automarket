@@ -319,6 +319,9 @@ get_header();
 
 
 <section class="faq">
+
+    <div class="faq__scale-bg"></div>
+
     <div class="container faq__container">
         <div class="faq__left-side"></div>
 
@@ -329,7 +332,58 @@ get_header();
                 <h2 class="faq__title section-title">Популярные <span>вопросы</span></h2>
             </div>
 
+            <!-- Spoilers -->
+            <div class="faq__spoilers">
 
+                <!-- Spoiler Item -->
+                <article class="faq__spoiler active">
+                    <div class="faq__item-title_block">
+                        <h4 class="faq__item-title">Как купить авто в Америке?</h4>
+                        <div class="faq__item-title_icon"></div>
+                    </div>
+
+                    <div class="faq__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
+                    </div>
+                </article>
+
+                <!-- Spoiler Item -->
+                <article class="faq__spoiler">
+                    <div class="faq__item-title_block">
+                        <h4 class="faq__item-title">Почему лучше купить авто на аукционе США?</h4>
+                        <div class="faq__item-title_icon"></div>
+                    </div>
+
+                    <div class="faq__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
+                    </div>
+                </article>
+
+                <!-- Spoiler Item -->
+                <article class="faq__spoiler">
+                    <div class="faq__item-title_block">
+                        <h4 class="faq__item-title">Почему б/у авто из Америки дешевле?</h4>
+                        <div class="faq__item-title_icon"></div>
+                    </div>
+
+                    <div class="faq__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
+                    </div>
+                </article>
+
+                <!-- Spoiler Item -->
+                <article class="faq__spoiler">
+                    <div class="faq__item-title_block">
+                        <h4 class="faq__item-title">Как купить авто в США через компанию «Auto Market»</h4>
+                        <div class="faq__item-title_icon"></div>
+                    </div>
+
+                    <div class="faq__content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
+                    </div>
+                </article>
+
+            </div>
 
 
         </div>
