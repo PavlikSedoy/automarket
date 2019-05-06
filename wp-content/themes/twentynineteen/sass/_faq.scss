@@ -1,0 +1,31 @@
+.faq {
+  position: relative;
+  background-color: $light-section-color;
+  margin-top: 90px;
+
+  &__container {
+    display: flex;
+  }
+
+  &__left-side {
+    position: relative;
+    flex-basis: 509px;
+    height: 100%;
+  }
+
+  &__right-side {
+    padding-top: 70px;
+    flex-basis: calc(100% - 509px);
+  }
+
+  // Title
+  &__title_wr {
+    text-align: center;
+  }
+
+  &__title {
+    span {
+      color: $header-blue-color;
+    }
+  }
+}

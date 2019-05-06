@@ -318,5 +318,24 @@ get_header();
 </section>
 
 
+<section class="faq">
+    <div class="container faq__container">
+        <div class="faq__left-side"></div>
+
+        <div class="faq__right-side">
+            <!-- Title -->
+            <div class="faq__title_wr">
+                <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/question-icon.svg" class="faq__h2-img">
+                <h2 class="faq__title section-title">Популярные <span>вопросы</span></h2>
+            </div>
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
 <?php
 get_footer();

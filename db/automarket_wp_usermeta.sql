@@ -20,7 +20,7 @@ UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'wp_user-settings', me
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'wp_user-settings-time', meta_value = '1556533583' WHERE umeta_id = 21;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'closedpostboxes_header-contacts', meta_value = 'a:0:{}' WHERE umeta_id = 22;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'metaboxhidden_header-contacts', meta_value = 'a:0:{}' WHERE umeta_id = 23;
-UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'session_tokens', meta_value = 'a:1:{s:64:"6386b6ee799af98485cacb45dd7e1e5f8454101ee34c6dd318223e6036c745dd";a:4:{s:10:"expiration";i:1557002310;s:2:"ip";s:9:"127.0.0.1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:5:"login";i:1556829510;}}' WHERE umeta_id = 25;
+UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'session_tokens', meta_value = 'a:1:{s:64:"28ad252aa241d875484012d2269d4a5600c3fee1cbfcf9fc731e1e2819eabab6";a:4:{s:10:"expiration";i:1557218897;s:2:"ip";s:9:"127.0.0.1";s:2:"ua";s:104:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36";s:5:"login";i:1557046097;}}' WHERE umeta_id = 25;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'managenav-menuscolumnshidden', meta_value = 'a:5:{i:0;s:11:"link-target";i:1;s:11:"css-classes";i:2;s:3:"xfn";i:3;s:11:"description";i:4;s:15:"title-attribute";}' WHERE umeta_id = 26;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'metaboxhidden_nav-menus', meta_value = 'a:3:{i:0;s:29:"add-post-type-header-contacts";i:1;s:27:"add-post-type-header-social";i:2;s:12:"add-post_tag";}' WHERE umeta_id = 27;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'nav_menu_recently_edited', meta_value = '2' WHERE umeta_id = 28;
@@ -33,5 +33,5 @@ UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'closedpostboxes_home-
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'metaboxhidden_home-slider', meta_value = 'a:0:{}' WHERE umeta_id = 35;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'closedpostboxes_avto', meta_value = 'a:0:{}' WHERE umeta_id = 36;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'metaboxhidden_avto', meta_value = 'a:0:{}' WHERE umeta_id = 37;
-UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'meta-box-order_avto', meta_value = 'a:4:{s:15:"acf_after_title";s:0:"";s:4:"side";s:30:"submitdiv,postimagediv,slugdiv";s:6:"normal";s:21:"pods-meta-more-fields";s:8:"advanced";s:0:"";}' WHERE umeta_id = 38;
+UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'meta-box-order_avto', meta_value = 'a:4:{s:15:"acf_after_title";s:0:"";s:4:"side";s:30:"submitdiv,postimagediv,slugdiv";s:6:"normal";s:69:"pods-meta-more-fields,acf-group_5cc70b3978bae,acf-group_5ccb65a13acc6";s:8:"advanced";s:0:"";}' WHERE umeta_id = 38;
 UPDATE automarket.wp_usermeta SET user_id = 1, meta_key = 'screen_layout_avto', meta_value = '2' WHERE umeta_id = 39;
