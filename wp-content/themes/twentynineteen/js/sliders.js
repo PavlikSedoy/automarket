@@ -74,8 +74,6 @@ var galleryTop = new Swiper('.current-avto__gallery-top', {
 });
 
 //  Popular Car on HOME PAGE
-
-
 $(".avto-swiper-container").each(function(index, element){
     var $this = $(this);
     $this.addClass("instance-" + index);
@@ -108,4 +106,34 @@ $(".avto-swiper-container").each(function(index, element){
             clickable: true
         }
     });
+});
+
+// Reviews Sliders
+var reviewsThumbs = new Swiper('.reviews__author-comment', {
+    spaceBetween: 12,
+    slidesPerView: 3,
+    // freeMode: true,
+    // watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    centeredSlides: true,
+    keyboard: {
+        enabled: true,
+    }
+});
+var reviewsTop = new Swiper('.reviews__current-comment', {
+    // effect: 'fade',
+    spaceBetween: 0,
+    slidesPerView: 1,
+    // width: 750,
+    navigation: {
+        nextEl: '.current-avto__button-next',
+        prevEl: '.current-avto__button-prev',
+    },
+    thumbs: {
+        el: '.current-avto__gallery-thumbs',
+        swiper: reviewsThumbs,
+    },
+    keyboard: {
+        enabled: true,
+    }
 });

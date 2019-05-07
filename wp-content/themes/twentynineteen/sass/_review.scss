@@ -1,0 +1,185 @@
+.reviews {
+  position: relative;
+  
+  // Tabs
+  &__tabs {
+    margin-bottom: 130px;
+    position: relative;
+  }
+
+  .tabs__tabs-wr {
+    margin-top: 70px;
+  }
+
+  &__current-comment {
+    .swiper-slide {
+      height: 200px;
+      position: relative;
+      background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/review-big-icon.svg');
+      background-position: 50% 0%;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_text {
+      width: 800px;
+      text-align: center;
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+      line-height: 1.76;
+      color: $dark-section-title;
+    }
+  }
+
+  &__author-comment {
+    position: relative;
+    width: 490px;
+    overflow: hidden;
+
+    &_wr {
+      position: relative;
+      width: 490px;
+      overflow: visible;
+      margin: auto;
+
+      // Buttons Next and Prev
+      .swiper-button_wr {
+        position: absolute;
+        height: 170px;
+        width: 100%;
+        top: 0;
+        left: 0;
+
+        .current-avto__button-prev {
+          left: -50px;
+        }
+
+        .current-avto__button-next {
+          left: auto;
+          right: -50px;
+        }
+      }
+    }
+
+
+  }
+
+  // Thumbnails
+  &__author {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    &_avatar-wr {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &_avatar {
+      position: relative;
+      width: 100px;
+      height: 100px;
+      background-position: 50% 50%;
+      -webkit-background-size: cover;
+      background-size: cover;
+      filter: grayscale(100%);
+      transition: .3s ease-in-out;
+      z-index: 2;
+
+      &:after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30px;
+        height: 30px;
+        background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/review-small-icon.svg');
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-color: $header-blue-color;
+        opacity: 0;
+        transition: .3s ease-in-out;
+      }
+    }
+
+    &_name {
+      font-family: 'Graphik', sans-serif;
+      font-size: 21px;
+      font-weight: bold;
+      color: $dark-section-title;
+      position: absolute;
+      display: inline;
+      white-space: nowrap;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+
+      &_wr {
+        margin-top: 35px;
+        position: relative;
+        width: 100%;
+        height: 40px;
+        transform: translateY(-100px);
+        opacity: 0;
+        z-index: 1;
+        transition: .5s ease-in-out;
+      }
+    }
+
+    &_auto {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      white-space: nowrap;
+      font-size: 18px;
+      font-family: 'Roboto', sans-serif;
+      color: $dark-section-title;
+      top: 0;
+
+      &_wr {
+        position: relative;
+        margin-top: 5px;
+        height: 20px;
+        transform: translateY(-100px);
+        opacity: 0;
+        transition: .5s ease-in-out;
+      }
+    }
+
+    &.swiper-slide-thumb-active {
+      .reviews__author_avatar {
+        filter: grayscale(0%);
+        width: 170px;
+        height: 170px;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      .reviews__author_name {
+        &_wr {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+
+      .reviews__author_auto {
+        &_wr {
+          transform: translateY(0px);
+          opacity: 1;
+        }
+      }
+
+    }
+
+  }
+}
