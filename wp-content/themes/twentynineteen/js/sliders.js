@@ -116,6 +116,7 @@ var reviewsThumbs = new Swiper('.reviews__author-comment', {
     // watchSlidesVisibility: true,
     watchSlidesProgress: true,
     centeredSlides: true,
+    allowTouchMove: false,
     keyboard: {
         enabled: true,
     }

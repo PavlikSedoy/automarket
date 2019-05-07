@@ -141,7 +141,92 @@ get_header();
 
                 <!-- Video Review Tab -->
                 <div class="tabs__tab" id="equipment-tab">
-                    Video
+
+                    <!-- Videos Wrapper -->
+                    <div class="reviews__video-wr">
+
+                        <!-- Video Item -->
+                        <div class="reviews__video-item">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <span class="reviews__video-item_name">Артур Пархомов</span>
+
+                            <span class="reviews__video-item_car-name">Audi A7</span>
+
+                            <div class="reviews__video-item_desc">
+                                <p>
+                                    Дата покупки авто в США: 24 ноября 2018<br>
+                                    Дата здачи автомобля клиенту: 29 января 2019<br>
+                                    Исполнитель: Авто Маркет Украина<br>
+                                    Заказчик: Андрей Арбузов<br>
+                                    Объем двигателя: 1.6 л<br>
+                                    Пробег автомобиля: 110 тыс м
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Video Item -->
+                        <div class="reviews__video-item">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <span class="reviews__video-item_name">Артур Пархомов</span>
+
+                            <span class="reviews__video-item_car-name">Audi A7</span>
+
+                            <div class="reviews__video-item_desc">
+                                <p>
+                                    Дата покупки авто в США: 24 ноября 2018<br>
+                                    Дата здачи автомобля клиенту: 29 января 2019<br>
+                                    Исполнитель: Авто Маркет Украина<br>
+                                    Заказчик: Андрей Арбузов<br>
+                                    Объем двигателя: 1.6 л<br>
+                                    Пробег автомобиля: 110 тыс м
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Video Item -->
+                        <div class="reviews__video-item">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <span class="reviews__video-item_name">Артур Пархомов</span>
+
+                            <span class="reviews__video-item_car-name">Audi A7</span>
+
+                            <div class="reviews__video-item_desc">
+                                <p>
+                                    Дата покупки авто в США: 24 ноября 2018<br>
+                                    Дата здачи автомобля клиенту: 29 января 2019<br>
+                                    Исполнитель: Авто Маркет Украина<br>
+                                    Заказчик: Андрей Арбузов<br>
+                                    Объем двигателя: 1.6 л<br>
+                                    Пробег автомобиля: 110 тыс м
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Video Item -->
+                        <div class="reviews__video-item">
+                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+                            <span class="reviews__video-item_name">Артур Пархомов</span>
+
+                            <span class="reviews__video-item_car-name">Audi A7</span>
+
+                            <div class="reviews__video-item_desc">
+                                <p>
+                                    Дата покупки авто в США: 24 ноября 2018<br>
+                                    Дата здачи автомобля клиенту: 29 января 2019<br>
+                                    Исполнитель: Авто Маркет Украина<br>
+                                    Заказчик: Андрей Арбузов<br>
+                                    Объем двигателя: 1.6 л<br>
+                                    Пробег автомобиля: 110 тыс м
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+
                 </div>
             </div>
         </div>
