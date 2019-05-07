@@ -104,6 +104,13 @@ body {
     }
   }
 
+  // Height
+  &__height {
+    &_50 {
+      height: 50px;
+    }
+  }
+
   // Font Size
   &__fz {
     &_15 {
