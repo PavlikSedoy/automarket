@@ -108,6 +108,7 @@ body {
   &__height {
     &_50 {
       height: 50px;
+      padding: 16px 0;
     }
   }
 
@@ -133,6 +134,7 @@ body {
 @import "footer";
 @import "logistic";
 @import "review";
+@import "contacts";
 
 .page-header {
   height: 370px;
@@ -160,51 +162,65 @@ body {
   }
 }
 
-.page__title {
-  padding-top: 100px;
-}
-
-.page__content {
-  padding-right: 100px;
-
-  p {
-    margin-bottom: 30px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    color: $header-default-text-color;
-    line-height: 1.76;
+.page {
+  &__title {
+    padding-top: 100px;
   }
 
-  h4 {
-    font-family: 'Roboto', sans-serif;
-    margin-bottom: 15px;
-    color: $dark-section-title;
-    font-size: 18px;
+  &__content-wr {
+    display: flex;
   }
 
-  ul {
-    list-style-type: none;
-    position: relative;
-    margin-bottom: 30px;
-  }
+  &__content {
+    padding-right: 100px;
 
-  li {
-    padding-left: 30px;
-    display: block;
-    position: relative;
-    font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    margin-top: 20px;
-    color: $header-default-text-color;
-
-    &:before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 10px;
-      width: 16px;
-      height: 1px;
-      background-color: $header-blue-color;
+    p {
+      margin-bottom: 30px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      color: $header-default-text-color;
+      line-height: 1.76;
     }
+
+    h4 {
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 15px;
+      color: $dark-section-title;
+      font-size: 18px;
+    }
+
+    ul {
+      list-style-type: none;
+      position: relative;
+      margin-bottom: 30px;
+    }
+
+    li {
+      padding-left: 30px;
+      display: block;
+      position: relative;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      margin-top: 20px;
+      color: $header-default-text-color;
+
+      &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 10px;
+        width: 16px;
+        height: 1px;
+        background-color: $header-blue-color;
+      }
+    }
+  }
+
+  &__left-side {
+    flex-basis: calc(100% - 370px);
+  }
+
+  &__right-side {
+    flex-basis: 370px;
   }
 }

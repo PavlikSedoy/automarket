@@ -1,0 +1,94 @@
+.page-contacts {
+  position: relative;
+  background-color: $light-section-color;
+
+  // Aside
+  &__aside-title {
+    font-size: 21px;
+  }
+
+  &__right-side {
+    padding-bottom: 100px;
+    padding-left: 10px;
+  }
+
+  &__left-side {
+    padding-right: 20px;
+    padding-bottom: 90px;
+  }
+
+  &__location-card {
+    margin-bottom: 50px;
+  }
+}
+
+// Location Card
+.location-card {
+  position: relative;
+  width: 100%;
+  display: flex;
+  background-color: $color-white;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.31);
+
+  &__content {
+    flex-basis: 295px;
+    padding-bottom: 20px;
+  }
+
+  &__map {
+    flex-basis: calc(100% - 295px);
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__country-wr {
+    margin-top: 35px;
+    position: relative;
+    padding-left: 20px;
+    height: 46px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background-color: $header-blue-color;
+    }
+  }
+
+  &__country {
+    font-family: 'Graphik', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    color: $dark-section-title;
+    line-height: 46px;
+    margin: 0;
+  }
+
+  &__location-options {
+    margin-top: 30px;
+    padding-left: 20px;
+
+    a {
+      text-decoration: none;
+      color: $header-default-text-color;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: $header-link-hover-color;
+      }
+    }
+  }
+
+  &__social {
+    margin-top: 65px;
+    padding-left: 20px;
+    width: 135px;
+  }
+
+}
