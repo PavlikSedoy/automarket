@@ -1,10 +1,10 @@
 .reviews {
   position: relative;
   background-color: $light-section-color;
+  padding-bottom: 130px;
   
   // Tabs
   &__tabs {
-    margin-bottom: 130px;
     position: relative;
   }
 
@@ -148,7 +148,7 @@
       &_wr {
         position: relative;
         margin-top: 5px;
-        height: 20px;
+        height: 30px;
         transform: translateY(-100px);
         opacity: 0;
         transition: .5s ease-in-out;
