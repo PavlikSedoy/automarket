@@ -1,0 +1,22 @@
+.about-page {
+  position: relative;
+  background-color: $light-section-color;
+  padding-bottom: 130px;
+
+  &__content {
+    flex-basis: calc(100% - 365px);
+  }
+
+  &__asside {
+    flex-basis: 365px;
+
+    .aside-order__title {
+      font-size: 21px;
+      letter-spacing: .4px;
+    }
+
+    .btn__height_50 {
+      padding: 0;
+    }
+  }
+}
