@@ -1,0 +1,13 @@
+.news {
+  position: relative;
+
+  &__content {
+    position: relative;
+    flex-basis: calc(100% - 306px);
+  }
+
+  &__asside {
+    position: relative;
+    flex-basis: 360px;
+  }
+}

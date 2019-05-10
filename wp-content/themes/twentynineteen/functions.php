@@ -400,4 +400,24 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('avto',$args);
+
+
+    //  News
+    $labels = array(
+        'name' => 'Новости',
+        'singular_name' => 'Новость',
+        'add_new' => 'Добавить новость',
+        'add_new_item' => 'Добавить новую новость',
+        'edit_item' => 'Редактировать новость',
+        'menu_name' => 'Новости'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-rss',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('news',$args);
 }
