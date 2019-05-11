@@ -1,13 +1,118 @@
 .news {
   position: relative;
+  background-color: $light-section-color;
 
+  // Page Structure
   &__content {
     position: relative;
     flex-basis: calc(100% - 306px);
+    padding-right: 30px !important;
   }
 
   &__asside {
     position: relative;
     flex-basis: 360px;
+  }
+
+  &__item {
+    margin-bottom: 50px;
+  }
+}
+
+.news-item {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  background-color: $color-white;
+  display: flex;
+  
+  &__img {
+    flex-basis: 360px;
+    height: 100%;
+    position: relative;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    background-size: cover;
+  }
+
+  &__content {
+    flex-basis: calc(100% - 360px);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  &__top-part {
+    position: relative;
+  }
+
+  // Date
+  &__date {
+    width: 125px;
+    line-height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    color: $header-link-hover-color;
+    position: absolute;
+    text-align: center;
+    background-color: $light-section-color;
+    clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+    right: 0;
+    top: 0;
+  }
+
+  // Title
+  &__title-wr {
+    position: relative;
+    margin-top: 31px;
+    padding: 10px 35px 10px 20px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 5px;
+      height: 100%;
+      background-color: $header-blue-color;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-family: 'Graphik', sans-serif;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1.29;
+    color: $dark-section-title;
+    margin: 0;
+  }
+
+  // Text
+  &__text {
+    padding-left: 20px;
+    margin-top: 10px;
+    p {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      font-size: 14px;
+      line-height: 1.76;
+      color: $header-default-text-color;
+    }
+  }
+
+  // Button
+  &__bottom-part {
+    a {
+      color: $color-white !important;
+      //display: block;
+      margin-left: 20px;
+      margin-bottom: 20px;
+
+      &:hover {
+        color: $header-blue-color !important;
+      }
+    }
   }
 }

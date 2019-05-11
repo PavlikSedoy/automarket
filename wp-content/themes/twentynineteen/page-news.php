@@ -47,7 +47,39 @@ get_header();
 
             <div class="news__content page__content">
 
-                ss
+                <?php
+                    $args = array(
+                        'post_type' => 'news',
+                        'order' => 'DESC',
+                        'posts_per_page' => 10,
+                    );
+                    $loop = new WP_Query($args);
+                    while ($loop->have_posts()) : $loop->the_post();
+                ?>
+                    <!-- News Item -->
+                    <article class="news-item news__item">
+                        <div class="news-item__img" style="background-image: url('<?php the_post_thumbnail_url() ?>');"></div>
+                        <div class="news-item__content">
+                            <div class="news-item__date">
+                                <?= get_the_date('d.m.Y') ?>
+                            </div>
+                            <div class="news-item__top-part">
+                                <div class="news-item__title-wr">
+                                    <h3 class="news-item__title"><?php the_title() ?></h3>
+                                </div>
+                                <div class="news-item__text">
+                                    <?php the_excerpt() ?>
+                                </div>
+                            </div>
+                            <div class="news-item__bottom-part">
+                                <a class="btn btn__width_265 btn__fz_15 btn__color_blue">Читать полностью</a>
+                            </div>
+                        </div>
+                    </article>
+                <?php
+                    endwhile;
+                    wp_reset_query();
+                ?>
 
             </div>
 
