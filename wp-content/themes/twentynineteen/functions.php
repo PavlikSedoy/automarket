@@ -175,6 +175,15 @@ if ( ! function_exists( 'twentynineteen_setup' ) ) :
 	}
 endif;
 add_action( 'after_setup_theme', 'twentynineteen_setup' );
+//
+//function prefix_change_category_cpt_posts_per_page( $query ) {
+//
+//    if ( ! is_admin() && post_type_exists( 'news' ) ) {
+//        $query->set( 'posts_per_page', '10' );
+//    }
+//
+//}
+//add_action( 'pre_get_posts', 'prefix_change_category_cpt_posts_per_page' );
 
 /**
  * Register widget area.
@@ -421,3 +430,59 @@ function true_register_products() {
     );
     register_post_type('news',$args);
 }
+
+//function toolset_fix_custom_posts_per_page( $query_string ){
+//    if( is_admin() || ! is_array( $query_string ) )
+//        return $query_string;
+//
+//    $post_types_to_fix = array(
+//        array(
+//            'post_type' => 'news',
+//            'posts_per_page' => 2
+//        ),
+//        // add another if you want
+//        /*
+//        array(
+//            'post_type' => 'movie',
+//            'posts_per_page' => 2
+//        ),
+//        */
+//    );
+//
+//    foreach( $post_types_to_fix as $fix ) {
+//        if( array_key_exists( 'post_type', $query_string )
+//            && $query_string['post_type'] == $fix['post_type']
+//        ) {
+//            $query_string['posts_per_page'] = $fix['posts_per_page'];
+//            return $query_string;
+//        }
+//    }
+//
+//    return $query_string;
+//}
+//
+//add_filter( 'request', 'toolset_fix_custom_posts_per_page' );
+//
+//function my_custom_posts_per_page( $query ) {
+//    if (!is_admin() && post_type_exists('news') )
+//        $query->set( 'posts_per_page', 3 );
+//}
+//add_filter('parse_query', 'my_custom_posts_per_page');
+//
+//function codernote_request($query_string ) {
+//    if ( isset( $query_string['page'] ) ) {
+//        if ( ''!=$query_string['page'] ) {
+//            if ( isset( $query_string['name'] ) ) {
+//                unset( $query_string['name'] ); }
+//        }
+//    }
+//    return $query_string;
+//}
+//add_filter('request', 'codernote_request');
+//
+//add_action('pre_get_posts', 'codernote_pre_get_posts');
+//function codernote_pre_get_posts( $query ) {
+//    if ( $query->is_main_query() && !$query->is_feed() && !is_admin() ) {
+//        $query->set( 'paged', str_replace( '/', '', get_query_var( 'page' ) ) );
+//    }
+//}

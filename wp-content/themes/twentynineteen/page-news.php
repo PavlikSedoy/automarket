@@ -48,10 +48,14 @@ get_header();
             <div class="news__content page__content">
 
                 <?php
+                  $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+
                     $args = array(
                         'post_type' => 'news',
                         'order' => 'DESC',
                         'posts_per_page' => 10,
+                        'paged' => $paged,
+                        'page' => $paged
                     );
                     $loop = new WP_Query($args);
                     while ($loop->have_posts()) : $loop->the_post();
@@ -72,19 +76,65 @@ get_header();
                                 </div>
                             </div>
                             <div class="news-item__bottom-part">
-                                <a class="btn btn__width_265 btn__fz_15 btn__color_blue">Читать полностью</a>
+                                <a href="<?= get_page_link() ?>" class="btn btn__width_265 btn__fz_15 btn__color_blue">Читать полностью</a>
                             </div>
                         </div>
                     </article>
                 <?php
                     endwhile;
+                ?>
+                <div class="ss">
+                    <?php wp_pagenavi( array( 'type' => 'multipart' ) ); ?>
+                </div>
+                <?php
                     wp_reset_query();
                 ?>
+
+                <div class="pagination">
+                    <?php
+                        $big = 999999999; // need an unlikely integer
+                        echo paginate_links( array(
+                            'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
+                            'format' => '?paged=%#%',
+                            'current' => max( 1, get_query_var('paged') ),
+                            'total' => $loop->max_num_pages
+                        ) );
+                    ?>
+                </div>
 
             </div>
 
             <div class="news__asside">
-                ss
+                <div class="popular-news">
+                    <h2 class="popular-news__title">Популярные новости</h2>
+
+                    <div class="popular-news__wr">
+                        <?php
+                        $args = array(
+                            'post_type' => 'news',
+                            'order' => 'DESC',
+                            'meta_key' => 'popular-news',
+                            'meta_value' => true,
+                            'posts_per_page' => 5
+                        );
+                        $loop = new WP_Query($args);
+                        while ($loop->have_posts()) : $loop->the_post();
+                            ?>
+                            <div class="popular-news__item">
+                                <a href="<?= get_page_link() ?>" class="popular-news__item-link"></a>
+                                <div class="popular-news__img" style="background-image: url('<?php the_post_thumbnail_url() ?>');"></div>
+                                <div class="popular-news__item-title-wr">
+                                    <h3 class="popular-news__item-title">
+                                        <?php the_title() ?>
+                                    </h3>
+                                </div>
+                            </div>
+                        <?php
+                            endwhile;
+                            wp_reset_query();
+                        ?>
+                    </div>
+                </div>
             </div>
 
         </div>
