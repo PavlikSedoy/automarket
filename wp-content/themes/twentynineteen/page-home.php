@@ -55,7 +55,7 @@ get_header();
         </div>
     </div>
 
-    //  Home Slider Request || Request form
+    <!--  Home Slider Request || Request form -->
     <div class="home-slider__request request-form">
         <div class="requst__home-title-block request-title">
             <div class="container">
@@ -71,6 +71,86 @@ get_header();
                     </div>
                 </div>
             </div>
+        </div>
+        
+        <div class="container request-form__container">
+            <form action="" class="request-form__form">
+                <div class="request-form__items-wr">
+
+                    <!-- Row -->
+<!--                    <div class="request-form__items-row">-->
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input" placeholder="Марка">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
+                            </div>
+                            <div class="request-form__arrow-img">
+                                <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input" placeholder="Модель">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
+                            </div>
+                            <div class="request-form__arrow-img">
+                                <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input" placeholder="Местоположение">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
+                            </div>
+                            <div class="request-form__arrow-img">
+                                <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                </svg>
+                            </div>
+                        </div>
+
+                        <div class="request-form__range-wr">
+
+                        </div>
+<!--                    </div>-->
+
+                    <!-- Row -->
+<!--                    <div class="request-form__items-row">-->
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="request-form__input-wr">
+                            <input type="text" class="request-form__input">
+                            <div class="request-form__img">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                            </div>
+                        </div>
+
+                        <div class="request-form__range-wr">
+
+                        </div>
+<!--                    </div>-->
+                    
+                </div>
+                
+            </form>
         </div>
     </div>
 </section>

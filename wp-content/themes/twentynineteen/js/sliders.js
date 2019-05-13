@@ -43,8 +43,6 @@ var mySwiperHome = new Swiper ('.home-slider__slider', {
     }
 });
 
-// console.log(mySwiperHome.$el);
-
 // Current auto photo slider
 var galleryThumbs = new Swiper('.current-avto__gallery-thumbs', {
     spaceBetween: 12,
