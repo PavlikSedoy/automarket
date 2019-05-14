@@ -76,3 +76,28 @@ $('.faq__spoiler').click( function () {
     $(this).find('.faq__content').slideDown();
     $(this).addClass('active');
 });
+
+// Year Range
+$("#year-range").ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 2000,
+    max: 2019,
+    from: 2003,
+    to: 2015,
+    hide_min_max: true,
+    postfix: ' г.'
+});
+
+// Price Range
+$("#price-range").ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 3500,
+    max: 40000,
+    from: 10000,
+    to: 30000,
+    hide_min_max: true,
+    postfix: ' $',
+    step: 500
+});

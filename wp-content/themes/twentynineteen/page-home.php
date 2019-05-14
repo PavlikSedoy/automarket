@@ -116,38 +116,42 @@ get_header();
                         </div>
 
                         <div class="request-form__range-wr">
-
+                            <input id="year-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
 
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
                         <div class="request-form__input-wr">
-                            <input type="text" class="request-form__input">
+                            <input type="text" class="request-form__input" placeholder="Имя">
                             <div class="request-form__img">
-                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/name-icon.svg">
                             </div>
                         </div>
 
                         <div class="request-form__input-wr">
-                            <input type="text" class="request-form__input">
+                            <input type="text" class="request-form__input" placeholder="Телефон">
                             <div class="request-form__img">
-                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/phone-icon-icon.svg">
                             </div>
                         </div>
 
                         <div class="request-form__input-wr">
-                            <input type="text" class="request-form__input">
+                            <input type="text" class="request-form__input" placeholder="E-mail">
                             <div class="request-form__img">
-                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg" alt="">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/3auto-page-icons/email-icon.svg" alt="">
                             </div>
                         </div>
 
                         <div class="request-form__range-wr">
-
+                            <input id="price-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
                     
+                </div>
+
+                <div class="request-form__btn-wr">
+                    <button class="btn btn__width_265 btn__height_50 btn__color_blue">Подобрать авто</button>
                 </div>
                 
             </form>

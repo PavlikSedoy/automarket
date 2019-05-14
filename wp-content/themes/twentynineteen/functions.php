@@ -231,6 +231,12 @@ function twentynineteen_scripts() {
     wp_enqueue_style(
             'bootstrap',
             get_template_directory_uri() . '/libs/bootstrap/bootstrap.min.css');
+
+    //  Range
+    wp_enqueue_style(
+        'range-css',
+        get_template_directory_uri() . '/libs/ion.rangeSlider.min.css');
+
     wp_enqueue_style('main-style', get_stylesheet_uri() );
 
     //  Actual jQuery ver.
@@ -250,6 +256,14 @@ function twentynineteen_scripts() {
             get_stylesheet_directory_uri() . '/js/sliders.js', array('jquery'),
             '1.0',
             true
+    );
+
+    //  Common Scripts
+    wp_enqueue_script(
+        'range-plugin',
+        get_stylesheet_directory_uri() . '/js/ion.rangeSlider.min.js', array('jquery'),
+        '1.0',
+        true
     );
 
     //  Common Scripts
