@@ -113,15 +113,12 @@ $(document).ready( function () {
             response.json().then( function (data) {
                 var cars = data;
                 gCars = cars;
+
+                $(gCars).each( function () {
+                    $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
+                });
             });
         });
-});
-
-// On Focus
-$('#car-brand').focus( function () {
-    $(gCars).each( function () {
-        $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
-    });
 });
 
 // Live Search
@@ -135,3 +132,21 @@ $('#car-brand').keyup( function () {
             }
         });
 });
+
+// $('.request-form__input-list_li').click( function (e) {
+//     var carBrand = this.text();
+//     console.log(e.target);
+// });
+
+$(document).click( function (e) {
+    var carBrandClass = $(e.target).attr('class');
+    // console.log(carBrandClass);
+
+    if (carBrandClass == 'request-form__input-list_li') {
+
+        var brandMaker = $(e.target).text();
+
+        $('#car-brand').val(brandMaker);
+        // console.log(brandMaker);
+    }
+})
