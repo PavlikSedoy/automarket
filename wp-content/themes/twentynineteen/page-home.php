@@ -80,7 +80,7 @@ get_header();
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
                         <div class="request-form__input-wr">
-                            <input type="text" class="request-form__input" placeholder="Марка">
+                            <input type="text" class="request-form__input" placeholder="Марка" id="car-brand">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                             </div>
@@ -88,6 +88,11 @@ get_header();
                                 <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                                 </svg>
+                            </div>
+
+                            <div class="request-form__input-list" id="car-brand-list">
+                                <ul class="request-form__input-list_ul" id="car-brand-list-ul">
+                                </ul>
                             </div>
                         </div>
 

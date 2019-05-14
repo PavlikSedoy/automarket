@@ -101,3 +101,37 @@ $("#price-range").ionRangeSlider({
     postfix: ' $',
     step: 500
 });
+
+// Car Brand Live Search
+// Global var to Car
+var gCars = [];
+
+// Fetch JSON API
+$(document).ready( function () {
+    fetch('/index.php?rest_route=/my_endpoint/v1/car-models/')
+        .then( function (response) {
+            response.json().then( function (data) {
+                var cars = data;
+                gCars = cars;
+            });
+        });
+});
+
+// On Focus
+$('#car-brand').focus( function () {
+    $(gCars).each( function () {
+        $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
+    });
+});
+
+// Live Search
+$('#car-brand').keyup( function () {
+    $('#car-brand-list-ul').empty();
+
+    $(gCars).each( function () {
+            var brand = this.brand;
+            if ( ~brand.toLowerCase().indexOf( $('#car-brand').val().toLowerCase() ) ) {
+                $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
+            }
+        });
+});
