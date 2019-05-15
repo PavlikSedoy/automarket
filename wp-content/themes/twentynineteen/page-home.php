@@ -97,7 +97,7 @@ get_header();
                         </div>
 
                         <div class="request-form__input-wr">
-                            <input type="text" class="request-form__input" placeholder="Модель">
+                            <input type="text" class="request-form__input" placeholder="Модель" id="car-model">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
                             </div>
@@ -105,6 +105,11 @@ get_header();
                                 <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                                 </svg>
+                            </div>
+
+                            <div class="request-form__input-model-list" id="car-models-list">
+                                <ul class="request-form__input-model-list_ul" id="car-models-list-ul">
+                                </ul>
                             </div>
                         </div>
 

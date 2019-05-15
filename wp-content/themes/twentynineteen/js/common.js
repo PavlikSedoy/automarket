@@ -105,6 +105,7 @@ $("#price-range").ionRangeSlider({
 // Car Brand Live Search
 // Global var to Car
 var gCars = [];
+var gModels = [];
 
 // Fetch JSON API
 $(document).ready( function () {
@@ -121,6 +122,14 @@ $(document).ready( function () {
         });
 });
 
+$('#car-brand').focus( function () {
+    $('#car-brand-list').slideDown();
+});
+
+$('#car-model').focus( function () {
+    $('#car-models-list').slideDown();
+});
+
 // Live Search
 $('#car-brand').keyup( function () {
     $('#car-brand-list-ul').empty();
@@ -130,23 +139,57 @@ $('#car-brand').keyup( function () {
             if ( ~brand.toLowerCase().indexOf( $('#car-brand').val().toLowerCase() ) ) {
                 $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
             }
-        });
+    });
 });
 
-// $('.request-form__input-list_li').click( function (e) {
-//     var carBrand = this.text();
-//     console.log(e.target);
-// });
+$('#car-model').keyup( function () {
+    $('#car-models-list-ul').empty();
+
+    $(gModels).each( function () {
+        if ( ~this.toLowerCase().indexOf( $('#car-model').val().toLowerCase() ) ) {
+            $('#car-models-list-ul').append('<li class="request-form__input-model-list_li">' + this + '</li>');
+        }
+    });
+});
+
 
 $(document).click( function (e) {
     var carBrandClass = $(e.target).attr('class');
-    // console.log(carBrandClass);
 
+    // Click on Brand Item
     if (carBrandClass == 'request-form__input-list_li') {
-
         var brandMaker = $(e.target).text();
 
+        $('#car-models-list-ul').empty();
+
+        $('#car-model').val('');
+
         $('#car-brand').val(brandMaker);
-        // console.log(brandMaker);
+
+        var selectedBrand = $('#car-brand').val();
+
+        var modelsList;
+
+        // Add Models
+        $(gCars).each( function () {
+
+            this.brand == selectedBrand ? gModels = this.models : null;
+
+        });
+
+        $(gModels).each( function () {
+            $('#car-models-list-ul').append('<li class="request-form__input-model-list_li">' + this + '</li>');
+        });
+
+        $('#car-brand-list').slideUp();
+    }
+
+    // CLick on Model Item
+    if (carBrandClass == 'request-form__input-model-list_li') {
+        var modelMaker = $(e.target).text();
+
+        $('#car-model').val(modelMaker);
+
+        $('#car-models-list').slideUp();
     }
 })
