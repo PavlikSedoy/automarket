@@ -1,0 +1,15 @@
+.calculator {
+  position: relative;
+
+  &__container {
+    background-image: url('/wp-content/themes/twentynineteen/images/calculator.jpg');
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+    background-size: cover;
+    padding-top: 60px;
+  }
+
+  &__title {
+    color: $color-white;
+  }
+}

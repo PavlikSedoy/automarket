@@ -135,44 +135,7 @@
   }
 
   // Input List for Live Search
-  &__input-list {
-    position: absolute;
-    background-color: $color-white;
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
-    top: calc(100% + 3px);
-    left: 0;
-    width: 100%;
-    z-index: 3;
-    max-height: 188px;
-    overflow: scroll;
-
-    &_ul {
-      list-style-type: none;
-      margin: 0;
-    }
-
-    &_li {
-      padding: 15px 25px;
-      font-family: 'Roboto', sans-serif;
-      font-size: 16px;
-      color: $placeholder-color;
-      border-top: 1px solid rgba($header-vertical-line_color, .4);
-      transition: .3s ease-in-out;
-      line-height: 1;
-
-      &:first-child {
-        border-top: none;
-      }
-
-      &:hover {
-        cursor: pointer;
-        padding-left: 40px;
-        color: $header-link-hover-color;
-      }
-    }
-  }
-
-  &__input-model-list {
+  &__input-list, &__input-model-list, &__input-location-list {
     position: absolute;
     background-color: $color-white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
@@ -210,7 +173,7 @@
   }
 
   // Car Brand List
-  #car-brand-list, #car-models-list {
+  #car-brand-list, #car-models-list, #car-location-list {
     display: none;
   }
 

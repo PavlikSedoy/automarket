@@ -130,6 +130,10 @@ $('#car-model').focus( function () {
     $('#car-models-list').slideDown();
 });
 
+$('#car-location').focus( function () {
+    $('#car-location-list').slideDown();
+});
+
 // Live Search
 $('#car-brand').keyup( function () {
     $('#car-brand-list-ul').empty();
@@ -192,4 +196,36 @@ $(document).click( function (e) {
 
         $('#car-models-list').slideUp();
     }
+
+    // CLick on Location Item
+    if (carBrandClass == 'request-form__input-location-list_li') {
+        var locationMaker = $(e.target).text();
+
+        $('#car-location').val(locationMaker);
+
+        $('#car-location-list').slideUp();
+    }
 })
+
+// Close Brands and Models list when click outside elements
+$(window).click(function() {
+    $('#car-brand-list').slideUp();
+    $('#car-models-list').slideUp();
+    $('#car-location-list').slideUp();
+});
+
+$('#car-brand').click(function(event){
+    event.stopPropagation();
+    $('#car-models-list').slideUp();
+    $('#car-location-list').slideUp();
+});
+$('#car-model').click(function(event){
+    event.stopPropagation();
+    $('#car-brand-list').slideUp();
+    $('#car-location-list').slideUp();
+});
+$('#car-location').click(function(event){
+    event.stopPropagation();
+    $('#car-brand-list').slideUp();
+    $('#car-models-list').slideUp();
+});
