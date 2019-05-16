@@ -1,15 +1,92 @@
 .calculator {
   position: relative;
 
+  // Light Blue Bg
+  &:before {
+    content: '';
+    position: absolute;
+    height: 50%;
+    background-color: $light-section-color;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 4px;
+    background-color: $header-blue-color;
+  }
+
   &__container {
     background-image: url('/wp-content/themes/twentynineteen/images/calculator.jpg');
     background-position: 50% 50%;
     -webkit-background-size: cover;
     background-size: cover;
     padding-top: 60px;
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 25px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      width: calc(100% + 40px);
+      height: calc(100% - 140px);
+      top: 70px;
+      background-color: $header-blue-color;
+      z-index: -1;
+    }
   }
 
   &__title {
     color: $color-white;
+  }
+
+  // Tabs
+  &__tabs {
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .tabs__header {
+    width: 754px;
+    margin: auto;
+  }
+
+  // Inputs
+  &__inputs-wr {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__calculate-btn_wr {
+    position: relative;
+    text-align: center;
+    margin-top: 90px;
+
+    button {
+      margin: auto;
+      padding: 0;
+    }
+  }
+
+  &__price {
+    font-family: 'Graphik', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    color: $color-white;
+    text-align: center;
+    margin-top: 35px;
+    width: 100%;
+    display: block;
   }
 }

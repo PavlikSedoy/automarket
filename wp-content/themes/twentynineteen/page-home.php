@@ -310,215 +310,77 @@ get_header();
         </div>
 
         <!-- Tabs -->
-        <div class="reviews__tabs tabs">
+        <div class="calculator__tabs tabs">
             <div class="tabs__header left-active">
-                <div class="tabs__header_item" data-tab="desc">Отзывы</div>
-                <div class="tabs__header_item" data-tab="equipment">Видео отзывы</div>
+                <div class="tabs__header_item" data-tab="desc">Растаможка в украине</div>
+                <div class="tabs__header_item" data-tab="equipment">Растаможка в грузии</div>
             </div>
 
             <!-- Tabs Wrapper -->
             <div class="tabs__tabs-wr">
-                <!-- Standart Review Tab -->
+                <!-- Ukraine Tab -->
                 <div class="tabs__tab active" id="desc-tab">
 
-                    <!-- Slider -->
-                    <div class="swiper-container reviews__current-comment">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Add Arrows -->
-                    </div>
+                    <form action="" class="calculator__inputs-form">
 
-                    <div class="reviews__author-comment_wr">
-                        <div class="swiper-container reviews__author-comment">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-1.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-2.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-3.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-1.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-3.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
+                        <div class="calculator__inputs-wr">
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Стоимость">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                                 </div>
                             </div>
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
+                                </div>
+                            </div>
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Тип топлива">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/fuel-icon.svg" alt="">
+                                </div>
+
+                                <div class="request-form__arrow-img">
+                                    <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Возраст">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
+                                </div>
+
+                                <div class="request-form__arrow-img">
+                                    <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                    </svg>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="swiper-button_wr">
-                            <div class="current-avto__button-next swiper-button-white"></div>
-                            <div class="current-avto__button-prev swiper-button-white"></div>
+                        <div class="calculator__calculate-btn_wr">
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50">Рассчитать</button>
                         </div>
-                    </div>
+
+                        <span class="calculator__price">$ 0</span>
+
+                    </form>
 
                 </div>
 
-                <!-- Video Review Tab -->
+                <!-- Georgia Tab -->
                 <div class="tabs__tab" id="equipment-tab">
 
-                    <!-- Videos Wrapper -->
-                    <div class="reviews__video-wr">
-
-                        <!-- Video Item -->
-                        <div class="reviews__video-item">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            <span class="reviews__video-item_name">Артур Пархомов</span>
-
-                            <span class="reviews__video-item_car-name">Audi A7</span>
-
-                            <div class="reviews__video-item_desc">
-                                <p>
-                                    Дата покупки авто в США: 24 ноября 2018<br>
-                                    Дата здачи автомобля клиенту: 29 января 2019<br>
-                                    Исполнитель: Авто Маркет Украина<br>
-                                    Заказчик: Андрей Арбузов<br>
-                                    Объем двигателя: 1.6 л<br>
-                                    Пробег автомобиля: 110 тыс м
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Video Item -->
-                        <div class="reviews__video-item">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            <span class="reviews__video-item_name">Артур Пархомов</span>
-
-                            <span class="reviews__video-item_car-name">Audi A7</span>
-
-                            <div class="reviews__video-item_desc">
-                                <p>
-                                    Дата покупки авто в США: 24 ноября 2018<br>
-                                    Дата здачи автомобля клиенту: 29 января 2019<br>
-                                    Исполнитель: Авто Маркет Украина<br>
-                                    Заказчик: Андрей Арбузов<br>
-                                    Объем двигателя: 1.6 л<br>
-                                    Пробег автомобиля: 110 тыс м
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Video Item -->
-                        <div class="reviews__video-item">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            <span class="reviews__video-item_name">Артур Пархомов</span>
-
-                            <span class="reviews__video-item_car-name">Audi A7</span>
-
-                            <div class="reviews__video-item_desc">
-                                <p>
-                                    Дата покупки авто в США: 24 ноября 2018<br>
-                                    Дата здачи автомобля клиенту: 29 января 2019<br>
-                                    Исполнитель: Авто Маркет Украина<br>
-                                    Заказчик: Андрей Арбузов<br>
-                                    Объем двигателя: 1.6 л<br>
-                                    Пробег автомобиля: 110 тыс м
-                                </p>
-                            </div>
-                        </div>
-
-                        <!-- Video Item -->
-                        <div class="reviews__video-item">
-                            <iframe width="100%" height="315" src="https://www.youtube.com/embed/Pl8c6QU6hH0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-                            <span class="reviews__video-item_name">Артур Пархомов</span>
-
-                            <span class="reviews__video-item_car-name">Audi A7</span>
-
-                            <div class="reviews__video-item_desc">
-                                <p>
-                                    Дата покупки авто в США: 24 ноября 2018<br>
-                                    Дата здачи автомобля клиенту: 29 января 2019<br>
-                                    Исполнитель: Авто Маркет Украина<br>
-                                    Заказчик: Андрей Арбузов<br>
-                                    Объем двигателя: 1.6 л<br>
-                                    Пробег автомобиля: 110 тыс м
-                                </p>
-                            </div>
-                        </div>
-
-                    </div>
+                    Georgia
 
                 </div>
             </div>
