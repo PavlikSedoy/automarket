@@ -133,6 +133,12 @@ $('#car-model').focus( function () {
 $('#car-location').focus( function () {
     $('#car-location-list').slideDown();
 });
+$('#fuel-type').focus( function () {
+    $('#car-fuel-list').slideDown();
+});
+$('#car-old').focus( function () {
+    $('#car-old-list').slideDown();
+});
 
 // Live Search
 $('#car-brand').keyup( function () {
@@ -205,13 +211,33 @@ $(document).click( function (e) {
 
         $('#car-location-list').slideUp();
     }
-})
+
+    // Click on Fuel Type Item
+    if (carBrandClass == 'request-form__input-fuel-list_li') {
+        var fuelMaker = $(e.target).text();
+
+        $('#fuel-type').val(fuelMaker);
+
+        $('#car-fuel-list').slideUp();
+    }
+
+    // Click on Old Type Item
+    if (carBrandClass == 'request-form__input-old-list_li') {
+        var oldMaker = $(e.target).text();
+
+        $('#car-old').val(oldMaker);
+
+        $('#car-old-list').slideUp();
+    }
+});
 
 // Close Brands and Models list when click outside elements
 $(window).click(function() {
     $('#car-brand-list').slideUp();
     $('#car-models-list').slideUp();
     $('#car-location-list').slideUp();
+    $('#car-old-list').slideUp();
+    $('#car-fuel-list').slideUp();
 });
 
 $('#car-brand').click(function(event){
@@ -224,8 +250,11 @@ $('#car-model').click(function(event){
     $('#car-brand-list').slideUp();
     $('#car-location-list').slideUp();
 });
-$('#car-location').click(function(event){
+$('#fuel-type').click(function(event){
     event.stopPropagation();
-    $('#car-brand-list').slideUp();
-    $('#car-models-list').slideUp();
+    $('#car-old-list').slideUp();
+});
+$('#car-old').click(function(event){
+    event.stopPropagation();
+    $('#car-fuel-list').slideUp();
 });

@@ -326,9 +326,13 @@ get_header();
                         <div class="calculator__inputs-wr">
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Стоимость">
+                                <input type="number" class="request-form__input" placeholder="Стоимость">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
+                                </div>
+
+                                <div class="request-form__usd-mark">
+                                    USD
                                 </div>
                             </div>
 
@@ -337,10 +341,14 @@ get_header();
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
+
+                                <div class="request-form__usd-mark">
+                                     см.куб.
+                                </div>
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Тип топлива">
+                                <input type="text" class="request-form__input" placeholder="Тип топлива" id="fuel-type">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/fuel-icon.svg" alt="">
                                 </div>
@@ -350,10 +358,17 @@ get_header();
                                         <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                                     </svg>
                                 </div>
+
+                                <div class="request-form__input-fuel-list" id="car-fuel-list">
+                                    <ul class="request-form__input-fuel-list_ul" id="car-fuel-list-ul">
+                                        <li class="request-form__input-fuel-list_li">В Украине</li>
+                                        <li class="request-form__input-fuel-list_li">В Америке</li>
+                                    </ul>
+                                </div>
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Возраст">
+                                <input type="text" class="request-form__input" placeholder="Возраст" id="car-old">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
                                 </div>
@@ -362,6 +377,26 @@ get_header();
                                     <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                                     </svg>
+                                </div>
+
+                                <div class="request-form__input-old-list" id="car-old-list">
+                                    <ul class="request-form__input-old-list_ul" id="car-old-list-ul">
+                                        <li class="request-form__input-old-list_li">1</li>
+                                        <li class="request-form__input-old-list_li">2</li>
+                                        <li class="request-form__input-old-list_li">3</li>
+                                        <li class="request-form__input-old-list_li">4</li>
+                                        <li class="request-form__input-old-list_li">5</li>
+                                        <li class="request-form__input-old-list_li">6</li>
+                                        <li class="request-form__input-old-list_li">7</li>
+                                        <li class="request-form__input-old-list_li">8</li>
+                                        <li class="request-form__input-old-list_li">9</li>
+                                        <li class="request-form__input-old-list_li">10</li>
+                                        <li class="request-form__input-old-list_li">11</li>
+                                        <li class="request-form__input-old-list_li">12</li>
+                                        <li class="request-form__input-old-list_li">13</li>
+                                        <li class="request-form__input-old-list_li">14</li>
+                                        <li class="request-form__input-old-list_li">15 и больше</li>
+                                    </ul>
                                 </div>
                             </div>
 

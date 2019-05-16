@@ -135,7 +135,7 @@
   }
 
   // Input List for Live Search
-  &__input-list, &__input-model-list, &__input-location-list {
+  &__input-list, &__input-model-list, &__input-location-list, &__input-fuel-list, &__input-old-list {
     position: absolute;
     background-color: $color-white;
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
@@ -143,7 +143,7 @@
     left: 0;
     width: 100%;
     z-index: 3;
-    max-height: 188px;
+    max-height: 141px;
     overflow: scroll;
 
     &_ul {
@@ -170,6 +170,20 @@
         color: $header-link-hover-color;
       }
     }
+  }
+
+  &__usd-mark {
+    width: 90px;
+    border-left: 1px solid $header-blue-color;
+    top: 0;
+    right: 0px;
+    position: absolute;
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    padding-top: 15px;
+    text-align: center;
+    color: $placeholder-color;
   }
 
   // Car Brand List

@@ -141,6 +141,11 @@ input {
   }
 }
 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
 //  IMPORT SCSS PARTS *******
 @import "header";
 @import "home-page";
