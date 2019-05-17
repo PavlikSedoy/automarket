@@ -361,8 +361,8 @@ get_header();
 
                                 <div class="request-form__input-fuel-list" id="car-fuel-list">
                                     <ul class="request-form__input-fuel-list_ul" id="car-fuel-list-ul">
-                                        <li class="request-form__input-fuel-list_li">В Украине</li>
-                                        <li class="request-form__input-fuel-list_li">В Америке</li>
+                                        <li class="request-form__input-fuel-list_li">Бензин</li>
+                                        <li class="request-form__input-fuel-list_li">Дизель</li>
                                     </ul>
                                 </div>
                             </div>

@@ -45,10 +45,10 @@
                         $loop = new WP_Query($args);
                         while ($loop->have_posts()) : $loop->the_post();
                     ?>
-                        <div class="swiper-slide header__contacts_slide">
+                        <div class="header__contacts_slide">
                             <!-- Location -->
                             <address class="header__contacts_location_wr">
-                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/location.svg" class="header__contacts_location_icon" />
+                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/marker.svg" class="header__contacts_location_icon" />
                                 <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "location_coordinates", $post->ID ); ?>" class="header__contacts_location_link" target="_blank"><?= get_field( "address", $post->ID ); ?></a>
                             </address>
                             <!-- Phone -->
