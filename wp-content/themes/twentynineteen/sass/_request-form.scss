@@ -145,6 +145,7 @@
     z-index: 3;
     max-height: 141px;
     overflow: scroll;
+    overflow-x: hidden;
 
     &_ul {
       list-style-type: none;

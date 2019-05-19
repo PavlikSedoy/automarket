@@ -250,6 +250,11 @@ $('#car-model').click(function(event){
     $('#car-brand-list').slideUp();
     $('#car-location-list').slideUp();
 });
+$('#car-location').click(function(event){
+    event.stopPropagation();
+    $('#car-models-list').slideUp();
+    $('#car-brand-list').slideUp();
+});
 $('#fuel-type').click(function(event){
     event.stopPropagation();
     $('#car-old-list').slideUp();

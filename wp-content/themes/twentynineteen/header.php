@@ -35,33 +35,31 @@
         <!-- Contact Slider -->
         <div class="header__contacts">
             <div class="contacts__slider">
-                <div class="swiper-wrapper">
-                    <!-- Slides -->
-                    <?php
-                        $args = array(
-                            'post_type' => 'header-contacts',
-                            'order' => 'ASC',
-                        );
-                        $loop = new WP_Query($args);
-                        while ($loop->have_posts()) : $loop->the_post();
-                    ?>
-                        <div class="header__contacts_slide">
-                            <!-- Location -->
-                            <address class="header__contacts_location_wr">
-                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/marker.svg" class="header__contacts_location_icon" />
-                                <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "location_coordinates", $post->ID ); ?>" class="header__contacts_location_link" target="_blank"><?= get_field( "address", $post->ID ); ?></a>
-                            </address>
-                            <!-- Phone -->
-                            <div class="header__contacts_location_wr">
-                                <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
-                                <a href="tel:<?= get_field( "phone", $post->ID ); ?>" class="header__contacts_location_link"><?= get_field( "phone", $post->ID ); ?></a>
-                            </div>
+                <!-- Slides -->
+                <?php
+                    $args = array(
+                        'post_type' => 'header-contacts',
+                        'order' => 'ASC',
+                    );
+                    $loop = new WP_Query($args);
+                    while ($loop->have_posts()) : $loop->the_post();
+                ?>
+                    <div class="header__contacts_slide">
+                        <!-- Location -->
+                        <address class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/marker.svg" class="header__contacts_location_icon" />
+                            <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "location_coordinates", $post->ID ); ?>" class="header__contacts_location_link" target="_blank"><?= get_field( "address", $post->ID ); ?></a>
+                        </address>
+                        <!-- Phone -->
+                        <div class="header__contacts_location_wr">
+                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="header__contacts_location_icon">
+                            <a href="tel:<?= get_field( "phone", $post->ID ); ?>" class="header__contacts_location_link"><?= get_field( "phone", $post->ID ); ?></a>
                         </div>
-                    <?php
-                        endwhile;
-                        wp_reset_query();
-                    ?>
-                </div>
+                    </div>
+                <?php
+                    endwhile;
+                    wp_reset_query();
+                ?>
             </div>
         </div>
 
