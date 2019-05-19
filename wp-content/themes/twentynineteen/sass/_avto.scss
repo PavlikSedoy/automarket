@@ -2,6 +2,11 @@
   position: relative;
   background-color: $light-section-color;
 
+  // Title
+  &__catalog-title {
+    margin-bottom: 0;
+  }
+
   // Tabs
   &__tabs {
     margin-top: 100px;
@@ -10,15 +15,26 @@
   // Page content
   &__page-content_wr {
     display: flex;
-    margin-top: 130px;
+    //margin-top: 130px;
+    position: relative;
   }
 
   &__filters {
     flex-basis: 360px;
   }
+  
+  &__filters-form {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 50px;
+    padding-bottom: 130px;
+  }
 
   &__content {
     flex-basis: calc(100% - 360px);
+    padding-left: 30px;
+    position: relative;
+    width: calc(100% - 360px);
   }
 
   // Inputs
@@ -65,8 +81,112 @@
     }
   }
 
-  #car-brand-list-filters, #car-list-filters {
+  #car-brand-list-filters, #car-list-filters, #year-to-list-filters, #year-from-list-filters, #car-fuel-list, #car-transmission-list {
     display: none;
+  }
+
+  // Range Styles
+  // Range Styles
+  .irs--flat .irs-handle>i:first-child {
+    width: 16px;
+    height: 16px;
+    border: solid 1px rgb(114, 195, 255);
+    background-color: $color-white;
+    border-radius: 50%;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $header-blue-color;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .irs--flat .irs-line {
+    height: 1px;
+    background-color: $placeholder-color;
+  }
+
+  .irs--flat .irs-bar {
+    height: 1px;
+    background-color: $header-blue-color;
+  }
+
+  .irs--flat .irs-handle {
+    top: 18px;
+  }
+
+  .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    color: $header-blue-color;
+    font-size: 12px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .irs--flat .irs-from {
+    &:after {
+      content: 'от';
+      position: absolute;
+      left: -6px;
+      top: 1px;
+    }
+  }
+
+  .irs--flat .irs-to {
+    &:after {
+      content: 'до ';
+      position: absolute;
+      left: -8px;
+      top: 1px;
+    }
+  }
+
+  .irs-from, .irs-to, .irs-single {
+    top: -3px;
+    padding-left: 10px;
+  }
+
+  &__range-wr {
+    margin-bottom: 30px;
+  }
+
+  // Buttons
+  &__btn-ok, &__btn-clear {
+    padding: 0;
+    line-height: 50px;
+    margin-top: 30px;
+  }
+
+  &__btn-ok {
+    margin-top: 50px;
+  }
+
+  // Catalog
+  &__catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 130px;
+  }
+
+  // Item
+  &__auto-item {
+    flex-basis: calc((100% - 30px)/2);
   }
 }
 

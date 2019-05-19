@@ -285,12 +285,35 @@ $('#car-brand-filters').focusout( function () {
     $('#car-brand-list-filters').fadeOut();
 });
 
+
 // FadeIn and FadeOut model list
 $('#car-model-filters').focus( function () {
     $('#car-list-filters').fadeIn();
 });
 $('#car-model-filters').focusout( function () {
     $('#car-list-filters').fadeOut();
+});
+
+// FadeIn and FadeOut year list
+$('#year-from').focus( function () {
+    $('#year-from-list-filters').fadeIn();
+});
+$('#year-from').focusout( function () {
+    $('#year-from-list-filters').fadeOut();
+});
+$('#year-to').focus( function () {
+    $('#year-to-list-filters').fadeIn();
+});
+$('#year-to').focusout( function () {
+    $('#year-to-list-filters').fadeOut();
+});
+
+// FadeIn and FadeOut transsmision list
+$('#transmission-type').focus( function () {
+    $('#car-transmission-list').fadeIn();
+});
+$('#transmission-type').focusout( function () {
+    $('#car-transmission-list').fadeOut();
 });
 
 // Select Brand on click here
@@ -322,7 +345,36 @@ function modelList(data) {
 }
 
 // Prevent key down in brand, model input
-$('#car-brand-filters').add('#car-model-filters').keydown(function (e) {
+$('#car-brand-filters').add('#car-model-filters').add('#year-from').add('#year-to').add('#fuel-type').add('#transmission-type').keydown(function (e) {
     e.preventDefault();
     return false;
+});
+
+// Select Year from
+$('.year-from-li').click( function () {
+    var selectedYearFrom = $(this).text();
+    $('#year-from').val(selectedYearFrom);
+});
+
+// Select Year to
+$('.year-to-li').click( function () {
+    var selectedYearTo = $(this).text();
+    $('#year-to').val(selectedYearTo);
+});
+
+// Select transmission type
+$('.transmission-type-li').click( function () {
+    var selectedTransmissionType = $(this).text();
+    $('#transmission-type').val(selectedTransmissionType);
+});
+
+// Apply filters
+$('#apply-filters').click( function (e) {
+    e.preventDefault();
+
+    // Get params
+    var carBrandApply = $('#car-brand-filters').val().toLowerCase();
+    var currentLink = $(this).attr('href');
+
+    carBrandApply ? $(this).attr('href', currentLink + '&brand=' + carBrandApply) : null;
 });
