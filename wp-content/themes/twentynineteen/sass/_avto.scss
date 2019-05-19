@@ -1,0 +1,62 @@
+.auto-page {
+  position: relative;
+  background-color: $light-section-color;
+
+  // Tabs
+  &__tabs {
+    margin-top: 100px;
+  }
+}
+
+// Tabs
+.auto-tabs {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border-bottom: 4px solid $header-vertical-line_color;
+
+  &__item {
+    position: relative;
+    flex-basis: 20%;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $tabs-title-color;
+    text-transform: uppercase;
+    font-family: 'Graphik', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.7px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background-color: $header-blue-color;
+      transition: .3s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $dark-section-title;
+    }
+
+    // Active tab
+    &.active {
+      position: relative;
+      color: $header-blue-color;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
