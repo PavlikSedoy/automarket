@@ -6,6 +6,68 @@
   &__tabs {
     margin-top: 100px;
   }
+
+  // Page content
+  &__page-content_wr {
+    display: flex;
+    margin-top: 130px;
+  }
+
+  &__filters {
+    flex-basis: 360px;
+  }
+
+  &__content {
+    flex-basis: calc(100% - 360px);
+  }
+
+  // Inputs
+  &__input {
+    height: 50px;
+    width: 100%;
+  }
+
+  &__input-list {
+    position: absolute;
+    background-color: $color-white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    top: calc(100% + 3px);
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    max-height: 141px;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    &_ul {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    &_li {
+      padding: 15px 25px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: $placeholder-color;
+      border-top: 1px solid rgba($header-vertical-line_color, .4);
+      transition: .3s ease-in-out;
+      line-height: 1;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+        padding-left: 40px;
+        color: $header-link-hover-color;
+      }
+    }
+  }
+
+  #car-brand-list-filters, #car-list-filters {
+    display: none;
+  }
 }
 
 // Tabs

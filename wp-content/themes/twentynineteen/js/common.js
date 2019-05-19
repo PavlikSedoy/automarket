@@ -203,6 +203,17 @@ $(document).click( function (e) {
         $('#car-models-list').slideUp();
     }
 
+    // console.log($(e.target).attr('class'));
+
+    // Select model on click here
+    if (carBrandClass == 'auto-page__input-list_li model-item-li') {
+        var modelFilterMaker = $(e.target).text();
+
+        $('#car-model-filters').val(modelFilterMaker);
+
+        $('#car-models-list').slideUp();
+    }
+
     // CLick on Location Item
     if (carBrandClass == 'request-form__input-location-list_li') {
         var locationMaker = $(e.target).text();
@@ -262,4 +273,56 @@ $('#fuel-type').click(function(event){
 $('#car-old').click(function(event){
     event.stopPropagation();
     $('#car-fuel-list').slideUp();
+});
+
+// Auto Page
+
+// FadeIn and FadeOut brand list
+$('#car-brand-filters').focus( function () {
+    $('#car-brand-list-filters').fadeIn();
+});
+$('#car-brand-filters').focusout( function () {
+    $('#car-brand-list-filters').fadeOut();
+});
+
+// FadeIn and FadeOut model list
+$('#car-model-filters').focus( function () {
+    $('#car-list-filters').fadeIn();
+});
+$('#car-model-filters').focusout( function () {
+    $('#car-list-filters').fadeOut();
+});
+
+// Select Brand on click here
+$('.brand-item-li').click( function () {
+    var selectedBrand = $(this).text();
+
+    $('#car-brand-filters').val(selectedBrand);
+
+    // And get models list
+    $.ajax({
+        type: 'POST',
+        url: '/wp-admin/admin-ajax.php',
+        dataType: 'json',
+        data: 'action=get-models&brand=' + selectedBrand,
+        success: function(data) {
+            modelList(data);
+        }
+    });
+});
+
+// Add Model List to front-end
+function modelList(data) {
+    // Clear prev model list
+    $('#car-models-list-ul-filters').empty();
+
+    $(data).each( function (key, item) {
+        $('#car-models-list-ul-filters').append('<li class="auto-page__input-list_li model-item-li">' + item + '</li>');
+    });
+}
+
+// Prevent key down in brand, model input
+$('#car-brand-filters').add('#car-model-filters').keydown(function (e) {
+    e.preventDefault();
+    return false;
 });

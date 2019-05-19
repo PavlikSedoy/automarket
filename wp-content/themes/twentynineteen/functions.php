@@ -498,3 +498,38 @@ add_action( 'rest_api_init', function () {
         )
     );
 });
+
+// Get list from custom_field
+function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
+
+    global $wpdb;
+
+    if( empty( $key ) )
+        return;
+
+    $r = $wpdb->get_col( $wpdb->prepare( "
+        SELECT pm.meta_value FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        WHERE pm.meta_key = '%s' 
+        AND p.post_status = '%s' 
+        AND p.post_type = '%s'
+    ", $key, $status, $type ) );
+
+    return $r;
+}
+
+// AJAX Functions
+function get_models(){
+    $brand = $_POST['brand'];
+    $brand = strtolower($brand);
+
+    $models_list = array_unique(get_meta_values('car-' . $brand, 'avto'));
+    echo json_encode($models_list);
+    die();
+}
+
+// wp_ajax_ - только для зарегистрированных пользователей
+add_action('wp_ajax_get-models', 'get_models'); // wp_ajax_{значение параметра action}
+
+// wp_ajax_nopriv_ - только для незарегистрированных, т е для залогиненных он работать не будет (результатом выполнения запроса будет 0)
+add_action('wp_ajax_nopriv_get-model', 'get_models'); // wp_ajax_nopriv_{значение параметра action}

@@ -68,6 +68,68 @@ get_header();
         </div>
         <!-- /.auto-page__tabs -->
 
+        <div class="auto-page__page-content_wr">
+
+            <div class="auto-page__filters">
+                <form action="" class="auto-page__filters-form">
+                    <!-- Price -->
+                    <div class="request-form__range-wr">
+                        <input id="price-range" type="text" class="js-range-slider" name="my_range" value="" />
+                    </div>
+
+                    <!-- Brand -->
+                    <div class="request-form__input-wr">
+                        <input type="text" class="auto-page__input" placeholder="Марка" id="car-brand-filters">
+                        <div class="request-form__img">
+                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
+                        </div>
+                        <div class="request-form__arrow-img">
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                            </svg>
+                        </div>
+
+                        <div class="auto-page__input-list" id="car-brand-list-filters">
+                            <ul class="auto-page__input-list_ul" id="car-brand-list-ul-filters">
+                                <?php
+                                    $brand_list = array_unique(get_meta_values('car-brand', 'avto'));
+                                    foreach ($brand_list as $brand):
+                                ?>
+                                    <li class="auto-page__input-list_li brand-item-li"><?= $brand ?></li>
+                                <?php endforeach ?>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Model -->
+                    <div class="request-form__input-wr">
+                        <input type="text" class="auto-page__input" placeholder="Модель" id="car-model-filters">
+                        <div class="request-form__img">
+                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
+                        </div>
+                        <div class="request-form__arrow-img">
+                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                            </svg>
+                        </div>
+
+                        <div class="auto-page__input-list" id="car-list-filters">
+                            <ul class="auto-page__input-list_ul" id="car-models-list-ul-filters">
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /.auto-page__filters -->
+
+            <div class="auto-page__content">
+                Content
+            </div>
+            <!-- /.auto-page__content -->
+
+        </div>
+        <!-- /.auto-page__page-content_wr -->
+
     </div>
 </div>
 
