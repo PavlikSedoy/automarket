@@ -606,12 +606,12 @@ function get_cars() {
         'key'	 	=> 'current-auto-engine-capacity',
         'value'   => $engine_capacity,
 //        'type'      => 'numeric',
-        'compare' => '=',
+        'compare' => 'IN',
     );
 
     $car_brand ? array_push($args['meta_query'], $car_brand_array) : null;
     $car_model ? array_push($args['meta_query'], $car_model_array) : null;
-    $engine_capacity ? array_push($args['meta_query'], $engine_capacity_array) : null;
+    $engine_capacity > 0 ? array_push($args['meta_query'], $engine_capacity_array) : null;
 
 
     // get posts

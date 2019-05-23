@@ -335,7 +335,7 @@ get_header();
                                 <div class="avto__props_engine-capacity">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">
                                     <span class="avto__props_text">
-                            <?= get_field('current-auto-engine-capacity', $post->ID) ?>
+                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> л
                         </span>
                                 </div>
 

@@ -368,8 +368,8 @@ $('.transmission-type-li').click( function () {
     $('#transmission-type').val(selectedTransmissionType);
 });
 
-function round(value, decimals) {
-    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+var round = function(number){
+    return +number.toFixed(1);
 }
 
 // Apply filters
@@ -450,7 +450,7 @@ $('#apply-filters').click( function () {
     yearToAuto = $('#year-to').val();
     yearToAuto = parseInt(yearToAuto);
     engineCapacity = $('#engine-capacity').val();
-    engineCapacity = round(engineCapacity/1000, 1);
+    // engineCapacity = round(engineCapacity/1000, 1);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
@@ -466,7 +466,6 @@ $('#load-more-auto').click( function () {
 
 // AJAX request who get auto items
 function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity) {
-    console.log(engineCapacity);
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
@@ -591,7 +590,7 @@ function printAutoItem(item, carGallery) {
                 '</div>' +
                 '<div class="avto__props_engine-capacity">' +
                     '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">' +
-                    '<span class="avto__props_text">' + item.acf["current-auto-engine-capacity"] + '</span>' +
+                    '<span class="avto__props_text">' + round(item.acf["current-auto-engine-capacity"]/1000) + ' л</span>' +
                 '</div>' +
                 '<div class="avto__props_fuel-type">' +
                     '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">' +
