@@ -42,27 +42,27 @@ get_header();
 
         <div class="auto-page__tabs auto-tabs">
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link active">Все авто</a>
+                <a href="/" class="auto-tabs__link active" data-tab="all">Все авто</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link">Авто в Америке</a>
+                <a href="/" class="auto-tabs__link" data-tab="usa">Авто в Америке</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link">Авто в Грузии</a>
+                <a href="/" class="auto-tabs__link" data-tab="georgia">Авто в Грузии</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="<?= get_page_link(28) ?>&location=ukraine" class="auto-tabs__link">Авто в Украине</a>
+                <a href="/" class="auto-tabs__link" data-tab="ukraine">Авто в Украине</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link">Авто в пути</a>
+                <a href="/" class="auto-tabs__link" data-tab="in-road">Авто в пути</a>
             </div>
             <!-- /.auto-tabs__item -->
         </div>
@@ -272,7 +272,7 @@ get_header();
                     <h2>Каталог</h2>
                 </div>
 
-                <div class="auto-page__catalog">
+                <div class="auto-page__catalog" id="auto-page-catalog">
 
                     <?php
                     $args = array(
@@ -291,15 +291,10 @@ get_header();
                         )
                     );
 
-                    if (isset($_GET['location'])) {
-                        if ($_GET['location'] == 'ukraine') {
-                            echo 'ukraine';
-                        }
-                    }
-
                     $loop = new WP_Query($args);
                     while ($loop->have_posts()) : $loop->the_post();
                         ?>
+
                         <!-- Items -->
                         <article class="popular__avto avto auto-page__auto-item">
 
@@ -331,7 +326,12 @@ get_header();
                             </div>
 
                             <div class="avto__location_wr">
-                                <div class="avto__location"><?= get_field('auto-location', $post->ID) ?></div>
+                                <div class="avto__location">
+                                    <?php
+                                        $car_location = get_field_object('auto-location', $post->ID);
+                                        echo $car_location['value']['label'];
+                                    ?>
+                                </div>
                             </div>
 
                             <div class="avto__props">

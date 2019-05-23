@@ -533,3 +533,40 @@ add_action('wp_ajax_get-models', 'get_models'); // wp_ajax_{значение п�
 
 // wp_ajax_nopriv_ - только для незарегистрированных, т е для залогиненных он работать не будет (результатом выполнения запроса будет 0)
 add_action('wp_ajax_nopriv_get-model', 'get_models'); // wp_ajax_nopriv_{значение параметра action}
+
+
+// Rest Api for Auto Catalog Page
+function get_cars() {
+    // setup query argument
+    $tab = array('ukraine', 'usa', 'georgia', 'in-road');
+    $tab = $_GET['tab'] == 'all' ? $tab : $_GET['tab'];
+    $args = array(
+        'post_type' => 'avto',
+        'order' => 'DESC',
+        'posts_per_page' => 4,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key'	 	=> 'auto-location',
+                'value'	  	=> $tab,
+                'compare' => 'IN',
+            ),
+        )
+    );
+    // get posts
+    $posts = get_posts($args);
+    // add custom field data to posts array
+    foreach ($posts as $key => $post) {
+        $posts[$key]->acf = get_fields($post->ID);
+        $posts[$key]->link = get_permalink($post->ID);
+        $posts[$key]->image = get_the_post_thumbnail_url($post->ID);
+        $posts[$key]->gallery = get_post_meta($post->ID, 'avto-photos');
+    }
+    return $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('get_cars', '/catalog/', array(
+        'methods' => 'GET',
+        'callback' => 'get_cars',
+    ));
+});

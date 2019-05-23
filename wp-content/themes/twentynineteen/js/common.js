@@ -378,3 +378,120 @@ $('#apply-filters').click( function (e) {
 
     carBrandApply ? $(this).attr('href', currentLink + '&brand=' + carBrandApply) : null;
 });
+
+// Auto Page Tabs
+$('.auto-tabs__link').click( function (e) {
+    e.preventDefault();
+
+    // Remove active class from tabs
+    removeActiveTabs();
+
+    // Add active class to clicked tab
+    $(this).addClass('active');
+
+
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
+        data: {
+            tab: $(this).data('tab')
+        },
+        dataType: 'json',
+        // beforeSend: function() {
+        //     $('#model-modal-preloader').fadeIn();
+        // },
+        success: function(data) {
+
+            var carGallery = '';
+
+            // Clear catalog
+            $('#auto-page-catalog').html('');
+
+            // Each Car
+            eachAuto(carGallery, data);
+
+            // Init slider after generate items in DOM
+            initAutoSlider();
+        }
+    });
+
+});
+
+// Each auto function
+function eachAuto(carGallery, data) {
+    $(data).each( function (key,item) {
+        carGallery = '';
+
+        // Get gallery items
+        function getGallery(gItem) {
+            $(item.gallery).each( function (gKey, gItem) {
+                carGallery += '<div class="swiper-slide avto__slide">' +
+                    '<div class="avto__slide_img" style="background-image: url(' + gItem.guid + ');">' + '</div>' +
+                    '</div>';
+            });
+
+            return carGallery;
+        }
+
+        // Get gallery items
+        getGallery(item.gallery);
+
+        // Generate items in DOM
+        printAutoItem(item, carGallery);
+    });
+}
+
+// Init slider after generate items in DOM
+function initAutoSlider() {
+    $(".avto-swiper-container").each(function(index, element){
+        var $this = $(this);
+        $this.addClass("instance-" + index);
+        $this.find(".avto-swiper-button-prev").addClass("btn-prev-" + index);
+        $this.find(".avto-swiper-button-next").addClass("btn-next-" + index);
+        var swiperHomeAvto = new Swiper (".instance-" + index, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".btn-next-" + index,
+                prevEl: ".btn-prev-" + index
+            },
+            effect: "slide",
+            pagination: {
+                el: '.avto-swiper-pagination',
+                clickable: true
+            }
+        });
+    });
+}
+
+// Generate items in DOM
+function printAutoItem(item, carGallery) {
+    $('#auto-page-catalog').append('' +
+        '<article class="popular__avto avto auto-page__auto-item">' +
+            '<div class="avto__slider">' +
+                '<div class="avto-swiper-container">' +
+                    '<div class="swiper-wrapper avto__swiper-wrapper">' +
+                    carGallery +
+                    '</div>' +
+                    '<div class="avto__slider_buttom">' +
+                        '<div class="avto-swiper-pagination"></div>' +
+                        '<div class="avto-swiper-button-prev"></div>' +
+                        '<div class="avto-swiper-button-next"></div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="avto__location_wr">' +
+                '<div class="avto__location">' + item.acf["auto-location"].label + '</div>' +
+            '</div>' +
+        '</article>');
+}
+
+// Remove active class from tabs
+function removeActiveTabs() {
+    $('.auto-tabs__link').each( function () {
+        $(this).removeClass('active');
+    });
+}
