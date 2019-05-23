@@ -230,7 +230,7 @@ get_header();
                 </div>
 
                 <div class="avto__location_wr">
-                    <div class="avto__location"><?= get_field('auto-location', $post->ID) ?></div>
+                    <div class="avto__location"><?= get_field('auto-location', $post->ID)['label'] ?></div>
                 </div>
 
                 <div class="avto__props">

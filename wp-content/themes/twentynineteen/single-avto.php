@@ -70,7 +70,7 @@ get_header();
 
                             <!-- Auto Location on active photo -->
                             <div class="current-avto__location-wr">
-                                <div class="current-avto__location"><?= get_field('auto-location', $post->ID) ?></div>
+                                <div class="current-avto__location"><?= get_field('auto-location', $post->ID)['label'] ?></div>
                             </div>
                         </div>
 
@@ -218,7 +218,7 @@ get_header();
                                 </li>
                                 <li class="current-avto__specifications_item">
                                     <div class="current-avto__specifications_item_left-side">Статус:</div>
-                                    <div class="current-avto__specifications_item_right-side"><?= get_field('auto-location', $post->ID) ?></div>
+                                    <div class="current-avto__specifications_item_right-side"><?= get_field('auto-location', $post->ID)['label'] ?></div>
                                 </li>
                             </ul>
                         </div>
