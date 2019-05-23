@@ -605,7 +605,7 @@ function get_cars() {
     $engine_capacity_array = array(
         'key'	 	=> 'current-auto-engine-capacity',
         'value'   => $engine_capacity,
-        'type'      => 'numeric',
+//        'type'      => 'numeric',
         'compare' => '=',
     );
 

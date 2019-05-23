@@ -93,10 +93,10 @@ $("#year-range").ionRangeSlider({
 $("#price-range").ionRangeSlider({
     type: "double",
     grid: false,
-    min: 3500,
-    max: 40000,
-    from: 3500,
-    to: 30000,
+    min: 4000,
+    max: 100000,
+    from: 10000,
+    to: 80000,
     hide_min_max: true,
     postfix: ' $',
     step: 500
@@ -466,6 +466,7 @@ $('#load-more-auto').click( function () {
 
 // AJAX request who get auto items
 function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity) {
+    console.log(engineCapacity);
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
