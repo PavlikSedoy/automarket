@@ -395,47 +395,7 @@ get_header();
                 <!-- /.auto-page__catalog -->
 
                 <div class="auto-page__pagination pagination">
-<!--                    --><?php
-//                    $big = 999999999; // need an unlikely integer
-//                    echo paginate_links( array(
-//                        'base' => str_replace( $big, '%#%', get_pagenum_link( $big ) ),
-//                        'format' => '?paged=%#%',
-//                        'current' => max( 1, get_query_var('paged') ),
-//                        'total' => $loop->max_num_pages
-//                    ) );
-//                    ?>
-                    <!-- Pagination Arrow left -->
-                    <div class="pagination__item pagination__item_arrow_left pagination__type_arrow">
-                        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 7.6 11.9" style="enable-background:new 0 0 7.6 11.9;" xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:#2A86C9;}
-                            </style>
-                            <path class="st0" d="M0.3,5.3C0.1,5.5,0,5.7,0,5.9c0,0.3,0.1,0.5,0.3,0.6l5,5c0.1,0.2,0.4,0.3,0.6,0.3c0.2,0,0.4-0.1,0.6-0.3
-	l0.8-0.9c0.1-0.1,0.3-0.4,0.3-0.6c0-0.2-0.1-0.4-0.3-0.6L3.8,5.9l3.6-3.6C7.5,2.2,7.6,2,7.6,1.7c0-0.2-0.1-0.4-0.3-0.6L6.6,0.3
-	C6.4,0.1,6.2,0,5.9,0C5.7,0,5.5,0.1,5.3,0.3L0.3,5.3z"/>
-                        </svg>
-                    </div>
-
-                    <div class="pagination__item active-page">1</div>
-                    <div class="pagination__item">2</div>
-                    <div class="pagination__item">3</div>
-                    <div class="pagination__item">4</div>
-                    <div class="pagination__item">5</div>
-
-                    <!-- Pagination Arrow right -->
-                    <div class="pagination__item pagination__item_arrow_right pagination__type_arrow">
-                        <svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                             viewBox="0 0 7.6 11.9" style="enable-background:new 0 0 7.6 11.9;" xml:space="preserve">
-                            <style type="text/css">
-                                .st0{fill:#2A86C9;}
-                            </style>
-                            <path class="st0" d="M7.4,5.3c0.2,0.2,0.3,0.4,0.3,0.6c0,0.3-0.1,0.5-0.3,0.6l-5,5c-0.1,0.2-0.4,0.3-0.6,0.3c-0.2,0-0.4-0.1-0.6-0.3
-	l-0.8-0.9C0.1,10.6,0,10.4,0,10.1c0-0.2,0.1-0.4,0.3-0.6l3.6-3.6L0.3,2.3C0.1,2.2,0,2,0,1.7c0-0.2,0.1-0.4,0.3-0.6l0.8-0.9
-	C1.3,0.1,1.5,0,1.7,0C2,0,2.2,0.1,2.3,0.3L7.4,5.3z"/>
-                        </svg>
-                    </div>
-
+                    <div class="pagination__btn btn btn__color_transparent btn__height_50 btn__width_265" id="load-more-auto">Показать ещё</div>
                 </div>
 
             </div>
