@@ -550,6 +550,8 @@ function get_cars() {
     $year_from = $_GET['year_from'] != 0 ? $_GET['year_from'] : 0;
     $year_to = $_GET['year_to'] != 0 ? $_GET['year_to'] : 2050;
     $engine_capacity = $_GET['engine_capacity'] != 0 ? $_GET['engine_capacity'] : false;
+    $fuel_type = isset($_GET['fuel_type']) ? $_GET['fuel_type'] : false;
+    $transmission_type = isset($_GET['transmission_type']) ? $_GET['transmission_type'] : false;
 
     $args = array(
         'post_type' => 'avto',
@@ -605,13 +607,28 @@ function get_cars() {
     $engine_capacity_array = array(
         'key'	 	=> 'current-auto-engine-capacity',
         'value'   => $engine_capacity,
-//        'type'      => 'numeric',
+        'type'      => 'numeric',
         'compare' => 'IN',
     );
+
+    $fuel_type_array = array(
+        'key'	 	=> 'current-auto-fuel-type',
+        'value'   => $fuel_type,
+        'compare' => 'IN',
+    );
+
+    $transmission_type_array = array(
+        'key'	 	=> 'current-auto-transmission',
+        'value'   => $transmission_type,
+        'compare' => 'IN',
+    );
+
 
     $car_brand ? array_push($args['meta_query'], $car_brand_array) : null;
     $car_model ? array_push($args['meta_query'], $car_model_array) : null;
     $engine_capacity > 0 ? array_push($args['meta_query'], $engine_capacity_array) : null;
+    $fuel_type ? array_push($args['meta_query'], $fuel_type_array) : null;
+    $transmission_type ? array_push($args['meta_query'], $transmission_type_array) : null;
 
 
     // get posts

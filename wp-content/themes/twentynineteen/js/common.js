@@ -396,6 +396,8 @@ var priceTo = 200000;
 var yearFrom = 0;
 var yearToAuto = 0;
 var engineCapacity;
+var fuelType = null;
+var transmissionType = null;
 
 
 $('.auto-tabs__link').click( function (e) {
@@ -420,9 +422,11 @@ $('.auto-tabs__link').click( function (e) {
     yearFrom = 0;
     yearToAuto = 0;
     engineCapacity = 0;
+    fuelType = null;
+    transmissionType = null;
 
     // AJAX request who get auto items
-    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
+    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, null, null);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
@@ -450,22 +454,26 @@ $('#apply-filters').click( function () {
     yearToAuto = $('#year-to').val();
     yearToAuto = parseInt(yearToAuto);
     engineCapacity = $('#engine-capacity').val();
-    // engineCapacity = round(engineCapacity/1000, 1);
+    fuelType = $('#fuel-type').val();
+    transmissionType = $('#transmission-type').val();
+
+    console.log(transmissionType);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
 
-    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
+    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
 });
 
 // More Auto Button
 $('#load-more-auto').click( function () {
     paged++;
-    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
+    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
 });
 
 // AJAX request who get auto items
-function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity) {
+function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
+    console.log(transmissionType);
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
@@ -480,7 +488,9 @@ function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carMod
             price_to: priceTo,
             year_from: yearFrom,
             year_to: yearToAuto,
-            engine_capacity: engineCapacity
+            engine_capacity: engineCapacity,
+            fuel_type: fuelType,
+            transmission_type: transmissionType
         },
         dataType: 'json',
         // beforeSend: function() {
