@@ -436,9 +436,18 @@ function eachAuto(carGallery, data) {
         // Get gallery items
         getGallery(item.gallery);
 
+
         // Generate items in DOM
         printAutoItem(item, carGallery);
     });
+}
+
+function getAutoModel(item) {
+    var carBrand = item.acf["car-brand"].value.toLowerCase();
+    var carModelFieldName = 'car-' + carBrand;
+    var carModel = item.acf[carModelFieldName];
+
+    return carModel;
 }
 
 // Init slider after generate items in DOM
@@ -485,6 +494,31 @@ function printAutoItem(item, carGallery) {
             '</div>' +
             '<div class="avto__location_wr">' +
                 '<div class="avto__location">' + item.acf["auto-location"].label + '</div>' +
+            '</div>' +
+            '<div class="avto__props">' +
+                '<div class="avto__props_year">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/calendar-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + item.acf["current-auto-year"] + '</span>' +
+                '</div>' +
+                '<div class="avto__props_engine-capacity">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + item.acf["current-auto-engine-capacity"] + '</span>' +
+                '</div>' +
+                '<div class="avto__props_fuel-type">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + item.acf["current-auto-fuel-type"] + '</span>' +
+                '</div>' +
+            '</div>' +
+            '<div class="avto__title-wr">' +
+                '<h4 class="avto__title">' + item.acf["car-brand"].value + ' ' + getAutoModel(item) + '</h4>' +
+            '</div>' +
+            '<div class="avto__price-details">' +
+                '<a href="' + item.guid + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>' +
+                '<div class="avto__price">' + '$ ' + item.acf["current-auto-price"] + '</div>' +
+            '</div>' +
+            '<div class="avto__footer">' +
+                '<span class="avto__footer_price">' + '$ ' + item.acf["current-auto-price-in-ukraine"] + '</span>' +
+                '<span class="avto__footer_text">Стоимость аналого в Украине</span>' +
             '</div>' +
         '</article>');
 }
