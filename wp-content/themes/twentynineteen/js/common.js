@@ -95,7 +95,7 @@ $("#price-range").ionRangeSlider({
     grid: false,
     min: 3500,
     max: 40000,
-    from: 10000,
+    from: 3500,
     to: 30000,
     hide_min_max: true,
     postfix: ' $',
@@ -368,6 +368,10 @@ $('.transmission-type-li').click( function () {
     $('#transmission-type').val(selectedTransmissionType);
 });
 
+function round(value, decimals) {
+    return Number(Math.round(value+'e'+decimals)+'e-'+decimals);
+}
+
 // Apply filters
 $('#apply-filters').click( function (e) {
     e.preventDefault();
@@ -389,9 +393,9 @@ var carModelField = null;
 var carModel = null;
 var priceFrom = 10;
 var priceTo = 200000;
-var yearFrom = 1900;
-var yearToAuto = 2050;
-
+var yearFrom = 0;
+var yearToAuto = 0;
+var engineCapacity;
 
 
 $('.auto-tabs__link').click( function (e) {
@@ -413,11 +417,12 @@ $('.auto-tabs__link').click( function (e) {
     carModel = null;
     priceFrom = 0;
     priceTo = 200000;
-    yearFrom = 1900;
-    yearToAuto = 2050;
+    yearFrom = 0;
+    yearToAuto = 0;
+    engineCapacity = 0;
 
     // AJAX request who get auto items
-    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto);
+    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
@@ -444,18 +449,23 @@ $('#apply-filters').click( function () {
     yearFrom = parseInt(yearFrom);
     yearToAuto = $('#year-to').val();
     yearToAuto = parseInt(yearToAuto);
+    engineCapacity = $('#engine-capacity').val();
+    engineCapacity = round(engineCapacity/1000, 1);
 
-    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto);
+    // Fade In More Button
+    $('#load-more-auto').fadeIn();
+
+    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
 });
 
 // More Auto Button
 $('#load-more-auto').click( function () {
     paged++;
-    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, priceFrom, priceTo, yearFrom, yeatToAuto);
+    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity);
 });
 
 // AJAX request who get auto items
-function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto) {
+function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity) {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
@@ -469,7 +479,8 @@ function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carMod
             price_from: priceFrom,
             price_to: priceTo,
             year_from: yearFrom,
-            year_to: yearToAuto
+            year_to: yearToAuto,
+            engine_capacity: engineCapacity
         },
         dataType: 'json',
         // beforeSend: function() {

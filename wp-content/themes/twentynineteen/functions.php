@@ -547,7 +547,7 @@ function get_cars() {
     $car_model = isset($_GET['car_model']) ? $_GET['car_model'] : false;
     $price_from = isset($_GET['price_from']) ? $_GET['price_from'] : 10;
     $price_to = isset($_GET['price_to']) ? $_GET['price_to'] : 200000;
-    $year_from = $_GET['year_from'] != 0 ? $_GET['year_from'] : 1900;
+    $year_from = $_GET['year_from'] != 0 ? $_GET['year_from'] : 0;
     $year_to = $_GET['year_to'] != 0 ? $_GET['year_to'] : 2050;
     $engine_capacity = $_GET['engine_capacity'] != 0 ? $_GET['engine_capacity'] : false;
 
@@ -605,7 +605,7 @@ function get_cars() {
     $engine_capacity_array = array(
         'key'	 	=> 'current-auto-engine-capacity',
         'value'   => $engine_capacity,
-//        'type'      => 'numeric',
+        'type'      => 'numeric',
         'compare' => '=',
     );
 
