@@ -66,6 +66,10 @@
   &__inputs-wr {
     display: flex;
     justify-content: space-between;
+
+    &_georgia {
+      justify-content: space-around;
+    }
   }
 
   &__calculate-btn_wr {

@@ -415,7 +415,64 @@ get_header();
                 <!-- Georgia Tab -->
                 <div class="tabs__tab" id="equipment-tab">
 
-                    Georgia
+                    <form action="" class="calculator__inputs-form">
+
+                        <div class="calculator__inputs-wr calculator__inputs-wr_georgia">
+
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
+                                </div>
+
+                                <div class="request-form__usd-mark">
+                                    см.куб.
+                                </div>
+                            </div>
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Возраст" id="car-old">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
+                                </div>
+
+                                <div class="request-form__arrow-img">
+                                    <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                    </svg>
+                                </div>
+
+                                <div class="request-form__input-old-list" id="car-old-list">
+                                    <ul class="request-form__input-old-list_ul" id="car-old-list-ul">
+                                        <li class="request-form__input-old-list_li">1</li>
+                                        <li class="request-form__input-old-list_li">2</li>
+                                        <li class="request-form__input-old-list_li">3</li>
+                                        <li class="request-form__input-old-list_li">4</li>
+                                        <li class="request-form__input-old-list_li">5</li>
+                                        <li class="request-form__input-old-list_li">6</li>
+                                        <li class="request-form__input-old-list_li">7</li>
+                                        <li class="request-form__input-old-list_li">8</li>
+                                        <li class="request-form__input-old-list_li">9</li>
+                                        <li class="request-form__input-old-list_li">10</li>
+                                        <li class="request-form__input-old-list_li">11</li>
+                                        <li class="request-form__input-old-list_li">12</li>
+                                        <li class="request-form__input-old-list_li">13</li>
+                                        <li class="request-form__input-old-list_li">14</li>
+                                        <li class="request-form__input-old-list_li">15 и больше</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="calculator__calculate-btn_wr">
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50">Рассчитать</button>
+                        </div>
+
+                        <span class="calculator__price">$ 0</span>
+
+                    </form>
 
                 </div>
             </div>
