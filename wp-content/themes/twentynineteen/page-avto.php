@@ -278,17 +278,7 @@ get_header();
                     $args = array(
                         'post_type' => 'avto',
                         'order' => 'DESC',
-//                        'meta_key' => 'current-auto-popular',
-//                        'meta_value' => true,
                         'posts_per_page' => 4,
-                        'meta_query' => array(
-                            'relation' => 'AND',
-//                            array(
-//                                'key'	 	=> 'color',
-//                                'value'	  	=> array('red', 'orange'),
-//                                'compare' 	=> '=',
-//                            ),
-                        )
                     );
 
                     $loop = new WP_Query($args);
@@ -395,7 +385,7 @@ get_header();
                 <!-- /.auto-page__catalog -->
 
                 <div class="auto-page__pagination pagination">
-                    <div class="pagination__btn btn btn__color_transparent btn__height_50 btn__width_265" id="load-more-auto">Показать ещё</div>
+                    <div class="pagination__btn btn btn__color_transparent btn__height_50 btn__width_265" id="load-more-auto"">Показать ещё</div>
                 </div>
 
             </div>

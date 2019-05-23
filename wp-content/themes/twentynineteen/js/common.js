@@ -380,21 +380,38 @@ $('#apply-filters').click( function (e) {
 });
 
 // Auto Page Tabs
+var postsPerPage = 4;
+var tab = 'all';
+var isLoadMore = false;
 $('.auto-tabs__link').click( function (e) {
     e.preventDefault();
 
     // Remove active class from tabs
     removeActiveTabs();
 
+    // Reset page count
+    paged = 1;
+
     // Add active class to clicked tab
     $(this).addClass('active');
 
+    tab = $(this).data('tab');
+    // AJAX request who get auto items
+    ajaxGetAutoItems(tab, postsPerPage, null, null);
 
+    // Fade In More Button
+    $('#load-more-auto').fadeIn();
+});
+
+// AJAX request who get auto items
+function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore) {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
         data: {
-            tab: $(this).data('tab')
+            tab: tab,
+            posts_per_page: postsPerPage,
+            paged: paged,
         },
         dataType: 'json',
         // beforeSend: function() {
@@ -405,20 +422,22 @@ $('.auto-tabs__link').click( function (e) {
             var carGallery = '';
 
             // Clear catalog
-            $('#auto-page-catalog').html('');
+            if (!isLoadMore) $('#auto-page-catalog').html('');
 
             // Each Car
             eachAuto(carGallery, data);
 
             // Init slider after generate items in DOM
             initAutoSlider();
+
+            // Hide Loade More Button when count of post < post per page
+            data.length < postsPerPage ? $('#load-more-auto').fadeOut() : null;
         }
     });
-
-});
+}
 
 // Each auto function
-function eachAuto(carGallery, data) {
+function eachAuto(carGallery, data, paged) {
     $(data).each( function (key,item) {
         carGallery = '';
 
@@ -529,3 +548,11 @@ function removeActiveTabs() {
         $(this).removeClass('active');
     });
 }
+
+var paged = 1;
+
+// More Auto Button
+$('#load-more-auto').click( function () {
+    paged++;
+    ajaxGetAutoItems(tab, postsPerPage, paged, true);
+});

@@ -540,10 +540,13 @@ function get_cars() {
     // setup query argument
     $tab = array('ukraine', 'usa', 'georgia', 'in-road');
     $tab = $_GET['tab'] == 'all' ? $tab : $_GET['tab'];
+    $posts_per_page = $_GET['posts_per_page'];
+    $paged = isset($_GET['paged']) ? $_GET['paged'] : 1;
     $args = array(
         'post_type' => 'avto',
         'order' => 'DESC',
-        'posts_per_page' => 4,
+        'posts_per_page' => $posts_per_page,
+        'paged' => $paged,
         'meta_query' => array(
             'relation' => 'AND',
             array(
