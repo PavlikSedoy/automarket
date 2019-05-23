@@ -383,6 +383,17 @@ $('#apply-filters').click( function (e) {
 var postsPerPage = 4;
 var tab = 'all';
 var isLoadMore = false;
+var paged = 1;
+var carBrand = null;
+var carModelField = null;
+var carModel = null;
+var priceFrom = 10;
+var priceTo = 200000;
+var yearFrom = 1900;
+var yearToAuto = 2050;
+
+
+
 $('.auto-tabs__link').click( function (e) {
     e.preventDefault();
 
@@ -396,15 +407,55 @@ $('.auto-tabs__link').click( function (e) {
     $(this).addClass('active');
 
     tab = $(this).data('tab');
+
+    carBrand = null;
+    carModelField = null;
+    carModel = null;
+    priceFrom = 0;
+    priceTo = 200000;
+    yearFrom = 1900;
+    yearToAuto = 2050;
+
     // AJAX request who get auto items
-    ajaxGetAutoItems(tab, postsPerPage, null, null);
+    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
+
+    // Clear filter inputs
+    $('.auto-page__input').each( function () {
+        $(this).val('');
+    });
+});
+
+// Filters
+$('#apply-filters').click( function () {
+    // Reset page count
+    paged = 1;
+
+    carBrand = $('#car-brand-filters').val();
+    carModelField = 'car-' + carBrand.toLowerCase();
+    carModel = $('#car-model-filters').val();
+    priceFrom = $('#price-range-wr .irs-from').text();
+    priceFrom = parseInt(priceFrom.replace(/[^0-9.]/g, ""));
+    priceTo = $('#price-range-wr .irs-to').text();
+    priceTo = parseInt(priceTo.replace(/[^0-9.]/g, ""));
+    yearFrom = $('#year-from').val();
+    yearFrom = parseInt(yearFrom);
+    yearToAuto = $('#year-to').val();
+    yearToAuto = parseInt(yearToAuto);
+
+    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto);
+});
+
+// More Auto Button
+$('#load-more-auto').click( function () {
+    paged++;
+    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, priceFrom, priceTo, yearFrom, yeatToAuto);
 });
 
 // AJAX request who get auto items
-function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore) {
+function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto) {
     $.ajax({
         type: 'GET',
         url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
@@ -412,6 +463,13 @@ function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore) {
             tab: tab,
             posts_per_page: postsPerPage,
             paged: paged,
+            car_brand: carBrand,
+            car_model_field: carModelField,
+            car_model: carModel,
+            price_from: priceFrom,
+            price_to: priceTo,
+            year_from: yearFrom,
+            year_to: yearToAuto
         },
         dataType: 'json',
         // beforeSend: function() {
@@ -548,11 +606,3 @@ function removeActiveTabs() {
         $(this).removeClass('active');
     });
 }
-
-var paged = 1;
-
-// More Auto Button
-$('#load-more-auto').click( function () {
-    paged++;
-    ajaxGetAutoItems(tab, postsPerPage, paged, true);
-});

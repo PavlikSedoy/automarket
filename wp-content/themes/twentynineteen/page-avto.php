@@ -78,7 +78,7 @@ get_header();
 
                 <form action="" class="auto-page__filters-form">
                     <!-- Price -->
-                    <div class="request-form__range-wr auto-page__range-wr">
+                    <div class="request-form__range-wr auto-page__range-wr" id="price-range-wr">
                         <input id="price-range" type="text" class="js-range-slider" name="my_range" value="" />
                     </div>
 
@@ -201,7 +201,7 @@ get_header();
                     </div>
 
                     <div class="request-form__input-wr">
-                        <input type="text" class="request-form__input" placeholder="Объем">
+                        <input type="text" class="request-form__input" placeholder="Объем" id="engine-capacity">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                         </div>

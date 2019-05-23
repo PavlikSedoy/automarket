@@ -542,6 +542,15 @@ function get_cars() {
     $tab = $_GET['tab'] == 'all' ? $tab : $_GET['tab'];
     $posts_per_page = $_GET['posts_per_page'];
     $paged = isset($_GET['paged']) ? $_GET['paged'] : 1;
+    $car_brand = isset($_GET['car_brand']) ? $_GET['car_brand'] : false;
+    $car_model_field = isset($_GET['car_model_field']) ? $_GET['car_model_field'] : false;
+    $car_model = isset($_GET['car_model']) ? $_GET['car_model'] : false;
+    $price_from = isset($_GET['price_from']) ? $_GET['price_from'] : 10;
+    $price_to = isset($_GET['price_to']) ? $_GET['price_to'] : 200000;
+    $year_from = $_GET['year_from'] != 0 ? $_GET['year_from'] : 1900;
+    $year_to = $_GET['year_to'] != 0 ? $_GET['year_to'] : 2050;
+    $engine_capacity = $_GET['engine_capacity'] != 0 ? $_GET['engine_capacity'] : false;
+
     $args = array(
         'post_type' => 'avto',
         'order' => 'DESC',
@@ -552,10 +561,59 @@ function get_cars() {
             array(
                 'key'	 	=> 'auto-location',
                 'value'	  	=> $tab,
-                'compare' => 'IN',
+                'compare'   => 'IN',
+            ),
+            array(
+                'key'	 	=> 'current-auto-price',
+                'value'	  	=> $price_from,
+                'type'      => 'numeric',
+                'compare' => '>=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-price',
+                'value'	  	=> $price_to,
+                'type'      => 'numeric',
+                'compare' => '<=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-year',
+                'value'	  	=> $year_from,
+                'type'      => 'numeric',
+                'compare' => '>=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-year',
+                'value'	  	=> $year_to,
+                'type'      => 'numeric',
+                'compare' => '<=',
             ),
         )
     );
+
+    $car_brand_array = array(
+        'key'	 	=> 'car-brand',
+        'value'	  	=> $car_brand,
+        'compare' => 'IN',
+    );
+
+    $car_model_array = array(
+        'key'	 	=> $car_model_field,
+        'value'   => $car_model,
+        'compare' => 'IN',
+    );
+
+    $engine_capacity_array = array(
+        'key'	 	=> 'current-auto-engine-capacity',
+        'value'   => $engine_capacity,
+//        'type'      => 'numeric',
+        'compare' => '=',
+    );
+
+    $car_brand ? array_push($args['meta_query'], $car_brand_array) : null;
+    $car_model ? array_push($args['meta_query'], $car_model_array) : null;
+    $engine_capacity ? array_push($args['meta_query'], $engine_capacity_array) : null;
+
+
     // get posts
     $posts = get_posts($args);
     // add custom field data to posts array
