@@ -112,3 +112,45 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  // How we work
+  .how-work {
+    margin-top: 30px;
+
+    &__h2-img {
+      width: 105px;
+    }
+
+    &__items {
+      justify-content: center;
+      margin-top: 0;
+    }
+
+    &__item {
+      flex-basis: 245px;
+      margin-top: 40px;
+    }
+
+    &__img {
+      width: 65px;
+    }
+
+    &__item-title_text {
+      font-size: 16px;
+    }
+
+    &__item-title {
+      height: 40px;
+    }
+
+    &__content {
+      padding-top: 10px;
+    }
+
+    &__request {
+      margin-top: 30px;
+      margin-bottom: 70px;
+    }
+  }
+}

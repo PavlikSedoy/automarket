@@ -127,6 +127,10 @@
 
 @media (max-width: 767px) {
   .calculator {
+    &__h2-img {
+      width: 150px;
+    }
+
     .request-form__input-wr, .request-form__range-wr {
       flex-basis: 100%;
     }
