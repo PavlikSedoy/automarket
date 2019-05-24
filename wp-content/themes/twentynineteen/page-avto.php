@@ -407,7 +407,7 @@ get_header();
 
     <div class="auto-page__request request-bottom">
         <div class="container request-bottom__container">
-            <div class="current-avto__content-title page__title auto-page__catalog-title">
+            <div class="current-avto__content-title page__title auto-page__catalog-title request-bottom__title">
                 <h2>Подбор авто специалистом</h2>
             </div>
             <div class="request-bottom__desc">Заполните форму и мы подберем Вам идеальный автомобиль!</div>

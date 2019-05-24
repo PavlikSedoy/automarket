@@ -23,3 +23,16 @@
     flex-direction: column;
   }
 }
+
+@media (max-width: 767px) {
+  .request-bottom {
+    &__desc {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    &__title {
+      margin-bottom: 20px !important;
+    }
+  }
+}

@@ -317,4 +317,14 @@ body.noScroll { /* ...or body.dialogShowing */
       }
     }
   }
+
+  .page-header {
+    &__text {
+      margin-top: 20px;
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
 }

@@ -358,3 +358,22 @@
     }
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .current-avto {
+    &__header-content-container {
+      h1 {
+        font-size: 33px;
+      }
+    }
+
+    &__bg {
+      img {
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
