@@ -252,6 +252,82 @@
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.31);
 }
 
+.current-avto {
+  // Range Styles
+  .irs--flat .irs-handle>i:first-child {
+    width: 16px;
+    height: 16px;
+    border: solid 1px rgb(114, 195, 255);
+    background-color: $color-white;
+    border-radius: 50%;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $header-blue-color;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .irs--flat .irs-line {
+    height: 1px;
+    background-color: $placeholder-color;
+  }
+
+  .irs--flat .irs-bar {
+    height: 1px;
+    background-color: $header-blue-color;
+  }
+
+  .irs--flat .irs-handle {
+    top: 18px;
+  }
+
+  .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    color: $header-blue-color;
+    font-size: 12px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .irs--flat .irs-from {
+    &:after {
+      content: 'от';
+      position: absolute;
+      left: -6px;
+      top: 1px;
+    }
+  }
+
+  .irs--flat .irs-to {
+    &:after {
+      content: 'до ';
+      position: absolute;
+      left: -8px;
+      top: 1px;
+    }
+  }
+
+  .irs-from, .irs-to, .irs-single {
+    top: -3px;
+    padding-left: 10px;
+  }
+}
+
 @media (max-width: 1199px) {
   .avto {
     margin-top: 40px;
@@ -347,6 +423,47 @@
   .auto-tabs {
     &__link {
       font-size: 12px;
+    }
+  }
+
+  .current-avto {
+    &__info {
+      flex-direction: column;
+    }
+
+    &__left, &__right {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+
+    &__left {
+      padding-right: 0;
+    }
+
+    &__right {
+      padding-left: 0;
+      margin-top: 30px;
+    }
+
+    .aside-order__title {
+      font-size: 21px;
+    }
+
+    .aside-order__form {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .aside-order__input-wr, .aside-order__submit {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    .aside-order__submit {
+      margin-top: 30px;
+      font-size: 15px;
+      padding: 13px 0;
     }
   }
 }
