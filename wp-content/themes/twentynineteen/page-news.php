@@ -14,14 +14,15 @@ get_header();
     <!--  News Header  -->
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/headimg.jpg">
+            <img src="<?= get_the_post_thumbnail_url(261) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <h1 class="current-avto__title"><?= the_title() ?></h1>
+            <?php $head_info = get_post(261) ?>
+            <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
                 <p>
-                    Узнайте больше о нашей компании
+                    <?= $head_info->post_content ?>
                 </p>
             </div>
         </div>

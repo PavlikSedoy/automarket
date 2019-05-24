@@ -482,6 +482,26 @@ function true_register_products() {
         'supports' => array( 'title', 'editor')
     );
     register_post_type('faq',$args);
+
+
+    //  Pages title and description
+    $labels = array(
+        'name' => 'Инфо страниц',
+        'singular_name' => 'Инфо старницы',
+        'add_new' => 'Добавить инфу страницы',
+        'add_new_item' => 'Добавить новую инфу страницы',
+        'edit_item' => 'Редактировать инфо страницы',
+        'menu_name' => 'Инфо страниц'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-format-aside',
+        'menu_position' => 2,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('page-info',$args);
 }
 
 // Allow SVG

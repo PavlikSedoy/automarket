@@ -13,15 +13,15 @@ get_header();
     <!--  Header  -->
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/headimg.jpg">
+            <img src="<?= get_the_post_thumbnail_url(256) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <h1 class="current-avto__title">Каталог автомобилей</h1>
+            <?php $head_info = get_post(256) ?>
+            <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
                 <p>
-                    В нашем каталоге Вы можете выбрать для себя автомобиль
-                    под пригон из Америки или Грузии или уже пригнанный в Украину
+                    <?= $head_info->post_content ?>
                 </p>
             </div>
         </div>
