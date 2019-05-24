@@ -191,3 +191,23 @@
     line-height: 50px;
   }
 }
+
+@media (max-width: 1199px) {
+  .footer {
+    &__menu {
+      display: none;
+    }
+
+    &__call-back {
+      display: none;
+    }
+
+    &__call-back {
+      margin-top: 40px;
+    }
+
+    &__info-wr_logo {
+      margin-top: 40px;
+    }
+  }
+}
