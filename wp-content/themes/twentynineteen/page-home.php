@@ -56,7 +56,7 @@ get_header();
     </div>
 
     <!--  Home Slider Request || Request form -->
-    <div class="home-slider__request request-form">
+    <div class="home-slider__request request-form" id="home-request-form">
         <div class="requst__home-title-block request-title">
             <div class="container">
                 <div class="request-title__wr">
@@ -75,11 +75,18 @@ get_header();
         
         <div class="container request-form__container">
             <form action="" class="request-form__form">
+
+                <div class="request-form__header">
+                    <div class="request-form__mobile-title">Подбор авто</div>
+                    <div class="request-form__mobile-close close" id="request-form-mobile-close"></div>
+                </div>
+                <!-- /.request-form__header -->
+
                 <div class="request-form__items-wr">
 
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__brand">
                             <input type="text" class="request-form__input" placeholder="Марка" id="car-brand">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
@@ -96,7 +103,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__model">
                             <input type="text" class="request-form__input" placeholder="Модель" id="car-model">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
@@ -113,7 +120,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__location">
                             <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
@@ -133,35 +140,35 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__range-wr">
+                        <div class="request-form__range-wr request-form__old">
                             <input id="year-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
 
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__name">
                             <input type="text" class="request-form__input" placeholder="Имя">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/name-icon.svg">
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__phone">
                             <input type="text" class="request-form__input" placeholder="Телефон">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/phone-icon-icon.svg">
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__email">
                             <input type="text" class="request-form__input" placeholder="E-mail">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/3auto-page-icons/email-icon.svg" alt="">
                             </div>
                         </div>
 
-                        <div class="request-form__range-wr">
+                        <div class="request-form__range-wr request-form__price">
                             <input id="price-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
@@ -176,6 +183,11 @@ get_header();
         </div>
     </div>
 </section>
+
+<!-- Request button tablet -->
+<div class="request-mobile-button" id="request-mobile-button">
+    Подобрать авто
+</div>
 
 <!-- Popular Auto Section -->
 <section class="popular">

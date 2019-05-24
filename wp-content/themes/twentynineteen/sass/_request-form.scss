@@ -192,6 +192,11 @@
     display: none;
   }
 
+  // Header mobile
+  &__header {
+    display: none;
+  }
+
 }
 
 //  Request title block
@@ -264,6 +269,80 @@
 
 @media only screen and (max-width: 1199px) {
   .request-form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $footer-bg;
+    z-index: 999;
     display: none;
+
+    &__input-wr, &__range-wr {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    &__items-wr {
+      margin-top: 70px;
+    }
+
+    // Inputs order
+    &__brand {
+      order: 1;
+    }
+
+    &__model {
+      order: 2;
+    }
+
+    &__location {
+      order: 3;
+    }
+
+    &__old {
+      order: 7;
+    }
+
+    &__name {
+      order: 4;
+    }
+
+    &__phone {
+      order: 5;
+    }
+
+    &__email {
+      order: 6;
+    }
+
+    &__price {
+      order: 7;
+    }
+
+    &__btn-wr {
+      display: flex;
+      justify-content: center;
+    }
+
+    // Header
+    &__header {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    &__mobile-title {
+      flex-basis: calc(100% - 26px);
+      font-family: 'Graphik', sans-serif;
+      font-size: 21px;
+      color: $color-white;
+      font-weight: bold;
+    }
+
+    &__close-mobile {
+      flex-basis: 26px;
+    }
+
   }
 }

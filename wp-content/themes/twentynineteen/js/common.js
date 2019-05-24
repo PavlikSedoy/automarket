@@ -636,3 +636,12 @@ $(hamburger).click(function() {
     $('body').toggleClass('noScroll');
     $('#mobile-nav').add('.menu__wr').fadeToggle(300);
 });
+
+// Home page request
+$('#request-mobile-button').click( function () {
+    $('#home-request-form').slideDown();
+});
+
+$('#request-form-mobile-close').click( function () {
+    $('#home-request-form').slideUp();
+});
