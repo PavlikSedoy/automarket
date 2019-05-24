@@ -342,3 +342,13 @@
     margin-top: 80px;
   }
 }
+
+@media only screen and (max-width: 1199px) {
+  .current-avto {
+    &__header-content-container {
+      h1 {
+        font-size: 55px;
+      }
+    }
+  }
+}

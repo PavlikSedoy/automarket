@@ -47,22 +47,22 @@ get_header();
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="usa">Авто в Америке</a>
+                <a href="/" class="auto-tabs__link" data-tab="usa"><span class="md-none">Авто</span> в Америке</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="georgia">Авто в Грузии</a>
+                <a href="/" class="auto-tabs__link" data-tab="georgia"><span class="md-none">Авто</span> в Грузии</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="ukraine">Авто в Украине</a>
+                <a href="/" class="auto-tabs__link" data-tab="ukraine"><span class="md-none">Авто</span> в Украине</a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="in-road">Авто в пути</a>
+                <a href="/" class="auto-tabs__link" data-tab="in-road"><span class="md-none">Авто</span> в пути</a>
             </div>
             <!-- /.auto-tabs__item -->
         </div>

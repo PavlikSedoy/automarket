@@ -256,6 +256,18 @@
   .avto {
     margin-top: 50px;
   }
+
+  .auto-page {
+    &__tabs {
+      margin-top: 80px;
+    }
+  }
+
+  .auto-tabs {
+    &__link {
+      font-size: 12px;
+    }
+  }
 }
 
 @media (max-width: 767px) {

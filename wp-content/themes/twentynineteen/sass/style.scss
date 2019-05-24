@@ -265,6 +265,19 @@ body.noScroll { /* ...or body.dialogShowing */
   .section-title {
     font-size: 30px;
   }
+
+  .page-header {
+    &__text {
+      p {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .md-none {
+    display: none;
+  }
 }
 
 @media (max-width: 767px) {
