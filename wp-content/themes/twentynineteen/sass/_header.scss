@@ -642,6 +642,10 @@
         top: 0;
         left: -39px;
       }
+
+      &:hover:after {
+        width: 0;
+      }
     }
 
     .page_item.current_page_item a:after {
