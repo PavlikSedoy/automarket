@@ -191,3 +191,50 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .faq {
+    &__h2-img {
+      width: 105px;
+    }
+
+    &__right-side {
+      padding-top: 30px;
+    }
+
+    &__spoilers {
+      margin-top: 40px;
+    }
+
+    &__item-title {
+      font-size: 16px;
+      line-height: 1.1;
+      flex-basis: calc(100% - 50px);
+    }
+
+    &__item-title_block {
+      display: flex;
+      align-items: center;
+      padding-left: 10px;
+    }
+
+    &__item-title_icon {
+      width: 50px;
+      flex-basis: 50px;
+    }
+
+    &__container {
+      padding-bottom: 300px;
+    }
+
+    &__scale-bg {
+      height: 300px;
+    }
+
+    &__mazda {
+      height: 195px;
+      bottom: 30px;
+      width: 300px;
+    }
+  }
+}
