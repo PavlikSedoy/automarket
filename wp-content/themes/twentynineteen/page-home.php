@@ -317,7 +317,7 @@ get_header();
     <div class="container calculator__container">
         <!-- Title -->
         <div class="how-work__title_wr">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/calculate-icon.svg" class="how-word__h2-img">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/calculate-icon.svg" class="how-work__h2-img">
             <h2 class="how-work__title section-title calculator__title">Калькулятор <span>растаможки</span></h2>
         </div>
 
@@ -338,7 +338,7 @@ get_header();
                         <div class="calculator__inputs-wr">
 
                             <div class="request-form__input-wr">
-                                <input type="number" class="request-form__input" placeholder="Стоимость">
+                                <input type="number" class="request-form__input" placeholder="Стоимость" id="calculator-price">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                                 </div>
@@ -349,7 +349,7 @@ get_header();
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <input type="number" class="request-form__input" placeholder="Объем" id="calculator-capacity">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
@@ -407,7 +407,7 @@ get_header();
                                         <li class="request-form__input-old-list_li">12</li>
                                         <li class="request-form__input-old-list_li">13</li>
                                         <li class="request-form__input-old-list_li">14</li>
-                                        <li class="request-form__input-old-list_li">15 и больше</li>
+                                        <li class="request-form__input-old-list_li">15</li>
                                     </ul>
                                 </div>
                             </div>
@@ -415,10 +415,10 @@ get_header();
                         </div>
 
                         <div class="calculator__calculate-btn_wr">
-                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50">Рассчитать</button>
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50" id="calculator-get-price">Рассчитать</button>
                         </div>
 
-                        <span class="calculator__price">$ 0</span>
+                        <span class="calculator__price">$ <span id="calculator-full-price">0</span></span>
 
                     </form>
 

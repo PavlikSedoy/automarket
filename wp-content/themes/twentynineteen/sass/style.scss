@@ -260,3 +260,9 @@ body.noScroll { /* ...or body.dialogShowing */
     flex-basis: 370px;
   }
 }
+
+@media (max-width: 1199px) {
+  .section-title {
+    font-size: 30px;
+  }
+}

@@ -101,8 +101,26 @@
 
 @media only screen and (max-width: 1199px) {
   .calculator {
+
+    &__tabs {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
     .tabs__header {
-      width: 625px;
+      width: 100%;
+    }
+
+    &__inputs-wr {
+      flex-wrap: wrap;
+    }
+
+    .request-form__input-wr, .request-form__range-wr {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    &__calculate-btn_wr {
+      margin-top: 50px;
     }
   }
 }

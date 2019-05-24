@@ -645,3 +645,37 @@ $('#request-mobile-button').click( function () {
 $('#request-form-mobile-close').click( function () {
     $('#home-request-form').slideUp();
 });
+
+// Home Page Calculator
+$('#calculator-get-price').click( function (e) {
+    e.preventDefault();
+
+    var calculatorUserAutoPrice = $('#calculator-price').val(),
+        calculatorUserAutoCapacity = $('#calculator-capacity').val(),
+        calculatorFuelType = $('#fuel-type').val(),
+        calculatorOld = $('#car-old').val();
+
+    calculatorUserAutoCapacity = round(calculatorUserAutoCapacity/1000);
+    calculatorOld = parseInt(calculatorOld);
+    calculatorUserAutoPrice = parseInt(calculatorUserAutoPrice);
+
+    // Capacity Kof
+    var capacityKof;
+
+    if ( calculatorUserAutoCapacity < 3 && calculatorFuelType == 'Бензин' ) capacityKof = 50;
+    else if ( calculatorUserAutoCapacity >= 3 && calculatorFuelType == 'Бензин' ) capacityKof = 100;
+    else if ( calculatorUserAutoCapacity < 3 && calculatorFuelType == 'Дизель' ) capacityKof = 75;
+    else if ( calculatorUserAutoCapacity >= 3 && calculatorFuelType == 'Дизель' ) capacityKof = 150;
+
+    // Axcise
+    var axcise = calculatorUserAutoCapacity * calculatorOld * capacityKof;
+
+    // NDS
+    var nds = ( calculatorUserAutoPrice + axcise ) / 3;
+    nds = round(nds);
+
+    // Price
+    var calculatorFullPrice = axcise + nds;
+
+    $('#calculator-full-price').text(calculatorFullPrice);
+});

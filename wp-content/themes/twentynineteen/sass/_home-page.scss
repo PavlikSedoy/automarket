@@ -549,4 +549,28 @@
     display: block;
   }
 
+  // Popular Auto
+  .popular {
+    padding-top: 70px;
+
+    &__h2-img {
+      width: 112px;
+    }
+
+    &__avto {
+      flex-basis: calc((100% - 15px)/2);
+    }
+
+    &__all-auto {
+      margin-top: 50px;
+    }
+  }
+
+  // Calculator
+  .how-work {
+    &__h2-img {
+      width: 112px;
+    }
+  }
+
 }
