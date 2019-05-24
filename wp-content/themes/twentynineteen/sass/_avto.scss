@@ -254,12 +254,93 @@
 
 @media (max-width: 1199px) {
   .avto {
-    margin-top: 50px;
+    margin-top: 40px;
   }
 
-  .auto-page {
+  .auto-page {  
     &__tabs {
       margin-top: 80px;
+    }
+
+    &__page-content_wr {
+      flex-direction: column;
+    }
+
+    &__container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__content {
+      flex-basis: 100%;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    &__filters {
+      flex-basis: 100%;
+      border: 2px solid rgb(219, 219, 219);
+      padding: 10px 15px;
+      position: relative;
+    }
+
+    &__filters-form {
+      padding-bottom: 0px;
+      position: relative;
+      top: 0;
+      margin-top: 0px;
+      display: none;
+    }
+
+    &__filters-title {
+      padding-top: 0px !important;
+      margin-bottom: 0;
+      border-bottom: none ;
+
+      h2 {
+        font-size: 15px !important;
+        color: $header-blue-color;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 0;
+
+        &:after {
+          display: none;
+        }
+
+      }
+
+      .request-form__arrow-img {
+        top: 22px;
+
+        svg {
+          transition: .3s ease-in-out;
+        }
+
+        &.active {
+          svg {
+            transform: rotate(180deg) translate(0%, -50%);
+            transform-origin: 50% 50%;
+
+            path {
+              fill: $header-blue-color !important;
+            }
+          }
+        }
+      }
+
+      svg path {
+        fill: $header-default-text-color !important;
+        transition: .3s ease-in-out;
+      }
+    }
+
+    &__catalog-title {
+      margin-bottom: 80px;
+    }
+
+    &__pagination {
+      padding-bottom: 90px;
     }
   }
 

@@ -102,6 +102,18 @@ $("#price-range").ionRangeSlider({
     step: 500
 });
 
+$("#price-range-req").ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 4000,
+    max: 100000,
+    from: 10000,
+    to: 80000,
+    hide_min_max: true,
+    postfix: ' $',
+    step: 500
+});
+
 // Car Brand Live Search
 // Global var to Car
 var gCars = [];
@@ -678,4 +690,12 @@ $('#calculator-get-price').click( function (e) {
     var calculatorFullPrice = axcise + nds;
 
     $('#calculator-full-price').text(calculatorFullPrice);
+});
+
+// Show/Hide Auto Filters
+$('#auto-page-filters').click(function () {
+    if ($(window).width() < 1199) {
+        $('.auto-page__filters-form').slideToggle();
+        $('#open-auto-filters-arrow').toggleClass('active');
+    }
 });

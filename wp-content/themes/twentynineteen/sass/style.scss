@@ -171,6 +171,7 @@ body.noScroll { /* ...or body.dialogShowing */
 @import "avto";
 @import "pagination";
 @import "close-mobile";
+@import "request-bottom";
 
 .page-header {
   height: 370px;
@@ -261,7 +262,15 @@ body.noScroll { /* ...or body.dialogShowing */
   }
 }
 
+.none-xl-only {
+  display: none;
+}
+
 @media (max-width: 1199px) {
+  .none-xl-only {
+    display: block;
+  }
+
   .section-title {
     font-size: 30px;
   }
