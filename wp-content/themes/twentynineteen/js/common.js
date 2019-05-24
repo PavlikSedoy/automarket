@@ -627,3 +627,12 @@ function removeActiveTabs() {
         $(this).removeClass('active');
     });
 }
+
+// Hamburger menu
+var hamburger = $(".hamburger");
+
+$(hamburger).click(function() {
+    $(this).toggleClass("is-active");
+    $('body').toggleClass('noScroll');
+    $('#mobile-nav').add('.menu__wr').fadeToggle(300);
+});

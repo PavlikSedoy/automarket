@@ -487,3 +487,12 @@
   }
 
 }
+
+@media (max-width: 1199px) {
+  .home-slider__slide-bg_img {
+    width: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

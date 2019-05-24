@@ -126,6 +126,43 @@
                 </div>
             </div>
         </div>
+
+        <div class="header__hamburger">
+            <div class="hamburger hamburger--slider
+">
+                <div class="hamburger-box">
+                    <div class="hamburger-inner"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav__container container">
+                <div class="mobile-nav__header">
+                    <h4 class="mobile-nav__title">Меню</h4>
+                </div>
+
+                <div class="mobile-nav__footer">
+                    <div class="mobile-nav__lang lang">
+                        <ul class="lang__ul">
+                            <li class="lang__item">
+                                <a href="/" class="lang__link">RU</a>
+                            </li>
+                            <li class="lang__item">
+                                <a href="/" class="lang__link">ENG</a>
+                            </li>
+                            <li class="lang__item">
+                                <a href="/" class="lang__link">GEO</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="mobile-nav__auth auth">
+                        <?php get_template_part('template-parts/header/auth' ) ?>
+                    </div>
+                </div>
+            </div>
+            <!-- /#mobile-nav.mobile-nav -->
+            </div>
     </div>
 </header>
 <nav class="menu__wr">
