@@ -248,8 +248,52 @@
   }
 }
 
+.avto {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.31);
+}
+
 @media (max-width: 1199px) {
   .avto {
     margin-top: 50px;
+  }
+}
+
+@media (max-width: 767px) {
+  .avto {
+    margin-top: 30px;
+
+    &__props_text {
+      font-size: 12px;
+    }
+
+    &__props_year, &__props_engine-capacity, &__props_fuel-type {
+      flex-basis: 80px;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__title-wr {
+      height: 40px;
+    }
+
+    &__price {
+      font-size: 16px;
+      margin-left: 24px;
+      margin-right: auto;
+    }
+
+    &__footer {
+      margin-top: 20px;
+
+      &_price {
+        font-size: 14px;
+      }
+
+      &_text {
+        font-size: 12px;
+      }
+    }
   }
 }
