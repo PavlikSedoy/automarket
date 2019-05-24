@@ -324,8 +324,8 @@ get_header();
         <!-- Tabs -->
         <div class="calculator__tabs tabs">
             <div class="tabs__header left-active">
-                <div class="tabs__header_item" data-tab="desc">Растаможка в украине</div>
-                <div class="tabs__header_item" data-tab="equipment">Растаможка в грузии</div>
+                <div class="tabs__header_item" data-tab="desc"><span class="xs-none">Растаможка</span> в украине</div>
+                <div class="tabs__header_item" data-tab="equipment"><span class="xs-none">Растаможка</span> в грузии</div>
             </div>
 
             <!-- Tabs Wrapper -->

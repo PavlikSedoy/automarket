@@ -124,3 +124,56 @@
     }
   }
 }
+
+@media (max-width: 767px) {
+  .calculator {
+    .request-form__input-wr, .request-form__range-wr {
+      flex-basis: 100%;
+    }
+
+    &__tabs {
+      width: 280px;
+      margin-top: 35px;
+    }
+
+    .xs-none {
+      display: none;
+    }
+
+    .tabs__header_item {
+      font-size: 12px;
+    }
+
+    .tabs__header:before {
+      height: 2px;
+    }
+
+    .tabs__header:after {
+      height: 2px;
+    }
+
+    .tabs__header_item {
+      padding: 3px 0;
+    }
+
+    .tabs__tabs-wr {
+      margin-top: 10px;
+    }
+
+    &__calculate-btn_wr {
+      margin-top: 30px;
+    }
+
+    &__price {
+      margin-top: 25px;
+      font-size: 25px;
+    }
+    
+    &__container {
+      width: 290px;
+      position: relative;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}
