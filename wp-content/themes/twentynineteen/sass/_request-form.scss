@@ -277,7 +277,7 @@
     width: 100vw;
     height: 100vh;
     background-color: $footer-bg;
-    z-index: 999;
+    z-index: 9999;
     display: none;
 
     &__input-wr, &__range-wr {
@@ -344,5 +344,30 @@
       flex-basis: 26px;
     }
 
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .request-mobile-button {
+    font-size: 12px;
+    padding: 12px 0 10px 0;
+  }
+
+  .request-form {
+    &__input-wr, &__range-wr {
+      flex-basis: 100%;
+    }
+
+    &__items-wr {
+      margin-top: 0;
+    }
+
+    &__location {
+      display: none;
+    }
+
+    &__email {
+      display: none;
+    }
   }
 }

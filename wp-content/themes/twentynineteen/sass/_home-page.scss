@@ -498,6 +498,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      height: 100%;
     }
 
     &__content {
@@ -573,4 +574,69 @@
     }
   }
 
+}
+
+@media (max-width: 767px) {
+  // Home slider
+  .home-slider {
+    height: calc(100vh - 100px);
+
+    &__slider, &__content_wr, &__slide-bg, &__slide {
+      height: calc(100vh - 100px);
+    }
+
+    &__nav {
+      height: 50px;
+      top: calc(100% - 65px);
+    }
+
+    &__prev-btn {
+      left: 15px;
+    }
+
+    &__next-btn {
+      right: calc(100% - 115px);
+    }
+
+    &__pagination {
+      bottom: 0;
+    }
+
+    &__title {
+      margin-left: 0;
+      width: 265px;
+
+      h1 {
+        font-size: 31px;
+      }
+    }
+
+    &__btn_wr {
+      margin-left: 0;
+    }
+
+    &__btn {
+      margin-top: 25px;
+    }
+  }
+
+  // Popular
+  .popular {
+    display: none;
+  }
+
+  // Calculator
+  .calculator {
+    display: none;
+  }
+
+  // How we work
+  .how-work {
+    display: none;
+  }
+
+  // FAQ
+  .faq {
+    display: none;
+  }
 }

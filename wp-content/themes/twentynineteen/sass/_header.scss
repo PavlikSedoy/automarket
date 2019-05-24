@@ -712,3 +712,21 @@
     }
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .header {
+    height: 60px;
+    &__social {
+      margin-right: 0;
+    }
+
+    &__search {
+      display: none;
+    }
+
+    &__logo {
+      flex-basis: 80px;
+      width: 80px;
+    }
+  }
+}
