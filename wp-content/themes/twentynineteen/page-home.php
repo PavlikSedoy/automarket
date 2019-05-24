@@ -561,55 +561,32 @@ get_header();
 
             <!-- Spoilers -->
             <div class="faq__spoilers">
+                <?php
+                    $n = 0;
+                    $args = array(
+                        'post_type' => 'faq',
+                        'order' => 'ASC',
+                        'posts_per_page' => 10
+                    );
+                    $loop = new WP_Query($args);
+                    while ($loop->have_posts()) : $loop->the_post();
+                    $n++;
+                ?>
+                    <!-- Spoiler Item -->
+                    <article class="faq__spoiler <?php if ($n == 1) echo 'active'; ?>">
+                        <div class="faq__item-title_block">
+                            <h4 class="faq__item-title"><?= the_title() ?></h4>
+                            <div class="faq__item-title_icon"></div>
+                        </div>
 
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler active">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Как купить авто в Америке?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Почему лучше купить авто на аукционе США?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Почему б/у авто из Америки дешевле?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Как купить авто в США через компанию «Auto Market»</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
+                        <div class="faq__content">
+                            <?= the_content() ?>
+                        </div>
+                    </article>
+                <?php
+                    endwhile;
+                    wp_reset_query();
+                ?>
             </div>
 
 

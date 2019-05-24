@@ -160,3 +160,34 @@
   }
 
 }
+
+@media (max-width: 1199px) {
+  .faq {
+    &__container {
+      padding-bottom: 555px;
+    }
+
+    &__h2-img {
+      width: 112px;
+    }
+
+    // Scale Bg
+    &__scale-bg {
+      bottom: 0;
+      height: 550px;
+      width: 100%;
+      clip-path: polygon(0% 0%, 5px 0%, 105% 100%, 0% 100%);
+    }
+
+    // Mazda
+    &__mazda {
+      bottom: 130px;
+      height: 350px;
+      width: 610px;
+
+      img {
+        height: 100%;
+      }
+    }
+  }
+}

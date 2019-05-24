@@ -444,7 +444,7 @@ function true_register_products() {
     );
     register_post_type('news',$args);
 
-    //  News
+    //  How We Work
     $labels = array(
         'name' => 'Как мы работаем',
         'singular_name' => 'Как работаем',
@@ -462,6 +462,26 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('how-we-working',$args);
+
+
+    //  FAQ
+    $labels = array(
+        'name' => 'FAQ',
+        'singular_name' => 'FAQ',
+        'add_new' => 'Добавить пункт',
+        'add_new_item' => 'Добавить новый пункт',
+        'edit_item' => 'Редактировать пункт',
+        'menu_name' => 'FAQ'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-lightbulb',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor')
+    );
+    register_post_type('faq',$args);
 }
 
 // Allow SVG
