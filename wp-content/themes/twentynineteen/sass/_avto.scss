@@ -262,6 +262,10 @@
   .avto {
     margin-top: 30px;
 
+    &__slide_img {
+      height: 240px;
+    }
+
     &__props_text {
       font-size: 12px;
     }

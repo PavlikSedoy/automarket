@@ -214,6 +214,16 @@
 
 @media (max-width: 767px) {
   .footer {
-    display: none;
+    &__container {
+      flex-direction: column;
+    }
+
+    &__contacts_ul {
+      margin-top: 20px;
+    }
+
+    &__copyright {
+      font-size: 12px;
+    }
   }
 }
