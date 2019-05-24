@@ -96,5 +96,19 @@
     display: flex;
     justify-content: center;
   }
+}
 
+@media (max-width: 1199px) {
+  .how-work {
+    margin-top: 70px;
+
+    &__h2-img {
+      width: 112px;
+    }
+
+    &__item {
+      margin-top: 60px;
+      flex-basis: calc((100% - 50px)/2);
+    }
+  }
 }

@@ -498,110 +498,39 @@ get_header();
     <div class="container how-work__container">
         <!-- Title -->
         <div class="how-work__title_wr">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-word__h2-img">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-work__h2-img">
             <h2 class="how-work__title section-title">Как мы <span>работаем</span></h2>
         </div>
 
         <!-- Items -->
         <div class="how-work__items">
 
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/podbor-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Подбор авто</h4>
-                    <div class="how-work__item-title_number">01</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/proverka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Проверка авто по CarFax
-                        и AutoCheck</h4>
-                    <div class="how-work__item-title_number">02</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/vykup-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Выкуп авто на аукционе</h4>
-                    <div class="how-work__item-title_number">03</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/transportirovka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Транспортировка</h4>
-                    <div class="how-work__item-title_number">04</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/rastamozhka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Растаможка и сертификация</h4>
-                    <div class="how-work__item-title_number">05</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/dostavka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Доставка клиенту по Украине</h4>
-                    <div class="how-work__item-title_number">06</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
+            <?php
+                $n = 0;
+                $args = array(
+                    'post_type' => 'how-we-working',
+                    'order' => 'ASC',
+                    'posts_per_page' => 9
+                );
+                $loop = new WP_Query($args);
+                while ($loop->have_posts()) : $loop->the_post();
+                $n++
+            ?>
+                <!-- Item -->
+                <article class="how-work__item">
+                    <img src="<?= the_post_thumbnail_url() ?>" class="how-work__img">
+                    <div class="how-work__item-title">
+                        <h4 class="how-work__item-title_text"><?= the_title() ?></h4>
+                        <div class="how-work__item-title_number">0<?= $n ?></div>
+                    </div>
+                    <div class="how-work__content">
+                        <?= the_content() ?>
+                    </div>
+                </article>
+            <?php
+                endwhile;
+                wp_reset_query();
+            ?>
         </div>
 
         <div class="how-work__request">

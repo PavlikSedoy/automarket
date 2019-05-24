@@ -443,7 +443,43 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('news',$args);
+
+    //  News
+    $labels = array(
+        'name' => 'Как мы работаем',
+        'singular_name' => 'Как работаем',
+        'add_new' => 'Добавить пункт',
+        'add_new_item' => 'Добавить новый пункт',
+        'edit_item' => 'Редактировать пункт',
+        'menu_name' => 'Как мы работаем'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-businessman',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('how-we-working',$args);
 }
+
+// Allow SVG
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
+function fix_svg_thumb_display() {
+    echo '
+    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
+      width: 100% !important; 
+      height: auto !important; 
+    }
+  ';
+}
+add_action('admin_head', 'fix_svg_thumb_display');
 
 function my_endpoint( $request_data ) {
 
