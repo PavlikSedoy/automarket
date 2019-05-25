@@ -287,6 +287,17 @@ body.noScroll { /* ...or body.dialogShowing */
   .md-none {
     display: none;
   }
+
+  .current-avto__content-title {
+    border-bottom: none;
+    margin-bottom: 60px;
+
+    h2 {
+      &:after {
+        display: none;
+      }
+    }
+  }
 }
 
 @media (max-width: 767px) {
@@ -326,5 +337,13 @@ body.noScroll { /* ...or body.dialogShowing */
         font-size: 14px;
       }
     }
+  }
+
+  .page__title {
+    padding-top: 80px;
+  }
+
+  .current-avto__content-title {
+    margin-bottom: 40px;
   }
 }
