@@ -135,6 +135,26 @@
   }
 
   // Input List for Live Search
+  &__li-for-all {
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: $placeholder-color;
+    border-top: 1px solid rgba($header-vertical-line_color, .4);
+    transition: .3s ease-in-out;
+    line-height: 1;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      padding-left: 40px;
+      color: $header-link-hover-color;
+    }
+  }
+
   &__input-list, &__input-model-list, &__input-location-list, &__input-fuel-list, &__input-old-list {
     position: absolute;
     background-color: $color-white;
@@ -197,6 +217,10 @@
     display: none;
   }
 
+}
+
+#car-brand-list-request, #car-model-list-request, #car-location-list {
+  display: none;
 }
 
 //  Request title block

@@ -427,6 +427,10 @@ get_header();
                                 <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                             </svg>
                         </div>
+                        <div class="auto-page__input-list" id="car-brand-list-request">
+                            <ul class="auto-page__input-list_ul" id="car-brand-list-ul-request">
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="request-form__input-wr request-form__model">
@@ -439,10 +443,14 @@ get_header();
                                 <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                             </svg>
                         </div>
+                        <div class="auto-page__input-list" id="car-model-list-request">
+                            <ul class="auto-page__input-list_ul" id="car-model-list-ul-request">
+                            </ul>
+                        </div>
                     </div>
 
                     <div class="request-form__input-wr request-form__location">
-                        <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location-req">
+                        <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
                         </div>
@@ -450,6 +458,14 @@ get_header();
                             <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
                             </svg>
+                        </div>
+
+                        <div class="request-form__input-location-list" id="car-location-list">
+                            <ul class="request-form__input-location-list_ul" id="car-models-list-ul">
+                                <li class="request-form__input-location-list_li">В Украине</li>
+                                <li class="request-form__input-location-list_li">В Америке</li>
+                                <li class="request-form__input-location-list_li">В Грузии</li>
+                            </ul>
                         </div>
                     </div>
 
@@ -489,7 +505,7 @@ get_header();
                 </div>
 
                 <div class="request-form__btn-wr">
-                    <button class="btn btn__width_265 btn__height_50 btn__color_blue">Подобрать авто</button>
+                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="submit-request-bottom-form">Подобрать авто</button>
                 </div>
             </form>
         </div>

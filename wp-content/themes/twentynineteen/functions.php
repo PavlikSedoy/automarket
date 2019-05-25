@@ -594,6 +594,21 @@ function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
     return $r;
 }
 
+// Rest Api for Auto Catalog Page
+function get_model_list() {
+    $brand = $_GET['brand'];
+    $brand = strtolower($brand);
+
+    $models_list = array_unique(get_meta_values('car-' . $brand, 'avto'));
+    return $models_list;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('get_cars', '/models/', array(
+        'methods' => 'GET',
+        'callback' => 'get_model_list',
+    ));
+});
+
 // AJAX Functions
 function get_models(){
     $brand = $_POST['brand'];

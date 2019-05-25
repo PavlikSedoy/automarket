@@ -129,9 +129,14 @@ $(document).ready( function () {
 
                 $(gCars).each( function () {
                     $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
+                    $('#car-brand-list-ul-request').append('<li class="request-form__li-for-all request-form__brand-item">' + this.brand + '</li>');
                 });
             });
         });
+});
+
+$('#car-brand-request').focus( function () {
+    $('#car-brand-list-request').slideDown();
 });
 
 $('#car-brand').focus( function () {
@@ -140,6 +145,10 @@ $('#car-brand').focus( function () {
 
 $('#car-model').focus( function () {
     $('#car-models-list').slideDown();
+});
+
+$('#car-model-req').focus( function () {
+    $('#car-model-list-request').slideDown();
 });
 
 $('#car-location').focus( function () {
@@ -153,6 +162,17 @@ $('#car-old').focus( function () {
 });
 
 // Live Search
+$('#car-brand-request').keyup( function () {
+    $('#car-brand-list-ul-request').empty();
+
+    $(gCars).each( function () {
+        var brand = this.brand;
+        if ( ~brand.toLowerCase().indexOf( $('#car-brand-request').val().toLowerCase() ) ) {
+            $('#car-brand-list-ul-request').append('<li class="request-form__li-for-all request-form__brand-item">' + this.brand + '</li>');
+        }
+    });
+});
+
 $('#car-brand').keyup( function () {
     $('#car-brand-list-ul').empty();
 
@@ -179,6 +199,33 @@ $(document).click( function (e) {
     var carBrandClass = $(e.target).attr('class');
 
     // Click on Brand Item
+    if (carBrandClass == 'request-form__li-for-all request-form__brand-item') {
+        var brandMaker = $(e.target).text();
+
+        $('#car-model-list-ul-request').empty();
+
+        $('#car-model').val('');
+
+        $('#car-brand-request').val(brandMaker);
+
+        var selectedBrand = $('#car-brand-request').val();
+
+        var modelsList;
+
+        // Add Models
+        $(gCars).each( function () {
+
+            this.brand == selectedBrand ? gModels = this.models : null;
+
+        });
+
+        $(gModels).each( function () {
+            $('#car-model-list-ul-request').append('<li class="request-form__li-for-all request-form__model-item">' + this + '</li>');
+        });
+
+        $('#car-brand-list-request').slideUp();
+    }
+
     if (carBrandClass == 'request-form__input-list_li') {
         var brandMaker = $(e.target).text();
 
@@ -207,6 +254,14 @@ $(document).click( function (e) {
     }
 
     // CLick on Model Item
+    if (carBrandClass == 'request-form__li-for-all request-form__model-item') {
+        var modelMaker = $(e.target).text();
+
+        $('#car-model-req').val(modelMaker);
+
+        $('#car-model-list-request').slideUp();
+    }
+
     if (carBrandClass == 'request-form__input-model-list_li') {
         var modelMaker = $(e.target).text();
 
@@ -214,8 +269,6 @@ $(document).click( function (e) {
 
         $('#car-models-list').slideUp();
     }
-
-    // console.log($(e.target).attr('class'));
 
     // Select model on click here
     if (carBrandClass == 'auto-page__input-list_li model-item-li') {
@@ -261,6 +314,9 @@ $(window).click(function() {
     $('#car-location-list').slideUp();
     $('#car-old-list').slideUp();
     $('#car-fuel-list').slideUp();
+    $('#car-brand-list-request').slideUp();
+    $('#car-model-list-request').slideUp();
+    $('#car-location-list').slideUp();
 });
 
 $('#car-brand').click(function(event){
@@ -285,6 +341,12 @@ $('#fuel-type').click(function(event){
 $('#car-old').click(function(event){
     event.stopPropagation();
     $('#car-fuel-list').slideUp();
+});
+$('#car-brand-request').click(function(event){
+    event.stopPropagation();
+});
+$('#car-model-req').click(function(event){
+    event.stopPropagation();
 });
 
 // Auto Page
@@ -336,12 +398,15 @@ $('.brand-item-li').click( function () {
 
     // And get models list
     $.ajax({
-        type: 'POST',
-        url: '/wp-admin/admin-ajax.php',
+        type: 'GET',
+        url: '/index.php?rest_route=/get_cars/models/',
         dataType: 'json',
-        data: 'action=get-models&brand=' + selectedBrand,
+        data: {
+            brand: selectedBrand,
+        },
         success: function(data) {
             modelList(data);
+            // console.log(data);
         }
     });
 });
@@ -469,7 +534,7 @@ $('#apply-filters').click( function () {
     fuelType = $('#fuel-type').val();
     transmissionType = $('#transmission-type').val();
 
-    console.log(transmissionType);
+    // console.log(transmissionType);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
@@ -485,7 +550,7 @@ $('#load-more-auto').click( function () {
 
 // AJAX request who get auto items
 function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
-    console.log(transmissionType);
+    // console.log(transmissionType);
     $.ajax({
         type: 'GET',
         url: '/index.php?rest_route=/get_cars/catalog/',
@@ -701,7 +766,7 @@ $('#auto-page-filters').click(function () {
 });
 
 // Send Request Mail
-$('#send-request-mail').add('#footer-request').click( function (e) {
+$('#send-request-mail').add('#footer-request').add('#submit-request-bottom-form').click( function (e) {
     e.preventDefault();
 
     $('#home-request-form').fadeOut();
