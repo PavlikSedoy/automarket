@@ -104,3 +104,34 @@
     color: $placeholder-color;
   }
 }
+
+@media only screen and (max-width: 1199px) {
+  .logistic {
+    &__content-wr {
+      flex-direction: column;
+    }
+
+    &__asside {
+      width: 50%;
+      margin-top: 30px;
+    }
+
+    .aside-order__form {
+      margin-top: 20px;
+    }
+
+    &__request-form {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      div, button {
+        flex-basis: calc((100% - 30px)/2);
+        margin-top: 15px;
+      }
+
+      button {
+        font-size: 14px;
+      }
+    }
+  }
+}
