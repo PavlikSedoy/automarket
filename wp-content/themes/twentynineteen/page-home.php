@@ -176,7 +176,7 @@ get_header();
                 </div>
 
                 <div class="request-form__btn-wr">
-                    <button class="btn btn__width_265 btn__height_50 btn__color_blue">Подобрать авто</button>
+                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="send-request-mail">Подобрать авто</button>
                 </div>
                 
             </form>

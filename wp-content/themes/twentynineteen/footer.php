@@ -15,6 +15,17 @@
 
 </main>
 
+<div class="request-is-send" id="request-is-send">
+    <div class="request-is-send__content">
+        <div class="request-is-send__title-wr">
+            <h4 class="request-is-send__title">Спасибо, Ваша заявка принята!</h4>
+        </div>
+        <div class="request-is-send__desc">
+            <p>Ожидайте, в скором времени с Вами свяжется наж менеджер</p>
+        </div>
+    </div>
+</div>
+
 <footer class="footer">
     <div class="container footer__container">
         <div class="footer__info-wr">
@@ -130,7 +141,7 @@
                     <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/email-icon.svg" class="aside-order__input_img">
                 </div>
 
-                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100">Перезвоните мне</button>
+                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100" id="footer-request">Перезвоните мне</button>
             </form>
         </div>
     </div>

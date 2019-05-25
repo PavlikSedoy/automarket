@@ -129,6 +129,7 @@ input {
   font-size: 16px;
   color: $placeholder-color;
   padding-left: 60px;
+  border-radius: 0;
 
   &::placeholder {
     color: $placeholder-color;
@@ -172,6 +173,7 @@ body.noScroll { /* ...or body.dialogShowing */
 @import "pagination";
 @import "close-mobile";
 @import "request-bottom";
+@import "modals";
 
 .page-header {
   height: 370px;
@@ -345,5 +347,9 @@ body.noScroll { /* ...or body.dialogShowing */
 
   .current-avto__content-title {
     margin-bottom: 40px;
+  }
+
+  #auto-page-filters {
+    margin-bottom: 0;
   }
 }

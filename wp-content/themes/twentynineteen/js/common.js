@@ -488,7 +488,7 @@ function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carMod
     console.log(transmissionType);
     $.ajax({
         type: 'GET',
-        url: 'http://localhost:8000/index.php?rest_route=/get_cars/catalog/',
+        url: '/index.php?rest_route=/get_cars/catalog/',
         data: {
             tab: tab,
             posts_per_page: postsPerPage,
@@ -698,4 +698,15 @@ $('#auto-page-filters').click(function () {
         $('.auto-page__filters-form').slideToggle();
         $('#open-auto-filters-arrow').toggleClass('active');
     }
+});
+
+// Send Request Mail
+$('#send-request-mail').add('#footer-request').click( function (e) {
+    e.preventDefault();
+
+    $('#home-request-form').fadeOut();
+    $('#request-is-send').fadeIn();
+    setTimeout( function () {
+        $('#request-is-send').fadeOut();
+    }, 3000);
 });

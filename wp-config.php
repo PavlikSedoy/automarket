@@ -19,7 +19,7 @@
  */
 
 // ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
-/** Имя базы данных для WordPress */
+///** Имя базы данных для WordPress */
 define( 'DB_NAME', 'automarket' );
 
 /** Имя пользователя MySQL */
@@ -34,8 +34,27 @@ define( 'DB_HOST', 'localhost' );
 /** Кодировка базы данных для создания таблиц. */
 define( 'DB_CHARSET', 'utf8' );
 
+// ** Параметры MySQL: Эту информацию можно получить у вашего хостинг-провайдера ** //
+///** Имя базы данных для WordPress */
+//define( 'DB_NAME', 'codecrea_auto' );
+//
+///** Имя пользователя MySQL */
+//define( 'DB_USER', 'codecrea_auto' );
+//
+///** Пароль к базе данных MySQL */
+//define( 'DB_PASSWORD', 'H9Gkd#~d08' );
+//
+///** Имя сервера MySQL */
+//define( 'DB_HOST', 'codecrea.mysql.tools' );
+//
+/** Кодировка базы данных для создания таблиц. */
+define( 'DB_CHARSET', 'utf8' );
+
 /** Схема сопоставления. Не меняйте, если не уверены. */
 define( 'DB_COLLATE', '' );
+//
+//define('WP_HOME','http://automarket.codecreate.site/');
+//define('WP_SITEURL','http://automarket.codecreate.site/');
 
 /**#@+
  * Уникальные ключи и соли для аутентификации.
