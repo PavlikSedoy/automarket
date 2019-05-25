@@ -135,3 +135,41 @@
     }
   }
 }
+
+@media only screen and (max-width: 767px) {
+  .logistic {
+    &__content {
+      flex-basis: 100%;
+      padding-right: 0 !important;
+    }
+
+    &__asside {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .aside-order__title {
+      font-size: 16px;
+    }
+
+    &__footer-desc {
+      font-size: 18px;
+    }
+
+    &__footer-request .current-avto__content-title {
+      margin-bottom: 40px;
+    }
+
+    &__request-form {
+      margin-top: 30px;
+    }
+
+    &__request-form div, &__request-form button {
+      flex-basis: 100%;
+    }
+
+    &__footer-request {
+      padding-bottom: 80px;
+    }
+  }
+}
