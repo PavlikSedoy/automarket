@@ -22,7 +22,7 @@
                 </div>
             </li>
             <li class="user-nav__item">
-                <a href="/wp-login.php?action=logout" class="user-nav__link"></a>
+                <a href="" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
                     Выйти
                 </div>

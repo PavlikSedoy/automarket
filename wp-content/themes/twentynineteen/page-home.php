@@ -533,9 +533,9 @@ get_header();
             ?>
         </div>
 
-        <div class="how-work__request">
-            <div class="btn btn__width_265 btn__color_blue" id="how-work-request">Подобрать авто</div>
-        </div>
+<!--        <div class="how-work__request">-->
+<!--            <div class="btn btn__width_265 btn__color_blue" id="how-work-request">Подобрать авто</div>-->
+<!--        </div>-->
 
 
     </div>
