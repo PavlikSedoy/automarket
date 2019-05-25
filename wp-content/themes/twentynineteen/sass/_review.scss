@@ -223,3 +223,128 @@
     }
   }
 }
+
+@media only screen and (max-width: 1199px) {
+  .reviews {
+    &__video-item {
+      iframe {
+        height: 255px !important;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px){
+  .reviews {
+    padding-bottom: 70px;
+
+    .tabs__header_item {
+      font-size: 12px;
+      padding: 5px 0;
+    }
+
+    .tabs__header:before, .tabs__header:after {
+      height: 2px;
+    }
+
+    .current-avto__content-title {
+      margin-bottom: 40px;
+    }
+
+    .page__title {
+      padding-top: 80px !important;
+    }
+
+    &__current-comment_text {
+      font-size: 14px;
+    }
+
+    &__current-comment .swiper-slide {
+      height: 250px;
+    }
+
+    .tabs__tabs-wr {
+      margin-top: 30px;
+    }
+
+    &__author.swiper-slide-thumb-active &__author_avatar {
+      width: 70px;
+      height: 70px;
+    }
+
+    &__author-comment_wr {
+      width: 100%;
+    }
+
+    &__author-comment {
+      width: 200px;
+    }
+
+    &__author-comment_wr .swiper-button_wr .current-avto__button-next, &__author-comment_wr .swiper-button_wr .current-avto__button-prev {
+      display: block;
+      width: 40px;
+      height: 40px;
+    }
+
+    &__author-comment_wr .swiper-button_wr .current-avto__button-next {
+      right: 0;
+    }
+
+    &__author-comment_wr .swiper-button_wr .current-avto__button-prev {
+      left: 0;
+    }
+
+    &__author-comment_wr .swiper-button_wr {
+      height: 70px;
+    }
+
+    //&__author-comment_wr .swiper-wrapper {
+    //  width: 200px;
+    //}
+
+    &__author_avatar {
+      width: 60px;
+      height: 60px;
+    }
+
+    &__author_avatar-wr {
+      width: 70px;
+      height: 70px;
+    }
+
+    &__author {
+      //margin-right: 0 !important;
+      //width: 70px !important;
+    }
+
+    &__author_name {
+      font-size: 16px;
+
+      &_wr {
+        height: 30px;
+      }
+    }
+
+    &__author_auto {
+      font-size: 12px;
+    }
+
+    &__video-item {
+      flex-basis: 100%;
+    }
+
+    &__video-item_name {
+      margin-top: 25px;
+      font-size: 16px;
+    }
+
+    &__video-item_name {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    &__video-item {
+      margin-bottom: 50px;
+    }
+  }
+}
