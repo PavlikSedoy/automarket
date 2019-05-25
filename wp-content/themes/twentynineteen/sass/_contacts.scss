@@ -95,6 +95,25 @@
     width: 135px;
   }
 
+  .header__contacts_location_icon {
+    height: 26px;
+    width: 26px;
+    margin-right: 10px;
+  }
+
+  .header__contacts_location_link {
+    font-size: 14px;
+  }
+
+  .header__contacts_location_wr:last-child {
+    margin-top: 18px;
+
+    .header__contacts_location_icon {
+      width: 26px;
+      height: 20px;
+    }
+  }
+
 }
 
 @media only screen and (max-width: 1199px) {
@@ -109,6 +128,45 @@
 
     &__right-side {
       padding-left: 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .location-card {
+    flex-direction: column;
+
+    &__map {
+      flex-basis: 100%;
+      height: 290px;
+    }
+
+    &__country {
+      font-size: 16px;
+    }
+
+    &__country-wr {
+      height: 40px;
+    }
+  }
+
+  .page-contacts {
+    .page-contacts__aside-title {
+      font-size: 16px;
+    }
+
+    .aside-order__input-wr {
+      margin-top: 20px;
+    }
+
+    .aside-order__textarea-wr {
+      margin-top: 20px;
+    }
+
+    .aside-order__submit {
+      margin-top: 25px;
+      font-size: 12px;
+      height: 40px;
     }
   }
 }
