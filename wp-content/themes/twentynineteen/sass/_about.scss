@@ -20,3 +20,25 @@
     }
   }
 }
+
+@media only screen and (max-width: 1199px) {
+  .about-page {
+    &__content {
+      flex-basis: 100%;
+      padding-right: 0 !important;
+    }
+
+    &__asside {
+      flex-basis: 50%;
+      display: none;
+    }
+
+    .page__content-wr {
+      flex-direction: column;
+    }
+
+    .current-avto__content-title {
+      margin-bottom: 60px;
+    }
+  }
+}
