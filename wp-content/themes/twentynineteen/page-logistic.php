@@ -117,7 +117,7 @@ get_header();
                     <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/email-icon.svg" class="aside-order__input_img">
                 </div>
 
-                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_265 btn__height_50">Отправить</button>
+                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_265 btn__height_50" id="submit-logistic-request">Отправить</button>
             </form>
 
         </div>

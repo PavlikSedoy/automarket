@@ -19,6 +19,80 @@
       padding: 0;
     }
   }
+
+  // Range Styles
+  .irs--flat .irs-handle>i:first-child {
+    width: 16px;
+    height: 16px;
+    border: solid 1px rgb(114, 195, 255);
+    background-color: $color-white;
+    border-radius: 50%;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $header-blue-color;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .irs--flat .irs-line {
+    height: 1px;
+    background-color: $placeholder-color;
+  }
+
+  .irs--flat .irs-bar {
+    height: 1px;
+    background-color: $header-blue-color;
+  }
+
+  .irs--flat .irs-handle {
+    top: 18px;
+  }
+
+  .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    color: $header-blue-color;
+    font-size: 12px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .irs--flat .irs-from {
+    &:after {
+      content: 'от';
+      position: absolute;
+      left: -6px;
+      top: 1px;
+    }
+  }
+
+  .irs--flat .irs-to {
+    &:after {
+      content: 'до ';
+      position: absolute;
+      left: -8px;
+      top: 1px;
+    }
+  }
+
+  .irs-from, .irs-to, .irs-single {
+    top: -3px;
+    padding-left: 10px;
+  }
 }
 
 @media only screen and (max-width: 1199px) {

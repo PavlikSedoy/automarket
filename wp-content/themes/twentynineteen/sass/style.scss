@@ -201,6 +201,15 @@ body.noScroll { /* ...or body.dialogShowing */
   }
 }
 
+.aside-order__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-order__input-wr.first {
+  order: -1;
+}
+
 .page {
   &__title {
     padding-top: 100px;

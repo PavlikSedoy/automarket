@@ -235,7 +235,7 @@ get_header();
                         <img src="<?php bloginfo('template_url') ?>/images/6contacts-page-icons/message-icon.svg" class="aside-order__textarea_img">
                     </div>
 
-                    <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100 btn__height_50">Отправить вопрос</button>
+                    <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100 btn__height_50" id="contact-request-form">Отправить вопрос</button>
                 </form>
 
             </div>

@@ -766,7 +766,7 @@ $('#auto-page-filters').click(function () {
 });
 
 // Send Request Mail
-$('#send-request-mail').add('#footer-request').add('#submit-request-bottom-form').click( function (e) {
+$('#send-request-mail').add('#footer-request').add('#submit-request-bottom-form').add('#submit-logistic-request').add('#contact-request-form').click( function (e) {
     e.preventDefault();
 
     $('#home-request-form').fadeOut();
