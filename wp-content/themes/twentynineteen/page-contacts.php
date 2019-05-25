@@ -45,7 +45,7 @@ get_header();
             <h2>Наши контакты</h2>
         </div>
 
-        <div class="page__content-wr">
+        <div class="page__content-wr page-contacts__content-wr">
             <!-- Content -->
             <div class="page__left-side page-contacts__left-side">
 

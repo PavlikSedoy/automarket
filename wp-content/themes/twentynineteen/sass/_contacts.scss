@@ -96,3 +96,19 @@
   }
 
 }
+
+@media only screen and (max-width: 1199px) {
+  .page-contacts {
+    &__content-wr {
+      flex-direction: column;
+    }
+
+    &__left-side {
+      padding-right: 0;
+    }
+
+    &__right-side {
+      padding-left: 0;
+    }
+  }
+}
