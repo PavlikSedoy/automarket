@@ -688,7 +688,7 @@ function printAutoItem(item, carGallery) {
                 '<h4 class="avto__title">' + item.acf["car-brand"].value + ' ' + getAutoModel(item) + '</h4>' +
             '</div>' +
             '<div class="avto__price-details">' +
-                '<a href="' + item.guid + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>' +
+                '<a href="' + item.link + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>' +
                 '<div class="avto__price">' + '$ ' + item.acf["current-auto-price"] + '</div>' +
             '</div>' +
             '<div class="avto__footer">' +

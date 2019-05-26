@@ -755,6 +755,7 @@ function my_search_form( $form ) {
 	C3.1,2.8,2.7,3.1,2.5,3.7C2.2,4.2,2,4.7,2,5.3c0,0.6,0.1,1.1,0.4,1.7c0.3,0.5,0.7,0.9,1.2,1.2C4.1,8.4,4.7,8.5,5.3,8.5z"/>
                             </svg>
                         </button>
+                        <input type="hidden" name="post_type[]" value="avto" />
                     </form>';
 
     return $form;
