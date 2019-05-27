@@ -505,11 +505,13 @@ function true_register_products() {
 }
 
 // Allow SVG
-function cc_mime_types($mimes) {
-    $mimes['svg'] = 'image/svg+xml';
-    return $mimes;
+add_filter( 'upload_mimes', 'my_myme_types', 1, 1 );
+function my_myme_types( $mime_types ) {
+    $mime_types['svg'] = 'image/svg+xml';     // Adding .svg extension
+    $mime_types['json'] = 'application/json'; // Adding .json extension
+
+    return $mime_types;
 }
-add_filter('upload_mimes', 'cc_mime_types');
 
 function fix_svg_thumb_display() {
     echo '
@@ -606,6 +608,49 @@ add_action( 'rest_api_init', function () {
     register_rest_route('get_cars', '/models/', array(
         'methods' => 'GET',
         'callback' => 'get_model_list',
+    ));
+});
+
+// Rest Api for Auto Catalog Page
+function get_json() {
+    $request = wp_remote_get( get_stylesheet_directory_uri() . '/example.json' );
+//
+//
+//    $request = wp_remote_retrieve_body($request);
+//
+    $request = json_decode(file_get_contents( get_stylesheet_directory_uri() . '/example.json' ));
+
+//    $request = json_decode('[
+//        {
+//            "glossary": {
+//                "title": "example glossary",
+//                "GlossDiv": {
+//                    "title": "S",
+//                    "GlossList": {
+//                        "GlossEntry": {
+//                            "ID": "SGML",
+//                            "SortAs": "SGML",
+//                            "GlossTerm": "Standard Generalized Markup Language",
+//                            "Acronym": "SGML",
+//                            "Abbrev": "ISO 8879:1986",
+//                            "GlossDef": {
+//                                "para": "A meta-markup language, used to create markup languages such as DocBook.",
+//                                "GlossSeeAlso": ["GML", "XML"]
+//                            },
+//                            "GlossSee": "markup"
+//                        }
+//                    }
+//                }
+//            }
+//        }
+//    ]');
+
+    return $request;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('logistic', '/json/', array(
+        'methods' => 'GET',
+        'callback' => 'get_json',
     ));
 });
 
