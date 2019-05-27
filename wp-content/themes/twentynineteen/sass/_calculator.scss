@@ -66,6 +66,10 @@
   &__inputs-wr {
     display: flex;
     justify-content: space-between;
+
+    &_georgia {
+      justify-content: space-around;
+    }
   }
 
   &__calculate-btn_wr {
@@ -92,5 +96,88 @@
 
   #car-fuel-list, #car-old-list {
     display: none;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .calculator {
+
+    &__tabs {
+      width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .tabs__header {
+      width: 100%;
+    }
+
+    &__inputs-wr {
+      flex-wrap: wrap;
+    }
+
+    .request-form__input-wr, .request-form__range-wr {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    &__calculate-btn_wr {
+      margin-top: 50px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .calculator {
+    &__h2-img {
+      width: 150px;
+    }
+
+    .request-form__input-wr, .request-form__range-wr {
+      flex-basis: 100%;
+    }
+
+    &__tabs {
+      width: 270px;
+      margin-top: 35px;
+    }
+
+    .xs-none {
+      display: none;
+    }
+
+    .tabs__header_item {
+      font-size: 12px;
+    }
+
+    .tabs__header:before {
+      height: 2px;
+    }
+
+    .tabs__header:after {
+      height: 2px;
+    }
+
+    .tabs__header_item {
+      padding: 3px 0;
+    }
+
+    .tabs__tabs-wr {
+      margin-top: 10px;
+    }
+
+    &__calculate-btn_wr {
+      margin-top: 30px;
+    }
+
+    &__price {
+      margin-top: 25px;
+      font-size: 25px;
+    }
+    
+    &__container {
+      width: 280px;
+      position: relative;
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 }

@@ -93,10 +93,22 @@ $("#year-range").ionRangeSlider({
 $("#price-range").ionRangeSlider({
     type: "double",
     grid: false,
-    min: 3500,
-    max: 40000,
+    min: 4000,
+    max: 100000,
     from: 10000,
-    to: 30000,
+    to: 80000,
+    hide_min_max: true,
+    postfix: ' $',
+    step: 500
+});
+
+$("#price-range-req").ionRangeSlider({
+    type: "double",
+    grid: false,
+    min: 4000,
+    max: 100000,
+    from: 10000,
+    to: 80000,
     hide_min_max: true,
     postfix: ' $',
     step: 500
@@ -117,9 +129,14 @@ $(document).ready( function () {
 
                 $(gCars).each( function () {
                     $('#car-brand-list-ul').append('<li class="request-form__input-list_li">' + this.brand + '</li>');
+                    $('#car-brand-list-ul-request').append('<li class="request-form__li-for-all request-form__brand-item">' + this.brand + '</li>');
                 });
             });
         });
+});
+
+$('#car-brand-request').focus( function () {
+    $('#car-brand-list-request').slideDown();
 });
 
 $('#car-brand').focus( function () {
@@ -128,6 +145,10 @@ $('#car-brand').focus( function () {
 
 $('#car-model').focus( function () {
     $('#car-models-list').slideDown();
+});
+
+$('#car-model-req').focus( function () {
+    $('#car-model-list-request').slideDown();
 });
 
 $('#car-location').focus( function () {
@@ -141,6 +162,17 @@ $('#car-old').focus( function () {
 });
 
 // Live Search
+$('#car-brand-request').keyup( function () {
+    $('#car-brand-list-ul-request').empty();
+
+    $(gCars).each( function () {
+        var brand = this.brand;
+        if ( ~brand.toLowerCase().indexOf( $('#car-brand-request').val().toLowerCase() ) ) {
+            $('#car-brand-list-ul-request').append('<li class="request-form__li-for-all request-form__brand-item">' + this.brand + '</li>');
+        }
+    });
+});
+
 $('#car-brand').keyup( function () {
     $('#car-brand-list-ul').empty();
 
@@ -167,6 +199,33 @@ $(document).click( function (e) {
     var carBrandClass = $(e.target).attr('class');
 
     // Click on Brand Item
+    if (carBrandClass == 'request-form__li-for-all request-form__brand-item') {
+        var brandMaker = $(e.target).text();
+
+        $('#car-model-list-ul-request').empty();
+
+        $('#car-model').val('');
+
+        $('#car-brand-request').val(brandMaker);
+
+        var selectedBrand = $('#car-brand-request').val();
+
+        var modelsList;
+
+        // Add Models
+        $(gCars).each( function () {
+
+            this.brand == selectedBrand ? gModels = this.models : null;
+
+        });
+
+        $(gModels).each( function () {
+            $('#car-model-list-ul-request').append('<li class="request-form__li-for-all request-form__model-item">' + this + '</li>');
+        });
+
+        $('#car-brand-list-request').slideUp();
+    }
+
     if (carBrandClass == 'request-form__input-list_li') {
         var brandMaker = $(e.target).text();
 
@@ -195,10 +254,27 @@ $(document).click( function (e) {
     }
 
     // CLick on Model Item
+    if (carBrandClass == 'request-form__li-for-all request-form__model-item') {
+        var modelMaker = $(e.target).text();
+
+        $('#car-model-req').val(modelMaker);
+
+        $('#car-model-list-request').slideUp();
+    }
+
     if (carBrandClass == 'request-form__input-model-list_li') {
         var modelMaker = $(e.target).text();
 
         $('#car-model').val(modelMaker);
+
+        $('#car-models-list').slideUp();
+    }
+
+    // Select model on click here
+    if (carBrandClass == 'auto-page__input-list_li model-item-li') {
+        var modelFilterMaker = $(e.target).text();
+
+        $('#car-model-filters').val(modelFilterMaker);
 
         $('#car-models-list').slideUp();
     }
@@ -238,6 +314,9 @@ $(window).click(function() {
     $('#car-location-list').slideUp();
     $('#car-old-list').slideUp();
     $('#car-fuel-list').slideUp();
+    $('#car-brand-list-request').slideUp();
+    $('#car-model-list-request').slideUp();
+    $('#car-location-list').slideUp();
 });
 
 $('#car-brand').click(function(event){
@@ -250,6 +329,11 @@ $('#car-model').click(function(event){
     $('#car-brand-list').slideUp();
     $('#car-location-list').slideUp();
 });
+$('#car-location').click(function(event){
+    event.stopPropagation();
+    $('#car-models-list').slideUp();
+    $('#car-brand-list').slideUp();
+});
 $('#fuel-type').click(function(event){
     event.stopPropagation();
     $('#car-old-list').slideUp();
@@ -257,4 +341,444 @@ $('#fuel-type').click(function(event){
 $('#car-old').click(function(event){
     event.stopPropagation();
     $('#car-fuel-list').slideUp();
+});
+$('#car-brand-request').click(function(event){
+    event.stopPropagation();
+});
+$('#car-model-req').click(function(event){
+    event.stopPropagation();
+});
+
+// Auto Page
+
+// FadeIn and FadeOut brand list
+$('#car-brand-filters').focus( function () {
+    $('#car-brand-list-filters').fadeIn();
+});
+$('#car-brand-filters').focusout( function () {
+    $('#car-brand-list-filters').fadeOut();
+});
+
+
+// FadeIn and FadeOut model list
+$('#car-model-filters').focus( function () {
+    $('#car-list-filters').fadeIn();
+});
+$('#car-model-filters').focusout( function () {
+    $('#car-list-filters').fadeOut();
+});
+
+// FadeIn and FadeOut year list
+$('#year-from').focus( function () {
+    $('#year-from-list-filters').fadeIn();
+});
+$('#year-from').focusout( function () {
+    $('#year-from-list-filters').fadeOut();
+});
+$('#year-to').focus( function () {
+    $('#year-to-list-filters').fadeIn();
+});
+$('#year-to').focusout( function () {
+    $('#year-to-list-filters').fadeOut();
+});
+
+// FadeIn and FadeOut transsmision list
+$('#transmission-type').focus( function () {
+    $('#car-transmission-list').fadeIn();
+});
+$('#transmission-type').focusout( function () {
+    $('#car-transmission-list').fadeOut();
+});
+
+// Select Brand on click here
+$('.brand-item-li').click( function () {
+    var selectedBrand = $(this).text();
+
+    $('#car-brand-filters').val(selectedBrand);
+
+    // And get models list
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/get_cars/models/',
+        dataType: 'json',
+        data: {
+            brand: selectedBrand,
+        },
+        success: function(data) {
+            modelList(data);
+            // console.log(data);
+        }
+    });
+});
+
+// Add Model List to front-end
+function modelList(data) {
+    // Clear prev model list
+    $('#car-models-list-ul-filters').empty();
+
+    $(data).each( function (key, item) {
+        $('#car-models-list-ul-filters').append('<li class="auto-page__input-list_li model-item-li">' + item + '</li>');
+    });
+}
+
+// Prevent key down in brand, model input
+$('#car-brand-filters').add('#car-model-filters').add('#year-from').add('#year-to').add('#fuel-type').add('#transmission-type').keydown(function (e) {
+    e.preventDefault();
+    return false;
+});
+
+// Select Year from
+$('.year-from-li').click( function () {
+    var selectedYearFrom = $(this).text();
+    $('#year-from').val(selectedYearFrom);
+});
+
+// Select Year to
+$('.year-to-li').click( function () {
+    var selectedYearTo = $(this).text();
+    $('#year-to').val(selectedYearTo);
+});
+
+// Select transmission type
+$('.transmission-type-li').click( function () {
+    var selectedTransmissionType = $(this).text();
+    $('#transmission-type').val(selectedTransmissionType);
+});
+
+var round = function(number){
+    return +number.toFixed(1);
+}
+
+// Apply filters
+$('#apply-filters').click( function (e) {
+    e.preventDefault();
+
+    // Get params
+    var carBrandApply = $('#car-brand-filters').val().toLowerCase();
+    var currentLink = $(this).attr('href');
+
+    carBrandApply ? $(this).attr('href', currentLink + '&brand=' + carBrandApply) : null;
+});
+
+// Auto Page Tabs
+var postsPerPage = 4;
+var tab = 'all';
+var isLoadMore = false;
+var paged = 1;
+var carBrand = null;
+var carModelField = null;
+var carModel = null;
+var priceFrom = 10;
+var priceTo = 200000;
+var yearFrom = 0;
+var yearToAuto = 0;
+var engineCapacity;
+var fuelType = null;
+var transmissionType = null;
+
+
+$('.auto-tabs__link').click( function (e) {
+    e.preventDefault();
+
+    // Remove active class from tabs
+    removeActiveTabs();
+
+    // Reset page count
+    paged = 1;
+
+    // Add active class to clicked tab
+    $(this).addClass('active');
+
+    tab = $(this).data('tab');
+
+    carBrand = null;
+    carModelField = null;
+    carModel = null;
+    priceFrom = 0;
+    priceTo = 200000;
+    yearFrom = 0;
+    yearToAuto = 0;
+    engineCapacity = 0;
+    fuelType = null;
+    transmissionType = null;
+
+    // AJAX request who get auto items
+    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, null, null);
+
+    // Fade In More Button
+    $('#load-more-auto').fadeIn();
+
+    // Clear filter inputs
+    $('.auto-page__input').each( function () {
+        $(this).val('');
+    });
+});
+
+// Filters
+$('#apply-filters').click( function () {
+    // Reset page count
+    paged = 1;
+
+    carBrand = $('#car-brand-filters').val();
+    carModelField = 'car-' + carBrand.toLowerCase();
+    carModel = $('#car-model-filters').val();
+    priceFrom = $('#price-range-wr .irs-from').text();
+    priceFrom = parseInt(priceFrom.replace(/[^0-9.]/g, ""));
+    priceTo = $('#price-range-wr .irs-to').text();
+    priceTo = parseInt(priceTo.replace(/[^0-9.]/g, ""));
+    yearFrom = $('#year-from').val();
+    yearFrom = parseInt(yearFrom);
+    yearToAuto = $('#year-to').val();
+    yearToAuto = parseInt(yearToAuto);
+    engineCapacity = $('#engine-capacity').val();
+    fuelType = $('#fuel-type').val();
+    transmissionType = $('#transmission-type').val();
+
+    // console.log(transmissionType);
+
+    // Fade In More Button
+    $('#load-more-auto').fadeIn();
+
+    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
+});
+
+// More Auto Button
+$('#load-more-auto').click( function () {
+    paged++;
+    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
+});
+
+// AJAX request who get auto items
+function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
+    // console.log(transmissionType);
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/get_cars/catalog/',
+        data: {
+            tab: tab,
+            posts_per_page: postsPerPage,
+            paged: paged,
+            car_brand: carBrand,
+            car_model_field: carModelField,
+            car_model: carModel,
+            price_from: priceFrom,
+            price_to: priceTo,
+            year_from: yearFrom,
+            year_to: yearToAuto,
+            engine_capacity: engineCapacity,
+            fuel_type: fuelType,
+            transmission_type: transmissionType
+        },
+        dataType: 'json',
+        // beforeSend: function() {
+        //     $('#model-modal-preloader').fadeIn();
+        // },
+        success: function(data) {
+
+            var carGallery = '';
+
+            // Clear catalog
+            if (!isLoadMore) $('#auto-page-catalog').html('');
+
+            // Each Car
+            eachAuto(carGallery, data);
+
+            // Init slider after generate items in DOM
+            initAutoSlider();
+
+            // Hide Loade More Button when count of post < post per page
+            data.length < postsPerPage ? $('#load-more-auto').fadeOut() : null;
+        }
+    });
+}
+
+// Each auto function
+function eachAuto(carGallery, data, paged) {
+    $(data).each( function (key,item) {
+        carGallery = '';
+
+        // Get gallery items
+        function getGallery(gItem) {
+            $(item.gallery).each( function (gKey, gItem) {
+                carGallery += '<div class="swiper-slide avto__slide">' +
+                    '<div class="avto__slide_img" style="background-image: url(' + gItem.guid + ');">' + '</div>' +
+                    '</div>';
+            });
+
+            return carGallery;
+        }
+
+        // Get gallery items
+        getGallery(item.gallery);
+
+
+        // Generate items in DOM
+        printAutoItem(item, carGallery);
+    });
+}
+
+function getAutoModel(item) {
+    var carBrand = item.acf["car-brand"].value.toLowerCase();
+    var carModelFieldName = 'car-' + carBrand;
+    var carModel = item.acf[carModelFieldName];
+
+    return carModel;
+}
+
+// Init slider after generate items in DOM
+function initAutoSlider() {
+    $(".avto-swiper-container").each(function(index, element){
+        var $this = $(this);
+        $this.addClass("instance-" + index);
+        $this.find(".avto-swiper-button-prev").addClass("btn-prev-" + index);
+        $this.find(".avto-swiper-button-next").addClass("btn-next-" + index);
+        var swiperHomeAvto = new Swiper (".instance-" + index, {
+            direction: 'horizontal',
+            loop: true,
+            slidesPerView: 1,
+
+            // Navigation arrows
+            navigation: {
+                nextEl: ".btn-next-" + index,
+                prevEl: ".btn-prev-" + index
+            },
+            effect: "slide",
+            pagination: {
+                el: '.avto-swiper-pagination',
+                clickable: true
+            }
+        });
+    });
+}
+
+// Generate items in DOM
+function printAutoItem(item, carGallery) {
+    $('#auto-page-catalog').append('' +
+        '<article class="popular__avto avto auto-page__auto-item">' +
+            '<div class="avto__slider">' +
+                '<div class="avto-swiper-container">' +
+                    '<div class="swiper-wrapper avto__swiper-wrapper">' +
+                    carGallery +
+                    '</div>' +
+                    '<div class="avto__slider_buttom">' +
+                        '<div class="avto-swiper-pagination"></div>' +
+                        '<div class="avto-swiper-button-prev"></div>' +
+                        '<div class="avto-swiper-button-next"></div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
+            '<div class="avto__location_wr">' +
+                '<div class="avto__location">' + item.acf["auto-location"].label + '</div>' +
+            '</div>' +
+            '<div class="avto__props">' +
+                '<div class="avto__props_year">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/calendar-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + item.acf["current-auto-year"] + '</span>' +
+                '</div>' +
+                '<div class="avto__props_engine-capacity">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + round(item.acf["current-auto-engine-capacity"]/1000) + ' л</span>' +
+                '</div>' +
+                '<div class="avto__props_fuel-type">' +
+                    '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">' +
+                    '<span class="avto__props_text">' + item.acf["current-auto-fuel-type"] + '</span>' +
+                '</div>' +
+            '</div>' +
+            '<div class="avto__title-wr">' +
+                '<h4 class="avto__title">' + item.acf["car-brand"].value + ' ' + getAutoModel(item) + '</h4>' +
+            '</div>' +
+            '<div class="avto__price-details">' +
+                '<a href="' + item.link + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>' +
+                '<div class="avto__price">' + '$ ' + item.acf["current-auto-price"] + '</div>' +
+            '</div>' +
+            '<div class="avto__footer">' +
+                '<span class="avto__footer_price">' + '$ ' + item.acf["current-auto-price-in-ukraine"] + '</span>' +
+                '<span class="avto__footer_text">Стоимость аналого в Украине</span>' +
+            '</div>' +
+        '</article>');
+}
+
+// Remove active class from tabs
+function removeActiveTabs() {
+    $('.auto-tabs__link').each( function () {
+        $(this).removeClass('active');
+    });
+}
+
+// Hamburger menu
+var hamburger = $(".hamburger");
+
+$(hamburger).click(function() {
+    $(this).toggleClass("is-active");
+    $('body').toggleClass('noScroll');
+    $('#mobile-nav').add('.menu__wr').fadeToggle(300);
+});
+
+// Home page request
+$('#request-mobile-button').click( function () {
+    $('#home-request-form').slideDown();
+});
+
+$('#request-form-mobile-close').click( function () {
+    $('#home-request-form').slideUp();
+});
+
+// Home Page Calculator
+$('#calculator-get-price').click( function (e) {
+    e.preventDefault();
+
+    var calculatorUserAutoPrice = $('#calculator-price').val(),
+        calculatorUserAutoCapacity = $('#calculator-capacity').val(),
+        calculatorFuelType = $('#fuel-type').val(),
+        calculatorOld = $('#car-old').val();
+
+    calculatorUserAutoCapacity = round(calculatorUserAutoCapacity/1000);
+    calculatorOld = parseInt(calculatorOld);
+    calculatorUserAutoPrice = parseInt(calculatorUserAutoPrice);
+
+    // Capacity Kof
+    var capacityKof;
+
+    if ( calculatorUserAutoCapacity < 3 && calculatorFuelType == 'Бензин' ) capacityKof = 50;
+    else if ( calculatorUserAutoCapacity >= 3 && calculatorFuelType == 'Бензин' ) capacityKof = 100;
+    else if ( calculatorUserAutoCapacity < 3 && calculatorFuelType == 'Дизель' ) capacityKof = 75;
+    else if ( calculatorUserAutoCapacity >= 3 && calculatorFuelType == 'Дизель' ) capacityKof = 150;
+
+    // Axcise
+    var axcise = calculatorUserAutoCapacity * calculatorOld * capacityKof;
+
+    // NDS
+    var nds = ( calculatorUserAutoPrice + axcise ) / 3;
+    nds = round(nds);
+
+    // Price
+    var calculatorFullPrice = axcise + nds;
+
+    $('#calculator-full-price').text(calculatorFullPrice);
+});
+
+// Show/Hide Auto Filters
+$('#auto-page-filters').click(function () {
+    if ($(window).width() < 1199) {
+        $('.auto-page__filters-form').slideToggle();
+        $('#open-auto-filters-arrow').toggleClass('active');
+    }
+});
+
+// Send Request Mail
+$('#send-request-mail').add('#footer-request').add('#submit-request-bottom-form').add('#submit-logistic-request').add('#contact-request-form').click( function (e) {
+    e.preventDefault();
+
+    $('#home-request-form').fadeOut();
+    $('#request-is-send').fadeIn();
+    setTimeout( function () {
+        $('#request-is-send').fadeOut();
+    }, 3000);
+});
+
+// Maersk container search
+$('#maersk-container-btn').click( function (e) {
+    e.preventDefault();
+
+    window.open("https://www.maersk.com/tracking/#tracking/"+$('#maersk-container').val())
 });

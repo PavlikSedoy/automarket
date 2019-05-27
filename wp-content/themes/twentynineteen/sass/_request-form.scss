@@ -135,6 +135,26 @@
   }
 
   // Input List for Live Search
+  &__li-for-all {
+    padding: 15px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: $placeholder-color;
+    border-top: 1px solid rgba($header-vertical-line_color, .4);
+    transition: .3s ease-in-out;
+    line-height: 1;
+
+    &:first-child {
+      border-top: none;
+    }
+
+    &:hover {
+      cursor: pointer;
+      padding-left: 40px;
+      color: $header-link-hover-color;
+    }
+  }
+
   &__input-list, &__input-model-list, &__input-location-list, &__input-fuel-list, &__input-old-list {
     position: absolute;
     background-color: $color-white;
@@ -145,6 +165,7 @@
     z-index: 3;
     max-height: 141px;
     overflow: scroll;
+    overflow-x: hidden;
 
     &_ul {
       list-style-type: none;
@@ -191,6 +212,15 @@
     display: none;
   }
 
+  // Header mobile
+  &__header {
+    display: none;
+  }
+
+}
+
+#car-brand-list-request, #car-model-list-request, #car-location-list {
+  display: none;
 }
 
 //  Request title block
@@ -257,6 +287,111 @@
     span {
       font-weight: bold;
       text-transform: uppercase;
+    }
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .request-form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: $footer-bg;
+    z-index: 9999;
+    display: none;
+
+    &__input-wr, &__range-wr {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    &__items-wr {
+      margin-top: 70px;
+    }
+
+    // Inputs order
+    &__brand {
+      order: 1;
+    }
+
+    &__model {
+      order: 2;
+    }
+
+    &__location {
+      order: 3;
+    }
+
+    &__old {
+      order: 7;
+    }
+
+    &__name {
+      order: 4;
+    }
+
+    &__phone {
+      order: 5;
+    }
+
+    &__email {
+      order: 6;
+    }
+
+    &__price {
+      order: 7;
+    }
+
+    &__btn-wr {
+      display: flex;
+      justify-content: center;
+    }
+
+    // Header
+    &__header {
+      display: flex;
+      margin-top: 20px;
+    }
+
+    &__mobile-title {
+      flex-basis: calc(100% - 26px);
+      font-family: 'Graphik', sans-serif;
+      font-size: 21px;
+      color: $color-white;
+      font-weight: bold;
+    }
+
+    &__close-mobile {
+      flex-basis: 26px;
+    }
+
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .request-mobile-button {
+    font-size: 12px;
+    padding: 12px 0 10px 0;
+  }
+
+  .request-form {
+    &__input-wr, &__range-wr {
+      flex-basis: 100%;
+    }
+
+    &__items-wr {
+      margin-top: 0;
+    }
+
+    &__location {
+      display: none;
+    }
+
+    &__email {
+      display: none;
     }
   }
 }

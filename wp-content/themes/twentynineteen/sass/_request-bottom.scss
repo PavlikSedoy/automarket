@@ -1,0 +1,38 @@
+.request-bottom {
+  position: relative;
+  background-image: url('/wp-content/themes/twentynineteen/images/calculator.jpg');
+  background-position: 50% 50%;
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-bottom: 90px;
+
+  .page__title h2 {
+    color: $color-white;
+  }
+
+  &__desc {
+    font-family: 'Roboto', sans-serif;
+    font-size: 26px;
+    color: $placeholder-color;
+    margin-top: 50px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .request-bottom {
+    &__desc {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    &__title {
+      margin-bottom: 20px !important;
+    }
+  }
+}

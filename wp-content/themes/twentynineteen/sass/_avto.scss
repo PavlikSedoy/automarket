@@ -1,0 +1,682 @@
+.auto-page {
+  position: relative;
+  background-color: $light-section-color;
+
+  // Title
+  &__catalog-title {
+    margin-bottom: 0;
+  }
+
+  // Tabs
+  &__tabs {
+    margin-top: 100px;
+  }
+
+  // Page content
+  &__page-content_wr {
+    display: flex;
+    //margin-top: 130px;
+    position: relative;
+  }
+
+  &__filters {
+    flex-basis: 360px;
+  }
+  
+  &__filters-form {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 50px;
+    padding-bottom: 130px;
+  }
+
+  &__content {
+    flex-basis: calc(100% - 360px);
+    padding-left: 30px;
+    position: relative;
+    width: calc(100% - 360px);
+  }
+
+  // Inputs
+  &__input {
+    height: 50px;
+    width: 100%;
+  }
+
+  &__input-list {
+    position: absolute;
+    background-color: $color-white;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    top: calc(100% + 3px);
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    max-height: 141px;
+    overflow: scroll;
+    overflow-x: hidden;
+
+    &_ul {
+      list-style-type: none;
+      margin: 0;
+    }
+
+    &_li {
+      padding: 15px 25px;
+      font-family: 'Roboto', sans-serif;
+      font-size: 16px;
+      color: $placeholder-color;
+      border-top: 1px solid rgba($header-vertical-line_color, .4);
+      transition: .3s ease-in-out;
+      line-height: 1;
+
+      &:first-child {
+        border-top: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+        padding-left: 40px;
+        color: $header-link-hover-color;
+      }
+    }
+  }
+
+  #car-brand-list-filters, #car-list-filters, #year-to-list-filters, #year-from-list-filters, #car-fuel-list, #car-transmission-list {
+    display: none;
+  }
+
+  // Range Styles
+  // Range Styles
+  .irs--flat .irs-handle>i:first-child {
+    width: 16px;
+    height: 16px;
+    border: solid 1px rgb(114, 195, 255);
+    background-color: $color-white;
+    border-radius: 50%;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $header-blue-color;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .irs--flat .irs-line {
+    height: 1px;
+    background-color: $placeholder-color;
+  }
+
+  .irs--flat .irs-bar {
+    height: 1px;
+    background-color: $header-blue-color;
+  }
+
+  .irs--flat .irs-handle {
+    top: 18px;
+  }
+
+  .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    color: $header-blue-color;
+    font-size: 12px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .irs--flat .irs-from {
+    &:after {
+      content: 'от';
+      position: absolute;
+      left: -6px;
+      top: 1px;
+    }
+  }
+
+  .irs--flat .irs-to {
+    &:after {
+      content: 'до ';
+      position: absolute;
+      left: -8px;
+      top: 1px;
+    }
+  }
+
+  .irs-from, .irs-to, .irs-single {
+    top: -3px;
+    padding-left: 10px;
+  }
+
+  &__range-wr {
+    margin-bottom: 30px;
+  }
+
+  // Buttons
+  &__btn-ok, &__btn-clear {
+    padding: 0;
+    line-height: 50px;
+    margin-top: 30px;
+  }
+
+  &__btn-ok {
+    margin-top: 50px;
+  }
+
+  // Catalog
+  &__catalog {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    padding-bottom: 55px;
+  }
+
+  // Item
+  &__auto-item {
+    flex-basis: calc((100% - 30px)/2);
+  }
+
+  // Pagination
+  &__pagination {
+    padding-bottom: 130px;
+  }
+}
+
+// Tabs
+.auto-tabs {
+  position: relative;
+  display: flex;
+  width: 100%;
+  border-bottom: 4px solid $header-vertical-line_color;
+
+  &__item {
+    position: relative;
+    flex-basis: 20%;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: $tabs-title-color;
+    text-transform: uppercase;
+    font-family: 'Graphik', sans-serif;
+    font-size: 15px;
+    letter-spacing: 1.7px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: .3s ease-in-out;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background-color: $header-blue-color;
+      transition: .3s ease-in-out;
+    }
+
+    &:hover {
+      text-decoration: none;
+      color: $dark-section-title;
+    }
+
+    // Active tab
+    &.active {
+      position: relative;
+      color: $header-blue-color;
+
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.avto {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.31);
+}
+
+.current-avto {
+  // Range Styles
+  .irs--flat .irs-handle>i:first-child {
+    width: 16px;
+    height: 16px;
+    border: solid 1px rgb(114, 195, 255);
+    background-color: $color-white;
+    border-radius: 50%;
+    left: 0;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      background-color: $header-blue-color;
+      border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      transform: translate(-50%,-50%);
+    }
+  }
+
+  .irs--flat .irs-line {
+    height: 1px;
+    background-color: $placeholder-color;
+  }
+
+  .irs--flat .irs-bar {
+    height: 1px;
+    background-color: $header-blue-color;
+  }
+
+  .irs--flat .irs-handle {
+    top: 18px;
+  }
+
+  .irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: transparent;
+    font-family: 'Roboto', sans-serif;
+    color: $header-blue-color;
+    font-size: 12px;
+
+    &:before {
+      display: none;
+    }
+  }
+
+  .irs--flat .irs-from {
+    &:after {
+      content: 'от';
+      position: absolute;
+      left: -6px;
+      top: 1px;
+    }
+  }
+
+  .irs--flat .irs-to {
+    &:after {
+      content: 'до ';
+      position: absolute;
+      left: -8px;
+      top: 1px;
+    }
+  }
+
+  .irs-from, .irs-to, .irs-single {
+    top: -3px;
+    padding-left: 10px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .avto {
+    margin-top: 40px;
+  }
+
+  .auto-page {  
+    &__tabs {
+      margin-top: 80px;
+    }
+
+    &__page-content_wr {
+      flex-direction: column;
+    }
+
+    &__container {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    &__content {
+      flex-basis: 100%;
+      width: 100%;
+      padding-left: 0;
+    }
+
+    &__filters {
+      flex-basis: 100%;
+      border: 2px solid rgb(219, 219, 219);
+      padding: 10px 15px;
+      position: relative;
+    }
+
+    &__filters-form {
+      padding-bottom: 0px;
+      position: relative;
+      top: 0;
+      margin-top: 0px;
+      display: none;
+    }
+
+    &__filters-title {
+      padding-top: 0px !important;
+      margin-bottom: 0;
+      border-bottom: none ;
+
+      h2 {
+        font-size: 15px !important;
+        color: $header-blue-color;
+        text-align: center;
+        width: 100%;
+        padding-bottom: 0;
+
+        &:after {
+          display: none;
+        }
+
+      }
+
+      .request-form__arrow-img {
+        top: 22px;
+
+        svg {
+          transition: .3s ease-in-out;
+        }
+
+        &.active {
+          svg {
+            transform: rotate(180deg) translate(0%, -50%);
+            transform-origin: 50% 50%;
+
+            path {
+              fill: $header-blue-color !important;
+            }
+          }
+        }
+      }
+
+      svg path {
+        fill: $header-default-text-color !important;
+        transition: .3s ease-in-out;
+      }
+    }
+
+    &__catalog-title {
+      margin-bottom: 80px;
+    }
+
+    &__pagination {
+      padding-bottom: 90px;
+    }
+  }
+
+  .auto-tabs {
+    &__link {
+      font-size: 12px;
+    }
+  }
+
+  .current-avto {
+    &__info {
+      flex-direction: column;
+    }
+
+    &__left, &__right {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
+
+    &__left {
+      padding-right: 0;
+    }
+
+    &__right {
+      padding-left: 0;
+      margin-top: 30px;
+    }
+
+    .aside-order__title {
+      font-size: 21px;
+    }
+
+    .aside-order__form {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .aside-order__input-wr, .aside-order__submit {
+      flex-basis: calc((100% - 30px)/2);
+    }
+
+    .aside-order__submit {
+      margin-top: 30px;
+      font-size: 15px;
+      padding: 13px 0;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .avto {
+    margin-top: 30px;
+
+    &__slide_img {
+      height: 240px;
+    }
+
+    &__props_text {
+      font-size: 12px;
+    }
+
+    &__props_year, &__props_engine-capacity, &__props_fuel-type {
+      flex-basis: 80px;
+    }
+
+    &__props_fuel-type {
+      flex-basis: 100px;
+    }
+
+    &__title {
+      font-size: 16px;
+    }
+
+    &__title-wr {
+      height: 40px;
+    }
+
+    &__price {
+      font-size: 16px;
+      margin-left: 24px;
+      margin-right: auto;
+    }
+
+    &__footer {
+      margin-top: 20px;
+
+      &_price {
+        font-size: 14px;
+      }
+
+      &_text {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .auto-page {
+
+    &__container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    &__auto-item {
+      flex-basis: 100%;
+    }
+
+    &__tabs {
+      margin-top: 40px;
+    }
+
+    &__catalog-title {
+      padding-top: 60px !important;
+    }
+  }
+
+  .current-avto {
+    &__content-title {
+      h2 {
+        font-size: 19px;
+      }
+    }
+
+    &__gallery-top {
+      height: 230px;
+    }
+
+    &__button-next, &__button-prev {
+      display: none;
+    }
+
+    &__gallery-thumbs {
+      height: 40px;
+      margin-top: 5px;
+    }
+
+    &__tabs {
+      margin-top: 30px;
+    }
+
+    .tabs__header_item {
+      font-size: 12px;
+      padding: 5px 0;
+    }
+
+    .tabs__header:before, .tabs__header:after {
+      height: 2px;
+    }
+
+    .tabs__in-out-price {
+      flex-direction: column;
+    }
+
+    .tabs__in-out-price h4 {
+      font-size: 16px;
+    }
+
+    .tabs__in-price_li, .tabs__out-price_li {
+      padding: 5px 0;
+    }
+
+    .tabs__in-price_li:before, .tabs__out-price_li:before {
+      top: 16px;
+    }
+
+    &__price-in-ukr {
+      font-size: 14px;
+
+      span {
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+
+    &__price {
+      font-size: 25px;
+    }
+
+    &__order-btn {
+      margin-top: 20px;
+      font-size: 15px;
+      height: 50px;
+      padding: 15px 0;
+    }
+
+    .tabs__equipment-list_item {
+      flex-basis: 100%;
+    }
+
+    &__specifications {
+      &_title {
+        font-size: 16px;
+      }
+
+      &_item_left-side, &_item_right-side {
+        font-size: 12px;
+        padding: 10px 0;
+      }
+    }
+
+    .aside-order__title {
+      font-size: 16px;
+    }
+
+    &__aside-order {
+      margin-top: 40px;
+    }
+
+    .aside-order__desc {
+      font-size: 15px;
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+
+    .aside-order__form {
+      margin-top: 0;
+    }
+
+    .aside-order__input-wr, .aside-order__submit {
+      flex-basis: 100%;
+    }
+
+    .aside-order__submit {
+      font-size: 12px;
+    }
+
+    &__content-container {
+      padding-bottom: 80px;
+    }
+  }
+
+  .auto-tabs {
+    flex-wrap: wrap;
+    border-bottom: none;
+    justify-content: space-between;
+
+    &__item {
+      flex-basis: calc((100% - 10px)/2);
+      margin-top: 10px;
+
+      &:first-child {
+        margin-top: 0;
+        flex-basis: 100%;
+      }
+    }
+
+    &__link {
+      border: 2px solid $placeholder-color;
+      padding: 5px 0;
+      transition: .3s ease-in-out;
+
+      &.active {
+        border-color: $header-blue-color;
+      }
+
+      &:after {
+        display: none;
+      }
+    }
+  }
+}

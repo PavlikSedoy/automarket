@@ -129,6 +129,7 @@ input {
   font-size: 16px;
   color: $placeholder-color;
   padding-left: 60px;
+  border-radius: 0;
 
   &::placeholder {
     color: $placeholder-color;
@@ -146,7 +147,12 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+body.noScroll { /* ...or body.dialogShowing */
+  overflow: hidden;
+}
+
 //  IMPORT SCSS PARTS *******
+@import "hamburgers";
 @import "header";
 @import "home-page";
 @import "request-form";
@@ -163,6 +169,11 @@ input[type=number]::-webkit-outer-spin-button {
 @import "about";
 @import "news";
 @import "calculator";
+@import "avto";
+@import "pagination";
+@import "close-mobile";
+@import "request-bottom";
+@import "modals";
 
 .page-header {
   height: 370px;
@@ -188,6 +199,15 @@ input[type=number]::-webkit-outer-spin-button {
       font-weight: normal;
     }
   }
+}
+
+.aside-order__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.aside-order__input-wr.first {
+  order: -1;
 }
 
 .page {
@@ -250,5 +270,95 @@ input[type=number]::-webkit-outer-spin-button {
 
   &__right-side {
     flex-basis: 370px;
+  }
+}
+
+.none-xl-only {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .none-xl-only {
+    display: block;
+  }
+
+  .section-title {
+    font-size: 30px;
+  }
+
+  .page-header {
+    &__text {
+      p {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+    }
+  }
+
+  .md-none {
+    display: none;
+  }
+
+  .current-avto__content-title {
+    border-bottom: none;
+    margin-bottom: 60px;
+
+    h2 {
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .section-title {
+    font-size: 19px;
+  }
+
+  .btn {
+    &__width {
+      &_180 {
+        width: 135px;
+        height: 40px;
+        font-size: 12px;
+      }
+
+      &_265 {
+        font-size: 12px;
+        width: 210px;
+        height: 50px;
+      }
+    }
+
+    // Font Size
+    &__fz {
+      &_15 {
+        font-size: 12px;
+        line-height: 1;
+      }
+    }
+  }
+
+  .page-header {
+    &__text {
+      margin-top: 20px;
+
+      p {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .page__title {
+    padding-top: 80px;
+  }
+
+  .current-avto__content-title {
+    margin-bottom: 40px;
+  }
+
+  #auto-page-filters {
+    margin-bottom: 0;
   }
 }

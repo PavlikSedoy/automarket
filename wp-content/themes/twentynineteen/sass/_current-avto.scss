@@ -229,6 +229,7 @@
     height: 100%;
     z-index: 3;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
     padding-left: 27px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -340,5 +341,40 @@
   // Aside order block
   &__aside-order {
     margin-top: 80px;
+  }
+}
+
+@media only screen and (max-width: 1199px) {
+  .current-avto {
+    &__header-content-container {
+      h1 {
+        font-size: 55px;
+      }
+    }
+
+    &__content-title {
+      h2 {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .current-avto {
+    &__header-content-container {
+      h1 {
+        font-size: 33px;
+      }
+    }
+
+    &__bg {
+      img {
+        width: auto;
+        height: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
   }
 }

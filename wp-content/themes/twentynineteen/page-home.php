@@ -56,7 +56,7 @@ get_header();
     </div>
 
     <!--  Home Slider Request || Request form -->
-    <div class="home-slider__request request-form">
+    <div class="home-slider__request request-form" id="home-request-form">
         <div class="requst__home-title-block request-title">
             <div class="container">
                 <div class="request-title__wr">
@@ -75,11 +75,18 @@ get_header();
         
         <div class="container request-form__container">
             <form action="" class="request-form__form">
+
+                <div class="request-form__header">
+                    <div class="request-form__mobile-title">Подбор авто</div>
+                    <div class="request-form__mobile-close close" id="request-form-mobile-close"></div>
+                </div>
+                <!-- /.request-form__header -->
+
                 <div class="request-form__items-wr">
 
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__brand">
                             <input type="text" class="request-form__input" placeholder="Марка" id="car-brand">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
@@ -96,7 +103,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__model">
                             <input type="text" class="request-form__input" placeholder="Модель" id="car-model">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
@@ -113,7 +120,7 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__location">
                             <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
@@ -133,35 +140,35 @@ get_header();
                             </div>
                         </div>
 
-                        <div class="request-form__range-wr">
+                        <div class="request-form__range-wr request-form__old">
                             <input id="year-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
 
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__name">
                             <input type="text" class="request-form__input" placeholder="Имя">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/name-icon.svg">
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__phone">
                             <input type="text" class="request-form__input" placeholder="Телефон">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/phone-icon-icon.svg">
                             </div>
                         </div>
 
-                        <div class="request-form__input-wr">
+                        <div class="request-form__input-wr request-form__email">
                             <input type="text" class="request-form__input" placeholder="E-mail">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/3auto-page-icons/email-icon.svg" alt="">
                             </div>
                         </div>
 
-                        <div class="request-form__range-wr">
+                        <div class="request-form__range-wr request-form__price">
                             <input id="price-range" type="text" class="js-range-slider" name="my_range" value="" />
                         </div>
 <!--                    </div>-->
@@ -169,13 +176,18 @@ get_header();
                 </div>
 
                 <div class="request-form__btn-wr">
-                    <button class="btn btn__width_265 btn__height_50 btn__color_blue">Подобрать авто</button>
+                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="send-request-mail">Подобрать авто</button>
                 </div>
                 
             </form>
         </div>
     </div>
 </section>
+
+<!-- Request button tablet -->
+<div class="request-mobile-button" id="request-mobile-button">
+    Подобрать авто
+</div>
 
 <!-- Popular Auto Section -->
 <section class="popular">
@@ -230,7 +242,7 @@ get_header();
                 </div>
 
                 <div class="avto__location_wr">
-                    <div class="avto__location"><?= get_field('auto-location', $post->ID) ?></div>
+                    <div class="avto__location"><?= get_field('auto-location', $post->ID)['label'] ?></div>
                 </div>
 
                 <div class="avto__props">
@@ -244,7 +256,7 @@ get_header();
                     <div class="avto__props_engine-capacity">
                         <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">
                         <span class="avto__props_text">
-                            <?= get_field('current-auto-engine-capacity', $post->ID) ?>
+                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> л
                         </span>
                     </div>
 
@@ -305,15 +317,15 @@ get_header();
     <div class="container calculator__container">
         <!-- Title -->
         <div class="how-work__title_wr">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/calculate-icon.svg" class="how-word__h2-img">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/calculate-icon.svg" class="how-work__h2-img">
             <h2 class="how-work__title section-title calculator__title">Калькулятор <span>растаможки</span></h2>
         </div>
 
         <!-- Tabs -->
         <div class="calculator__tabs tabs">
             <div class="tabs__header left-active">
-                <div class="tabs__header_item" data-tab="desc">Растаможка в украине</div>
-                <div class="tabs__header_item" data-tab="equipment">Растаможка в грузии</div>
+                <div class="tabs__header_item" data-tab="desc"><span class="xs-none">Растаможка</span> в украине</div>
+                <div class="tabs__header_item" data-tab="equipment"><span class="xs-none">Растаможка</span> в грузии</div>
             </div>
 
             <!-- Tabs Wrapper -->
@@ -326,7 +338,7 @@ get_header();
                         <div class="calculator__inputs-wr">
 
                             <div class="request-form__input-wr">
-                                <input type="number" class="request-form__input" placeholder="Стоимость">
+                                <input type="number" class="request-form__input" placeholder="Стоимость" id="calculator-price">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                                 </div>
@@ -337,7 +349,7 @@ get_header();
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <input type="number" class="request-form__input" placeholder="Объем" id="calculator-capacity">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
@@ -395,6 +407,70 @@ get_header();
                                         <li class="request-form__input-old-list_li">12</li>
                                         <li class="request-form__input-old-list_li">13</li>
                                         <li class="request-form__input-old-list_li">14</li>
+                                        <li class="request-form__input-old-list_li">15</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="calculator__calculate-btn_wr">
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50" id="calculator-get-price">Рассчитать</button>
+                        </div>
+
+                        <span class="calculator__price">$ <span id="calculator-full-price">0</span></span>
+
+                    </form>
+
+                </div>
+
+                <!-- Georgia Tab -->
+                <div class="tabs__tab" id="equipment-tab">
+
+                    <form action="" class="calculator__inputs-form">
+
+                        <div class="calculator__inputs-wr calculator__inputs-wr_georgia">
+
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
+                                </div>
+
+                                <div class="request-form__usd-mark">
+                                    см.куб.
+                                </div>
+                            </div>
+
+                            <div class="request-form__input-wr">
+                                <input type="text" class="request-form__input" placeholder="Возраст" id="car-old">
+                                <div class="request-form__img">
+                                    <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
+                                </div>
+
+                                <div class="request-form__arrow-img">
+                                    <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
+                                    </svg>
+                                </div>
+
+                                <div class="request-form__input-old-list" id="car-old-list">
+                                    <ul class="request-form__input-old-list_ul" id="car-old-list-ul">
+                                        <li class="request-form__input-old-list_li">1</li>
+                                        <li class="request-form__input-old-list_li">2</li>
+                                        <li class="request-form__input-old-list_li">3</li>
+                                        <li class="request-form__input-old-list_li">4</li>
+                                        <li class="request-form__input-old-list_li">5</li>
+                                        <li class="request-form__input-old-list_li">6</li>
+                                        <li class="request-form__input-old-list_li">7</li>
+                                        <li class="request-form__input-old-list_li">8</li>
+                                        <li class="request-form__input-old-list_li">9</li>
+                                        <li class="request-form__input-old-list_li">10</li>
+                                        <li class="request-form__input-old-list_li">11</li>
+                                        <li class="request-form__input-old-list_li">12</li>
+                                        <li class="request-form__input-old-list_li">13</li>
+                                        <li class="request-form__input-old-list_li">14</li>
                                         <li class="request-form__input-old-list_li">15 и больше</li>
                                     </ul>
                                 </div>
@@ -411,13 +487,6 @@ get_header();
                     </form>
 
                 </div>
-
-                <!-- Georgia Tab -->
-                <div class="tabs__tab" id="equipment-tab">
-
-                    Georgia
-
-                </div>
             </div>
         </div>
 
@@ -429,115 +498,44 @@ get_header();
     <div class="container how-work__container">
         <!-- Title -->
         <div class="how-work__title_wr">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-word__h2-img">
+            <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-work__h2-img">
             <h2 class="how-work__title section-title">Как мы <span>работаем</span></h2>
         </div>
 
         <!-- Items -->
         <div class="how-work__items">
 
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/podbor-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Подбор авто</h4>
-                    <div class="how-work__item-title_number">01</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/proverka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Проверка авто по CarFax
-                        и AutoCheck</h4>
-                    <div class="how-work__item-title_number">02</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/vykup-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Выкуп авто на аукционе</h4>
-                    <div class="how-work__item-title_number">03</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/transportirovka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Транспортировка</h4>
-                    <div class="how-work__item-title_number">04</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/rastamozhka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Растаможка и сертификация</h4>
-                    <div class="how-work__item-title_number">05</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
-            <!-- Item -->
-            <article class="how-work__item">
-                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/how-work/dostavka-icon.svg" class="how-work__img">
-                <div class="how-work__item-title">
-                    <h4 class="how-work__item-title_text">Доставка клиенту по Украине</h4>
-                    <div class="how-work__item-title_number">06</div>
-                </div>
-                <div class="how-work__content">
-                    <p>
-                        После заказа автомобиля, наши менеджеры
-                        подбирают несколько вариантов авто
-                        по Вашим запросам.
-                    </p>
-                </div>
-            </article>
-
+            <?php
+                $n = 0;
+                $args = array(
+                    'post_type' => 'how-we-working',
+                    'order' => 'ASC',
+                    'posts_per_page' => 9
+                );
+                $loop = new WP_Query($args);
+                while ($loop->have_posts()) : $loop->the_post();
+                $n++
+            ?>
+                <!-- Item -->
+                <article class="how-work__item">
+                    <img src="<?= the_post_thumbnail_url() ?>" class="how-work__img">
+                    <div class="how-work__item-title">
+                        <h4 class="how-work__item-title_text"><?= the_title() ?></h4>
+                        <div class="how-work__item-title_number">0<?= $n ?></div>
+                    </div>
+                    <div class="how-work__content">
+                        <?= the_content() ?>
+                    </div>
+                </article>
+            <?php
+                endwhile;
+                wp_reset_query();
+            ?>
         </div>
 
-        <div class="how-work__request">
-            <div class="btn btn__width_265 btn__color_blue" id="how-work-request">Подобрать авто</div>
-        </div>
+<!--        <div class="how-work__request">-->
+<!--            <div class="btn btn__width_265 btn__color_blue" id="how-work-request">Подобрать авто</div>-->
+<!--        </div>-->
 
 
     </div>
@@ -563,55 +561,32 @@ get_header();
 
             <!-- Spoilers -->
             <div class="faq__spoilers">
+                <?php
+                    $n = 0;
+                    $args = array(
+                        'post_type' => 'faq',
+                        'order' => 'ASC',
+                        'posts_per_page' => 10
+                    );
+                    $loop = new WP_Query($args);
+                    while ($loop->have_posts()) : $loop->the_post();
+                    $n++;
+                ?>
+                    <!-- Spoiler Item -->
+                    <article class="faq__spoiler <?php if ($n == 1) echo 'active'; ?>">
+                        <div class="faq__item-title_block">
+                            <h4 class="faq__item-title"><?= the_title() ?></h4>
+                            <div class="faq__item-title_icon"></div>
+                        </div>
 
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler active">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Как купить авто в Америке?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Почему лучше купить авто на аукционе США?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Почему б/у авто из Америки дешевле?</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
-                <!-- Spoiler Item -->
-                <article class="faq__spoiler">
-                    <div class="faq__item-title_block">
-                        <h4 class="faq__item-title">Как купить авто в США через компанию «Auto Market»</h4>
-                        <div class="faq__item-title_icon"></div>
-                    </div>
-
-                    <div class="faq__content">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequatur corporis cupiditate delectus dignissimos ducimus, ea eius expedita harum illo minus nobis odio placeat quasi qui ut, voluptas. Animi asperiores laboriosam nobis perferendis voluptatum. Aspernatur doloremque eius explicabo labore laborum nulla odit possimus repellendus tempore vitae.</p>
-                    </div>
-                </article>
-
+                        <div class="faq__content">
+                            <?= the_content() ?>
+                        </div>
+                    </article>
+                <?php
+                    endwhile;
+                    wp_reset_query();
+                ?>
             </div>
 
 

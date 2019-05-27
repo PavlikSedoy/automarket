@@ -13,16 +13,15 @@ get_header();
     <!--  Logistic Header  -->
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/headimg.jpg">
+            <img src="<?= get_the_post_thumbnail_url(257) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <h1 class="current-avto__title"><?= the_title() ?></h1>
+            <?php $head_info = get_post(257) ?>
+            <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
                 <p>
-                    Наша логистическая компания всегда поможет подобрать наиболее
-                    рациональный маршрут передвижения груза. Кроме того, возможно
-                    отслеживание  местоположения груза в разных точках планеты.
+                    <?= $head_info->post_content ?>
                 </p>
             </div>
         </div>
@@ -48,6 +47,83 @@ get_header();
             <div class="logistic__content page__content"><?php the_content() ?></div>
 
             <div class="logistic__asside">
+
+                <div class="logistic__container-search-wr">
+                    <h4 class="aside-order__title">Поиск контейнера</h4>
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/hapag-lloyd.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form action="https://www.hapag-lloyd.com/en/online-business/tracing/tracing-by-container.html" class="logistic__container-input-form" method="get" target="_blank">
+                                <input type="text" name="container" class="logistic__container-input" placeholder="Контейнер №">
+                                <button class="logistic__container-submit" type="submit"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/maersk.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form action="https://www.hapag-lloyd.com/en/online-business/tracing/tracing-by-container.html" class="logistic__container-input-form" method="get" target="_blank">
+                                <input type="text" name="container" class="logistic__container-input" placeholder="Контейнер №" id="maersk-container">
+                                <button class="logistic__container-submit" type="submit" id="maersk-container-btn"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/zim.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form action="https://www.zim.com/tools/track-a-shipment" class="logistic__container-input-form" class="logistic__container-input-form" method="get" target="_blank">
+                                <input type="text" name="consnumber" class="logistic__container-input" placeholder="Контейнер №">
+                                <button class="logistic__container-submit" type="submit"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/parteneri-dtsl-turkon.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form class="logistic__container-input-form" action="http://www.turkon.com/en/Container-Tracking.aspx/" class="logistic__container-input-form" method="get" target="_blank">
+                                <input type="text" class="logistic__container-input" placeholder="Контейнер №" name="">
+                                <button class="logistic__container-submit" type="submit"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/cosco.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form action="http://elines.coscoshipping.com/ebusiness/cargoTracking?trackingType=CONTAINER" method="get" class="logistic__container-input-form" target="_blank">
+                                <input type="text" class="logistic__container-input" placeholder="Контейнер №" name="number">
+                                <button class="logistic__container-submit" type="submit"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+
+                    <div class="logistic__container-search__item">
+                        <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/msc.png" class="logistic__container-search-logo">
+                        <div class="logistic__container-input-wr">
+                            <form action="http://bsbg.com.ge/bsbg/msc.php" class="logistic__container-input-form" method="get" target="_blank">
+                                <input type="text" class="logistic__container-input" placeholder="Контейнер №" name="number">
+                                <button class="logistic__container-submit" type="submit"><img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-search-icon.svg"></button>
+                                <img src="<?= get_template_directory_uri() ?>/images/4shipping-page-icons/container-icon.svg" class="logistic__container-input-icon">
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.logistic__container-search__item -->
+                </div>
+                <!-- /.logistic__container-search-wr -->
 
                 <div class="aside-order">
                     <h4 class="aside-order__title">Калькулятор доставки</h4>
@@ -118,7 +194,7 @@ get_header();
                     <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/email-icon.svg" class="aside-order__input_img">
                 </div>
 
-                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_265 btn__height_50">Отправить</button>
+                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_265 btn__height_50" id="submit-logistic-request">Отправить</button>
             </form>
 
         </div>

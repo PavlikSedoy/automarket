@@ -267,6 +267,7 @@
     height: 100%;
     z-index: 3;
     clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
+    -webkit-clip-path: polygon(0 0, 100% 0%, 100% 100%, 15% 100%);
     padding-left: 27px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
@@ -485,5 +486,160 @@
       font-size: 16px;
     }
   }
+}
 
+.request-mobile-button {
+  display: none;
+}
+
+@media (max-width: 1199px) {
+  .home-slider{
+    &__slide-bg_img {
+      width: auto;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100%;
+    }
+
+    &__content {
+      &_wr {
+        height: 100%;
+      }
+    }
+
+    &__title {
+      margin-left: 80px;
+      width: 70%;
+
+      h1 {
+        font-size: 55px;
+      }
+    }
+
+    &__btn {
+      &_wr {
+        margin-left: 80px;
+      }
+
+      font-size: 12px;
+      padding: 18px 15px 15px 15px;
+    }
+
+    &__nav {
+      height: 100%;
+    }
+
+    &__pagination {
+      bottom: 70px;
+    }
+  }
+
+  // Request mobile button
+  .request-mobile-button {
+    position: relative;
+    width: 100%;
+    background-color: $header-blue-color;
+    color: $color-white;
+    font-family: 'Graphik', sans-serif;
+    font-size: 17px;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1.9px;
+    text-align: center;
+    padding: 20px 0 17px 0;
+    display: block;
+  }
+
+  // Popular Auto
+  .popular {
+    padding-top: 70px;
+
+    &__h2-img {
+      width: 112px;
+    }
+
+    &__avto {
+      flex-basis: calc((100% - 15px)/2);
+    }
+
+    &__all-auto {
+      margin-top: 50px;
+    }
+  }
+
+  // Calculator
+  .how-work {
+    &__h2-img {
+      width: 112px;
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  // Home slider
+  .home-slider {
+    height: calc(100vh - 100px);
+
+    &__slider, &__content_wr, &__slide-bg, &__slide {
+      height: calc(100vh - 100px);
+    }
+
+    &__nav {
+      height: 50px;
+      top: calc(100% - 65px);
+    }
+
+    &__prev-btn {
+      left: 15px;
+    }
+
+    &__next-btn {
+      right: calc(100% - 115px);
+    }
+
+    &__pagination {
+      bottom: 0;
+    }
+
+    &__title {
+      margin-left: 0;
+      width: 265px;
+
+      h1 {
+        font-size: 31px;
+      }
+    }
+
+    &__btn_wr {
+      margin-left: 0;
+    }
+
+    &__btn {
+      margin-top: 25px;
+    }
+  }
+
+  // Popular
+  .popular {
+    padding-bottom: 70px;
+    padding-top: 30px;
+
+    &__h2-img {
+      width: 105px;
+    }
+
+    &__avto_wr {
+      justify-content: center;
+    }
+
+    &__avto {
+      flex-basis: calc(100% - 30px);
+    }
+
+    &__all-auto {
+      margin-top: 30px;
+    }
+  }
 }

@@ -1,0 +1,22 @@
+.close {
+  position: relative;
+  width: 26px;
+  height: 26px;
+  opacity: 1;
+}
+
+.close:before, .close:after {
+  position: absolute;
+  left: 12px;
+  top: -3px;
+  content: ' ';
+  height: 33px;
+  width: 2px;
+  background-color: $color-white;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}

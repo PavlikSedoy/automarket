@@ -12,44 +12,114 @@
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
+    <div class="reviews">
 
-		<?php if ( have_posts() ) : ?>
+        <div class="container container__reviews">
+            <div class="current-avto__content-title page__title">
+                <h2>Результаты поиска:</h2>
+            </div>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php _e( 'Search results for:', 'twentynineteen' ); ?>
-				</h1>
-				<div class="page-description"><?php echo get_search_query(); ?></div>
-			</header><!-- .page-header -->
 
-			<?php
-			// Start the Loop.
-			while ( have_posts() ) :
-				the_post();
+            <div class="popular__avto_wr">
 
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content/content', 'excerpt' );
+                <?php
+                while ( have_posts() ) :
+                    the_post();
+                ?>
+                    <!-- Items -->
+                    <article class="popular__avto avto">
 
-				// End the loop.
-			endwhile;
+                        <!-- Slider Wrap & slider -->
+                        <div class="avto__slider">
+                            <!-- Slider main container -->
+                            <div class="avto-swiper-container">
+                                <!-- Additional required wrapper -->
+                                <div class="swiper-wrapper avto__swiper-wrapper">
 
-			// Previous/next page navigation.
-			twentynineteen_the_posts_navigation();
+                                    <?php foreach ( get_post_meta($post->ID, 'avto-photos') as $img ) : ?>
+                                        <!-- Slides -->
+                                        <div class="swiper-slide avto__slide">
+                                            <div class="avto__slide_img" style="background-image: url(<?= $img['guid'] ?>);">
+                                            </div>
+                                        </div>
+                                    <?php endforeach ?>
 
-			// If no content, include the "No posts found" template.
-		else :
-			get_template_part( 'template-parts/content/content', 'none' );
+                                </div>
+                                <div class="avto__slider_buttom">
+                                    <!-- If we need pagination -->
+                                    <div class="avto-swiper-pagination"></div>
 
-		endif;
-		?>
-		</main><!-- #main -->
-	</section><!-- #primary -->
+                                    <!-- If we need navigation buttons -->
+                                    <div class="avto-swiper-button-prev"></div>
+                                    <div class="avto-swiper-button-next"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="avto__location_wr">
+                            <div class="avto__location"><?= get_field('auto-location', $post->ID)['label'] ?></div>
+                        </div>
+
+                        <div class="avto__props">
+                            <div class="avto__props_year">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/calendar-icon.svg" class="avto__props_img">
+                                <span class="avto__props_text">
+                            <?= get_field('current-auto-year', $post->ID) ?>
+                        </span>
+                            </div>
+
+                            <div class="avto__props_engine-capacity">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">
+                                <span class="avto__props_text">
+                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> л
+                        </span>
+                            </div>
+
+                            <div class="avto__props_fuel-type">
+                                <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">
+                                <span class="avto__props_text">
+                            <?= get_field('current-auto-fuel-type', $post->ID) ?>
+                        </span>
+                            </div>
+                        </div>
+
+                        <div class="avto__title-wr">
+                            <h4 class="avto__title">
+                                <?php
+                                // Car Brand
+                                $car_brand = get_field('car-brand', $post->ID);
+                                echo $car_brand['value'];
+                                ?> <?php
+                                // Car Model
+                                $car_model_name = 'car-' . strtolower($car_brand['label']);
+                                echo get_field($car_model_name, $post->ID);
+                                ?>
+                            </h4>
+                        </div>
+
+                        <div class="avto__price-details">
+                            <a href="<?= get_page_link() ?>" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>
+
+                            <div class="avto__price">
+                                $ <?= get_field('current-auto-price', $post->ID) ?>
+                            </div>
+                        </div>
+
+                        <div class="avto__footer">
+                    <span class="avto__footer_price">
+                        $ <?= get_field('current-auto-price-in-ukraine', $post->ID) ?>
+                    </span>
+                            <span class="avto__footer_text">Стоимость аналого в Украине</span>
+                        </div>
+                    </article>
+            <?php
+                endwhile;
+                wp_reset_query();
+            ?>
+        </div>
+
+
+    </div>
 
 <?php
 get_footer();

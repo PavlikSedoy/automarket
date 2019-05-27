@@ -14,14 +14,15 @@ get_header();
     <!--  Reviews Header  -->
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_stylesheet_directory_uri() ?>/images/headimg.jpg">
+            <img src="<?= get_the_post_thumbnail_url(259) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <h1 class="current-avto__title"><?= the_title() ?></h1>
+            <?php $head_info = get_post(259) ?>
+            <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
                 <p>
-                    Мы всегда рады ответить на Ваши вопросы!
+                    <?= $head_info->post_content ?>
                 </p>
             </div>
         </div>
@@ -44,7 +45,7 @@ get_header();
             <h2>Наши контакты</h2>
         </div>
 
-        <div class="page__content-wr">
+        <div class="page__content-wr page-contacts__content-wr">
             <!-- Content -->
             <div class="page__left-side page-contacts__left-side">
 
@@ -234,7 +235,7 @@ get_header();
                         <img src="<?php bloginfo('template_url') ?>/images/6contacts-page-icons/message-icon.svg" class="aside-order__textarea_img">
                     </div>
 
-                    <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100 btn__height_50">Отправить вопрос</button>
+                    <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100 btn__height_50" id="contact-request-form">Отправить вопрос</button>
                 </form>
 
             </div>

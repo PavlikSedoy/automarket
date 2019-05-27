@@ -443,7 +443,83 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('news',$args);
+
+    //  How We Work
+    $labels = array(
+        'name' => 'Как мы работаем',
+        'singular_name' => 'Как работаем',
+        'add_new' => 'Добавить пункт',
+        'add_new_item' => 'Добавить новый пункт',
+        'edit_item' => 'Редактировать пункт',
+        'menu_name' => 'Как мы работаем'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-businessman',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('how-we-working',$args);
+
+
+    //  FAQ
+    $labels = array(
+        'name' => 'FAQ',
+        'singular_name' => 'FAQ',
+        'add_new' => 'Добавить пункт',
+        'add_new_item' => 'Добавить новый пункт',
+        'edit_item' => 'Редактировать пункт',
+        'menu_name' => 'FAQ'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-lightbulb',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor')
+    );
+    register_post_type('faq',$args);
+
+
+    //  Pages title and description
+    $labels = array(
+        'name' => 'Инфо страниц',
+        'singular_name' => 'Инфо старницы',
+        'add_new' => 'Добавить инфу страницы',
+        'add_new_item' => 'Добавить новую инфу страницы',
+        'edit_item' => 'Редактировать инфо страницы',
+        'menu_name' => 'Инфо страниц'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-format-aside',
+        'menu_position' => 2,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('page-info',$args);
 }
+
+// Allow SVG
+function cc_mime_types($mimes) {
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+}
+add_filter('upload_mimes', 'cc_mime_types');
+
+function fix_svg_thumb_display() {
+    echo '
+    td.media-icon img[src$=".svg"], img[src$=".svg"].attachment-post-thumbnail { 
+      width: 100% !important; 
+      height: auto !important; 
+    }
+  ';
+}
+add_action('admin_head', 'fix_svg_thumb_display');
 
 function my_endpoint( $request_data ) {
 
@@ -498,3 +574,191 @@ add_action( 'rest_api_init', function () {
         )
     );
 });
+
+// Get list from custom_field
+function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
+
+    global $wpdb;
+
+    if( empty( $key ) )
+        return;
+
+    $r = $wpdb->get_col( $wpdb->prepare( "
+        SELECT pm.meta_value FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        WHERE pm.meta_key = '%s' 
+        AND p.post_status = '%s' 
+        AND p.post_type = '%s'
+    ", $key, $status, $type ) );
+
+    return $r;
+}
+
+// Rest Api for Auto Catalog Page
+function get_model_list() {
+    $brand = $_GET['brand'];
+    $brand = strtolower($brand);
+
+    $models_list = array_unique(get_meta_values('car-' . $brand, 'avto'));
+    return $models_list;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('get_cars', '/models/', array(
+        'methods' => 'GET',
+        'callback' => 'get_model_list',
+    ));
+});
+
+// AJAX Functions
+function get_models(){
+    $brand = $_POST['brand'];
+    $brand = strtolower($brand);
+
+    $models_list = array_unique(get_meta_values('car-' . $brand, 'avto'));
+    echo json_encode($models_list);
+    die();
+}
+
+// wp_ajax_ - только для зарегистрированных пользователей
+add_action('wp_ajax_get-models', 'get_models'); // wp_ajax_{значение параметра action}
+
+// wp_ajax_nopriv_ - только для незарегистрированных, т е для залогиненных он работать не будет (результатом выполнения запроса будет 0)
+add_action('wp_ajax_nopriv_get-model', 'get_models'); // wp_ajax_nopriv_{значение параметра action}
+
+
+// Rest Api for Auto Catalog Page
+function get_cars() {
+    // setup query argument
+    $tab = array('ukraine', 'usa', 'georgia', 'in-road');
+    $tab = $_GET['tab'] == 'all' ? $tab : $_GET['tab'];
+    $posts_per_page = $_GET['posts_per_page'];
+    $paged = isset($_GET['paged']) ? $_GET['paged'] : 1;
+    $car_brand = isset($_GET['car_brand']) ? $_GET['car_brand'] : false;
+    $car_model_field = isset($_GET['car_model_field']) ? $_GET['car_model_field'] : false;
+    $car_model = isset($_GET['car_model']) ? $_GET['car_model'] : false;
+    $price_from = isset($_GET['price_from']) ? $_GET['price_from'] : 10;
+    $price_to = isset($_GET['price_to']) ? $_GET['price_to'] : 200000;
+    $year_from = $_GET['year_from'] != 0 ? $_GET['year_from'] : 0;
+    $year_to = $_GET['year_to'] != 0 ? $_GET['year_to'] : 2050;
+    $engine_capacity = $_GET['engine_capacity'] != 0 ? $_GET['engine_capacity'] : false;
+    $fuel_type = isset($_GET['fuel_type']) ? $_GET['fuel_type'] : false;
+    $transmission_type = isset($_GET['transmission_type']) ? $_GET['transmission_type'] : false;
+
+    $args = array(
+        'post_type' => 'avto',
+        'order' => 'DESC',
+        'posts_per_page' => $posts_per_page,
+        'paged' => $paged,
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key'	 	=> 'auto-location',
+                'value'	  	=> $tab,
+                'compare'   => 'IN',
+            ),
+            array(
+                'key'	 	=> 'current-auto-price',
+                'value'	  	=> $price_from,
+                'type'      => 'numeric',
+                'compare' => '>=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-price',
+                'value'	  	=> $price_to,
+                'type'      => 'numeric',
+                'compare' => '<=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-year',
+                'value'	  	=> $year_from,
+                'type'      => 'numeric',
+                'compare' => '>=',
+            ),
+            array(
+                'key'	 	=> 'current-auto-year',
+                'value'	  	=> $year_to,
+                'type'      => 'numeric',
+                'compare' => '<=',
+            ),
+        )
+    );
+
+    $car_brand_array = array(
+        'key'	 	=> 'car-brand',
+        'value'	  	=> $car_brand,
+        'compare' => 'IN',
+    );
+
+    $car_model_array = array(
+        'key'	 	=> $car_model_field,
+        'value'   => $car_model,
+        'compare' => 'IN',
+    );
+
+    $engine_capacity_array = array(
+        'key'	 	=> 'current-auto-engine-capacity',
+        'value'   => $engine_capacity,
+        'type'      => 'numeric',
+        'compare' => 'IN',
+    );
+
+    $fuel_type_array = array(
+        'key'	 	=> 'current-auto-fuel-type',
+        'value'   => $fuel_type,
+        'compare' => 'IN',
+    );
+
+    $transmission_type_array = array(
+        'key'	 	=> 'current-auto-transmission',
+        'value'   => $transmission_type,
+        'compare' => 'IN',
+    );
+
+
+    $car_brand ? array_push($args['meta_query'], $car_brand_array) : null;
+    $car_model ? array_push($args['meta_query'], $car_model_array) : null;
+    $engine_capacity > 0 ? array_push($args['meta_query'], $engine_capacity_array) : null;
+    $fuel_type ? array_push($args['meta_query'], $fuel_type_array) : null;
+    $transmission_type ? array_push($args['meta_query'], $transmission_type_array) : null;
+
+
+    // get posts
+    $posts = get_posts($args);
+    // add custom field data to posts array
+    foreach ($posts as $key => $post) {
+        $posts[$key]->acf = get_fields($post->ID);
+        $posts[$key]->link = get_permalink($post->ID);
+        $posts[$key]->image = get_the_post_thumbnail_url($post->ID);
+        $posts[$key]->gallery = get_post_meta($post->ID, 'avto-photos');
+    }
+    return $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('get_cars', '/catalog/', array(
+        'methods' => 'GET',
+        'callback' => 'get_cars',
+    ));
+});
+
+
+// Search
+function my_search_form( $form ) {
+    $form = '<form action="/?post_type=avto&s" class="search__form" id="header-search-form" method="get">
+                        <input type="text" class="search__input" name="s" id="s" placeholder="Поиск авто..." value="">
+                        <button type="submit" class="search__btn" id="search-btn">
+                            <svg version="1.1" class="search__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve">
+                                <path d="M12.8,11.2c0.1,0.1,0.2,0.3,0.2,0.4c0,0.2-0.1,0.3-0.2,0.4l-0.7,0.7C12,12.9,11.8,13,11.7,13c-0.2,0-0.3-0.1-0.4-0.2
+	l-2.5-2.5C8.6,10.2,8.5,10,8.5,9.9V9.4c-1,0.8-2,1.1-3.3,1.1c-1,0-1.9-0.2-2.7-0.7C1.8,9.4,1.2,8.8,0.7,7.9C0.2,7.1,0,6.2,0,5.3
+	s0.2-1.8,0.7-2.6c0.5-0.8,1.1-1.4,1.9-1.9C3.4,0.3,4.3,0,5.3,0s1.8,0.3,2.6,0.7c0.8,0.5,1.4,1.1,1.9,1.9c0.5,0.8,0.7,1.7,0.7,2.6
+	c0,1.2-0.4,2.3-1.1,3.3h0.4c0.2,0,0.3,0.1,0.4,0.2L12.8,11.2z M5.3,8.5c0.6,0,1.1-0.1,1.6-0.4c0.5-0.3,0.9-0.7,1.2-1.2
+	c0.3-0.5,0.4-1,0.4-1.7c0-0.6-0.2-1.1-0.4-1.6C7.8,3.1,7.4,2.8,6.9,2.5C6.4,2.2,5.9,2,5.3,2C4.7,2,4.1,2.2,3.6,2.5
+	C3.1,2.8,2.7,3.1,2.5,3.7C2.2,4.2,2,4.7,2,5.3c0,0.6,0.1,1.1,0.4,1.7c0.3,0.5,0.7,0.9,1.2,1.2C4.1,8.4,4.7,8.5,5.3,8.5z"/>
+                            </svg>
+                        </button>
+                        <input type="hidden" name="post_type[]" value="avto" />
+                    </form>';
+
+    return $form;
+}
+
+add_filter( 'get_search_form', 'my_search_form' );
