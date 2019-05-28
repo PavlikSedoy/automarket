@@ -819,6 +819,8 @@ $(document).click( function (e) {
 
         $('#auction').val(clickedItemText);
 
+        var auction = $('#auction').val();
+
         // Clear lists
         $('#city-list-ul').empty();
         $('#port-from-list-ul').empty();
@@ -829,11 +831,11 @@ $(document).click( function (e) {
         $('#port-from').val('');
         $('#port-to').val('');
 
-        getLogisticCity(clickedItemText);
+        getLogisticCity(auction);
     }
 
     // City
-    if (clickedItemClass == 'aside-order__input-list_li city') {
+    else if (clickedItemClass == 'aside-order__input-list_li city') {
         clickedItemText = $(e.target).text();
 
         $('#logistic-city').val(clickedItemText);
@@ -855,7 +857,7 @@ $(document).click( function (e) {
     }
 
     // Port From
-    if (clickedItemClass == 'aside-order__input-list_li port-from') {
+    else if (clickedItemClass == 'aside-order__input-list_li port-from') {
         clickedItemText = $(e.target).text();
 
         $('#port-from').val(clickedItemText);
@@ -876,7 +878,7 @@ $(document).click( function (e) {
     }
 
     // Port To
-    if (clickedItemClass == 'aside-order__input-list_li port-to') {
+    else if (clickedItemClass == 'aside-order__input-list_li port-to') {
         clickedItemText = $(e.target).text();
 
         $('#port-to').val(clickedItemText);
@@ -931,6 +933,11 @@ function getPortTo(auction, city, portFrom) {
             $(data).each( function (key, val) {
                 $('#port-to-list-ul').append('<li class="aside-order__input-list_li port-to">' + val.port_to + '</li>');
             });
+            if (data.length < 4) {
+                $('#port-to-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#port-to-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#port-to-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+            }
         }
     });
 }
@@ -949,7 +956,11 @@ function getPortFrom(auction, city) {
             $(data).each( function (key, val) {
                 $('#port-from-list-ul').append('<li class="aside-order__input-list_li port-from">' + val.port_from + '</li>');
             });
-            // console.log(data);
+            if (data.length < 4) {
+                $('#port-from-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#port-from-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#port-from-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+            }
         }
     });
 }
@@ -967,6 +978,11 @@ function getLogisticCity(clickedItemText) {
             $(data).each( function (key, val) {
                 $('#city-list-ul').append('<li class="aside-order__input-list_li city">' + val.replace('_', ' ') + '</li>');
             });
+            if (data.length < 4) {
+                $('#city-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#city-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+                $('#city-list-ul').append('<li class="aside-order__input-list_li empty">Empty</li>');
+            }
         }
     });
 }
