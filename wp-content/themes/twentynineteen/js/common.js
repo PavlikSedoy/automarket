@@ -949,6 +949,7 @@ function getPortFrom(auction, city) {
             $(data).each( function (key, val) {
                 $('#port-from-list-ul').append('<li class="aside-order__input-list_li port-from">' + val.port_from + '</li>');
             });
+            // console.log(data);
         }
     });
 }

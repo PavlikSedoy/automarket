@@ -521,6 +521,64 @@ function true_register_products() {
         'supports' => array( 'title')
     );
     register_post_type('calculator-manheim',$args);
+
+    //  Logistic Calculator Adesa
+    $labels = array(
+        'name' => 'Маршруты Adesa',
+        'singular_name' => 'Маршрут Adesa',
+        'add_new' => 'Добавить маршрут Adesa',
+        'add_new_item' => 'Добавить новуый маршрут Adesa',
+        'edit_item' => 'Редактировать маршрут Adesa',
+        'menu_name' => 'Калькулятор Adesa'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title')
+    );
+    register_post_type('calculator-adesa',$args);
+
+    //  Logistic Calculator Copart
+    $labels = array(
+        'name' => 'Маршруты Copart',
+        'singular_name' => 'Маршрут Copart',
+        'add_new' => 'Добавить маршрут Copart',
+        'add_new_item' => 'Добавить новуый маршрут Copart',
+        'edit_item' => 'Редактировать маршрут Copart',
+        'menu_name' => 'Калькулятор Copart'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title')
+    );
+    register_post_type('calculator-copart',$args);
+
+
+    //  Logistic Calculator IAAI
+    $labels = array(
+        'name' => 'Маршруты IAAI',
+        'singular_name' => 'Маршрут IAAI',
+        'add_new' => 'Добавить маршрут IAAI',
+        'add_new_item' => 'Добавить новуый маршрут IAAI',
+        'edit_item' => 'Редактировать маршрут IAAI',
+        'menu_name' => 'Калькулятор IAAI'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title')
+    );
+    register_post_type('calculator-iaai',$args);
 }
 
 // Allow SVG
@@ -764,12 +822,12 @@ add_action( 'rest_api_init', function () {
 // Get Port From
 function get_city() {
     $auction = isset($_GET['auction']) ? $_GET['auction'] : false;
+    $auction = strtolower($auction);
 
-    if ($auction == 'Manheim') {
-        $city_post_type = 'calculator-manheim';
-    }
+    $post_type = 'calculator-'. $auction;
+    $city_key = 'city-' . $auction;
 
-    $city_list = array_unique(get_meta_values('city-manheim', $city_post_type));
+    $city_list = array_unique(get_meta_values($city_key, $post_type));
     echo json_encode($city_list);
     die();
 }
@@ -784,9 +842,11 @@ add_action( 'rest_api_init', function () {
 // API port from
 function get_port_from() {
     $auction = $_GET['auction'];
-    $post_type = 'calculator-' . strtolower($auction);
+    $auction = strtolower($auction);
+    $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
-//    $city = str_replace(' ', '', $city);
+    $city_key = 'city-' . $auction;
+    $post_from_key = 'port-from-' . $auction;
 
     $args = array(
         'post_type' => $post_type,
@@ -795,7 +855,7 @@ function get_port_from() {
         'meta_query' => array(
             'relation' => 'AND',
             array(
-                'key'	 	=> 'city-manheim',
+                'key'	 	=> $city_key,
                 'value'	  	=> $city,
                 'compare'   => 'IN',
             )
@@ -807,7 +867,7 @@ function get_port_from() {
     $posts = get_posts($args);
     // add custom field data to posts array
     foreach ($posts as $key => $post) {
-        $posts[$key]->port_from = get_fields($post->ID)['port-from-manheim'];
+        $posts[$key]->port_from = get_fields($post->ID)[$post_from_key];
     }
     return $posts;
 }
@@ -821,10 +881,14 @@ add_action( 'rest_api_init', function () {
 // API port to
 function get_port_to() {
     $auction = $_GET['auction'];
-    $post_type = 'calculator-' . strtolower($auction);
+    $auction = strtolower($auction);
+    $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
     $city = str_replace(' ', '', $city);
     $port_from = $_GET['port_from'];
+    $city_key = 'city-' . $auction;
+    $post_from_key = 'port-from-' . $auction;
+    $port_to_key = 'port-to-' . $auction;
 
     $args = array(
         'post_type' => $post_type,
@@ -833,12 +897,12 @@ function get_port_to() {
         'meta_query' => array(
             'relation' => 'AND',
             array(
-                'key'	 	=> 'city-manheim',
+                'key'	 	=> $city_key,
                 'value'	  	=> $city,
                 'compare'   => 'IN',
             ),
             array(
-                'key'	 	=> 'port-from-manheim',
+                'key'	 	=> $post_from_key,
                 'value'	  	=> $port_from,
                 'compare'   => 'IN',
             ),
@@ -850,7 +914,7 @@ function get_port_to() {
     $posts = get_posts($args);
     // add custom field data to posts array
     foreach ($posts as $key => $post) {
-        $posts[$key]->port_to = get_fields($post->ID)['port-to-manheim'];
+        $posts[$key]->port_to = get_fields($post->ID)[$port_to_key];
     }
     return $posts;
 }
@@ -864,11 +928,17 @@ add_action( 'rest_api_init', function () {
 // API port to
 function get_price() {
     $auction = $_GET['auction'];
-    $post_type = 'calculator-' . strtolower($auction);
+    $auction = strtolower($auction);
+    $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
     $city = str_replace(' ', '', $city);
     $port_from = $_GET['port_from'];
     $port_to = $_GET['port_to'];
+    $city_key = 'city-' . $auction;
+    $post_from_key = 'port-from-' . $auction;
+    $port_to_key = 'port-to-' . $auction;
+    $first_price_key = 'first-price-' . $auction;
+    $second_price_key = 'final-price-' . $auction;
 
     $args = array(
         'post_type' => $post_type,
@@ -877,17 +947,17 @@ function get_price() {
         'meta_query' => array(
             'relation' => 'AND',
             array(
-                'key'	 	=> 'city-manheim',
+                'key'	 	=> $city_key,
                 'value'	  	=> $city,
                 'compare'   => 'IN',
             ),
             array(
-                'key'	 	=> 'port-from-manheim',
+                'key'	 	=> $post_from_key,
                 'value'	  	=> $port_from,
                 'compare'   => 'IN',
             ),
             array(
-                'key'	 	=> 'port-to-manheim',
+                'key'	 	=> $port_to_key,
                 'value'	  	=> $port_to,
                 'compare'   => 'IN',
             ),
@@ -899,8 +969,8 @@ function get_price() {
     $posts = get_posts($args);
     // add custom field data to posts array
     foreach ($posts as $key => $post) {
-        $posts[$key]->first_price = get_fields($post->ID)['first-price-manheim'];
-        $posts[$key]->second_price = get_fields($post->ID)['final-price-manheim'];
+        $posts[$key]->first_price = get_fields($post->ID)[$first_price_key];
+        $posts[$key]->second_price = get_fields($post->ID)[$second_price_key];
     }
     return $posts;
 }
