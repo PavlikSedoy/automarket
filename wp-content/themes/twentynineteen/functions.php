@@ -417,7 +417,7 @@ function true_register_products() {
     $args = array(
         'labels' => $labels,
         'public' => true,
-//        'menu_icon' => 'dashicons-image-flip-horizontal',
+        'menu_icon' => 'dashicons-image-flip-horizontal',
         'menu_position' => 5,
 //        'has_archive' => true,
         'supports' => array( 'title', 'editor', 'thumbnail')
@@ -502,6 +502,25 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('page-info',$args);
+
+    //  Reviews
+    $labels = array(
+        'name' => 'Отзывы',
+        'singular_name' => 'Отзыв',
+        'add_new' => 'Добавить отзыв',
+        'add_new_item' => 'Добавить новуый отзыв',
+        'edit_item' => 'Редактировать отзыв',
+        'menu_name' => 'Отзывы'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-format-status',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail')
+    );
+    register_post_type('reviews',$args);
 
     //  Logistic Calculator Manheim
     $labels = array(
