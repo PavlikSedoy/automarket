@@ -406,7 +406,6 @@ $('.brand-item-li').click( function () {
         },
         success: function(data) {
             modelList(data);
-            // console.log(data);
         }
     });
 });
@@ -534,8 +533,6 @@ $('#apply-filters').click( function () {
     fuelType = $('#fuel-type').val();
     transmissionType = $('#transmission-type').val();
 
-    // console.log(transmissionType);
-
     // Fade In More Button
     $('#load-more-auto').fadeIn();
 
@@ -550,7 +547,6 @@ $('#load-more-auto').click( function () {
 
 // AJAX request who get auto items
 function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
-    // console.log(transmissionType);
     $.ajax({
         type: 'GET',
         url: '/index.php?rest_route=/get_cars/catalog/',
@@ -782,3 +778,194 @@ $('#maersk-container-btn').click( function (e) {
 
     window.open("https://www.maersk.com/tracking/#tracking/"+$('#maersk-container').val())
 });
+
+// LOGISTIC CALCULATOR
+// On input focus
+$('#auction').focus( function () {
+    $('#auction-list-block').slideDown();
+});
+$('#logistic-city').focus( function () {
+    $('#city-list-block').slideDown();
+});
+$('#port-from').focus( function () {
+    $('#port-from-list-block').slideDown();
+});
+$('#port-to').focus( function () {
+    $('#port-to-list-block').slideDown();
+});
+
+// On input focusout
+$('#auction').focusout( function () {
+    $('#auction-list-block').slideUp();
+});
+$('#logistic-city').focusout( function () {
+    $('#city-list-block').slideUp();
+});
+$('#port-from').focusout( function () {
+    $('#port-from-list-block').slideUp();
+});
+$('#port-to').focusout( function () {
+    $('#port-to-list-block').slideUp();
+});
+
+// On item click
+$(document).click( function (e) {
+    var clickedItemClass = $(e.target).attr('class'),
+        clickedItemText;
+
+    // Auction
+    if (clickedItemClass == 'aside-order__input-list_li auction') {
+        clickedItemText = $(e.target).text();
+
+        $('#auction').val(clickedItemText);
+
+        // Clear lists
+        $('#city-list-ul').empty();
+        $('#port-from-list-ul').empty();
+        $('#port-to-list-ul').empty();
+
+        // Clear inputs
+        $('#logistic-city').val('');
+        $('#port-from').val('');
+        $('#port-to').val('');
+
+        getLogisticCity(clickedItemText);
+    }
+
+    // City
+    if (clickedItemClass == 'aside-order__input-list_li city') {
+        clickedItemText = $(e.target).text();
+
+        $('#logistic-city').val(clickedItemText);
+
+        // Clear lists
+        $('#port-from-list-ul').empty();
+        $('#port-to-list-ul').empty();
+
+        // Clear inputs
+        $('#port-from').val('');
+        $('#port-to').val('');
+
+        var auction = $('#auction').val(),
+            city = $('#logistic-city').val();
+
+        city = city.replace(' ', '_');
+
+        getPortFrom(auction, city);
+    }
+
+    // Port From
+    if (clickedItemClass == 'aside-order__input-list_li port-from') {
+        clickedItemText = $(e.target).text();
+
+        $('#port-from').val(clickedItemText);
+
+        // Clear lists
+        $('#port-to-list-ul').empty();
+
+        // Clear inputs
+        $('#port-to').val('');
+
+        var auction = $('#auction').val(),
+            city = $('#logistic-city').val(),
+            portFrom = $('#port-from').val();
+
+        city = city.replace(' ', '_');
+
+        getPortTo(auction, city, portFrom);
+    }
+
+    // Port To
+    if (clickedItemClass == 'aside-order__input-list_li port-to') {
+        clickedItemText = $(e.target).text();
+
+        $('#port-to').val(clickedItemText);
+    }
+});
+
+// Calculate Price
+$('#logistic-calculate').click( function (e) {
+    e.preventDefault();
+
+    var auction = $('#auction').val(),
+        city = $('#logistic-city').val(),
+        portFrom = $('#port-from').val(),
+        portTo = $('#port-to').val();
+
+    city = city.replace(' ', '_');
+
+    getPrice(auction, city, portFrom, portTo);
+});
+
+// Get Price
+function getPrice(auction, city, portFrom, portTo) {
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/logistic/price/',
+        data: {
+            auction: auction,
+            city: city,
+            port_from: portFrom,
+            port_to: portTo
+        },
+        dataType: 'json',
+        success: function(data) {
+            var finalPrice = parseInt(data[0].first_price) + parseInt(data[0].second_price);
+            $('#logistic-finish-price').text(finalPrice);
+        }
+    });
+}
+
+// Get Port To
+function getPortTo(auction, city, portFrom) {
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/logistic/port-to/',
+        data: {
+            auction: auction,
+            city: city,
+            port_from: portFrom
+        },
+        dataType: 'json',
+        success: function(data) {
+            $(data).each( function (key, val) {
+                $('#port-to-list-ul').append('<li class="aside-order__input-list_li port-to">' + val.port_to + '</li>');
+            });
+        }
+    });
+}
+
+// Get Ports From
+function getPortFrom(auction, city) {
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/logistic/port-from/',
+        data: {
+            auction: auction,
+            city: city
+        },
+        dataType: 'json',
+        success: function(data) {
+            $(data).each( function (key, val) {
+                $('#port-from-list-ul').append('<li class="aside-order__input-list_li port-from">' + val.port_from + '</li>');
+            });
+        }
+    });
+}
+
+// Get City List
+function getLogisticCity(clickedItemText) {
+    $.ajax({
+        type: 'GET',
+        url: '/index.php?rest_route=/logistic/city/',
+        data: {
+            auction: clickedItemText
+        },
+        dataType: 'json',
+        success: function(data) {
+            $(data).each( function (key, val) {
+                $('#city-list-ul').append('<li class="aside-order__input-list_li city">' + val.replace('_', ' ') + '</li>');
+            });
+        }
+    });
+}

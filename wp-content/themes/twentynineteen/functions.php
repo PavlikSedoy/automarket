@@ -502,6 +502,25 @@ function true_register_products() {
         'supports' => array( 'title', 'editor', 'thumbnail')
     );
     register_post_type('page-info',$args);
+
+    //  Logistic Calculator Manheim
+    $labels = array(
+        'name' => 'Маршруты Manheim',
+        'singular_name' => 'Маршрут Manheim',
+        'add_new' => 'Добавить маршрут Manheim',
+        'add_new_item' => 'Добавить новуый маршрут Manheim',
+        'edit_item' => 'Редактировать маршрут Manheim',
+        'menu_name' => 'Калькулятор Manheim'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title')
+    );
+    register_post_type('calculator-manheim',$args);
 }
 
 // Allow SVG
@@ -608,49 +627,6 @@ add_action( 'rest_api_init', function () {
     register_rest_route('get_cars', '/models/', array(
         'methods' => 'GET',
         'callback' => 'get_model_list',
-    ));
-});
-
-// Rest Api for Auto Catalog Page
-function get_json() {
-    $request = wp_remote_get( get_stylesheet_directory_uri() . '/example.json' );
-//
-//
-//    $request = wp_remote_retrieve_body($request);
-//
-    $request = json_decode(file_get_contents( get_stylesheet_directory_uri() . '/example.json' ));
-
-//    $request = json_decode('[
-//        {
-//            "glossary": {
-//                "title": "example glossary",
-//                "GlossDiv": {
-//                    "title": "S",
-//                    "GlossList": {
-//                        "GlossEntry": {
-//                            "ID": "SGML",
-//                            "SortAs": "SGML",
-//                            "GlossTerm": "Standard Generalized Markup Language",
-//                            "Acronym": "SGML",
-//                            "Abbrev": "ISO 8879:1986",
-//                            "GlossDef": {
-//                                "para": "A meta-markup language, used to create markup languages such as DocBook.",
-//                                "GlossSeeAlso": ["GML", "XML"]
-//                            },
-//                            "GlossSee": "markup"
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    ]');
-
-    return $request;
-}
-add_action( 'rest_api_init', function () {
-    register_rest_route('logistic', '/json/', array(
-        'methods' => 'GET',
-        'callback' => 'get_json',
     ));
 });
 
@@ -782,6 +758,156 @@ add_action( 'rest_api_init', function () {
     register_rest_route('get_cars', '/catalog/', array(
         'methods' => 'GET',
         'callback' => 'get_cars',
+    ));
+});
+
+// Get Port From
+function get_city() {
+    $auction = isset($_GET['auction']) ? $_GET['auction'] : false;
+
+    if ($auction == 'Manheim') {
+        $city_post_type = 'calculator-manheim';
+    }
+
+    $city_list = array_unique(get_meta_values('city-manheim', $city_post_type));
+    echo json_encode($city_list);
+    die();
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('logistic', '/city/', array(
+        'methods' => 'GET',
+        'callback' => 'get_city',
+    ));
+});
+
+
+// API port from
+function get_port_from() {
+    $auction = $_GET['auction'];
+    $post_type = 'calculator-' . strtolower($auction);
+    $city = $_GET['city'];
+//    $city = str_replace(' ', '', $city);
+
+    $args = array(
+        'post_type' => $post_type,
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key'	 	=> 'city-manheim',
+                'value'	  	=> $city,
+                'compare'   => 'IN',
+            )
+        )
+    );
+
+
+    // get posts
+    $posts = get_posts($args);
+    // add custom field data to posts array
+    foreach ($posts as $key => $post) {
+        $posts[$key]->port_from = get_fields($post->ID)['port-from-manheim'];
+    }
+    return $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('logistic', '/port-from/', array(
+        'methods' => 'GET',
+        'callback' => 'get_port_from',
+    ));
+});
+
+// API port to
+function get_port_to() {
+    $auction = $_GET['auction'];
+    $post_type = 'calculator-' . strtolower($auction);
+    $city = $_GET['city'];
+    $city = str_replace(' ', '', $city);
+    $port_from = $_GET['port_from'];
+
+    $args = array(
+        'post_type' => $post_type,
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key'	 	=> 'city-manheim',
+                'value'	  	=> $city,
+                'compare'   => 'IN',
+            ),
+            array(
+                'key'	 	=> 'port-from-manheim',
+                'value'	  	=> $port_from,
+                'compare'   => 'IN',
+            ),
+        )
+    );
+
+
+    // get posts
+    $posts = get_posts($args);
+    // add custom field data to posts array
+    foreach ($posts as $key => $post) {
+        $posts[$key]->port_to = get_fields($post->ID)['port-to-manheim'];
+    }
+    return $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('logistic', '/port-to/', array(
+        'methods' => 'GET',
+        'callback' => 'get_port_to',
+    ));
+});
+
+// API port to
+function get_price() {
+    $auction = $_GET['auction'];
+    $post_type = 'calculator-' . strtolower($auction);
+    $city = $_GET['city'];
+    $city = str_replace(' ', '', $city);
+    $port_from = $_GET['port_from'];
+    $port_to = $_GET['port_to'];
+
+    $args = array(
+        'post_type' => $post_type,
+        'order' => 'ASC',
+        'orderby' => 'title',
+        'meta_query' => array(
+            'relation' => 'AND',
+            array(
+                'key'	 	=> 'city-manheim',
+                'value'	  	=> $city,
+                'compare'   => 'IN',
+            ),
+            array(
+                'key'	 	=> 'port-from-manheim',
+                'value'	  	=> $port_from,
+                'compare'   => 'IN',
+            ),
+            array(
+                'key'	 	=> 'port-to-manheim',
+                'value'	  	=> $port_to,
+                'compare'   => 'IN',
+            ),
+        )
+    );
+
+
+    // get posts
+    $posts = get_posts($args);
+    // add custom field data to posts array
+    foreach ($posts as $key => $post) {
+        $posts[$key]->first_price = get_fields($post->ID)['first-price-manheim'];
+        $posts[$key]->second_price = get_fields($post->ID)['final-price-manheim'];
+    }
+    return $posts;
+}
+add_action( 'rest_api_init', function () {
+    register_rest_route('logistic', '/price/', array(
+        'methods' => 'GET',
+        'callback' => 'get_price',
     ));
 });
 

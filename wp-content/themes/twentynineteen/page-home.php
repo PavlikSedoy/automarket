@@ -294,7 +294,7 @@ get_header();
                     <span class="avto__footer_price">
                         $ <?= get_field('current-auto-price-in-ukraine', $post->ID) ?>
                     </span>
-                    <span class="avto__footer_text">Стоимость аналого в Украине</span>
+                    <span class="avto__footer_text">Стоимость аналога в Украине</span>
                 </div>
             </article>
             <?php
