@@ -58,41 +58,23 @@ get_header();
                     <!-- Slider -->
                     <div class="swiper-container reviews__current-comment">
                         <div class="swiper-wrapper">
+                            <?php
+                                $args = array(
+                                    'post_type' => 'reviews',
+                                    'order' => 'DESC',
+                                );
+                                $loop = new WP_Query($args);
+                                while ($loop->have_posts()) : $loop->the_post();
+                            ?>
                             <div class="swiper-slide">
                                 <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
+                                    <?= the_content() ?>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-                                <div class="reviews__current-comment_text">
-                                    <p>
-                                        Спасибо за проделанную работу! Все этапы прошли успешно! Отдельное спасибо Виктору, классный менеджер, всегда был со мной на связи, отвечал максимально быстро и понятно, были учтены предпочтения по покупке авто (марка, год, комплектация), Все платежи открыты и прозрачны! Рекомендую!
-                                    </p>
-                                </div>
-                            </div>
+                            <?php
+                                endwhile;
+                                wp_reset_query();
+                            ?>
                         </div>
                         <!-- Add Arrows -->
                     </div>
@@ -100,61 +82,29 @@ get_header();
                     <div class="reviews__author-comment_wr">
                         <div class="swiper-container reviews__author-comment">
                             <div class="swiper-wrapper">
+                                <?php
+                                    $args = array(
+                                        'post_type' => 'reviews',
+                                        'order' => 'DESC',
+                                    );
+                                    $loop = new WP_Query($args);
+                                    while ($loop->have_posts()) : $loop->the_post();
+                                ?>
                                 <div class="swiper-slide reviews__author">
                                     <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-1.jpg');"></div>
+                                        <div class="reviews__author_avatar" style="background-image: url(<?= the_post_thumbnail_url() ?>);"></div>
                                     </div>
                                     <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
+                                        <div class="reviews__author_name"><?= the_title() ?></div>
                                     </div>
                                     <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
+                                        <div class="reviews__author_auto"><?= get_field('review_auto', $post->ID) ?></div>
                                     </div>
                                 </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-2.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-3.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-1.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide reviews__author">
-                                    <div class="reviews__author_avatar-wr">
-                                        <div class="reviews__author_avatar" style="background-image: url('/wp-content/themes/twentynineteen/images/5review-page-icons/authors/img-3.jpg');"></div>
-                                    </div>
-                                    <div class="reviews__author_name_wr">
-                                        <div class="reviews__author_name">Артур Пархомов</div>
-                                    </div>
-                                    <div class="reviews__author_auto_wr">
-                                        <div class="reviews__author_auto">Audi A7 Lorem ipsum dolor sit amet</div>
-                                    </div>
-                                </div>
+                                <?php
+                                    endwhile;
+                                    wp_reset_query();
+                                ?>
                             </div>
                         </div>
 
