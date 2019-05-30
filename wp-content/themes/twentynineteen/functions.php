@@ -343,6 +343,31 @@ require get_template_directory() . '/inc/customizer.php';
 show_admin_bar( false );
 
 //  Post Type
+add_action('init', 'news_reg');
+function news_reg() {
+    //  News
+    $labels = array(
+        'name' => 'Новости',
+        'singular_name' => 'Новость',
+        'add_new' => 'Добавить новость',
+        'add_new_item' => 'Добавить новую новость',
+        'edit_item' => 'Редактировать новость',
+        'menu_name' => 'Новости'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-rss',
+        'menu_position' => 5,
+//        'has_archive' => true,
+//        'show_in_rest' => true,
+        'supports' => array( 'title', 'editor', 'thumbnail'),
+        'show_in_rest'       => true,
+    );
+    register_post_type('news',$args);
+}
+
+
 add_action( 'init', 'true_register_products' );
 
 function true_register_products() {
@@ -404,7 +429,6 @@ function true_register_products() {
     );
     register_post_type('home-slider',$args);
 
-
     //  Avto
     $labels = array(
         'name' => 'Автомобили',
@@ -420,29 +444,10 @@ function true_register_products() {
         'menu_icon' => 'dashicons-image-flip-horizontal',
         'menu_position' => 5,
 //        'has_archive' => true,
-        'supports' => array( 'title', 'editor', 'thumbnail')
+        'supports' => array( 'title', 'editor', 'thumbnail'),
+        'show_in_rest'       => true,
     );
     register_post_type('avto',$args);
-
-
-    //  News
-    $labels = array(
-        'name' => 'Новости',
-        'singular_name' => 'Новость',
-        'add_new' => 'Добавить новость',
-        'add_new_item' => 'Добавить новую новость',
-        'edit_item' => 'Редактировать новость',
-        'menu_name' => 'Новости'
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true,
-        'menu_icon' => 'dashicons-rss',
-        'menu_position' => 5,
-//        'has_archive' => true,
-        'supports' => array( 'title', 'editor', 'thumbnail')
-    );
-    register_post_type('news',$args);
 
     //  How We Work
     $labels = array(
@@ -706,6 +711,20 @@ add_action( 'rest_api_init', function () {
         'callback' => 'get_model_list',
     ));
 });
+
+//if( 'disable_gutenberg' ){
+//    add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
+//
+//    // отключим подключение базовых css стилей для блоков
+//    // ВАЖНО! когда выйдут виджеты на блоках или что-то еще, эту строку нужно будет комментировать
+//    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
+//
+//    // Move the Privacy Policy help notice back under the title field.
+//    add_action( 'admin_init', function(){
+//        remove_action( 'admin_notices', [ 'WP_Privacy_Policy_Content', 'notice' ] );
+//        add_action( 'edit_form_after_title', [ 'WP_Privacy_Policy_Content', 'notice' ] );
+//    } );
+//}
 
 // AJAX Functions
 function get_models(){
