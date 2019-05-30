@@ -527,6 +527,25 @@ function true_register_products() {
     );
     register_post_type('reviews',$args);
 
+    //  Video Reviews
+    $labels = array(
+        'name' => 'Видео отзывы',
+        'singular_name' => 'Видео отзыв',
+        'add_new' => 'Добавить видео отзыв',
+        'add_new_item' => 'Добавить новый видео отзыв',
+        'edit_item' => 'Редактировать видео отзыв',
+        'menu_name' => 'Видео отзывы'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-format-video',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor' )
+    );
+    register_post_type('video-reviews',$args);
+
     //  Logistic Calculator Manheim
     $labels = array(
         'name' => 'Маршруты Manheim',
