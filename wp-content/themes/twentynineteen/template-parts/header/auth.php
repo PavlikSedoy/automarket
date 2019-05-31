@@ -16,13 +16,13 @@
         <!--    User Profile Navigation    -->
         <ul class="user-nav" id="user-nav">
             <li class="user-nav__item">
-                <a href="/wp-admin/profile.php" class="user-nav__link"></a>
+                <a href="<?= get_page_link( 1039 ) ?>" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
                     Личный кабинет
                 </div>
             </li>
             <li class="user-nav__item">
-                <a href="" class="user-nav__link"></a>
+                <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
                     Выйти
                 </div>
@@ -33,10 +33,10 @@
     <!-- Logout User -->
     <div class="auth__no-user">
         <div class="auth__no-user_item">
-            <a href="/wp-login.php?action=register" class="auth_no-user_link">Регистрация</a>
+            <a href="<?= get_page_link( 1040 ) ?>" class="auth_no-user_link">Регистрация</a>
         </div>
         <div class="auth__no-user_item">
-            <a href="/wp-login.php" class="auth_no-user_link">Вход</a>
+            <a href="<?= get_page_link( 1039 ) ?>" class="auth_no-user_link">Вход</a>
         </div>
     </div>
 <?php endif; ?>

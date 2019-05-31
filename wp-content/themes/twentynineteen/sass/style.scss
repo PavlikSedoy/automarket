@@ -151,6 +151,10 @@ body.noScroll { /* ...or body.dialogShowing */
   overflow: hidden;
 }
 
+.page-item-1039, .page-item-1040 {
+  display: none;
+}
+
 //  IMPORT SCSS PARTS *******
 @import "hamburgers";
 @import "header";
@@ -174,6 +178,8 @@ body.noScroll { /* ...or body.dialogShowing */
 @import "close-mobile";
 @import "request-bottom";
 @import "modals";
+@import "reg";
+@import "cabinet";
 
 .page-header {
   height: 370px;
