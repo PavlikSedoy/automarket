@@ -144,4 +144,6 @@ if ( _get_cron_lock() == $doing_wp_cron ) {
 	delete_transient( 'doing_cron' );
 }
 
+define( "WPGLOBUS_CUSTOMIZE", false );
+
 die();

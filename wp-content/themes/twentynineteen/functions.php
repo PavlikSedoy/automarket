@@ -546,6 +546,25 @@ function true_register_products() {
     );
     register_post_type('video-reviews',$args);
 
+    //  DM Requstt
+    $labels = array(
+        'name' => 'Заказаы',
+        'singular_name' => 'Заказ',
+        'add_new' => 'Добавить заказ',
+        'add_new_item' => 'Добавить новый заказ',
+        'edit_item' => 'Редактировать заказ',
+        'menu_name' => 'Заказы клиентов'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+//        'menu_icon' => 'dashicons-format-video',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title' )
+    );
+    register_post_type('requests',$args);
+
     //  Logistic Calculator Manheim
     $labels = array(
         'name' => 'Маршруты Manheim',
@@ -629,6 +648,7 @@ add_filter( 'upload_mimes', 'my_myme_types', 1, 1 );
 function my_myme_types( $mime_types ) {
     $mime_types['svg'] = 'image/svg+xml';     // Adding .svg extension
     $mime_types['json'] = 'application/json'; // Adding .json extension
+    $mimes['xls|xlsx'] = 'application/vnd.ms-excel';
 
     return $mime_types;
 }
@@ -1060,3 +1080,12 @@ function my_search_form( $form ) {
 }
 
 add_filter( 'get_search_form', 'my_search_form' );
+
+add_filter( 'locale', 'true_localize_theme' );
+
+function true_localize_theme( $locale ) {
+    if ( isset( $_GET['lang'] ) ) {
+        return esc_attr( $_GET['lang'] );
+    }
+    return $locale;
+}
