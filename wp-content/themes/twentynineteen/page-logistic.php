@@ -50,15 +50,17 @@ get_header();
 
         <div class="logistic__content-wr">
 
-            <div class="logistic__content page__content"><?php the_content() ?></div>
-
             <div class="logistic__asside">
+
+                <div class="logistic__container-calc-new">
+                    <?php get_template_part('template-parts/content/logistic-calculate') ?>
+                </div>
 
                 <?php get_template_part('template-parts/content/logistic-container-search') ?>
 
-                <?php get_template_part('template-parts/content/logistic-calculate') ?>
-
             </div>
+
+            <div class="logistic__content page__content"><?php the_content() ?></div>
 
         </div>
 

@@ -3,7 +3,7 @@
   background-color: $light-section-color;
 
   &__content-wr {
-    display: flex;
+    //display: flex;
   }
 
   &__asside {
@@ -151,6 +151,14 @@
     display: flex;
     position: relative;
     justify-content: space-between;
+  }
+
+  &__container-calc-new {
+    display: flex;
+
+    .aside-order {
+      flex-basis: 40%;
+    }
   }
 }
 

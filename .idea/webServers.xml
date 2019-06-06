@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="7d9834f7-416d-4af1-a615-14d43aed1938" name="Automarket" url="http://codecrea.ftp.tools">
+      <webServer id="7d9834f7-416d-4af1-a615-14d43aed1938" name="Automarket (project level)" url="http://codecrea.ftp.tools">
         <fileTransfer host="codecrea.ftp.tools" port="21" rootFolder="/codecreate.site/automarket">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
