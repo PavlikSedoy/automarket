@@ -565,6 +565,44 @@ function true_register_products() {
     );
     register_post_type('requests',$args);
 
+    //  Contacts Page
+    $labels = array(
+        'name' => 'Контакты',
+        'singular_name' => 'Контакт',
+        'add_new' => 'Добавить офис',
+        'add_new_item' => 'Добавить новый офис',
+        'edit_item' => 'Редактировать офис',
+        'menu_name' => 'Страница контактов'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-location-alt',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title' )
+    );
+    register_post_type('contact_page',$args);
+
+    //  About Us Page
+    $labels = array(
+        'name' => 'О нас',
+        'singular_name' => 'О нас',
+        'add_new' => 'Добавить информацию о нас',
+        'add_new_item' => 'Добавить новую информацию о нас',
+        'edit_item' => 'Редактировать О нас',
+        'menu_name' => 'Страница О Нас'
+    );
+    $args = array(
+        'labels' => $labels,
+        'public' => true,
+        'menu_icon' => 'dashicons-text-page',
+        'menu_position' => 5,
+//        'has_archive' => true,
+        'supports' => array( 'title', 'editor' )
+    );
+    register_post_type('about_us_page',$args);
+
     //  Logistic Calculator Manheim
     $labels = array(
         'name' => 'Маршруты Manheim',
@@ -799,12 +837,23 @@ function get_cars() {
     $engine_capacity = $_GET['engine_capacity'] != 0 ? $_GET['engine_capacity'] : false;
     $fuel_type = isset($_GET['fuel_type']) ? $_GET['fuel_type'] : false;
     $transmission_type = isset($_GET['transmission_type']) ? $_GET['transmission_type'] : false;
+    $lang = $_GET['lang'];
+
+    if ($lang == 'en_US') {
+        $lang = 'en';
+    } elseif ($lang == 'ka_GE') {
+        $lang = 'ka';
+    } elseif ($lang == 'ru_RU') {
+        $lang = 'ru';
+    }
 
     $args = array(
         'post_type' => 'avto',
         'order' => 'DESC',
         'posts_per_page' => $posts_per_page,
         'paged' => $paged,
+        'lang' => $lang,
+//        'lang'           => 'en',
         'meta_query' => array(
             'relation' => 'AND',
             array(
@@ -1062,7 +1111,7 @@ add_action( 'rest_api_init', function () {
 // Search
 function my_search_form( $form ) {
     $form = '<form action="/?post_type=avto&s" class="search__form" id="header-search-form" method="get">
-                        <input type="text" class="search__input" name="s" id="s" placeholder="Поиск авто..." value="">
+                        <input type="text" class="search__input" name="s" id="s" placeholder="Search..." value="">
                         <button type="submit" class="search__btn" id="search-btn">
                             <svg version="1.1" class="search__icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 13 13" style="enable-background:new 0 0 13 13;" xml:space="preserve">
                                 <path d="M12.8,11.2c0.1,0.1,0.2,0.3,0.2,0.4c0,0.2-0.1,0.3-0.2,0.4l-0.7,0.7C12,12.9,11.8,13,11.7,13c-0.2,0-0.3-0.1-0.4-0.2
@@ -1088,4 +1137,44 @@ function true_localize_theme( $locale ) {
         return esc_attr( $_GET['lang'] );
     }
     return $locale;
+}
+
+//add_action('init', function () {
+//    foreach (acf_get_field_groups() as $group) {
+//        $fields = acf_get_fields($group['ID']);
+//        if (is_array($fields) && count($fields)) {
+//            foreach ($fields as &$field) {
+//                pll_register_string('form_field_group'.$group['ID'].'_label_'.$field['name'], $field['label'], 'acf_form_fields');
+//            }
+//        }
+//    }
+//});
+//
+//add_filter('acf/prepare_field', function ($field) {
+//    if (!is_admin()) {
+//        $field['label'] = pll__($field['label']);
+//    }
+//    return $field;
+//}, 10, 1);
+//
+//add_action('after_setup_theme', 'true_load_theme_textdomain');
+//
+//function true_load_theme_textdomain(){
+//    load_theme_textdomain( 'automarket', get_template_directory() . '/languages' );
+//}
+
+## Отключает новый редактор блоков в WordPress (Гутенберг).
+## ver: 1.0
+if( 'disable_gutenberg' ){
+    add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );
+
+    // отключим подключение базовых css стилей для блоков
+    // ВАЖНО! когда выйдут виджеты на блоках или что-то еще, эту строку нужно будет комментировать
+    remove_action( 'wp_enqueue_scripts', 'wp_common_block_scripts_and_styles' );
+
+    // Move the Privacy Policy help notice back under the title field.
+    add_action( 'admin_init', function(){
+        remove_action( 'admin_notices', [ 'WP_Privacy_Policy_Content', 'notice' ] );
+        add_action( 'edit_form_after_title', [ 'WP_Privacy_Policy_Content', 'notice' ] );
+    } );
 }

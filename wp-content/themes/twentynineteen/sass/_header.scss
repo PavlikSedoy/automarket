@@ -74,7 +74,7 @@
       padding: 10px 0;
       position: relative;
       //width: 400px;
-      width: 356px;
+      width: 366px;
 
       //  Hide line before slide
       //&:before {
@@ -481,6 +481,12 @@
     justify-content: center;
     width: 20px;
     height: 20px;
+
+    svg {
+      max-height: 100%;
+      max-width: 100%;
+      height: 60%;
+    }
   }
 
   &__img {
@@ -522,6 +528,10 @@
         width: 100%;
         z-index: 3;
       }
+    }
+
+    &.page-item-1969, &.page-item-1984, &.page-item-1986, &.page-item-1977 {
+      display: none;
     }
   }
 

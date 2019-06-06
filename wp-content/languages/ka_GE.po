@@ -1,0 +1,645 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Automarket\n"
+"POT-Creation-Date: 2019-06-02 16:40+0300\n"
+"PO-Revision-Date: 2019-06-02 16:40+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: ka_GE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.0.6\n"
+"X-Poedit-Basepath: ../themes/twentynineteen\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-KeywordsList: _e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: classes/class-twentynineteen-walker-comment.php:100
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:33
+msgid "Join the Conversation"
+msgstr ""
+
+#: comments.php:35 comments.php:105 comments.php:107
+msgid "Leave a comment"
+msgstr ""
+
+#: comments.php:116
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:36
+msgid ""
+"Компания “Auto Market” с 2012 го года\n"
+"                    предлагает полный пакет услуг по\n"
+"                    транспортировке автомобиля из США\n"
+"                    в Грузию, и в Украину. Мы поможем\n"
+"                    Вам, как в выборе так и покупке и\n"
+"                    транспортировке автомобиля до\n"
+"                    Украины, с минимальными затратами.\n"
+"                    Мы можем купить для Вас машину на\n"
+"                    любом большом аукционе или\n"
+"                    дилерной компании в США и доставим\n"
+"                    в порт Одессы."
+msgstr ""
+"კომპანია \"ავტო ბაზარი\" 2012 წლიდან გთავაზობთ სრული პაკეტის მომსახურებას  "
+"აშშ-ს მანქანიდან ტრანსპორტირება საქართველოსა და უკრაინაში. ჩვენ დაგვეხმარება "
+"თქვენ, როგორც არჩევანი და შეძენა და ტრანსპორტირების მანქანა  უკრაინა, "
+"მინიმალური ღირებულებით. ჩვენ შეგვიძლია შეიძინოთ მანქანა თქვენთვის ნებისმიერი "
+"დიდი აუქციონი ან დილერის კომპანია ამერიკის შეერთებულ შტატებში და ჩვენ გამოვა "
+"ოდესის პორტში."
+
+#: footer.php:74
+msgid "Контакты"
+msgstr "კონტაქტი"
+
+#: footer.php:109
+msgid ""
+"ПН-ПТ: с 10:00 до 18:00<br>\n"
+"                                СБ: с 10:00 до 14:00<br>\n"
+"                                ВС: выходной"
+msgstr ""
+
+#: footer.php:120 header.php:131
+msgid "Меню"
+msgstr "მენიუ"
+
+#: footer.php:126
+msgid "Обратная связь"
+msgstr "უკუკავშირი"
+
+#: footer.php:130 page-contacts.php:165 page-home.php:152 single-avto.php:302
+#: template-parts/content/about-aside-request.php:62
+#: template-parts/content/content-request.php:74
+#: template-parts/content/logistic-footer-request.php:13
+msgid "Имя"
+msgstr "სახელი"
+
+#: footer.php:135 page-contacts.php:170 page-home.php:159 single-avto.php:307
+#: template-parts/content/about-aside-request.php:69
+#: template-parts/content/content-request.php:81
+#: template-parts/content/logistic-footer-request.php:18
+msgid "Телефон"
+msgstr "ტელეფონი"
+
+#: footer.php:140 page-contacts.php:175 single-avto.php:312
+#: template-parts/content/about-aside-request.php:76
+#: template-parts/content/logistic-footer-request.php:23
+msgid "E-mail"
+msgstr "მეილი"
+
+#: footer.php:144
+msgid "Перезвоните мне"
+msgstr "მირეკავენ უკან"
+
+#: page-about.php:38 page-avto.php:39 page-contacts.php:38 page-logistic.php:38
+#: page-news.php:38 page-reviews.php:38 single-avto.php:33 single-news.php:25
+msgid "Главная"
+msgstr "მთავარი"
+
+#: page-avto.php:52
+msgid "Все авто"
+msgstr "ყველა ავტომობილი"
+
+#: page-avto.php:57
+msgid "Авто</span> в Америке"
+msgstr "ავტო</span> ამერიკაში"
+
+#: page-avto.php:62
+msgid "Авто</span> в Грузии"
+msgstr "ავტო</span> საქართველოში"
+
+#: page-avto.php:67
+msgid "Авто</span> в Украине"
+msgstr "ავტო</span> უკრაინაში"
+
+#: page-avto.php:72
+msgid "Авто</span> в пути"
+msgstr "ავტო</span> გზაზე"
+
+#: page-avto.php:81 page-avto.php:288
+msgid "Каталог"
+msgstr "კატალოგი"
+
+#: page-avto.php:87
+msgid "Фильтры"
+msgstr "ფილტრები"
+
+#: page-avto.php:103 page-home.php:90 page-login.php:67
+#: template-parts/content/about-aside-request.php:6
+#: template-parts/content/content-request.php:14
+msgid "Марка"
+msgstr "მარკა"
+
+#: page-avto.php:127 page-home.php:107 page-login.php:68
+#: template-parts/content/about-aside-request.php:22
+#: template-parts/content/content-request.php:30
+msgid "Модель"
+msgstr "მოდელი"
+
+#: page-avto.php:145
+msgid "Год от"
+msgstr "წელი დან"
+
+#: page-avto.php:183
+msgid "Год до"
+msgstr "წელი მდე"
+
+#: page-avto.php:220
+msgid "Объем (1600)"
+msgstr "ძრავის (1600)"
+
+#: page-avto.php:231 page-home.php:401
+msgid "Тип топлива"
+msgstr "საწვავის ტიპი"
+
+#: page-avto.php:255
+msgid "Коробка передач"
+msgstr "გადაცემათა კოლოფი"
+
+#: page-avto.php:278
+msgid "Применить"
+msgstr "გამოყენება"
+
+#: page-avto.php:280
+msgid "Очистить"
+msgstr "წმინდა"
+
+#: page-avto.php:364 page-home.php:277
+msgid "л"
+msgstr "ლ"
+
+#: page-avto.php:406 page-home.php:319
+msgid "Подробнее"
+msgstr "დეტალურად"
+
+#: page-avto.php:417 page-home.php:330 single-avto.php:169
+msgid "Стоимость аналога в Украине"
+msgstr "ანალოგის ღირებულება უკრაინაში"
+
+#: page-avto.php:429
+msgid "Показать ещё"
+msgstr "მეტი ჩვენება"
+
+#: page-contacts.php:50
+msgid "Наши контакты"
+msgstr "ჩვენი კონტაქტები"
+
+#: page-contacts.php:161
+msgid "Задайте нам вопрос"
+msgstr "გკითხოთ კითხვას"
+
+#: page-contacts.php:180
+msgid "Ваше сообщение"
+msgstr "თქვენი წერილი"
+
+#: page-contacts.php:184
+msgid "Отправить вопрос"
+msgstr "წარმოადგინეთ კითხვა"
+
+#: page-home.php:69
+msgid "Найдите <span>Автомобиль мечты</span>"
+msgstr "იპოვეთ <span>ოცნების მანქანა</span>"
+
+#: page-home.php:70
+msgid "Заполните форму и мы подберем для Вас оптимальный вариант"
+msgstr "შეავსეთ ფორმა და ჩვენ შევარჩევთ თქვენთვის იდეალურ მანქანას"
+
+#: page-home.php:80
+msgid "Подбор авто"
+msgstr "მანქანის შერჩევა"
+
+#: page-home.php:124 template-parts/content/about-aside-request.php:38
+#: template-parts/content/content-request.php:46
+msgid "Местоположение"
+msgstr "ადგილმდებარეობა"
+
+#: page-home.php:136 template-parts/content/about-aside-request.php:50
+#: template-parts/content/content-request.php:58
+msgid "В Украине"
+msgstr "უკრაინაში"
+
+#: page-home.php:137 template-parts/content/about-aside-request.php:51
+#: template-parts/content/content-request.php:59
+msgid "В Америке"
+msgstr "აშშ-ში"
+
+#: page-home.php:138 template-parts/content/about-aside-request.php:52
+#: template-parts/content/content-request.php:60
+msgid "В Грузии"
+msgstr "საქართველოში"
+
+#: page-home.php:139
+msgid "В Пути"
+msgstr "გზაში"
+
+#: page-home.php:180 page-home.php:190
+#: template-parts/content/about-aside-request.php:86
+#: template-parts/content/content-request.php:102
+msgid "Подобрать авто"
+msgstr "მანქანის შერჩევა"
+
+#: page-home.php:200
+msgid "Популярные <span>авто</span>"
+msgstr "პოპულარული <span>ავტომობილები</span>"
+
+#: page-home.php:346
+msgid "Смотреть Все авто"
+msgstr "ყველა ავტომობილის ნახვა"
+
+#: page-home.php:359
+msgid "Калькулятор <span>растаможки</span>"
+msgstr "განბაჟების <span>კალკულატორი</span>"
+
+#: page-home.php:365
+msgid "Растаможка </span>в украине"
+msgstr "განბაჟება </span>უკრაინაში"
+
+#: page-home.php:366
+msgid "Растаможка </span>в грузии"
+msgstr "განბაჟება </span>საქართველოში"
+
+#: page-home.php:379
+msgid "Стоимость"
+msgstr "ღირებულება"
+
+#: page-home.php:390 page-home.php:474
+msgid "Объем"
+msgstr "ძრავის"
+
+#: page-home.php:396 page-home.php:480
+msgid "см.куб."
+msgstr ""
+
+#: page-home.php:414
+msgid "Бензин"
+msgstr "ბენზინი"
+
+#: page-home.php:415
+msgid "Дизель"
+msgstr "დიზელი"
+
+#: page-home.php:421 page-home.php:485
+msgid "Возраст"
+msgstr "ასაკი"
+
+#: page-home.php:456 page-home.php:520
+#: template-parts/content/logistic-calculate.php:69
+msgid "Рассчитать"
+msgstr "გამოთვლა"
+
+#: page-home.php:540
+msgid "Как мы <span>работаем</span>"
+msgstr "როგორ <span>ვმუშაობთ</span>"
+
+#: page-home.php:597
+msgid "Популярные <span>вопросы</span>"
+msgstr "პოპულალური <span>კითხვები</span>"
+
+#: page-login.php:16 template-parts/header/auth.php:39
+msgid "Вход"
+msgstr "შესვლა"
+
+#: page-login.php:24
+msgid "Введите ваши данные"
+msgstr "შეიყვანეთ თქვენი დეტალები"
+
+#: page-login.php:33
+msgid "Нет аккаунта?"
+msgstr "არ გაქვთ ანგარიში?"
+
+#: page-login.php:33
+msgid "Зарегистрироваться"
+msgstr "რეგისტრაცია"
+
+#: page-login.php:46 template-parts/header/auth.php:21
+msgid "Личный кабинет"
+msgstr "პირადი ანგარიში"
+
+#: page-login.php:50
+msgid "Имя компании: "
+msgstr "კომპანიის სახელი:"
+
+#: page-login.php:54
+msgid "Номер кабинета: "
+msgstr "ანგარიშის ნომერი:"
+
+#: page-login.php:59
+msgid "Ваши заказы"
+msgstr "შენი ბრძანებები"
+
+#: page-login.php:66
+msgid "№"
+msgstr "№"
+
+#: page-login.php:69
+msgid "Vin-код"
+msgstr "ვინ-კოდი"
+
+#: page-login.php:70
+msgid "Title"
+msgstr "Title"
+
+#: page-login.php:71
+msgid "В терминале"
+msgstr "ტერმინალში"
+
+#: page-login.php:72
+msgid "Фото с терминала"
+msgstr "ფოტო ტერმინალიდან"
+
+#: page-login.php:73
+msgid "Местонахождение (порт)"
+msgstr "მდებარეობა (პორტი)"
+
+#: page-login.php:74
+msgid "Место назначения (порт)"
+msgstr "დანიშნულება (პორტი)"
+
+#: page-login.php:75
+msgid "№ Контейнера"
+msgstr "კონტეინერი"
+
+#: page-login.php:76
+msgid "Дата покупки"
+msgstr "შესყიდვის თარიღი"
+
+#: page-login.php:77
+msgid "Дата погрузки в контейнер"
+msgstr "კონტეინერის დატვირთვის თარიღი"
+
+#: page-login.php:78
+msgid "Ожидаемая дата прибытия"
+msgstr "მოსალოდნელი ჩამოსვლის თარიღი"
+
+#: page-login.php:79
+msgid "Имя получателя"
+msgstr "მიმღების სახელი"
+
+#: page-login.php:80
+msgid "Загран пасспорт"
+msgstr "საერთაშორისო პასპორტი"
+
+#: page-login.php:81
+msgid "ИНН"
+msgstr ""
+
+#: page-login.php:82
+msgid "Цена авто"
+msgstr "მანქანის ფასი"
+
+#: page-login.php:83
+msgid "Цена доставки по суше"
+msgstr "მიწოდების ფასი მიწით"
+
+#: page-login.php:84
+msgid "Осталось заплатить"
+msgstr "გადაიხადე მარცხენა"
+
+#: page-login.php:85
+msgid "Инвойс"
+msgstr "ინვოისი"
+
+#: page-login.php:154
+msgid "Скачать"
+msgstr "ჩამოტვირთვა"
+
+#: page-logistic.php:48
+msgid "Как мы работаем"
+msgstr "როგორ <span>ვმუშაობთ</span>"
+
+#: page-news.php:49
+msgid "Новости компании"
+msgstr "კომპანიის სიახლეები"
+
+#: page-news.php:85
+msgid "Читать полностью"
+msgstr "წაიკითხეთ სრული"
+
+#: page-news.php:98 single-news.php:57
+msgid "Популярные новости"
+msgstr "ყველაზე ახალი ამბები"
+
+#: page-registration.php:15 template-parts/header/auth.php:36
+msgid "Регистрация"
+msgstr "რეგისტრაცია"
+
+#: page-registration.php:23
+msgid "Заполните форму"
+msgstr "შეავსეთ ფორმა"
+
+#: page-registration.php:27
+msgid ""
+"Регистрация на сайте производится только для юридически зарегистрированных "
+"компаний."
+msgstr ""
+"საიტზე რეგისტრაცია მხოლოდ კანონიერად რეგისტრირებული კომპანიებისთვის ხდება."
+
+#: page-registration.php:33
+msgid "Уже имеете аккаунт?"
+msgstr "უკვე გაქვთ ანგარიში?"
+
+#: page-registration.php:33
+msgid "Войти"
+msgstr "შესვლა"
+
+#: page-reviews.php:48
+msgid "Наши Довольные клиенты"
+msgstr "ჩვენი კმაყოფილი კლიენტები"
+
+#: page-reviews.php:55
+msgid "Отзывы"
+msgstr "მიმოხილვა"
+
+#: page-reviews.php:56
+msgid "Видео отзывы"
+msgstr "ვიდეო მიმოხილვა"
+
+#: single-avto.php:36
+msgid "Авто"
+msgstr "ავტო"
+
+#: single-avto.php:111
+msgid "Описание"
+msgstr "აღწერა"
+
+#: single-avto.php:112
+msgid "Комплектация"
+msgstr "სრული კომპლექტი"
+
+#: single-avto.php:125
+msgid "В цену включено:"
+msgstr "ფასში შედის:"
+
+#: single-avto.php:135
+msgid "В цену не включено:"
+msgstr "ფასი არ მოიცავს:"
+
+#: single-avto.php:178
+msgid "Заказать это авто"
+msgstr "შეუკვეთეთ ეს მანქანა"
+
+#: single-avto.php:182
+msgid "Характеристики автомобиля:"
+msgstr "მანქანის მახასიათებლები:"
+
+#: single-avto.php:186
+msgid "Марка:"
+msgstr "ბრენდი:"
+
+#: single-avto.php:196
+msgid "Модель:"
+msgstr "მოდელი:"
+
+#: single-avto.php:206
+msgid "Год выпуска:"
+msgstr "გამოშვების წელი:"
+
+#: single-avto.php:210
+msgid "Кузов:"
+msgstr "სხეული:"
+
+#: single-avto.php:214
+msgid "Тип топлива:"
+msgstr "საწვავის ტიპი:"
+
+#: single-avto.php:235
+msgid "Объем двигателя:"
+msgstr "ძრავის მოცულობა:"
+
+#: single-avto.php:239
+msgid "Мощность Л. с:"
+msgstr "ძალაუფლება:"
+
+#: single-avto.php:243
+msgid "Пробег тыс. км.:"
+msgstr "გარბენი:"
+
+#: single-avto.php:247
+msgid "Трансмиссия:"
+msgstr "გადაცემა:"
+
+#: single-avto.php:264
+msgid "Привод:"
+msgstr "გამგზავრება:"
+
+#: single-avto.php:283
+msgid "Цвет:"
+msgstr "ფერი:"
+
+#: single-avto.php:287
+msgid "Статус:"
+msgstr "სტატუსი:"
+
+#: single-avto.php:294
+msgid "Понравилось авто?"
+msgstr "გსმენიათ მანქანა?"
+
+#: single-avto.php:297
+msgid ""
+"Заполните форму ниже.<br>Мы Вам перезвоним и ответим на все вопросы об этом "
+"авто."
+msgstr ""
+"შეავსეთ ქვემოთ მოცემული<br> ფორმა და დაგვიბრუნებთ და ვუპასუხებთ ამ "
+"ავტომობილის შესახებ ყველა კითხვას."
+
+#: single-avto.php:316
+msgid "Узнать про авто"
+msgstr "ვისწავლოთ მანქანები"
+
+#: single-news.php:27
+msgid "Новости"
+msgstr "ახალი ამბები"
+
+#: template-parts/content/about-aside-request.php:2
+#: template-parts/content/content-request.php:4
+msgid "Подбор авто специалистом"
+msgstr "არჩევის ავტომოპასუხე"
+
+#: template-parts/content/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content/content-none.php:39
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:46
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/content/content-request.php:6
+msgid "Заполните форму и мы подберем Вам идеальный автомобиль!"
+msgstr "შეავსეთ ფორმა და ჩვენ იპოვით შესანიშნავი ავტომობილი!"
+
+#: template-parts/content/content-request.php:61
+msgid "В пути"
+msgstr "გზად"
+
+#: template-parts/content/logistic-calculate.php:2
+msgid "Калькулятор доставки"
+msgstr "მიწოდების კალკულატორი"
+
+#: template-parts/content/logistic-calculate.php:6
+msgid "Аукцион"
+msgstr "აუქციონი"
+
+#: template-parts/content/logistic-calculate.php:24
+msgid "Город"
+msgstr "ქალაქი"
+
+#: template-parts/content/logistic-calculate.php:38
+msgid "Порт погрузки"
+msgstr "ჩატვირთვის პორტი"
+
+#: template-parts/content/logistic-calculate.php:53
+msgid "Порт назначения"
+msgstr "დანიშნულების პორტი"
+
+#: template-parts/content/logistic-container-search.php:2
+msgid "Поиск контейнера"
+msgstr "კონტეინერის ძიება"
+
+#: template-parts/content/logistic-container-search.php:8
+#: template-parts/content/logistic-container-search.php:20
+#: template-parts/content/logistic-container-search.php:32
+#: template-parts/content/logistic-container-search.php:44
+#: template-parts/content/logistic-container-search.php:56
+#: template-parts/content/logistic-container-search.php:68
+msgid "Контейнер"
+msgstr "კონტაქტი"
+
+#: template-parts/content/logistic-footer-request.php:6
+msgid "Остались вопросы?"
+msgstr "ნებისმიერი შეკითხვა?"
+
+#: template-parts/content/logistic-footer-request.php:9
+msgid "Заполните форму и мы ответим на все Ваши вопросы!"
+msgstr "შეავსეთ ფორმა და ჩვენ იპოვით შესანიშნავი ავტომობილი!"
+
+#: template-parts/content/logistic-footer-request.php:27
+msgid "Отправить"
+msgstr "გასაგზავნად"
+
+#: template-parts/header/auth.php:27
+msgid "Выйти"
+msgstr "გამოსვლა"
+
+#: template-parts/post/author-bio.php:26
+msgid "View more posts"
+msgstr ""

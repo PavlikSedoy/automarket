@@ -11,12 +11,19 @@ get_header();
 
 <div class="auto-page">
     <!--  Header  -->
+    <?php
+        $c_lang = get_locale();
+        if ($c_lang == 'ru_RU') $head_info_id = 256;
+        elseif ($c_lang == 'en_US') $head_info_id = 1813;
+        elseif ($c_lang == 'ka_GE') $head_info_id = 1832;
+    ?>
+    <input type="hidden" value="<?= $c_lang ?>" id="language">
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_the_post_thumbnail_url(256) ?>">
+            <img src="<?= get_the_post_thumbnail_url($head_info_id) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <?php $head_info = get_post(256) ?>
+            <?php $head_info = get_post($head_info_id) ?>
             <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
@@ -29,7 +36,7 @@ get_header();
             <div class="container current-avto__header-path-container">
                 <ul class="current-avto__path_ul">
                     <li class="current-avto__path_li">
-                        <a href="/" class="current-avto__path_link">Главная</a>
+                        <a href="/" class="current-avto__path_link"><?php _e('Главная') ?></a>
                     </li>
                     <li class="current-avto__path_li">&nbsp;/&nbsp;<?= the_title() ?></li>
                 </ul>
@@ -42,27 +49,27 @@ get_header();
 
         <div class="auto-page__tabs auto-tabs">
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link active" data-tab="all">Все авто</a>
+                <a href="/" class="auto-tabs__link active" data-tab="all"><?php _e('Все авто') ?></a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="usa"><span class="md-none">Авто</span> в Америке</a>
+                <a href="/" class="auto-tabs__link" data-tab="usa"><span class="md-none"><?php _e('Авто</span> в Америке') ?></a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="georgia"><span class="md-none">Авто</span> в Грузии</a>
+                <a href="/" class="auto-tabs__link" data-tab="georgia"><span class="md-none"><?php _e('Авто</span> в Грузии') ?></a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="ukraine"><span class="md-none">Авто</span> в Украине</a>
+                <a href="/" class="auto-tabs__link" data-tab="ukraine"><span class="md-none"><?php _e('Авто</span> в Украине') ?></a>
             </div>
             <!-- /.auto-tabs__item -->
 
             <div class="auto-tabs__item">
-                <a href="/" class="auto-tabs__link" data-tab="in-road"><span class="md-none">Авто</span> в пути</a>
+                <a href="/" class="auto-tabs__link" data-tab="in-road"><span class="md-none"><?php _e('Авто</span> в пути') ?></a>
             </div>
             <!-- /.auto-tabs__item -->
         </div>
@@ -71,13 +78,13 @@ get_header();
         <div class="auto-page__page-content_wr">
 
             <div class="current-avto__content-title page__title auto-page__catalog-title none-xl-only">
-                <h2>Каталог</h2>
+                <h2><?php _e('Каталог') ?></h2>
             </div>
 
             <div class="auto-page__filters">
 
                 <div class="current-avto__content-title page__title auto-page__filters-title" id="auto-page-filters">
-                    <h2>Фильтры</h2>
+                    <h2><?php _e('Фильтры') ?></h2>
                     <div class="request-form__arrow-img none-xl-only" id="open-auto-filters-arrow">
                         <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
@@ -93,7 +100,7 @@ get_header();
 
                     <!-- Brand -->
                     <div class="request-form__input-wr">
-                        <input type="text" class="auto-page__input" placeholder="Марка" id="car-brand-filters">
+                        <input type="text" class="auto-page__input" placeholder="<?php _e('Марка') ?>" id="car-brand-filters">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                         </div>
@@ -117,7 +124,7 @@ get_header();
 
                     <!-- Model -->
                     <div class="request-form__input-wr">
-                        <input type="text" class="auto-page__input" placeholder="Модель" id="car-model-filters">
+                        <input type="text" class="auto-page__input" placeholder="<?php _e('Модель') ?>" id="car-model-filters">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
                         </div>
@@ -135,7 +142,7 @@ get_header();
 
                     <!-- Year From -->
                     <div class="request-form__input-wr">
-                        <input type="text" class="auto-page__input" placeholder="Год от" id="year-from">
+                        <input type="text" class="auto-page__input" placeholder="<?php _e('Год от') ?>" id="year-from">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/calendar-icon.svg">
                         </div>
@@ -173,7 +180,7 @@ get_header();
 
                     <!-- Year To -->
                     <div class="request-form__input-wr">
-                        <input type="text" class="auto-page__input" placeholder="Год до" id="year-to">
+                        <input type="text" class="auto-page__input" placeholder="<?php _e('Год до') ?>" id="year-to">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/calendar-icon.svg">
                         </div>
@@ -210,7 +217,7 @@ get_header();
                     </div>
 
                     <div class="request-form__input-wr">
-                        <input type="text" class="request-form__input" placeholder="Объем (1600)" id="engine-capacity">
+                        <input type="text" class="request-form__input" placeholder="<?php _e('Объем (1600)') ?>" id="engine-capacity">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                         </div>
@@ -221,7 +228,7 @@ get_header();
                     </div>
 
                     <div class="request-form__input-wr">
-                        <input type="text" class="request-form__input" placeholder="Тип топлива" id="fuel-type">
+                        <input type="text" class="request-form__input" placeholder="<?php _e('Тип топлива') ?>" id="fuel-type">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/fuel-icon.svg" alt="">
                         </div>
@@ -236,16 +243,31 @@ get_header();
                             <ul class="request-form__input-fuel-list_ul" id="car-fuel-list-ul">
                                 <?php
                                 $fuel_type_list = array_unique(get_meta_values('current-auto-fuel-type', 'avto'));
-                                foreach ($fuel_type_list as $fuel_type):
+                                foreach ($fuel_type_list as $fuel_type_f):
                                     ?>
-                                    <li class="request-form__input-fuel-list_li"><?= $fuel_type ?></li>
+                                    <li class="request-form__input-fuel-list_li">
+                                        <?php
+                                            if ($c_lang == 'en_US') {
+                                                $fuel_type_f = $fuel_type_f == 'Бензин' ? 'Gasolene' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Дизель' ? 'Diesel' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Электро' ? 'Electro' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Гибрид' ? 'Hybrid' : $fuel_type_f;
+                                            } elseif ($c_lang == 'ka_GE') {
+                                                $fuel_type_f = $fuel_type_f == 'Бензин' ? 'ბენზინი' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Дизель' ? 'დიზელის ძრავა' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Электро' ? 'ელექტრო' : $fuel_type_f;
+                                                $fuel_type_f = $fuel_type_f == 'Гибрид' ? 'ჰიბრიდი' : $fuel_type_f;
+                                            }
+                                        ?>
+                                        <?= $fuel_type_f ?>
+                                    </li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
                     </div>
 
                     <div class="request-form__input-wr">
-                        <input type="text" class="request-form__input" placeholder="Коробка передач" id="transmission-type">
+                        <input type="text" class="request-form__input" placeholder="<?php _e('Коробка передач') ?>" id="transmission-type">
                         <div class="request-form__img">
                             <img src="<?= get_stylesheet_directory_uri() ?>/images/2catalog-page-icons/transmission-icon.svg" alt="">
                         </div>
@@ -262,15 +284,27 @@ get_header();
                                 $transmission_type_list = array_unique(get_meta_values('current-auto-transmission', 'avto'));
                                 foreach ($transmission_type_list as $transmission_type):
                                     ?>
-                                    <li class="request-form__input-fuel-list_li transmission-type-li"><?= $transmission_type ?></li>
+                                    <li class="request-form__input-fuel-list_li transmission-type-li">
+                                        <?php
+
+                                            if ($c_lang == 'en_US') {
+                                                $transmission_type = $transmission_type == 'Автомат' ? 'Automatic' : $transmission_type;
+                                                $transmission_type = $transmission_type == 'Механика' ? 'Manual' : $transmission_type;
+                                            } elseif ($c_lang == 'ka_GE') {
+                                                $transmission_type = $transmission_type == 'Автомат' ? 'ავტომატური' : $transmission_type;
+                                                $transmission_type = $transmission_type == 'Механика' ? 'მექანიკური' : $transmission_type;
+                                            }
+                                        ?>
+                                        <?= $transmission_type ?>
+                                    </li>
                                 <?php endforeach ?>
                             </ul>
                         </div>
                     </div>
 
-                    <a href="<?= get_page_link() ?>" class="btn btn__width_100 btn__color_blue btn__height_50 auto-page__btn-ok" id="apply-filters">Применить</a>
+                    <a href="<?= get_page_link() ?>" class="btn btn__width_100 btn__color_blue btn__height_50 auto-page__btn-ok" id="apply-filters"><?php _e('Применить') ?></a>
 
-                    <a href="" class="btn btn__width_100 btn__color_transparent btn__height_50 auto-page__btn-clear">Очистить</a>
+                    <a href="" class="btn btn__width_100 btn__color_transparent btn__height_50 auto-page__btn-clear"><?php _e('Очистить') ?></a>
                 </form>
             </div>
             <!-- /.auto-page__filters -->
@@ -278,7 +312,7 @@ get_header();
             <div class="auto-page__content">
 
                 <div class="current-avto__content-title page__title auto-page__catalog-title md-none">
-                    <h2>Каталог</h2>
+                    <h2><?php _e('Каталог') ?></h2>
                 </div>
 
                 <div class="auto-page__catalog" id="auto-page-catalog">
@@ -325,12 +359,22 @@ get_header();
                             </div>
 
                             <div class="avto__location_wr">
-                                <div class="avto__location">
-                                    <?php
-                                        $car_location = get_field_object('auto-location', $post->ID);
-                                        echo $car_location['value']['label'];
-                                    ?>
-                                </div>
+                                <?php
+                                    $auto_location = get_field('auto-location', $post->ID)['label'];
+
+                                    if ($c_lang == 'en_US') {
+                                        $auto_location = $auto_location == 'В Америке' ? 'In USA' : $auto_location;
+                                        $auto_location = $auto_location == 'В Грузии' ? 'In Georgia' : $auto_location;
+                                        $auto_location = $auto_location == 'В Украине' ? 'In Ukraine' : $auto_location;
+                                        $auto_location = $auto_location == 'В пути' ? 'In road' : $auto_location;
+                                    } elseif ($c_lang == 'ka_GE') {
+                                        $auto_location = $auto_location == 'В Америке' ? 'ამერიკაში' : $auto_location;
+                                        $auto_location = $auto_location == 'В Грузии' ? 'საქართველოში' : $auto_location;
+                                        $auto_location = $auto_location == 'В Украине' ? 'უკრაინაში' : $auto_location;
+                                        $auto_location = $auto_location == 'В пути' ? 'გზად' : $auto_location;
+                                    }
+                                ?>
+                                <div class="avto__location"><?= $auto_location ?></div>
                             </div>
 
                             <div class="avto__props">
@@ -344,15 +388,30 @@ get_header();
                                 <div class="avto__props_engine-capacity">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">
                                     <span class="avto__props_text">
-                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> л
-                        </span>
+                                        <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> <?php _e('л') ?>
+                                    </span>
                                 </div>
 
                                 <div class="avto__props_fuel-type">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">
                                     <span class="avto__props_text">
-                            <?= get_field('current-auto-fuel-type', $post->ID) ?>
-                        </span>
+                                        <?php
+                                            $fuel_type = get_field('current-auto-fuel-type', $post->ID);
+
+                                            if ($c_lang == 'en_US') {
+                                                $fuel_type = $fuel_type == 'Бензин' ? 'Gasolene' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Дизель' ? 'Diesel' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Электро' ? 'Electro' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Гибрид' ? 'Hybrid' : $fuel_type;
+                                            } elseif ($c_lang == 'ka_GE') {
+                                                $fuel_type = $fuel_type == 'Бензин' ? 'ბენზინი' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Дизель' ? 'დიზელის ძრავა' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Электро' ? 'ელექტრო' : $fuel_type;
+                                                $fuel_type = $fuel_type == 'Гибрид' ? 'ჰიბრიდი' : $fuel_type;
+                                            }
+                                        ?>
+                                        <?= $fuel_type ?>
+                                    </span>
                                 </div>
                             </div>
 
@@ -371,7 +430,7 @@ get_header();
                             </div>
 
                             <div class="avto__price-details">
-                                <a href="<?= get_page_link() ?>" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>
+                                <a href="<?= get_page_link() ?>" class="btn btn__width_180 btn__color_transparent btn__fz_15"><?php _e('Подробнее') ?></a>
 
                                 <div class="avto__price">
                                     $ <?= get_field('current-auto-price', $post->ID) ?>
@@ -382,7 +441,7 @@ get_header();
                     <span class="avto__footer_price">
                         $ <?= get_field('current-auto-price-in-ukraine', $post->ID) ?>
                     </span>
-                                <span class="avto__footer_text">Стоимость аналого в Украине</span>
+                                <span class="avto__footer_text"><?php _e('Стоимость аналога в Украине') ?></span>
                             </div>
                         </article>
                     <?php
@@ -394,7 +453,7 @@ get_header();
                 <!-- /.auto-page__catalog -->
 
                 <div class="auto-page__pagination pagination">
-                    <div class="pagination__btn btn btn__color_transparent btn__height_50 btn__width_265" id="load-more-auto"">Показать ещё</div>
+                    <div class="pagination__btn btn btn__color_transparent btn__height_50 btn__width_265" id="load-more-auto""><?php _e('Показать ещё') ?></div>
                 </div>
 
             </div>
@@ -405,112 +464,7 @@ get_header();
 
     </div>
 
-    <div class="auto-page__request request-bottom">
-        <div class="container request-bottom__container">
-            <div class="current-avto__content-title page__title auto-page__catalog-title request-bottom__title">
-                <h2>Подбор авто специалистом</h2>
-            </div>
-            <div class="request-bottom__desc">Заполните форму и мы подберем Вам идеальный автомобиль!</div>
-
-            <form action="" class="request-bottom__form">
-                <div class="request-form__items-wr">
-
-                    <!-- Row -->
-                    <!--                    <div class="request-form__items-row">-->
-                    <div class="request-form__input-wr request-form__brand">
-                        <input type="text" class="request-form__input" placeholder="Марка" id="car-brand-request">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
-                        </div>
-                        <div class="request-form__arrow-img">
-                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <div class="auto-page__input-list" id="car-brand-list-request">
-                            <ul class="auto-page__input-list_ul" id="car-brand-list-ul-request">
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="request-form__input-wr request-form__model">
-                        <input type="text" class="request-form__input" placeholder="Модель" id="car-model-req">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
-                        </div>
-                        <div class="request-form__arrow-img">
-                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
-                            </svg>
-                        </div>
-                        <div class="auto-page__input-list" id="car-model-list-request">
-                            <ul class="auto-page__input-list_ul" id="car-model-list-ul-request">
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="request-form__input-wr request-form__location">
-                        <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
-                        </div>
-                        <div class="request-form__arrow-img">
-                            <svg width="10" height="5" viewBox="0 0 10 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4.99999 5L-4.37114e-07 -7.94466e-08L10 -9.53674e-07L4.99999 5Z" fill="white"/>
-                            </svg>
-                        </div>
-
-                        <div class="request-form__input-location-list" id="car-location-list">
-                            <ul class="request-form__input-location-list_ul" id="car-models-list-ul">
-                                <li class="request-form__input-location-list_li">В Украине</li>
-                                <li class="request-form__input-location-list_li">В Америке</li>
-                                <li class="request-form__input-location-list_li">В Грузии</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="request-form__range-wr request-form__old">
-                        <input id="year-range" type="text" class="js-range-slider" name="my_range" value="" />
-                    </div>
-                    <!--                    </div>-->
-
-                    <!-- Row -->
-                    <!--                    <div class="request-form__items-row">-->
-                    <div class="request-form__input-wr request-form__name">
-                        <input type="text" class="request-form__input" placeholder="Имя">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/name-icon.svg">
-                        </div>
-                    </div>
-
-                    <div class="request-form__input-wr request-form__phone">
-                        <input type="text" class="request-form__input" placeholder="Телефон">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/phone-icon-icon.svg">
-                        </div>
-                    </div>
-
-                    <div class="request-form__input-wr request-form__email">
-                        <input type="text" class="request-form__input" placeholder="E-mail">
-                        <div class="request-form__img">
-                            <img src="<?= get_stylesheet_directory_uri() ?>/images/3auto-page-icons/email-icon.svg" alt="">
-                        </div>
-                    </div>
-
-                    <div class="request-form__range-wr request-form__price">
-                        <input id="price-range-req" type="text" class="js-range-slider" name="my_range" value="" />
-                    </div>
-                    <!--                    </div>-->
-
-                </div>
-
-                <div class="request-form__btn-wr">
-                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="submit-request-bottom-form">Подобрать авто</button>
-                </div>
-            </form>
-        </div>
-    </div>
-    <!-- /.auto-page__request request-bottom -->
+<?php get_template_part('template-parts/content/content-request') ?>
 </div>
 
 <?php

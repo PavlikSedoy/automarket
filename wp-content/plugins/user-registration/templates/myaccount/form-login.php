@@ -57,7 +57,7 @@ if ( 'bordered' === $form_template ) {
 					<p class="user-registration-form-row user-registration-form-row--wide form-row form-row-wide<?php echo ( 'yes' === get_option( 'user_registration_login_option_hide_show_password', 'no' ) ) ? ' hide_show_password' : ''; ?>">
 <!--						<label for="password">--><?php //_e( 'Password', 'user-registration' ); ?><!-- <span class="required">*</span></label>-->
 						<span class="password-input-group">
-						<input class="user-registration-Input user-registration-Input--text input-text" type="password" name="password" id="password" placeholder="Пароль" />
+						<input class="user-registration-Input user-registration-Input--text input-text" type="password" name="password" id="password" placeholder="<?php _e('Пароль') ?>" />
 						<?php
 						if ( 'yes' === get_option( 'user_registration_login_option_hide_show_password', 'no' ) ) {
 							?>

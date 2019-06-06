@@ -1,0 +1,64 @@
+2019-05-31T16:44:33+00:00
+TABLE: wp_postmeta
+ID: 2799
+BEFORE: 
+{:ru}CO-GOMMERCE CITY{:}{:en}co-gommerce-city{:}
+AFTER: 
+CO-GOMMERCE CITY
+=================
+
+2019-05-31T16:44:33+00:00
+TABLE: wp_postmeta
+ID: 2801
+BEFORE: 
+{:ru}CA{:}{:en}co-gommerce-city{:}
+AFTER: 
+CA
+=================
+
+2019-05-31T16:44:33+00:00
+TABLE: wp_postmeta
+ID: 2803
+BEFORE: 
+{:ru}520{:}{:en}12{:}
+AFTER: 
+520
+=================
+
+2019-05-31T16:44:33+00:00
+TABLE: wp_postmeta
+ID: 2805
+BEFORE: 
+{:ru}to{:}{:en}co-gommerce-city{:}
+AFTER: 
+to
+=================
+
+2019-05-31T16:44:33+00:00
+TABLE: wp_postmeta
+ID: 2807
+BEFORE: 
+{:ru}0{:}{:en}13{:}
+AFTER: 
+(empty)
+=================
+
+2019-05-31T16:44:37+00:00
+TABLE: wp_options
+ID: 
+BEFORE: 
+Array
+(
+    [0] => widget_wpglobus
+    [1] => wpglobus_option
+    [2] => wpglobus_option_en_language_names
+    [3] => wpglobus_option_flags
+    [4] => wpglobus_option_language_names
+    [5] => wpglobus_option_locale
+    [6] => wpglobus_option_versioning
+)
+
+AFTER: 
+(empty)
+=================
+

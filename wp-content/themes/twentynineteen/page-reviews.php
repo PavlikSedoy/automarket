@@ -10,13 +10,19 @@ get_header();
 ?>
 
 <div class="reviews">
+    <?php
+        $c_lang = get_locale();
+        if ($c_lang == 'ru_RU') $head_info_id = 258;
+        elseif ($c_lang == 'en_US') $head_info_id = 1847;
+        elseif ($c_lang == 'ka_GE') $head_info_id = 1848;
+    ?>
     <!--  Reviews Header  -->
     <div class="current-avto__header page-header">
         <div class="current-avto__bg">
-            <img src="<?= get_the_post_thumbnail_url(258) ?>">
+            <img src="<?= get_the_post_thumbnail_url($head_info_id) ?>">
         </div>
         <div class="container current-avto__header-content-container page-header__content">
-            <?php $head_info = get_post(258) ?>
+            <?php $head_info = get_post($head_info_id) ?>
             <h1 class="current-avto__title"><?= $head_info->post_title ?></h1>
 
             <div class="page-header__text">
@@ -29,7 +35,7 @@ get_header();
             <div class="container current-avto__header-path-container">
                 <ul class="current-avto__path_ul">
                     <li class="current-avto__path_li">
-                        <a href="/" class="current-avto__path_link">Главная</a>
+                        <a href="/" class="current-avto__path_link"><?php _e('Главная') ?></a>
                     </li>
                     <li class="current-avto__path_li">&nbsp;/&nbsp;<?= the_title() ?></li>
                 </ul>
@@ -39,15 +45,15 @@ get_header();
 
     <div class="container container__reviews">
         <div class="current-avto__content-title page__title">
-            <h2>Наши Довольные клиенты</h2>
+            <h2><?php _e('Наши Довольные клиенты') ?></h2>
         </div>
 
 
         <!-- Tabs -->
         <div class="reviews__tabs tabs">
             <div class="tabs__header left-active">
-                <div class="tabs__header_item" data-tab="desc">Отзывы</div>
-                <div class="tabs__header_item" data-tab="equipment">Видео отзывы</div>
+                <div class="tabs__header_item" data-tab="desc"><?php _e('Отзывы') ?></div>
+                <div class="tabs__header_item" data-tab="equipment"><?php _e('Видео отзывы') ?></div>
             </div>
 
             <!-- Tabs Wrapper -->

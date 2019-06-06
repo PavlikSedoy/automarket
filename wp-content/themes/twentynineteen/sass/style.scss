@@ -155,12 +155,15 @@ body.noScroll { /* ...or body.dialogShowing */
   display: none;
 }
 
+main {
+  overflow-x: hidden;
+}
+
 //  IMPORT SCSS PARTS *******
 @import "hamburgers";
 @import "header";
 @import "home-page";
 @import "request-form";
-@import "avto";
 @import "current-avto";
 @import "tabs";
 @import "aside-order";

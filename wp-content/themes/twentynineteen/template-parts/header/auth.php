@@ -1,3 +1,18 @@
+<?php
+    $c_lang = get_locale();
+    if ($c_lang == 'ru_RU') {
+        $accaunt_page = 1039;
+        $reg_page = 1040;
+    }
+    elseif ($c_lang == 'en_US') {
+        $accaunt_page = 1969;
+        $reg_page = 1984;
+    }
+    elseif ($c_lang == 'ka_GE') {
+        $accaunt_page = 1977;
+        $reg_page = 1986;
+    }
+?>
 <?php if ( is_user_logged_in() ) : ?>
     <!-- Login User -->
     <div class="auth__user" id="auth-user">
@@ -16,15 +31,15 @@
         <!--    User Profile Navigation    -->
         <ul class="user-nav" id="user-nav">
             <li class="user-nav__item">
-                <a href="<?= get_page_link( 1039 ) ?>" class="user-nav__link"></a>
+                <a href="<?= get_page_link( $accaunt_page ) ?>" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
-                    Личный кабинет
+                    <?php _e('Личный кабинет') ?>
                 </div>
             </li>
             <li class="user-nav__item">
                 <a href="<?php echo wp_logout_url( get_permalink() ); ?>" class="user-nav__link"></a>
                 <div class="user-nav__item_title">
-                    Выйти
+                    <?php _e('Выйти') ?>
                 </div>
             </li>
         </ul>
@@ -33,10 +48,10 @@
     <!-- Logout User -->
     <div class="auth__no-user">
         <div class="auth__no-user_item">
-            <a href="<?= get_page_link( 1040 ) ?>" class="auth_no-user_link">Регистрация</a>
+            <a href="<?= get_page_link( $reg_page ) ?>" class="auth_no-user_link"><?php _e('Регистрация') ?></a>
         </div>
         <div class="auth__no-user_item">
-            <a href="<?= get_page_link( 1039 ) ?>" class="auth_no-user_link">Вход</a>
+            <a href="<?= get_page_link( $accaunt_page ) ?>" class="auth_no-user_link"><?php _e('Вход') ?></a>
         </div>
     </div>
 <?php endif; ?>

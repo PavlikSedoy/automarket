@@ -292,7 +292,7 @@ $(document).click( function (e) {
     if (carBrandClass == 'request-form__input-fuel-list_li') {
         var fuelMaker = $(e.target).text();
 
-        $('#fuel-type').val(fuelMaker);
+        $('#fuel-type').val(fuelMaker.replace(/\s/g, ''));
 
         $('#car-fuel-list').slideUp();
     }
@@ -441,7 +441,7 @@ $('.year-to-li').click( function () {
 // Select transmission type
 $('.transmission-type-li').click( function () {
     var selectedTransmissionType = $(this).text();
-    $('#transmission-type').val(selectedTransmissionType);
+    $('#transmission-type').val(selectedTransmissionType.replace(/\s/g, ''));
 });
 
 var round = function(number){
@@ -476,6 +476,9 @@ var fuelType = null;
 var transmissionType = null;
 
 
+// User Language
+var userLanguage = $('#language').val();
+
 $('.auto-tabs__link').click( function (e) {
     e.preventDefault();
 
@@ -502,7 +505,7 @@ $('.auto-tabs__link').click( function (e) {
     transmissionType = null;
 
     // AJAX request who get auto items
-    ajaxGetAutoItems(tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, null, null);
+    ajaxGetAutoItems(userLanguage, tab, postsPerPage, null, null, null, null, null, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, null, null);
 
     // Fade In More Button
     $('#load-more-auto').fadeIn();
@@ -533,24 +536,35 @@ $('#apply-filters').click( function () {
     fuelType = $('#fuel-type').val();
     transmissionType = $('#transmission-type').val();
 
+    fuelType = fuelType == 'Diesel' ? 'Дизель' : fuelType;
+    fuelType = fuelType == 'Gasolene' ? 'Бензин' : fuelType;
+    fuelType = fuelType == 'დიზელისძრავა' ? 'Бензин' : fuelType;
+    fuelType = fuelType == 'ბენზინი' ? 'Бензин' : fuelType;
+
+    transmissionType = transmissionType == 'Automatic' ? 'Автомат' : transmissionType;
+    transmissionType = transmissionType == 'Manual' ? 'Механика' : transmissionType;
+    transmissionType = transmissionType == 'Automatic' ? 'ავტომატური' : transmissionType;
+    transmissionType = transmissionType == 'Manual' ? 'მექანიკური' : transmissionType;
+
     // Fade In More Button
     $('#load-more-auto').fadeIn();
 
-    ajaxGetAutoItems(tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
+    ajaxGetAutoItems(userLanguage, tab, postsPerPage, paged, null, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
 });
 
 // More Auto Button
 $('#load-more-auto').click( function () {
     paged++;
-    ajaxGetAutoItems(tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
+    ajaxGetAutoItems(userLanguage, tab, postsPerPage, paged, true, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType);
 });
 
 // AJAX request who get auto items
-function ajaxGetAutoItems(tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
+function ajaxGetAutoItems(userLanguage, tab, postsPerPage, paged, isLoadMore, carBrand, carModelField, carModel, priceFrom, priceTo, yearFrom, yearToAuto, engineCapacity, fuelType, transmissionType) {
     $.ajax({
         type: 'GET',
         url: '/index.php?rest_route=/get_cars/catalog/',
         data: {
+            lang: userLanguage,
             tab: tab,
             posts_per_page: postsPerPage,
             paged: paged,
@@ -649,6 +663,38 @@ function initAutoSlider() {
 
 // Generate items in DOM
 function printAutoItem(item, carGallery) {
+    var location = item.acf["auto-location"].label,
+        fuelType = item.acf["current-auto-fuel-type"],
+        litersLabel = 'л',
+        moreBtnText = 'Подробнее',
+        coastInUrkaine = 'Стоимость аналога в Украине';
+
+    if (userLanguage == 'en_US') {
+        location = location == 'В Америке' ? 'In USA' : location;
+        location = location == 'В Грузии' ? 'In Georgia' : location;
+        location = location == 'В Украине' ? 'In Ukraine' : location;
+        location = location == 'В пути' ? 'In road' : location;
+        litersLabel = 'L';
+        fuelType = fuelType == 'Бензин' ? 'Gasolene' : fuelType;
+        fuelType = fuelType == 'Дизель' ? 'Diesel' : fuelType;
+        fuelType = fuelType == 'Электро' ? 'Electro' : fuelType;
+        fuelType = fuelType == 'Гибрид' ? 'Hybrid' : fuelType;
+        moreBtnText = 'More info';
+        coastInUrkaine = 'Analogue price in Ukraine';
+    } else if (userLanguage == 'ka_GE') {
+        location = location == 'В Америке' ? 'ამერიკაში' : location;
+        location = location == 'В Грузии' ? 'საქართველოში' : location;
+        location = location == 'В Украине' ? 'უკრაინაში' : location;
+        location = location == 'В пути' ? 'გზად' : location;
+        litersLabel = 'ლ';
+        fuelType = fuelType == 'Бензин' ? 'ბენზინი' : fuelType;
+        fuelType = fuelType == 'Дизель' ? 'დიზელის ძრავა' : fuelType;
+        fuelType = fuelType == 'Электро' ? 'ელექტრო' : fuelType;
+        fuelType = fuelType == 'Гибрид' ? 'ჰიბრიდი' : fuelType;
+        moreBtnText = 'დეტალურად';
+        coastInUrkaine = 'ანალოგის ღირებულება უკრაინაში';
+    }
+
     $('#auto-page-catalog').append('' +
         '<article class="popular__avto avto auto-page__auto-item">' +
             '<div class="avto__slider">' +
@@ -664,7 +710,7 @@ function printAutoItem(item, carGallery) {
                 '</div>' +
             '</div>' +
             '<div class="avto__location_wr">' +
-                '<div class="avto__location">' + item.acf["auto-location"].label + '</div>' +
+                '<div class="avto__location">' + location + '</div>' +
             '</div>' +
             '<div class="avto__props">' +
                 '<div class="avto__props_year">' +
@@ -673,23 +719,23 @@ function printAutoItem(item, carGallery) {
                 '</div>' +
                 '<div class="avto__props_engine-capacity">' +
                     '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">' +
-                    '<span class="avto__props_text">' + round(item.acf["current-auto-engine-capacity"]/1000) + ' л</span>' +
+                    '<span class="avto__props_text">' + round(item.acf["current-auto-engine-capacity"]/1000) + ' ' + litersLabel + '</span>' +
                 '</div>' +
                 '<div class="avto__props_fuel-type">' +
                     '<img src="/wp-content/themes/twentynineteen/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">' +
-                    '<span class="avto__props_text">' + item.acf["current-auto-fuel-type"] + '</span>' +
+                    '<span class="avto__props_text">' + fuelType + '</span>' +
                 '</div>' +
             '</div>' +
             '<div class="avto__title-wr">' +
                 '<h4 class="avto__title">' + item.acf["car-brand"].value + ' ' + getAutoModel(item) + '</h4>' +
             '</div>' +
             '<div class="avto__price-details">' +
-                '<a href="' + item.link + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>' +
+                '<a href="' + item.link + '" class="btn btn__width_180 btn__color_transparent btn__fz_15">' + moreBtnText + '</a>' +
                 '<div class="avto__price">' + '$ ' + item.acf["current-auto-price"] + '</div>' +
             '</div>' +
             '<div class="avto__footer">' +
                 '<span class="avto__footer_price">' + '$ ' + item.acf["current-auto-price-in-ukraine"] + '</span>' +
-                '<span class="avto__footer_text">Стоимость аналого в Украине</span>' +
+                '<span class="avto__footer_text">' + coastInUrkaine + '</span>' +
             '</div>' +
         '</article>');
 }
@@ -731,6 +777,9 @@ $('#calculator-get-price').click( function (e) {
     calculatorUserAutoCapacity = round(calculatorUserAutoCapacity/1000);
     calculatorOld = parseInt(calculatorOld);
     calculatorUserAutoPrice = parseInt(calculatorUserAutoPrice);
+
+    if ( calculatorFuelType == 'Gasoline(GAS)' || calculatorFuelType == 'ბენზინი' ) calculatorFuelType = 'Бензин';
+    if ( calculatorFuelType == 'Diesel' || calculatorFuelType == 'დიზელი' ) calculatorFuelType = 'Дизель';
 
     // Capacity Kof
     var capacityKof;

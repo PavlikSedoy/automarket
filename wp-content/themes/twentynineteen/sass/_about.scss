@@ -7,7 +7,7 @@
     flex-basis: calc(100% - 365px);
   }
 
-  &__asside {
+  .aside-order, &__asside {
     flex-basis: 365px;
 
     .aside-order__title {
@@ -102,7 +102,7 @@
       padding-right: 0 !important;
     }
 
-    &__asside {
+    .aside-order, &__asside {
       flex-basis: 50%;
       display: none;
     }

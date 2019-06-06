@@ -1,0 +1,286 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Automarket\n"
+"POT-Creation-Date: 2019-06-01 01:11+0300\n"
+"PO-Revision-Date: 2019-06-01 01:22+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.3\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: _e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: 404.php:20
+msgid "Oops! That page can&rsquo;t be found."
+msgstr ""
+
+#: 404.php:24
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: classes/class-twentynineteen-walker-comment.php:100
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: comments.php:33
+msgid "Join the Conversation"
+msgstr ""
+
+#: comments.php:35 comments.php:105 comments.php:107
+msgid "Leave a comment"
+msgstr ""
+
+#: comments.php:116
+msgid "Comments are closed."
+msgstr ""
+
+#: page-home.php:69
+msgid "Найдите"
+msgstr "Search"
+
+#: page-home.php:69
+msgid "Автомобиль мечты"
+msgstr "Dream Car"
+
+#: page-home.php:70
+msgid "форму и мы подберем для Вас оптимальный вариант"
+msgstr "form and we will find the perfect car for you"
+
+#: page-home.php:80
+msgid "Подбор авто"
+msgstr "car selection"
+
+#: page-home.php:179 page-home.php:189
+msgid "Подобрать авто"
+msgstr "car selection"
+
+#: page-home.php:197 page-home.php:559
+msgid "Популярные"
+msgstr "popular"
+
+#: page-home.php:197
+msgid "авто"
+msgstr "auto"
+
+#: page-home.php:286
+msgid "Подробнее"
+msgstr "More"
+
+#: page-home.php:297
+msgid "Стоимость аналога в Украине"
+msgstr "The cost of analogue in Ukraine"
+
+#: page-home.php:308
+msgid "Смотреть Все авто"
+msgstr "See all"
+
+#: page-home.php:321
+msgid "Калькулятор"
+msgstr "calculator"
+
+#: page-home.php:321
+msgid "растаможки"
+msgstr "custom"
+
+#: page-home.php:327 page-home.php:328
+msgid "Растаможка"
+msgstr "custom"
+
+#: page-home.php:327
+msgid "в украине"
+msgstr "in Ukraine"
+
+#: page-home.php:328
+msgid "в грузии"
+msgstr "in Georgia"
+
+#: page-home.php:358
+msgid "см.куб."
+msgstr ""
+
+#: page-home.php:376
+msgid "Бензин"
+msgstr "gasoline(gas)"
+
+#: page-home.php:377
+msgid "Дизель"
+msgstr "diesel"
+
+#: page-home.php:418
+msgid "Рассчитать"
+msgstr "calculate"
+
+#: page-home.php:502
+msgid "Как мы"
+msgstr "How we"
+
+#: page-home.php:502
+msgid "работаем"
+msgstr "work"
+
+#: page-home.php:559
+msgid "вопросы"
+msgstr "questions"
+
+#: page-login.php:16
+msgid "Вход"
+msgstr "Log In"
+
+#: page-login.php:24
+msgid "Введите ваши данные"
+msgstr ""
+
+#: page-login.php:33
+msgid "Нет аккаунта?"
+msgstr ""
+
+#: page-login.php:33
+msgid "Зарегистрироваться"
+msgstr "Sign Up"
+
+#: page-login.php:46
+msgid "Личный кабинет"
+msgstr ""
+
+#: page-login.php:50
+msgid "Имя компании: "
+msgstr "Company name:"
+
+#: page-login.php:54
+msgid "Номер кабинета: "
+msgstr ""
+
+#: page-login.php:59
+msgid "Ваши заказы"
+msgstr "You orders"
+
+#: page-login.php:66
+msgid "№"
+msgstr ""
+
+#: page-login.php:67
+msgid "Марка"
+msgstr "Vehichles"
+
+#: page-login.php:68
+msgid "Модель"
+msgstr "Model"
+
+#: page-login.php:69
+msgid "Vin-код"
+msgstr "Vin-code"
+
+#: page-login.php:70
+msgid "Title"
+msgstr "Title"
+
+#: page-login.php:71
+msgid "В терминале"
+msgstr "In terminal"
+
+#: page-login.php:72
+msgid "Фото с терминала"
+msgstr "Foros from terminal"
+
+#: page-login.php:73
+msgid "Местонахождение (порт)"
+msgstr "Location (port)"
+
+#: page-login.php:74
+msgid "Место назначения (порт)"
+msgstr ""
+
+#: page-login.php:75
+msgid "№ Контейнера"
+msgstr "Container №"
+
+#: page-login.php:76
+msgid "Дата покупки"
+msgstr ""
+
+#: page-login.php:77
+msgid "Дата погрузки в контейнер"
+msgstr ""
+
+#: page-login.php:78
+msgid "Ожидаемая дата прибытия"
+msgstr ""
+
+#: page-login.php:79
+msgid "Имя получателя"
+msgstr ""
+
+#: page-login.php:80
+msgid "Загран пасспорт"
+msgstr ""
+
+#: page-login.php:81
+msgid "ИНН"
+msgstr ""
+
+#: page-login.php:82
+msgid "Цена авто"
+msgstr ""
+
+#: page-login.php:83
+msgid "Цена доставки по суше"
+msgstr ""
+
+#: page-login.php:84
+msgid "Осталось заплатить"
+msgstr ""
+
+#: page-login.php:85
+msgid "Инвойс"
+msgstr ""
+
+#: page-login.php:154
+msgid "Скачать"
+msgstr ""
+
+#: page-registration.php:15
+msgid "Регистрация"
+msgstr ""
+
+#: page-registration.php:23
+msgid "Заполните форму"
+msgstr ""
+
+#: page-registration.php:27
+msgid ""
+"Регистрация на сайте производится только для юридически зарегистрированных "
+"компаний."
+msgstr ""
+
+#: page-registration.php:33
+msgid "Уже имеете аккаунт?"
+msgstr ""
+
+#: page-registration.php:33
+msgid "Войти"
+msgstr ""
+
+#: template-parts/content/content-none.php:16
+msgid "Nothing Found"
+msgstr ""
+
+#: template-parts/content/content-none.php:39
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+
+#: template-parts/content/content-none.php:46
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr ""
+
+#: template-parts/post/author-bio.php:26
+msgid "View more posts"
+msgstr ""

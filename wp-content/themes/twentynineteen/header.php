@@ -26,6 +26,7 @@
 
 <body>
 <header class="header">
+    <?php $c_lang = get_locale(); ?>
     <div class="container header__container">
         <div class="header__logo">
             <a href="/" class="header__logo_link"></a>
@@ -69,13 +70,13 @@
                 <div class="header__lang lang">
                     <ul class="lang__ul">
                         <li class="lang__item">
-                            <a href="/" class="lang__link">RU</a>
+                            <a href="/ru/home/" class="lang__link">RU</a>
                         </li>
                         <li class="lang__item">
-                            <a href="/" class="lang__link">ENG</a>
+                            <a href="/en/home-2/" class="lang__link">ENG</a>
                         </li>
                         <li class="lang__item">
-                            <a href="/" class="lang__link">GEO</a>
+                            <a href="/ka//მთავარი/" class="lang__link">GEO</a>
                         </li>
                     </ul>
                 </div>
@@ -127,20 +128,20 @@
         <div class="mobile-nav" id="mobile-nav">
             <div class="mobile-nav__container container">
                 <div class="mobile-nav__header">
-                    <h4 class="mobile-nav__title">Меню</h4>
+                    <h4 class="mobile-nav__title"><?php _e('Меню') ?></h4>
                 </div>
 
                 <div class="mobile-nav__footer">
                     <div class="mobile-nav__lang lang">
                         <ul class="lang__ul">
                             <li class="lang__item">
-                                <a href="/" class="lang__link">RU</a>
+                                <a href="/ru/home/" class="lang__link">RU</a>
                             </li>
                             <li class="lang__item">
-                                <a href="/" class="lang__link">ENG</a>
+                                <a href="/en/home-2/" class="lang__link">ENG</a>
                             </li>
                             <li class="lang__item">
-                                <a href="/" class="lang__link">GEO</a>
+                                <a href="/ka//მთავარი/" class="lang__link">GEO</a>
                             </li>
                         </ul>
                     </div>

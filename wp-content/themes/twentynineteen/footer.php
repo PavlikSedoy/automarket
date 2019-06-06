@@ -33,7 +33,7 @@
 
             <div class="footer__info-wr_content">
                 <p>
-                    Компания “Auto Market” с 2012 го года
+                    <?php _e('Компания “Auto Market” с 2012 го года
                     предлагает полный пакет услуг по
                     транспортировке автомобиля из США
                     в Грузию, и в Украину. Мы поможем
@@ -43,7 +43,7 @@
                     Мы можем купить для Вас машину на
                     любом большом аукционе или
                     дилерной компании в США и доставим
-                    в порт Одессы.
+                    в порт Одессы.') ?>
                 </p>
             </div>
 
@@ -71,7 +71,7 @@
         </div>
 
         <div class="footer__contacts">
-            <h4 class="footer__contacts_title">Контакты</h4>
+            <h4 class="footer__contacts_title"><?php _e('Контакты') ?></h4>
 
             <ul class="footer__contacts_ul">
                 <?php
@@ -106,9 +106,9 @@
                     <span class="footer__contacts_item-row">
                             <img src="<?php bloginfo('template_url') ?>/images/icons-footer/time-icon.svg" class="footer__contacts_item-row_icon" />
                             <span class="footer__contacts_item-row_link" target="_blank">
-                                ПН-ПТ: с 10:00 до 18:00<br>
+                                <?php _e('ПН-ПТ: с 10:00 до 18:00<br>
                                 СБ: с 10:00 до 14:00<br>
-                                ВС: выходной
+                                ВС: выходной') ?>
                             </span>
                     </span>
                 </li>
@@ -117,31 +117,31 @@
         </div>
 
         <div class="footer__menu">
-            <h4 class="footer__contacts_title">Меню</h4>
+            <h4 class="footer__contacts_title"><?php _e('Меню') ?></h4>
 
             <?php wp_nav_menu( array( 'theme_location' => 'header-menu' ) ); ?>
         </div>
 
         <div class="footer__call-back">
-            <h4 class="footer__contacts_title">Обратная связь</h4>
+            <h4 class="footer__contacts_title"><?php _e('Обратная связь') ?></h4>
 
             <form action="" class="aside-order__form">
                 <div class="aside-order__input-wr">
-                    <input type="text" name="name" id="name" class="aside-order__input" placeholder="Имя">
+                    <input type="text" name="name" id="name" class="aside-order__input" placeholder="<?php _e('Имя') ?>">
                     <img src="<?php bloginfo('template_url') ?>/images/car-search-icons/name-icon.svg" class="aside-order__input_img">
                 </div>
 
                 <div class="aside-order__input-wr">
-                    <input type="text" name="phone" id="phone" class="aside-order__input" placeholder="Телефон">
+                    <input type="text" name="phone" id="phone" class="aside-order__input" placeholder="<?php _e('Телефон') ?>">
                     <img src="<?php bloginfo('template_url') ?>/images/car-search-icons/phone-icon-icon.svg" class="aside-order__input_img">
                 </div>
 
                 <div class="aside-order__input-wr">
-                    <input type="email" name="email" id="email" class="aside-order__input" placeholder="E-mail">
+                    <input type="email" name="email" id="email" class="aside-order__input" placeholder="<?php _e('E-mail') ?>">
                     <img src="<?php bloginfo('template_url') ?>/images/3auto-page-icons/email-icon.svg" class="aside-order__input_img">
                 </div>
 
-                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100" id="footer-request">Перезвоните мне</button>
+                <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_100" id="footer-request"><?php _e('Перезвоните мне') ?></button>
             </form>
         </div>
     </div>

@@ -13,7 +13,7 @@ get_header();
     <div class="reg">
         <div class="container container__reg">
             <div class="current-avto__content-title page__title">
-                <h2><?php _e( 'Вход', 'automarket' ) ?></h2>
+                <h2><?php _e( 'Вход' ) ?></h2>
             </div>
 
             <?php
@@ -47,11 +47,11 @@ get_header();
             </div>
 
             <div class="cabinet__user-info">
-                <span><?php _e( 'Имя компании: ' ) ?><?php
+                <span><?php _e( 'Имя компании: ' ) ?>&nbsp;<?php
                     $user_id = get_current_user_id();
                     echo get_userdata($user_id)->user_login;
                     ?></span>
-                <span><?php _e( 'Номер кабинета: ' ) ?><?= $user_id ?></span>
+                <span><?php _e( 'Номер кабинета: ' ) ?>&nbsp;<?= $user_id ?></span>
             </div>
 
             <div class="cabinet__table-wr">

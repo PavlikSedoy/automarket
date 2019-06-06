@@ -212,6 +212,10 @@
     display: none;
   }
 
+  #car-brand-list, #car-models-list {
+    max-height: 235px;
+  }
+
   // Header mobile
   &__header {
     display: none;

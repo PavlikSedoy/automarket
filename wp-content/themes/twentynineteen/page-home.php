@@ -66,8 +66,8 @@ get_header();
                     </div>
 
                     <div class="request-title__content">
-                        <h3 class="request-title__title">Найдите <span>Автомобиль мечты</span></h3>
-                        <p>Заполните форму и мы подберем для Вас оптимальный вариант</p>
+                        <h3 class="request-title__title"><?php _e('Найдите <span>Автомобиль мечты</span>') ?></h3>
+                        <p><?php _e('Заполните форму и мы подберем для Вас оптимальный вариант') ?></p>
                     </div>
                 </div>
             </div>
@@ -77,7 +77,7 @@ get_header();
             <form action="" class="request-form__form">
 
                 <div class="request-form__header">
-                    <div class="request-form__mobile-title">Подбор авто</div>
+                    <div class="request-form__mobile-title"><?php _e('Подбор авто') ?></div>
                     <div class="request-form__mobile-close close" id="request-form-mobile-close"></div>
                 </div>
                 <!-- /.request-form__header -->
@@ -87,7 +87,7 @@ get_header();
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
                         <div class="request-form__input-wr request-form__brand">
-                            <input type="text" class="request-form__input" placeholder="Марка" id="car-brand">
+                            <input type="text" class="request-form__input" placeholder="<?php _e('Марка') ?>" id="car-brand">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                             </div>
@@ -104,7 +104,7 @@ get_header();
                         </div>
 
                         <div class="request-form__input-wr request-form__model">
-                            <input type="text" class="request-form__input" placeholder="Модель" id="car-model">
+                            <input type="text" class="request-form__input" placeholder="<?php _e('Модель') ?>" id="car-model">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/model-icon.svg">
                             </div>
@@ -121,7 +121,7 @@ get_header();
                         </div>
 
                         <div class="request-form__input-wr request-form__location">
-                            <input type="text" class="request-form__input" placeholder="Местоположение" id="car-location">
+                            <input type="text" class="request-form__input" placeholder="<?php _e('Местоположение') ?>" id="car-location">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/location-icon.svg">
                             </div>
@@ -133,9 +133,10 @@ get_header();
 
                             <div class="request-form__input-location-list" id="car-location-list">
                                 <ul class="request-form__input-location-list_ul" id="car-models-list-ul">
-                                    <li class="request-form__input-location-list_li">В Украине</li>
-                                    <li class="request-form__input-location-list_li">В Америке</li>
-                                    <li class="request-form__input-location-list_li">В Грузии</li>
+                                    <li class="request-form__input-location-list_li"><?php _e('В Украине') ?></li>
+                                    <li class="request-form__input-location-list_li"><?php _e('В Америке') ?></li>
+                                    <li class="request-form__input-location-list_li"><?php _e('В Грузии') ?></li>
+                                    <li class="request-form__input-location-list_li"><?php _e('В Пути') ?></li>
                                 </ul>
                             </div>
                         </div>
@@ -148,14 +149,14 @@ get_header();
                     <!-- Row -->
 <!--                    <div class="request-form__items-row">-->
                         <div class="request-form__input-wr request-form__name">
-                            <input type="text" class="request-form__input" placeholder="Имя">
+                            <input type="text" class="request-form__input" placeholder="<?php _e('Имя') ?>">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/name-icon.svg">
                             </div>
                         </div>
 
                         <div class="request-form__input-wr request-form__phone">
-                            <input type="text" class="request-form__input" placeholder="Телефон">
+                            <input type="text" class="request-form__input" placeholder="<?php _e('Телефон') ?>">
                             <div class="request-form__img">
                                 <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/phone-icon-icon.svg">
                             </div>
@@ -176,7 +177,7 @@ get_header();
                 </div>
 
                 <div class="request-form__btn-wr">
-                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="send-request-mail">Подобрать авто</button>
+                    <button class="btn btn__width_265 btn__height_50 btn__color_blue" id="send-request-mail"><?php _e('Подобрать авто') ?></button>
                 </div>
                 
             </form>
@@ -186,15 +187,17 @@ get_header();
 
 <!-- Request button tablet -->
 <div class="request-mobile-button" id="request-mobile-button">
-    Подобрать авто
+    <?php _e('Подобрать авто') ?>
 </div>
+
+<?php $c_lang = get_locale(); ?>
 
 <!-- Popular Auto Section -->
 <section class="popular">
     <div class="container popular__container">
         <div class="popular__title_wr">
             <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/popular-icon.svg" class="popular__h2-img">
-            <h2 class="popular__title section-title">Популярные <span>авто</span></h2>
+            <h2 class="popular__title section-title"><?php _e('Популярные <span>авто</span>') ?></h2>
         </div>
 
         <!-- Avto Block -->
@@ -242,7 +245,22 @@ get_header();
                 </div>
 
                 <div class="avto__location_wr">
-                    <div class="avto__location"><?= get_field('auto-location', $post->ID)['label'] ?></div>
+                    <?php
+                        $auto_location = get_field('auto-location', $post->ID)['label'];
+
+                        if ($c_lang == 'en_US') {
+                            $auto_location = $auto_location == 'В Америке' ? 'In USA' : $auto_location;
+                            $auto_location = $auto_location == 'В Грузии' ? 'In Georgia' : $auto_location;
+                            $auto_location = $auto_location == 'В Украине' ? 'In Ukraine' : $auto_location;
+                            $auto_location = $auto_location == 'В пути' ? 'In road' : $auto_location;
+                        } elseif ($c_lang == 'ka_GE') {
+                            $auto_location = $auto_location == 'В Америке' ? 'ამერიკაში' : $auto_location;
+                            $auto_location = $auto_location == 'В Грузии' ? 'საქართველოში' : $auto_location;
+                            $auto_location = $auto_location == 'В Украине' ? 'უკრაინაში' : $auto_location;
+                            $auto_location = $auto_location == 'В пути' ? 'გზად' : $auto_location;
+                        }
+                    ?>
+                    <div class="avto__location"><?= $auto_location ?></div>
                 </div>
 
                 <div class="avto__props">
@@ -256,14 +274,29 @@ get_header();
                     <div class="avto__props_engine-capacity">
                         <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/engine-icon.svg" class="avto__props_img">
                         <span class="avto__props_text">
-                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> л
+                            <?= number_format(get_field('current-auto-engine-capacity', $post->ID)/1000, 1, '.', ''); ?> <?php _e('л') ?>
                         </span>
                     </div>
 
                     <div class="avto__props_fuel-type">
                         <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/auto-card-icons/fuel-icon.svg" class="avto__props_img">
                         <span class="avto__props_text">
-                            <?= get_field('current-auto-fuel-type', $post->ID) ?>
+                            <?php
+                                $fuel_type = get_field('current-auto-fuel-type', $post->ID);
+
+                            if ($c_lang == 'en_US') {
+                                $fuel_type = $fuel_type == 'Бензин' ? 'Gasolene' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Дизель' ? 'Diesel' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Электро' ? 'Electro' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Гибрид' ? 'Hybrid' : $fuel_type;
+                            } elseif ($c_lang == 'ka_GE') {
+                                $fuel_type = $fuel_type == 'Бензин' ? 'ბენზინი' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Дизель' ? 'დიზელის ძრავა' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Электро' ? 'ელექტრო' : $fuel_type;
+                                $fuel_type = $fuel_type == 'Гибрид' ? 'ჰიბრიდი' : $fuel_type;
+                            }
+                            ?>
+                            <?= $fuel_type ?>
                         </span>
                     </div>
                 </div>
@@ -283,7 +316,7 @@ get_header();
                 </div>
 
                 <div class="avto__price-details">
-                    <a href="<?= get_page_link() ?>" class="btn btn__width_180 btn__color_transparent btn__fz_15">Подробнее</a>
+                    <a href="<?= get_page_link() ?>" class="btn btn__width_180 btn__color_transparent btn__fz_15"><?php _e('Подробнее') ?></a>
 
                     <div class="avto__price">
                         $ <?= get_field('current-auto-price', $post->ID) ?>
@@ -294,7 +327,7 @@ get_header();
                     <span class="avto__footer_price">
                         $ <?= get_field('current-auto-price-in-ukraine', $post->ID) ?>
                     </span>
-                    <span class="avto__footer_text">Стоимость аналога в Украине</span>
+                    <span class="avto__footer_text"><?php _e('Стоимость аналога в Украине') ?></span>
                 </div>
             </article>
             <?php
@@ -305,7 +338,12 @@ get_header();
         </div>
 
         <div class="popular__all-auto">
-            <a href="/index.php/avto/" class="btn btn__width_265 btn__color_blue">Смотреть Все авто</a>
+            <?php
+                if ($c_lang == 'ru_RU') $news_page_id = 28;
+                elseif ($c_lang == 'en_US') $news_page_id = 1782;
+                elseif ($c_lang == 'ka_GE') $news_page_id = 1817;
+            ?>
+            <a href="<?= get_page_link($news_page_id) ?>" class="btn btn__width_265 btn__color_blue"><?php _e('Смотреть Все авто') ?></a>
         </div>
 
     </div>
@@ -318,14 +356,14 @@ get_header();
         <!-- Title -->
         <div class="how-work__title_wr">
             <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/calculate-icon.svg" class="how-work__h2-img">
-            <h2 class="how-work__title section-title calculator__title">Калькулятор <span>растаможки</span></h2>
+            <h2 class="how-work__title section-title calculator__title"><?php _e('Калькулятор <span>растаможки</span>') ?></h2>
         </div>
 
         <!-- Tabs -->
         <div class="calculator__tabs tabs">
             <div class="tabs__header left-active">
-                <div class="tabs__header_item" data-tab="desc"><span class="xs-none">Растаможка</span> в украине</div>
-                <div class="tabs__header_item" data-tab="equipment"><span class="xs-none">Растаможка</span> в грузии</div>
+                <div class="tabs__header_item" data-tab="desc"><span class="xs-none"><?php _e('Растаможка </span>в украине') ?></div>
+                <div class="tabs__header_item" data-tab="equipment"><span class="xs-none"><?php _e('Растаможка </span>в грузии') ?></div>
             </div>
 
             <!-- Tabs Wrapper -->
@@ -338,7 +376,7 @@ get_header();
                         <div class="calculator__inputs-wr">
 
                             <div class="request-form__input-wr">
-                                <input type="number" class="request-form__input" placeholder="Стоимость" id="calculator-price">
+                                <input type="number" class="request-form__input" placeholder="<?php _e('Стоимость') ?>" id="calculator-price">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/car-search-icons/car-name-icon.svg">
                                 </div>
@@ -349,18 +387,18 @@ get_header();
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="number" class="request-form__input" placeholder="Объем" id="calculator-capacity">
+                                <input type="number" class="request-form__input" placeholder="<?php _e('Объем') ?>" id="calculator-capacity">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
 
                                 <div class="request-form__usd-mark">
-                                     см.куб.
+                                    <?php _e('см.куб.') ?>
                                 </div>
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Тип топлива" id="fuel-type">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Тип топлива') ?>" id="fuel-type">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/fuel-icon.svg" alt="">
                                 </div>
@@ -373,14 +411,14 @@ get_header();
 
                                 <div class="request-form__input-fuel-list" id="car-fuel-list">
                                     <ul class="request-form__input-fuel-list_ul" id="car-fuel-list-ul">
-                                        <li class="request-form__input-fuel-list_li">Бензин</li>
-                                        <li class="request-form__input-fuel-list_li">Дизель</li>
+                                        <li class="request-form__input-fuel-list_li"><?php _e('Бензин') ?></li>
+                                        <li class="request-form__input-fuel-list_li"><?php _e('Дизель') ?></li>
                                     </ul>
                                 </div>
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Возраст" id="car-old">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Возраст') ?>" id="car-old">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
                                 </div>
@@ -415,7 +453,7 @@ get_header();
                         </div>
 
                         <div class="calculator__calculate-btn_wr">
-                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50" id="calculator-get-price">Рассчитать</button>
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50" id="calculator-get-price"><?php _e('Рассчитать') ?></button>
                         </div>
 
                         <span class="calculator__price">$ <span id="calculator-full-price">0</span></span>
@@ -433,18 +471,18 @@ get_header();
 
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Объем">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Объем') ?>">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
 
                                 <div class="request-form__usd-mark">
-                                    см.куб.
+                                    <?php _e('см.куб.') ?>
                                 </div>
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="Возраст" id="car-old">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Возраст') ?>" id="car-old">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
                                 </div>
@@ -471,7 +509,7 @@ get_header();
                                         <li class="request-form__input-old-list_li">12</li>
                                         <li class="request-form__input-old-list_li">13</li>
                                         <li class="request-form__input-old-list_li">14</li>
-                                        <li class="request-form__input-old-list_li">15 и больше</li>
+                                        <li class="request-form__input-old-list_li">15</li>
                                     </ul>
                                 </div>
                             </div>
@@ -479,7 +517,7 @@ get_header();
                         </div>
 
                         <div class="calculator__calculate-btn_wr">
-                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50">Рассчитать</button>
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50"><?php _e('Рассчитать') ?></button>
                         </div>
 
                         <span class="calculator__price">$ 0</span>
@@ -499,7 +537,7 @@ get_header();
         <!-- Title -->
         <div class="how-work__title_wr">
             <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/how-work-icon.svg" class="how-work__h2-img">
-            <h2 class="how-work__title section-title">Как мы <span>работаем</span></h2>
+            <h2 class="how-work__title section-title"><?php _e('Как мы <span>работаем</span>') ?></h2>
         </div>
 
         <!-- Items -->
@@ -556,7 +594,7 @@ get_header();
             <!-- Title -->
             <div class="faq__title_wr">
                 <img src="<?= get_stylesheet_directory_uri() ?>/images/h2-icons/question-icon.svg" class="faq__h2-img">
-                <h2 class="faq__title section-title">Популярные <span>вопросы</span></h2>
+                <h2 class="faq__title section-title"><?php _e('Популярные <span>вопросы</span>') ?></h2>
             </div>
 
             <!-- Spoilers -->
