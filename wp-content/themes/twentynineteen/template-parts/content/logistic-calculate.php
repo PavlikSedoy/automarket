@@ -2,7 +2,7 @@
     <h4 class="aside-order__title"><?php _e('Калькулятор доставки') ?></h4>
 
     <form action="" class="aside-order__form">
-        <div class="aside-order__input-wr">
+        <div class="aside-order__input-wr logistic-calculator__input-wr active">
             <input type="text" name="auction" id="auction" class="aside-order__input" placeholder="<?php _e('Аукцион') ?>" readonly="readonly">
             <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/aukcion-icon.svg" class="aside-order__input_img">
             <div class="request-form__arrow-img">
@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <div class="aside-order__input-wr">
+        <div class="aside-order__input-wr logistic-calculator__input-wr">
             <input type="text" name="city" id="logistic-city" class="aside-order__input" placeholder="<?php _e('Город') ?>" readonly="readonly">
             <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/city-icon.svg" class="aside-order__input_img">
             <div class="request-form__arrow-img">
@@ -34,7 +34,7 @@
             </div>
         </div>
 
-        <div class="aside-order__input-wr">
+        <div class="aside-order__input-wr logistic-calculator__input-wr">
             <input type="text" name="port-from" id="port-from" class="aside-order__input" placeholder="<?php _e('Порт погрузки') ?>" readonly="readonly">
             <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/port-pogruzki-icon.svg" class="aside-order__input_img">
             <div class="request-form__arrow-img">
@@ -49,7 +49,7 @@
             </div>
         </div>
 
-        <div class="aside-order__input-wr">
+        <div class="aside-order__input-wr logistic-calculator__input-wr">
             <input type="text" name="port-to" id="port-to" class="aside-order__input" placeholder="<?php _e('Порт назначения') ?>" readonly="readonly">
             <img src="<?php bloginfo('template_url') ?>/images/4shipping-page-icons/port-naznachenia-icon.svg" class="aside-order__input_img">
             <div class="request-form__arrow-img">
@@ -64,8 +64,8 @@
             </div>
         </div>
 
-        <div class="logistic__btn_price">
-            <div class="logistic__btn_wr">
+        <div class="logistic__btn_price logistic-calculator__btn_price">
+            <div class="logistic__btn_wr logistic-calculator__btn_wr">
                 <button type="submit" class="aside-order__submit btn btn__color_blue btn__width_160" id="logistic-calculate"><?php _e('Рассчитать') ?></button>
             </div>
             <div class="logistic__price">

@@ -953,7 +953,7 @@ function get_city() {
     $post_type = 'calculator-'. $auction;
     $city_key = 'city-' . $auction;
 
-    $city_list = array_unique(get_meta_values($city_key, $post_type));
+    $city_list = array_values(array_unique(get_meta_values($city_key, $post_type)));
     echo json_encode($city_list);
     die();
 }
@@ -971,7 +971,8 @@ function get_port_from() {
     $auction = strtolower($auction);
     $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
-    $city_key = 'city-' . $auction;
+    $city = str_replace('_', ' ', $city);
+    $city_key = 'city-' . strtolower($auction);
     $post_from_key = 'port-from-' . $auction;
 
     $args = array(
@@ -983,7 +984,7 @@ function get_port_from() {
             array(
                 'key'	 	=> $city_key,
                 'value'	  	=> $city,
-                'compare'   => 'IN',
+                'compare'   => '=',
             )
         )
     );
@@ -993,9 +994,11 @@ function get_port_from() {
     $posts = get_posts($args);
     // add custom field data to posts array
     foreach ($posts as $key => $post) {
+        $posts[$key]->city = get_fields($post->ID)[$city_key];
         $posts[$key]->port_from = get_fields($post->ID)[$post_from_key];
     }
     return $posts;
+//    return json_encode($city);
 }
 add_action( 'rest_api_init', function () {
     register_rest_route('logistic', '/port-from/', array(
@@ -1010,7 +1013,7 @@ function get_port_to() {
     $auction = strtolower($auction);
     $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
-    $city = str_replace(' ', '', $city);
+    $city = str_replace('_', ' ', $city);
     $port_from = $_GET['port_from'];
     $city_key = 'city-' . $auction;
     $post_from_key = 'port-from-' . $auction;
@@ -1025,12 +1028,12 @@ function get_port_to() {
             array(
                 'key'	 	=> $city_key,
                 'value'	  	=> $city,
-                'compare'   => 'IN',
+                'compare'   => '=',
             ),
             array(
                 'key'	 	=> $post_from_key,
                 'value'	  	=> $port_from,
-                'compare'   => 'IN',
+                'compare'   => '=',
             ),
         )
     );
@@ -1075,17 +1078,17 @@ function get_price() {
             array(
                 'key'	 	=> $city_key,
                 'value'	  	=> $city,
-                'compare'   => 'IN',
+                'compare'   => '=',
             ),
             array(
                 'key'	 	=> $post_from_key,
                 'value'	  	=> $port_from,
-                'compare'   => 'IN',
+                'compare'   => '=',
             ),
             array(
                 'key'	 	=> $port_to_key,
                 'value'	  	=> $port_to,
-                'compare'   => 'IN',
+                'compare'   => '=',
             ),
         )
     );

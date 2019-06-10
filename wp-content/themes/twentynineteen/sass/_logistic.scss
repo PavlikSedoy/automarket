@@ -155,10 +155,83 @@
 
   &__container-calc-new {
     display: flex;
+    margin-top: 100px;
 
     .aside-order {
       flex-basis: 40%;
     }
+
+    .aside-order__input-wr {
+      margin-top: 10px;
+    }
+  }
+
+  &__map-wr {
+    height: 400px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  &__map {
+    height: 100%;
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+
+    span {
+      font-size: 14px;
+      line-height: 1;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    svg {
+      height: 40px;
+      width: 50px;
+
+      path {
+        width: 50px;
+        fill: $placeholder-color;
+      }
+
+      rect {
+        fill: $placeholder-color;
+      }
+    }
+  }
+
+  &__price-wr {
+    display: flex;
+    align-items: center;
+    border: 2px solid $placeholder-color;
+    padding: 5px 10px;
+    margin-top: 10px;
+    justify-content: space-between;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    & > span {
+      margin-top: 10px;
+      margin-left: 35px;
+      margin-right: 10px;
+      font-family: 'Graphik', sans-serif;
+      font-size: 18px;
+      font-weight: bold;
+      color: $placeholder-color;
+    }
+  }
+
+  &__pricing {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 50px;
+    height: 228px;
+    margin-top: 43px;
   }
 }
 
@@ -204,6 +277,36 @@
         color: transparent;
       }
     }
+  }
+}
+
+.logistic-calculator {
+  &__input-wr {
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color-white, .5);
+    }
+
+    &.active {
+      &:after {
+        display: none;
+      }
+    }
+  }
+
+  input {
+    cursor: pointer;
+  }
+
+  &__btn_price {
+    display: none;
   }
 }
 
