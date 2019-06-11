@@ -258,6 +258,14 @@ function twentynineteen_scripts() {
             true
     );
 
+    //  Google maps
+    wp_enqueue_script(
+        'google-maps',
+        'https://maps.googleapis.com/maps/api/js?key=AIzaSyDMhW0-Cux6BAxtHROmD9-UoAjcoNHqgcE&callback=initMap', array('jquery'),
+        '1.0',
+        true
+    );
+
     //  Common Scripts
     wp_enqueue_script(
         'range-plugin',
@@ -1060,7 +1068,7 @@ function get_price() {
     $auction = strtolower($auction);
     $post_type = 'calculator-' . $auction;
     $city = $_GET['city'];
-    $city = str_replace(' ', '', $city);
+    $city = str_replace('_', ' ', $city);
     $port_from = $_GET['port_from'];
     $port_to = $_GET['port_to'];
     $city_key = 'city-' . $auction;

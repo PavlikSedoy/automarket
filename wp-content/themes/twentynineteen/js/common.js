@@ -940,6 +940,15 @@ $(document).click( function (e) {
         clickedItemText = $(e.target).text();
 
         $('#port-to').val(clickedItemText);
+
+        var auction = $('#auction').val(),
+            city = $('#logistic-city').val(),
+            portFrom = $('#port-from').val(),
+            portTo = $('#port-to').val();
+
+        city = city.replace(' ', '_');
+
+        getPrice(auction, city, portFrom, portTo);
     }
 });
 
@@ -970,8 +979,17 @@ function getPrice(auction, city, portFrom, portTo) {
         },
         dataType: 'json',
         success: function(data) {
-            var finalPrice = parseInt(data[0].first_price) + parseInt(data[0].second_price);
-            $('#logistic-finish-price').text(finalPrice);
+            var firstPrice = parseInt(data[0].first_price),
+                secondPrice = parseInt(data[0].second_price),
+                finalPrice = firstPrice + secondPrice;
+
+            $('#price-fort-from').text(firstPrice + '$');
+            $('#price-ocean').text(secondPrice + '$');
+            $('#price-fort-to').text(finalPrice + '$');
+
+            $('#price-fort-from').parent().addClass('active');
+            $('#price-ocean').parent().addClass('active');
+            $('#price-fort-to').parent().addClass('active');
         }
     });
 }
@@ -1070,3 +1088,5 @@ function initMap() {
 
     flightPath.setMap(map);
 }
+
+initMap();

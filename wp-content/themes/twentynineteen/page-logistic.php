@@ -361,7 +361,7 @@ get_header();
 
 </div>
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMhW0-Cux6BAxtHROmD9-UoAjcoNHqgcE&callback=initMap" type="text/javascript"></script>
+<!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDMhW0-Cux6BAxtHROmD9-UoAjcoNHqgcE&callback=initMap" type="text/javascript"></script>-->
 
 <?php
 get_footer();
