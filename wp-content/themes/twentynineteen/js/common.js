@@ -984,6 +984,37 @@ $('#logistic-calculate').click( function (e) {
 });
 
 // Get Price
+var mapPoint1,
+    mapPoint2,
+    mapPoint3;
+
+// Logistic Map
+var flightPlanCoordinates = [];
+
+function initMap(mapPoint1Lat, mapPoint1Lng, mapPoint2Lat, mapPoint2Lng) {
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 3,
+        center: {lat: 42.583575, lng: -34.796806},
+        mapTypeId: 'terrain'
+    });
+
+    var flightPlanCoordinates = [
+        {lat: mapPoint1Lat, lng: mapPoint1Lng},
+        {lat: mapPoint2Lat, lng: mapPoint2Lng}
+    ];
+    var flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+        geodesic: true,
+        strokeColor: '#fff',
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+    });
+
+    flightPath.setMap(map);
+}
+
+initMap();
+
 function getPrice(auction, city, portFrom, portTo) {
     $.ajax({
         type: 'GET',
@@ -998,7 +1029,83 @@ function getPrice(auction, city, portFrom, portTo) {
         success: function(data) {
             var firstPrice = parseInt(data[0].first_price),
                 secondPrice = parseInt(data[0].second_price),
-                finalPrice = firstPrice + secondPrice;
+                finalPrice = firstPrice + secondPrice,
+                mapPoint1Lat = parseFloat(data[0].city_lat),
+                mapPoint1Lng = parseFloat(data[0].city_lng),
+                mapPoint2Lat = parseFloat(data[0].port_from_lat),
+                mapPoint2Lng = parseFloat(data[0].port_from_lng),
+                mapPoint3Lat = parseFloat(data[0].port_to_lat),
+                mapPoint3Lng = parseFloat(data[0].port_to_lng);
+
+            var iconBase = '/wp-content/themes/twentynineteen/images/map-icons/';
+
+            var icons = {
+                port: {
+                    icon: iconBase + 'anchor.png'
+                },
+                finish: {
+                    icon: iconBase + 'car.png'
+                },
+                adesa: {
+                    icon: iconBase + 'adesa.png'
+                },
+                copart: {
+                    icon: iconBase + 'copart.png'
+                },
+                iaai: {
+                    icon: iconBase + 'iaai.png'
+                },
+                manheim: {
+                    icon: iconBase + 'manheim.png'
+                }
+            };
+
+            var features = [
+                {
+                    position: new google.maps.LatLng(mapPoint2Lat, mapPoint2Lng),
+                    type: 'port'
+                }
+            ];
+
+            for (var i = 0; i < features.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: features[i].position,
+                    icon: icons[features[i].type].icon,
+                    map: map
+                });
+            };
+
+            function zoomToObject(obj){
+                var bounds = new google.maps.LatLngBounds();
+                var points = obj.getPath().getArray();
+                for (var n = 0; n < points.length ; n++){
+                    bounds.extend(points[n]);
+                }
+                map.fitBounds(bounds);
+            }
+
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 3,
+                center: {lat: 42.583575, lng: -34.796806},
+                mapTypeId: 'terrain'
+            });
+
+            var flightPlanCoordinates = [
+                {lat: mapPoint1Lat, lng: mapPoint1Lng},
+                {lat: mapPoint2Lat, lng: mapPoint2Lng},
+                {lat: mapPoint3Lat, lng: mapPoint3Lng}
+            ];
+
+            var flightPath = new google.maps.Polyline({
+                path: flightPlanCoordinates,
+                strokeColor: "#fff",
+                strokeOpacity: 1.0,
+                strokeWeight: 2
+            });
+
+            flightPath.setMap(map);
+
+            zoomToObject(flightPath);
 
             $('#price-fort-from').text(firstPrice + '$');
             $('#price-ocean').text(secondPrice + '$');
@@ -1080,30 +1187,3 @@ function getLogisticCity(clickedItemText) {
         }
     });
 }
-
-// Logistic Map
-function initMap() {
-    var map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 3,
-        center: {lat: 0, lng: -180},
-        mapTypeId: 'terrain'
-    });
-
-    var flightPlanCoordinates = [
-        {lat: 37.772, lng: -122.214},
-        {lat: 21.291, lng: -157.821},
-        {lat: -18.142, lng: 178.431},
-        {lat: -27.467, lng: 153.027}
-    ];
-    var flightPath = new google.maps.Polyline({
-        path: flightPlanCoordinates,
-        geodesic: true,
-        strokeColor: '#FF0000',
-        strokeOpacity: 1.0,
-        strokeWeight: 2
-    });
-
-    flightPath.setMap(map);
-}
-
-initMap();

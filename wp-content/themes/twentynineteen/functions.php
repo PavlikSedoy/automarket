@@ -1067,6 +1067,12 @@ function get_price() {
     $auction = $_GET['auction'];
     $auction = strtolower($auction);
     $post_type = 'calculator-' . $auction;
+    $city_lat = 'city_lat_' . $auction;
+    $city_lng = 'city_lng_' . $auction;
+    $port_from_lat = 'port_from_lat_' . $auction;
+    $port_from_lng = 'port_from_lng_' . $auction;
+    $port_to_lat = 'port_to_lat_' . $auction;
+    $port_to_lng = 'port_to_lng_' . $auction;
     $city = $_GET['city'];
     $city = str_replace('_', ' ', $city);
     $port_from = $_GET['port_from'];
@@ -1108,6 +1114,12 @@ function get_price() {
     foreach ($posts as $key => $post) {
         $posts[$key]->first_price = get_fields($post->ID)[$first_price_key];
         $posts[$key]->second_price = get_fields($post->ID)[$second_price_key];
+        $posts[$key]->city_lat = get_fields($post->ID)[$city_lat];
+        $posts[$key]->city_lng = get_fields($post->ID)[$city_lng];
+        $posts[$key]->port_from_lat = get_fields($post->ID)[$port_from_lat];
+        $posts[$key]->port_from_lng = get_fields($post->ID)[$port_from_lng];
+        $posts[$key]->port_to_lat = get_fields($post->ID)[$port_to_lat];
+        $posts[$key]->port_to_lng = get_fields($post->ID)[$port_to_lng];
     }
     return $posts;
 }
