@@ -105,9 +105,16 @@
   }
 
   // Container search
+  &__container-search__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
   &__container-search__item {
     position: relative;
-    margin-top: 30px;
+    margin-top: 10px;
+    flex-basis: calc((100%/3) - 30px);
   }
 
   &__container-search-wr {
