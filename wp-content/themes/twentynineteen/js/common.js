@@ -880,6 +880,8 @@ $(document).click( function (e) {
         $('#port-from').val('');
         $('#port-to').val('');
 
+        logisticClearPricing();
+
         getLogisticCity(auction);
 
         $('#logistic-city').parent().addClass('active');
@@ -906,6 +908,8 @@ $(document).click( function (e) {
 
         city = city.replace(' ', '_');
 
+        logisticClearPricing();
+
         getPortFrom(auction, city);
 
         $('#port-from').parent().addClass('active');
@@ -930,6 +934,8 @@ $(document).click( function (e) {
 
         city = city.replace(' ', '_');
 
+        logisticClearPricing();
+
         getPortTo(auction, city, portFrom);
 
         $('#port-to').parent().addClass('active');
@@ -951,6 +957,17 @@ $(document).click( function (e) {
         getPrice(auction, city, portFrom, portTo);
     }
 });
+
+// Clear pricing
+function logisticClearPricing() {
+    $('.logistic__price-wr').each( function () {
+        $(this).removeClass('active');
+    });
+
+    $('#price-fort-from').text('0$');
+    $('#price-ocean').text('0$');
+    $('#price-fort-to').text('0$');
+}
 
 // Calculate Price
 $('#logistic-calculate').click( function (e) {
