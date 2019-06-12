@@ -177,10 +177,28 @@
     height: 400px;
     margin-top: 30px;
     margin-bottom: 30px;
+    position: relative;
+
+    &:after {
+      position: absolute;
+      content: '';
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba($color-white, .5);
+    }
+
+    &.active {
+      &:after {
+        display: none;
+      }
+    }
   }
 
   &__map {
     height: 100%;
+    position: relative;
   }
 
   &__price {
@@ -343,7 +361,7 @@
     }
 
     &__asside {
-      width: 50%;
+      //width: 50%;
       margin-top: 30px;
     }
 
@@ -363,6 +381,24 @@
       button {
         font-size: 14px;
       }
+    }
+
+    & .aside-order__title {
+      font-size: 17px;
+    }
+
+    &__pricing {
+      margin-top: 50px;
+    }
+
+    &__container-search {
+      &__item {
+        flex-basis: calc((100%/2) - 15px);
+      }
+    }
+
+    .current-avto__content-title {
+      padding-top: 10px;
     }
   }
 }
@@ -401,6 +437,18 @@
 
     &__footer-request {
       padding-bottom: 80px;
+    }
+
+    &__container-calc-new {
+      flex-direction: column;
+    }
+
+    &__pricing {
+      padding-left: 0;
+    }
+
+    &__container-search__item {
+      flex-basis: 100%;
     }
   }
 }

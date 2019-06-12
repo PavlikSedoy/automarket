@@ -70,7 +70,7 @@ get_header();
             <?php if ($n == 1) : ?>
                 <?php get_template_part('template-parts/content/about-aside-request') ?>
             <?php elseif ($n == 2) : ?>
-                    <?php get_template_part('template-parts/content/logistic-calculate') ?>
+<!--                    --><?php //get_template_part('template-parts/content/logistic-calculate') ?>
             <?php endif; ?>
 
         </div>

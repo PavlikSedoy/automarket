@@ -887,6 +887,8 @@ $(document).click( function (e) {
         $('#logistic-city').parent().addClass('active');
         $('#port-from').parent().removeClass('active');
         $('#port-to').parent().removeClass('active');
+        $('.logistic__map-wr').removeClass('active');
+        // initMap();
     }
 
     // City
@@ -914,6 +916,8 @@ $(document).click( function (e) {
 
         $('#port-from').parent().addClass('active');
         $('#port-to').parent().removeClass('active');
+        $('.logistic__map-wr').removeClass('active');
+        // initMap();
     }
 
     // Port From
@@ -939,6 +943,8 @@ $(document).click( function (e) {
         getPortTo(auction, city, portFrom);
 
         $('#port-to').parent().addClass('active');
+        $('.logistic__map-wr').removeClass('active');
+        // initMap();
     }
 
     // Port To
@@ -1060,21 +1066,6 @@ function getPrice(auction, city, portFrom, portTo) {
                 }
             };
 
-            var features = [
-                {
-                    position: new google.maps.LatLng(mapPoint2Lat, mapPoint2Lng),
-                    type: 'port'
-                }
-            ];
-
-            for (var i = 0; i < features.length; i++) {
-                var marker = new google.maps.Marker({
-                    position: features[i].position,
-                    icon: icons[features[i].type].icon,
-                    map: map
-                });
-            };
-
             function zoomToObject(obj){
                 var bounds = new google.maps.LatLngBounds();
                 var points = obj.getPath().getArray();
@@ -1103,6 +1094,36 @@ function getPrice(auction, city, portFrom, portTo) {
                 strokeWeight: 2
             });
 
+            var mapAuctionName;
+
+            if ( data[0].post_type == 'calculator-manheim' ) mapAuctionName = 'manheim';
+            else if ( data[0].post_type == 'calculator-adesa' ) mapAuctionName = 'adesa';
+            else if ( data[0].post_type == 'calculator-copart' ) mapAuctionName = 'copart';
+            else if ( data[0].post_type == 'calculator-iaai' ) mapAuctionName = 'iaai';
+
+            var features = [
+                {
+                    position: new google.maps.LatLng(mapPoint2Lat, mapPoint2Lng),
+                    type: 'port'
+                },
+                {
+                    position: new google.maps.LatLng(mapPoint3Lat, mapPoint3Lng),
+                    type: 'finish'
+                },
+                {
+                    position: new google.maps.LatLng(mapPoint1Lat, mapPoint1Lng),
+                    type: mapAuctionName
+                }
+            ];
+
+            for (var i = 0; i < features.length; i++) {
+                var marker = new google.maps.Marker({
+                    position: features[i].position,
+                    icon: icons[features[i].type].icon,
+                    map: map
+                });
+            };
+
             flightPath.setMap(map);
 
             zoomToObject(flightPath);
@@ -1114,6 +1135,7 @@ function getPrice(auction, city, portFrom, portTo) {
             $('#price-fort-from').parent().addClass('active');
             $('#price-ocean').parent().addClass('active');
             $('#price-fort-to').parent().addClass('active');
+            $('.logistic__map-wr').addClass('active');
         }
     });
 }
@@ -1187,3 +1209,11 @@ function getLogisticCity(clickedItemText) {
         }
     });
 }
+
+// Disable touch scroll when open mobile navigation
+// document.addEventListener('scroll',preventDefault, false);
+
+// $(document.body).on("touchmove", function(event) {
+//     event.preventDefault();
+//     event.stopPropagation();
+// });

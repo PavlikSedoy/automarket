@@ -89,7 +89,7 @@
                         </address>
 
                         <span class="footer__contacts_item-row">
-                            <img src="<?php bloginfo('template_url') ?>/images/top-header-icons/phone.svg" class="footer__contacts_item-row_icon" />
+                            <img src="<?php bloginfo('template_url') ?>/images/1home-page-icons/top-header-icons/phone.svg" class="footer__contacts_item-row_icon" />
                             <a href="https://www.google.com/maps/search/?api=1&query=<?= get_field( "phone", $post->ID ); ?>" class="footer__contacts_item-row_link" target="_blank"><?= get_field( "phone", $post->ID ); ?></a>
                         </span>
                     </li>
