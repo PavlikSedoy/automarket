@@ -127,9 +127,9 @@ input {
   border: 2px solid $header-blue-color;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
-  color: $placeholder-color;
   padding-left: 60px;
   border-radius: 0;
+  color: $placeholder-color;
 
   &::placeholder {
     color: $placeholder-color;

@@ -2,6 +2,12 @@
   position: relative;
   background-color: $light-section-color;
 
+  input {
+    &::placeholder {
+      color: $dark-section-title;
+    }
+  }
+
   &__content-wr {
     //display: flex;
   }
@@ -45,7 +51,7 @@
     font-size: 35px;
     font-weight: bold;
     line-height: 50px;
-    color: $placeholder-color;
+    color: $dark-section-title;
     text-align: center;
   }
 
@@ -57,6 +63,14 @@
     background-position: 50% 50%;
     -webkit-background-size: cover;
     background-size: cover;
+
+    input {
+      color: $placeholder-color;
+
+      &::placeholder {
+        color: $placeholder-color;
+      }
+    }
 
     &_bg {
       position: absolute;
@@ -177,33 +191,16 @@
     height: 400px;
     margin-top: 30px;
     margin-bottom: 30px;
-    position: relative;
-
-    &:after {
-      position: absolute;
-      content: '';
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba($color-white, .5);
-    }
-
-    &.active {
-      &:after {
-        display: none;
-      }
-    }
   }
 
   &__map {
     height: 100%;
-    position: relative;
   }
 
   &__price {
     display: flex;
     align-items: center;
+    color: $dark-section-title;
 
     span {
       font-size: 14px;
@@ -277,17 +274,13 @@
     height: 228px;
     margin-top: 43px;
   }
-
-  #auction-list-block {
-    max-height: 300px;
-  }
-
-  #city-list-block {
-    max-height: 282px;
-  }
 }
 
 .aside-order {
+  &__input {
+    color: $dark-section-title;
+  }
+
   &__input-list {
     position: absolute;
     background-color: #fff;
