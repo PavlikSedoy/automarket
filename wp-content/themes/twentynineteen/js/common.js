@@ -857,6 +857,34 @@ $('#port-to').focusout( function () {
     $('#port-to-list-block').slideUp();
 });
 
+// $('.auction').click( function () {
+//     var clickedItemText = $(this).text();
+//
+//     $('#auction').val(clickedItemText);
+//
+//     var auction = $('#auction').val();
+//
+//     // Clear lists
+//     $('#city-list-ul').empty();
+//     $('#port-from-list-ul').empty();
+//     $('#port-to-list-ul').empty();
+//
+//     // Clear inputs
+//     $('#logistic-city').val('');
+//     $('#port-from').val('');
+//     $('#port-to').val('');
+//
+//     logisticClearPricing();
+//
+//     getLogisticCity(auction);
+//
+//     $('#logistic-city').parent().addClass('active');
+//     $('#port-from').parent().removeClass('active');
+//     $('#port-to').parent().removeClass('active');
+//     $('.logistic__map-wr').removeClass('active');
+//     // initMap();
+// });
+
 // On item click
 $(document).click( function (e) {
     var clickedItemClass = $(e.target).attr('class'),
