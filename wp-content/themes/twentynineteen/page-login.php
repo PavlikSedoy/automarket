@@ -51,7 +51,7 @@ get_header();
                     $user_id = get_current_user_id();
                     echo get_userdata($user_id)->user_login;
                     ?></span>
-                <span><?php _e( 'Номер кабинета: ' ) ?>&nbsp;<?= $user_id ?></span>
+                <span><?php _e( 'Номер кабинета: ' ) ?>&nbsp;АМ21<?= $user_id ?></span>
             </div>
 
             <div class="cabinet__table-wr">

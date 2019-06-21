@@ -471,7 +471,7 @@ get_header();
 
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="<?php _e('Объем') ?>">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Объем') ?>" id="calculator-capacity-georgia">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/engine-icon.svg">
                                 </div>
@@ -482,7 +482,7 @@ get_header();
                             </div>
 
                             <div class="request-form__input-wr">
-                                <input type="text" class="request-form__input" placeholder="<?php _e('Возраст') ?>" id="car-old">
+                                <input type="text" class="request-form__input" placeholder="<?php _e('Возраст') ?>" id="$car-old-georgia">
                                 <div class="request-form__img">
                                     <img src="<?= get_stylesheet_directory_uri() ?>/images/1home-page-icons/calculator-block/calendar-icon.svg" alt="">
                                 </div>
@@ -493,23 +493,23 @@ get_header();
                                     </svg>
                                 </div>
 
-                                <div class="request-form__input-old-list" id="car-old-list">
-                                    <ul class="request-form__input-old-list_ul" id="car-old-list-ul">
-                                        <li class="request-form__input-old-list_li">1</li>
-                                        <li class="request-form__input-old-list_li">2</li>
-                                        <li class="request-form__input-old-list_li">3</li>
-                                        <li class="request-form__input-old-list_li">4</li>
-                                        <li class="request-form__input-old-list_li">5</li>
-                                        <li class="request-form__input-old-list_li">6</li>
-                                        <li class="request-form__input-old-list_li">7</li>
-                                        <li class="request-form__input-old-list_li">8</li>
-                                        <li class="request-form__input-old-list_li">9</li>
-                                        <li class="request-form__input-old-list_li">10</li>
-                                        <li class="request-form__input-old-list_li">11</li>
-                                        <li class="request-form__input-old-list_li">12</li>
-                                        <li class="request-form__input-old-list_li">13</li>
-                                        <li class="request-form__input-old-list_li">14</li>
-                                        <li class="request-form__input-old-list_li">15</li>
+                                <div class="request-form__input-old-list-georgia" id="car-old-list-georgia">
+                                    <ul class="request-form__input-old-list-georgia_ul" id="car-old-list-ul-georgia">
+                                        <li class="request-form__input-old-list-georgia_li">1</li>
+                                        <li class="request-form__input-old-list-georgia_li">2</li>
+                                        <li class="request-form__input-old-list-georgia_li">3</li>
+                                        <li class="request-form__input-old-list-georgia_li">4</li>
+                                        <li class="request-form__input-old-list-georgia_li">5</li>
+                                        <li class="request-form__input-old-list-georgia_li">6</li>
+                                        <li class="request-form__input-old-list-georgia_li">7</li>
+                                        <li class="request-form__input-old-list-georgia_li">8</li>
+                                        <li class="request-form__input-old-list-georgia_li">9</li>
+                                        <li class="request-form__input-old-list-georgia_li">10</li>
+                                        <li class="request-form__input-old-list-georgia_li">11</li>
+                                        <li class="request-form__input-old-list-georgia_li">12</li>
+                                        <li class="request-form__input-old-list-georgia_li">13</li>
+                                        <li class="request-form__input-old-list-georgia_li">14</li>
+                                        <li class="request-form__input-old-list-georgia_li">15</li>
                                     </ul>
                                 </div>
                             </div>
@@ -517,10 +517,10 @@ get_header();
                         </div>
 
                         <div class="calculator__calculate-btn_wr">
-                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50"><?php _e('Рассчитать') ?></button>
+                            <button class="calculator__btn btn btn__fz_15 btn__color_blue btn__width_265 btn__height_50" id="calculator-get-price-georgia"><?php _e('Рассчитать') ?></button>
                         </div>
 
-                        <span class="calculator__price">$ 0</span>
+                        <span class="calculator__price" id="calculator-full-price-georgia">ლ 0</span>
 
                     </form>
 

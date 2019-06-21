@@ -317,6 +317,7 @@ $(window).click(function() {
     $('#car-brand-list-request').slideUp();
     $('#car-model-list-request').slideUp();
     $('#car-location-list').slideUp();
+    $('#car-old-list-georgia').slideUp();
 });
 
 $('#car-brand').click(function(event){
@@ -346,6 +347,9 @@ $('#car-brand-request').click(function(event){
     event.stopPropagation();
 });
 $('#car-model-req').click(function(event){
+    event.stopPropagation();
+});
+$('#car-old-georgia').click( function (event) {
     event.stopPropagation();
 });
 
@@ -800,6 +804,48 @@ $('#calculator-get-price').click( function (e) {
     var calculatorFullPrice = axcise + nds;
 
     $('#calculator-full-price').text(calculatorFullPrice);
+});
+
+// Georgia calculator
+$('#car-old-georgia').focus( function () {
+  $('#car-old-list-georgia').slideDown();
+});
+
+$('.request-form__input-old-list-georgia_li').click( function () {
+    var georgiaCarOld = $(this).text();
+
+    $('#car-old-georgia').val(georgiaCarOld);
+});
+
+$('#calculator-get-price-georgia').click( function (e) {
+    e.preventDefault();
+
+    var georgiaAccis,
+        finalGeorgiaPrice,
+        cubGeorgia = $('#calculator-capacity-georgia').val(),
+        georgiaCarOld = $('#car-old-georgia').val();
+
+    cubGeorgia = parseInt(cubGeorgia);
+
+    if ( georgiaCarOld == 1 || georgiaCarOld == 2 || georgiaCarOld == 12 ) georgiaAccis = 1.5;
+    else if ( georgiaCarOld == 3 ) georgiaAccis = 1.4;
+    else if ( georgiaCarOld == 4 ) georgiaAccis = 1.2;
+    else if ( georgiaCarOld == 5 ) georgiaAccis = 1;
+    else if ( georgiaCarOld == 6 || georgiaCarOld == 7 || georgiaCarOld == 8 ) georgiaAccis = 0.8;
+    else if ( georgiaCarOld == 9 ) georgiaAccis = 0.9;
+    else if ( georgiaCarOld == 10 ) georgiaAccis = 1.1;
+    else if ( georgiaCarOld == 11 ) georgiaAccis = 1.3;
+    else if ( georgiaCarOld == 13 ) georgiaAccis = 1.8;
+    else if ( georgiaCarOld == 14 ) georgiaAccis = 2.2;
+    else if ( georgiaCarOld == 15 ) georgiaAccis = 2.4;
+
+    georgiaAccis = parseFloat(georgiaAccis);
+
+    georgiaCarOld = parseInt(georgiaCarOld);
+
+    finalGeorgiaPrice = (cubGeorgia * georgiaAccis) + (cubGeorgia * 0.05) + (cubGeorgia * georgiaCarOld * 0.0025) + 30 + 20 + 150 + 72 + 1;
+
+    $('#calculator-full-price-georgia').text('ლ ' + finalGeorgiaPrice);
 });
 
 // Show/Hide Auto Filters
